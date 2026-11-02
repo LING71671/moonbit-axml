@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-11-02",
+  "source_revision": "ef6591bfbbd0b37c2960d839fee158c188eb9dd4",
+  "rounds": [
+    {
+      "revision": "a008d26344db482b326537971185cc72fd58851f",
+      "feature": "Bounded opt-in pretty XML rendering and decode --pretty CLI output",
+      "checks": [
+        "Twelve pretty-rendering tests cover element-only indentation, direct/mixed/empty/whitespace text, xml:space, depth, output budgets, Unicode, and malformed manually constructed documents.",
+        "Four additional CLI tests cover strict option parsing and literal filenames; the CLI package passes 18 tests.",
+        "JavaScript and Windows-native CLI corpus verification compares seven compact and seven pretty XML trees, preserving all original text and allowing only inserted element-only separator whitespace.",
+        "Independent read-only code review found no material defect."
+      ],
+      "limits": "Pretty output adds whitespace text nodes; compact output remains the default. Default output budget is 32 Mi UTF-16 units and pretty depth is 256."
+    },
+    {
+      "revision": "ef6591bfbbd0b37c2960d839fee158c188eb9dd4",
+      "feature": "Local literal filtering in Structure and References",
+      "checks": [
+        "Six added frontend tests cover case/space normalization, literal Unicode matching, protocol fields, decimal and padded-hex values, immutable original order, source pages, and pagination bounds.",
+        "Actual browser typing retains the search input and focus; zero matches, clear, language/view persistence, new-input reset, and source selection were exercised.",
+        "Reference query 0x7f030000 matches two of four references; downloaded JSON deep-equals all four original reference records.",
+        "A generated owned-fixture variant contains 1,210 events; Structure retains 1,000 and matches 996 uses-permission events before 50-row pagination. Source offset 49,260 clears the query and reports that its event is outside the preview.",
+        "Independent finish review returned SHIP after inspecting code and the final 1440px, 390px, and 723px browser captures."
+      ],
+      "limits": "Structure search and JSON export remain bounded to the first 1,000 event summaries. Filters do not narrow exports. IME guards were reviewed; a physical IME and physical mobile hardware were not tested."
+    }
+  ],
+  "local_checks": {
+    "moon_format_interfaces_and_all_backend_check": "pass",
+    "wasm_gc_tests": 130,
+    "javascript_tests": 133,
+    "windows_native_tests": 130,
+    "frontend_node_tests": 18,
+    "strict_typescript_and_static_build": "pass",
+    "browser_esm_sandbox": "pass",
+    "cli_corpus_javascript_and_windows_native": "pass"
+  },
+  "browser_boundary_fixture": {
+    "path": "_build/search-qa/preview-boundary.axml",
+    "tracked": false,
+    "base": "fixtures/valid/manifest_references.axml",
+    "construction": "Replace the existing 80-byte uses-permission start/end pair at [1260,1340) with 600 copies and update the outer file-size field.",
+    "sha256": "9cddb9a1e525d290c572ca77556d76f7ede8b73231177e7037fc6ebb6569d3b1",
+    "bytes": 49528,
+    "total_events": 1210,
+    "preview_events": 1000,
+    "references": 4
+  },
+  "visual_review": {
+    "world": "continuous-folio",
+    "verdict": "SHIP",
+    "captures": [
+      { "path": ".impeccable/review/round2/desktop.png", "width": 1440, "height": 1000 },
+      { "path": ".impeccable/review/round2/mobile.png", "width": 390, "height": 1062 },
+      { "path": ".impeccable/review/round2/user-723.png", "width": 723, "height": 1008 }
+    ],
+    "capture_scope": "Full-page browser captures, each from scrollY 0; no document-level horizontal overflow. Narrow tables retain local horizontal scrolling. Captures are ignored local review artifacts.",
+    "detector": "One scoped detector run; its Arial warning was reviewed. System UI labels retain Arial while headings use self-hosted Alegreya. This is not a complete accessibility audit."
+  },
+  "ci": {
+    "run_id": 41406894685,
+    "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41406894685",
+    "conclusion": "success",
+    "source_revision": "ef6591bfbbd0b37c2960d839fee158c188eb9dd4",
+    "jobs": [
+      { "host": "ubuntu-latest", "conclusion": "success", "wasm_gc_tests": 130, "js_tests": 133, "native_tests": 130, "frontend_tests": 18 },
+      { "host": "windows-latest", "conclusion": "success", "wasm_gc_tests": 130, "js_tests": 133, "native_tests": 130, "frontend_tests": 18 }
+    ],
+    "additional_checks_per_host": ["format/interfaces/all-backend check", "JavaScript and native CLI corpus", "browser ESM sandbox", "strict TypeScript/static build", "eight bounded stress combinations"],
+    "corpus_per_cli": { "fixture_hashes": 19, "compact_xml_trees": 7, "pretty_xml_trees": 7, "manifest_records": 3, "malformed_fixtures": 12, "pretty_options_and_literal_files": "pass", "menu_stats_and_references": "pass" }
+  },
+  "deployment": {
+    "run_id": 41406894944,
+    "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41406894944",
+    "conclusion": "success",
+    "pages_build_version": "ef6591bfbbd0b37c2960d839fee158c188eb9dd4",
+    "site": "https://ling71671.github.io/moonbit-axml/",
+    "uploaded_directory": "playground/dist",
+    "frontend_tests": 18
+  },
+  "hosted_browser_checks": {
+    "app_asset": "assets/index-DP_X2zmQ.js",
+    "checks": [
+      "The deployed module Worker decoded the resource-reference sample.",
+      "Query 0x7f030000 displayed two of four reference records.",
+      "Downloaded filtered-view JSON deep-equaled all four references from the actual compiled MoonBit bridge.",
+      "A Structure uses-sdk query survived switching to References; selecting reference offset 1340 cleared that Structure query, restored 12/12 events, and selected original event index 6.",
+      "No warning/error console entries appeared during these checked flows."
+    ],
+    "capture": { "path": ".impeccable/review/round2/live.png", "width": 1440, "height": 1000, "scroll_y": 0, "document_horizontal_overflow": false, "tracked": false }
+  },
+  "scope": "Bounded correctness checks and browser flows. Clipboard payload contents, physical mobile devices, and a physical IME were not verified. Mooncakes publication remains separate and unpublished."
+}

@@ -8,7 +8,8 @@ Status: **implemented and locally verified on 2026-11-02; release gates remain o
 
 | Check | Verified result | Evidence |
 | --- | --- | --- |
-| Local MoonBit suite with browser bridge | 114/114 on wasm-gc and Windows native; 117/117 on JavaScript | `src/browser/` adds three JS-only tests; [extension baseline](../evidence/verification-extension.json) |
+| Local suite after two development rounds | 130/130 on wasm-gc and Windows native; 133/133 on JavaScript; 18/18 frontend tests; strict TypeScript/build and browser sandbox pass | [Two-round verification](../evidence/verification-two-rounds.json) |
+| Hosted suite and Pages at `ef6591b` | Linux/Windows each pass 130 wasm-gc, 133 JS, 130 native, and 18 frontend tests; compact/pretty CLI corpus, browser sandbox, and eight stress cases per host pass. Deployed search, full reference download, and source selection verified | [CI](https://github.com/LING71671/moonbit-axml/actions/runs/41406894685), [Pages](https://github.com/LING71671/moonbit-axml/actions/runs/41406894944), [two-round evidence](../evidence/verification-two-rounds.json) |
 | Browser workbench at `8dffd5b` | 12 frontend tests, strict TypeScript/build, isolated ESM checks, local browser flows and subpath loading | [Workbench verification](../evidence/verification-workbench.json), [demo guide](DEMO.md) |
 | Hosted suite at `b1dd568` | Linux and Windows each pass 114 wasm-gc, 117 JS, 114 native, and 12 frontend tests; full CLI corpus, browser sandbox, and eight stress cases per host | [CI](https://github.com/LING71671/moonbit-axml/actions/runs/41399307068), [hosted workbench evidence](../evidence/verification-workbench-hosted.json) |
 | GitHub Pages workbench | Build/deploy succeeded; hosted samples, local Unicode input, reference selection, and exact XML download verified | [Live workbench](https://ling71671.github.io/moonbit-axml/), [deployment](https://github.com/LING71671/moonbit-axml/actions/runs/41399307093) |
@@ -25,6 +26,7 @@ The earlier 46-test Linux snapshot ran as a native executable inside Debian on W
 - [x] Decode all MVP chunk kinds, UTF-8/UTF-16 pools, namespaces, resource maps, CDATA, and raw/typed attributes; validate indices, chunk bounds, and document scopes.
 - [x] Preserve raw values, typed payloads, and unresolved resource IDs. Resource references remain numeric; no ARSC lookup is implied.
 - [x] Render escaped XML with equivalent expanded names and values. Independent ElementTree comparison uses normalized semantic trees, including namespace shadowing and Unicode cases.
+- [x] Offer opt-in `to_xml_pretty` / `decode --pretty`, preserving compact text-bearing and `xml:space="preserve"` subtrees. Pretty output adds whitespace nodes; compact remains the default. Seven fixture trees pass compact and pretty comparison; see [rendering rules](RENDERING.md).
 - [x] Extract package/version, SDK declarations, permissions, application attributes, and components; compare three owned compiled manifests against independent references.
 - [x] Reject malformed input with byte offsets. Twelve invalid fixtures plus whitebox truncation, Unicode, namespace, limits, and single-byte mutation tests pass; this is bounded testing, not exhaustive fuzzing.
 - [x] Inspect explicit intent-filter declarations, summarize document statistics, inventory located resource/theme references, and expose encoded dimension/fraction units. These APIs retain raw data and do not apply Android runtime intent matching, resource lookup, or display metrics.
@@ -34,20 +36,22 @@ The earlier 46-test Linux snapshot ran as a native executable inside Debian on W
 - [x] Build-check scenario: decode and inspect extracted compiled manifests; package, SDK, permissions, and component records match references locally.
 - [x] Catalog scenario: `LING71671/axml/catalog` processes named byte inputs in order, retaining successes and stage/offset diagnostics for individual failures. Tests cover mixed batches, custom limits, duplicate labels, and non-manifest XML; see [the API](CATALOG.md).
 - [x] Resource XML scenario: compiled menu AXML renders into independently parsed, namespace-aware XML with equivalent semantics.
+- [x] Workbench search: filter Structure and References locally by protocol fields and decimal/hex values; keep 50-row pages, clear Structure filters for source jumps, and leave exports unaffected. A 1,210-event input verifies the 1,000-event preview boundary; see [the search guide](DEMO.md#filter-events-and-references).
 
-The CLI accepts extracted AXML files, one per invocation, with help/version flags and a literal-file `--` terminator. The batch library performs no I/O and does not cap aggregate retained data. APK extraction and a persistent catalog application are not implemented.
+The CLI accepts extracted AXML files, one per invocation, with help/version flags, opt-in `decode --pretty`, and a literal-file `--` terminator. The batch library performs no I/O and does not cap aggregate retained data. APK extraction and a persistent catalog application are not implemented.
 
 ## Limits and reproducibility
 
 - [x] Defaults enforce 16 MiB input, 100,000 strings, depth 256, 500,000 events, 65,535 attributes per element, and 4 Mi aggregate decoded UTF-16 string units; configurable-limit tests exercise rejection.
-- [x] XML output defaults to 32 Mi UTF-16 units. Output-limit tests and shared-string/style-offset cases guard expansion; a 32,768-unit whitebox string and 33,000-unit corpus string exercise extended UTF-16 lengths.
+- [x] XML output defaults to 32 Mi UTF-16 units, including pretty indentation and separators. Pretty rendering checks a default depth of 256 before expansion. Output-limit tests and shared-string/style-offset cases guard expansion; a 32,768-unit whitebox string and 33,000-unit corpus string exercise extended UTF-16 lengths.
 - [x] Owned fixtures include origins, licenses, hashes, source XML, reference outputs, and generation scripts. No third-party APK is redistributed; the library itself needs no Android/JVM runtime.
 - [x] Measure large-pool, maximal-depth, repeated-reference, and malformed-input time/memory benchmarks on Windows JS/native. Independent expected XML hashes and exact malformed offsets are checked; see [BENCHMARKS.md](BENCHMARKS.md). Results are bounded observations, not portable throughput, memory, or zero-copy guarantees.
 - [x] Commit the implementation, evidence, licenses, and reproducibility material together. Initial commit `087beb9` was cloned into a clean checkout; formatting, all-backend checking, 46 JavaScript tests, CLI build, and the complete corpus verifier passed with a clean working tree.
 
 ## Release gates
 
-- [x] Current hosted Linux and Windows verification passed for `6bc076b`: 114 tests per backend, complete extended JS/native CLI corpus, and eight bounded stress cases per host. [GitHub Actions run](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059), [recorded results](../evidence/verification-extension.json). Subsequent documentation/evidence commits do not change the tested source.
+- [x] Hosted Linux/Windows verification and Pages deployment passed for `ef6591b`, including both development rounds; the table above and linked evidence identify exact runs. Subsequent documentation/evidence commits do not change the tested source.
+- [x] Historical hosted Linux and Windows verification passed for `6bc076b`: 114 tests per backend, complete extended JS/native CLI corpus, and eight bounded stress cases per host. [GitHub Actions run](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059), [recorded results](../evidence/verification-extension.json).
 - [x] Historical hosted snapshots remain available: `61279a8` ran 75 tests per backend ([CI](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996), [evidence](../evidence/verification-development.json)); `19c2e11` ran 46 ([CI](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057), [evidence](../evidence/verification-hosted.json)). Both hosts passed their corresponding format/interface/check/build/test and CLI-corpus checks; those snapshots do not cover later APIs.
 - [ ] Review package contents and final metadata, verify the authenticated owner, and explicitly authorize publication. Use repository-scoped account wrappers from [ACCOUNTS.md](ACCOUNTS.md); never switch global accounts.
 - [ ] Publish the approved Mooncakes release and verify installation from the registry. Current status remains unpublished.

@@ -46,6 +46,10 @@ entries separately: the workbench accepts AXML, not APK archives or textual XML.
 
 ## Filter events and references
 
+This feature is deployed at [the live workbench](https://ling71671.github.io/moonbit-axml/)
+from `ef6591b`; [verification](../evidence/verification-two-rounds.json) records
+Linux/Windows CI, Pages, and hosted search/export/source-selection checks.
+
 Structure and References each have a search field and Clear button. Matching is
 a case-insensitive literal substring search after trimming surrounding spaces;
 there is no regular-expression or query syntax. It runs locally without

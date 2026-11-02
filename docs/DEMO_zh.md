@@ -40,6 +40,10 @@ pnpm dev
 
 ## 筛选事件与引用
 
+此功能已随 `ef6591b` 部署至[线上工作台](https://ling71671.github.io/moonbit-axml/)；
+[验证记录](../evidence/verification-two-rounds.json)包含 Linux/Windows CI、Pages 及
+线上搜索、导出、源位置选择检查。
+
 结构与引用视图各有搜索框和清除按钮。匹配方式为忽略大小写的字面子串搜索，先去除
 查询首尾空格，不提供正则表达式或查询语法。筛选在本地运行，无需重新解码或上传输入。
 

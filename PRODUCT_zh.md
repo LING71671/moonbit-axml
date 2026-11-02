@@ -28,6 +28,8 @@ web
 
 纯 MoonBit 核心支持边界检查、AXML 解码、XML 重建、Manifest 与 Intent Filter 检查、
 统计及带位置的类型引用。浏览器适配层提供独立 ESM 桥接；Node CLI 的专用 I/O 不进入浏览器产物。
+库与 CLI 提供有界、可选的 XML 格式化输出。结构与引用支持本地字面搜索；结构保持
+1,000 条事件预览，筛选不缩小导出结果。
 本地文件在客户端处理，不上传、不调用服务端 API；影响操作的输入预算和显示截断应明确。
 演示不负责 APK 提取、资源表解析、修复或安全判断。普通资源 XML 的 Manifest 检查不适用时，
 其他结果仍可使用。耗时解析放在可取消的 Worker 中。
@@ -40,8 +42,9 @@ web
 
 ## 已有证据
 
-Linux/Windows CI 在每个宿主通过 wasm-gc 114 项、JavaScript 117 项、native 114 项及
-前端 12 项测试。`fixtures/` 包含 19 份自有合法或
+提交 `ef6591b` 的 Linux/Windows CI 在每个宿主通过 wasm-gc 130 项、JavaScript 133 项、
+native 130 项及前端 18 项测试。相同修订已部署到 Pages；[两轮验证记录](evidence/verification-two-rounds.json)
+记录运行及线上搜索/下载检查。`fixtures/` 包含 19 份自有合法或
 畸形输入及固定的独立参考。`docs/ACCEPTANCE_zh.md`、`evidence/` 记录对应源码修订。
 不虚构客户、性能排名或部署状态。
 

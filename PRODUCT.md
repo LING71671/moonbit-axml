@@ -32,6 +32,9 @@ download the relevant output without installing Android tooling.
 The pure MoonBit core supports checked AXML decoding, rendering, manifest and
 intent-filter inspection, statistics, and located typed references. The browser
 adapter exports a standalone ESM bridge; Node-specific CLI I/O must not enter its bundle.
+The library and CLI offer bounded, opt-in pretty XML rendering. Structure and
+References offer local literal search; Structure remains a 1,000-event preview,
+and filtering never narrows exported results.
 Local files are processed on the client, with no upload or server API. Input
 budgets and display truncation must be visible where they affect an action.
 APK extraction, resource-table resolution, repair, and security verdicts are
@@ -48,8 +51,10 @@ warm stock into charcoal, ivory, sepia rules, and restrained scarlet controls.
 
 ## Evidence on Hand
 
-Linux/Windows CI verifies 114 wasm-gc tests, 117 JavaScript tests, 114 native
-tests, and 12 frontend tests per host. `fixtures/`
+Linux/Windows CI at `ef6591b` verifies 130 wasm-gc tests, 133 JavaScript tests,
+130 native tests, and 18 frontend tests per host. The same revision is deployed
+to Pages; [two-round evidence](evidence/verification-two-rounds.json) records
+the runs and hosted search/download checks. `fixtures/`
 contains 19 owned valid/invalid inputs and pinned independent references.
 `docs/ACCEPTANCE.md` and `evidence/` identify tested source revisions. Do not
 invent customers, performance rankings, or deployment status.
