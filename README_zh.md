@@ -32,6 +32,9 @@ moon run src/cmd/axml-native --target native -- inspect --json fixtures/valid/ma
 `validate` 检查二进制结构与 XML 可输出性。退出码：成功为 0，输入或 I/O 错误为 1，
 参数错误为 2。诊断包含字节偏移，CLI 错误写入 stderr。
 
+`--version` 显示包版本，`decode --help` 等子命令帮助显示用法。`--` 后的参数按文件名
+处理，例如 `axml decode -- --help` 读取名为 `--help` 的文件。
+
 ## 库接口
 
 仓库中的库以 `LING71671/axml` 导入，别名为 `@axml`：

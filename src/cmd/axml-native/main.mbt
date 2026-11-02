@@ -15,7 +15,8 @@ async fn main {
     }
   }
   guard command.path() is Some(path) else {
-    @stdio.stdout.text.write("\{@cli.usage}\n")
+    let text = if command is @cli.Version { @cli.version } else { @cli.usage }
+    @stdio.stdout.text.write("\{text}\n")
     return
   }
   try {

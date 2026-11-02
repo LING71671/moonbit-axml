@@ -50,7 +50,7 @@ fn main {
     }
   }
   guard command.path() is Some(path) else {
-    println(@cli.usage)
+    println(if command is @cli.Version { @cli.version } else { @cli.usage })
     return
   }
   guard read_file(path, @codec.Limits::default().max_input_bytes) is Some(data) else {

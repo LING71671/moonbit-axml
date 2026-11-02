@@ -33,6 +33,10 @@ JSON, and `validate` checks binary structure and XML renderability. Exit codes a
 0 for success, 1 for input/I/O errors, and 2 for invalid arguments. Diagnostics
 include byte offsets. CLI errors go to stderr.
 
+Use `--version` for the package version and `decode --help` (or the other
+subcommands) for usage. A `--` terminator makes the next argument a literal file,
+for example `axml decode -- --help` reads a file named `--help`.
+
 ## Library API
 
 The checked-in library is imported as `LING71671/axml` (alias `@axml`):

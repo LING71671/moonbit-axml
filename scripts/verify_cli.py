@@ -120,6 +120,16 @@ def main() -> None:
     def run(*arguments: str) -> subprocess.CompletedProcess:
         return subprocess.run(args.cli + list(arguments), cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=30)
 
+    version = re.search(r'^version\s*=\s*"([^"]+)"', (ROOT / "moon.mod").read_text(encoding="utf-8"), re.MULTILINE)
+    assert version, "missing module version"
+    version_output = run("--version")
+    assert version_output.returncode == 0 and version_output.stdout.decode("utf-8").strip() == f"axml {version[1]}", "CLI and package versions differ"
+    for arguments in [("--help",), ("decode", "--help"), ("inspect", "-h"), ("validate", "--help")]:
+        help_output = run(*arguments)
+        assert help_output.returncode == 0 and b"Usage: axml" in help_output.stdout, f"help failed: {arguments}"
+    literal_path = run("validate", "--", str(FIXTURES / "valid" / "menu.axml"))
+    assert literal_path.returncode == 0 and literal_path.stdout.strip() == b"valid", "literal filename terminator failed"
+
     for fixture in manifest["fixtures"]:
         path = ROOT / fixture["path"]
         data = path.read_bytes()
@@ -147,7 +157,7 @@ def main() -> None:
                 assert re.search(r"(?:offset|byte|Invalid\()[^\n]*[0-9]", diagnostic, re.IGNORECASE), f"missing offset diagnostic: {path.name}: {diagnostic}"
                 assert "panic" not in diagnostic.lower(), f"unhandled panic: {path.name}: {diagnostic}"
         checked += 1
-    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; 12 malformed errors.")
+    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; 12 malformed errors; CLI help/version/terminator checks.")
 
 
 if __name__ == "__main__":
