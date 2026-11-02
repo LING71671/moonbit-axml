@@ -1,6 +1,6 @@
 # MoonBit AXML
 
-[English](README.md) | [验收记录](docs/ACCEPTANCE_zh.md) | [测试语料](fixtures/README_zh.md) | [账号隔离](docs/ACCOUNTS_zh.md)
+[English](README.md) | [贡献指南](CONTRIBUTING_zh.md) | [验收记录](docs/ACCEPTANCE_zh.md) | [测试语料](fixtures/README_zh.md) | [账号隔离](docs/ACCOUNTS_zh.md)
 
 用纯 MoonBit 解码 Android 二进制 XML，提供经过边界检查的字节解析、类型化事件、
 XML 重建和 Manifest 元数据。离线 CLI 读取已提取的 AXML 文件。模块名为
@@ -87,7 +87,7 @@ Windows native、Linux native（WSL2 Debian）通过；Node 和原生 CLI 另通
 
 ## 账号与许可
 
-GitHub 开发仓库为 [LING71671/moonbit-axml](https://github.com/LING71671/moonbit-axml)。
+GitHub 公开仓库为 [LING71671/moonbit-axml](https://github.com/LING71671/moonbit-axml)。
 在已配置的 Windows 开发机上，涉及账号的操作使用 `scripts/moon.ps1`、
 `scripts/github.ps1`，固定选择 LING71671 并保持其他任务的登录状态。
 详见[账号隔离](docs/ACCOUNTS_zh.md)。

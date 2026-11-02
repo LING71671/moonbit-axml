@@ -1,6 +1,6 @@
 # MoonBit AXML
 
-[中文](README_zh.md) | [Acceptance](docs/ACCEPTANCE.md) | [Fixtures](fixtures/README.md) | [Account isolation](docs/ACCOUNTS.md)
+[中文](README_zh.md) | [Contributing](CONTRIBUTING.md) | [Acceptance](docs/ACCEPTANCE.md) | [Fixtures](fixtures/README.md) | [Account isolation](docs/ACCOUNTS.md)
 
 A pure MoonBit decoder for Android binary XML: checked byte parsing, typed events,
 XML reconstruction, and manifest metadata. The offline CLI reads extracted AXML
@@ -94,7 +94,7 @@ The core has no Android/JVM dependency; CLI host adapters provide only file I/O.
 
 ## Ownership and license
 
-The GitHub development repository is [LING71671/moonbit-axml](https://github.com/LING71671/moonbit-axml).
+The public GitHub repository is [LING71671/moonbit-axml](https://github.com/LING71671/moonbit-axml).
 For account-sensitive operations on the configured Windows workstation, use
 `scripts/moon.ps1` and `scripts/github.ps1`; they select LING71671 without changing
 shared login state. See [account isolation](docs/ACCOUNTS.md).

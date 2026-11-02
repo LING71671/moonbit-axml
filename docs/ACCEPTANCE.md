@@ -2,7 +2,7 @@
 
 [中文](ACCEPTANCE_zh.md) | [Project](../README.md)
 
-Status: **implemented and locally verified on 2026-11-02; release gates remain open**. This is the repository's delivery checklist, not an organizer-approved standard. The GitHub repository is private; `LING71671/axml` has not been published to Mooncakes.
+Status: **implemented and locally verified on 2026-11-02; release gates remain open**. This is the repository's delivery checklist, not an organizer-approved standard. The GitHub repository is public under Apache-2.0; `LING71671/axml` has not been published to Mooncakes.
 
 ## Verification snapshot
 

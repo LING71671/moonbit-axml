@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a reproducible parser, rendering, metadata, or CLI defect.
+title: '[bug] '
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include moon version --all, backend, operating system, and Node version when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the command and a small sanitized fixture or a script that generates it. Remove credentials and private application metadata.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+      description: Include the full diagnostic and byte offset when available.
+    validations:
+      required: true
+  - type: textarea
+    id: regression
+    attributes:
+      label: Regression information
+      description: If known, identify the last working commit and affected platforms.
