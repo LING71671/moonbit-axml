@@ -24,6 +24,7 @@ pub suberror UsageError {
 pub(all) enum Command {
   Decode(String)
   Inspect(String)
+  Stats(String)
   Validate(String)
   Help
   Version

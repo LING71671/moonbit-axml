@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify fixture hashes, CLI XML semantics, metadata, and malformed errors.
+"""Verify fixture hashes, CLI XML semantics, metadata, statistics, and errors.
 
 Uses only Python's standard library and committed independent reference trees.
 Run `moon build src/cmd/axml --target js` first, or omit --cli for moon run.
@@ -124,7 +124,7 @@ def main() -> None:
     assert version, "missing module version"
     version_output = run("--version")
     assert version_output.returncode == 0 and version_output.stdout.decode("utf-8").strip() == f"axml {version[1]}", "CLI and package versions differ"
-    for arguments in [("--help",), ("decode", "--help"), ("inspect", "-h"), ("validate", "--help")]:
+    for arguments in [("--help",), ("decode", "--help"), ("inspect", "-h"), ("stats", "--help"), ("stats", "-h"), ("validate", "--help")]:
         help_output = run(*arguments)
         assert help_output.returncode == 0 and b"Usage: axml" in help_output.stdout, f"help failed: {arguments}"
     literal_path = run("validate", "--", str(FIXTURES / "valid" / "menu.axml"))
@@ -143,6 +143,18 @@ def main() -> None:
             assert actual == expected, f"semantic tree mismatch: {path.name}\nactual={actual}\nexpected={expected}"
             validated = run("validate", str(path))
             assert validated.returncode == 0, f"validate {path.name}: {validated.stderr.decode('utf-8')}"
+            if path.stem == "menu":
+                # Independently counted owned aapt2 fixture: one menu, two items,
+                # four attributes each, one Android namespace, eleven pool strings.
+                expected_stats = {
+                    "strings": 11, "string_utf16_units": "108", "resource_ids": 6,
+                    "events": 8, "start_elements": 3, "attributes": "8",
+                    "text_events": 0, "namespace_declarations": 1, "max_depth": 2,
+                }
+                for arguments in [("stats", str(path)), ("stats", "--json", "--", str(path))]:
+                    statistics = run(*arguments)
+                    assert statistics.returncode == 0, f"stats {path.name}: {statistics.stderr.decode('utf-8')}"
+                    assert json.loads(statistics.stdout) == expected_stats, f"statistics mismatch: {path.name}"
             if path.stem.startswith("manifest_"):
                 inspected = run("inspect", "--json", str(path))
                 assert inspected.returncode == 0, f"inspect {path.name}: {inspected.stderr.decode('utf-8')}"
@@ -150,14 +162,15 @@ def main() -> None:
                 expected_record = manifest_record(expected)
                 assert normalize_record(record) == normalize_record(expected_record), f"metadata mismatch: {path.name}\nactual={record}\nexpected={expected_record}"
         else:
-            for command in ["decode", "validate"]:
+            for command in ["decode", "validate", "stats"]:
                 result = run(command, str(path))
-                assert result.returncode != 0, f"{command} accepted malformed fixture: {path.name}"
+                assert result.returncode == 1, f"{command} did not report a data error for malformed fixture: {path.name}"
+                assert not result.stdout, f"{command} wrote partial output for malformed fixture: {path.name}"
                 diagnostic = result.stderr.decode("utf-8")
                 assert re.search(r"(?:offset|byte|Invalid\()[^\n]*[0-9]", diagnostic, re.IGNORECASE), f"missing offset diagnostic: {path.name}: {diagnostic}"
                 assert "panic" not in diagnostic.lower(), f"unhandled panic: {path.name}: {diagnostic}"
         checked += 1
-    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; 12 malformed errors; CLI help/version/terminator checks.")
+    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; 12 malformed fixtures; CLI help/version/terminator checks.")
 
 
 if __name__ == "__main__":
