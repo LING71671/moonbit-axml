@@ -119,6 +119,8 @@ fn render_escape(
   offset : Int32,
 ) -> String raise DecodeError {
   let output = StringBuilder()
+  let mut cursor = 0
+  let mut span_start = 0
   for char in text.iter() {
     let code = char.to_int()
     if !(code == 9 ||
@@ -129,18 +131,33 @@ fn render_escape(
       (code >= 0x10000 && code <= 0x10ffff)) {
       raise Invalid(offset, "character is forbidden by XML 1.0")
     }
-    match char {
-      '&' => output.write_string("&amp;")
-      '<' => output.write_string("&lt;")
-      '>' => output.write_string("&gt;")
-      '"' if attribute => output.write_string("&quot;")
-      '\r' => output.write_string("&#13;")
-      '\n' if attribute => output.write_string("&#10;")
-      '\t' if attribute => output.write_string("&#9;")
-      _ => output.write_char(char)
+    let replacement = match char {
+      '&' => Some("&amp;")
+      '<' => Some("&lt;")
+      '>' => Some("&gt;")
+      '"' if attribute => Some("&quot;")
+      '\r' => Some("&#13;")
+      '\n' if attribute => Some("&#10;")
+      '\t' if attribute => Some("&#9;")
+      _ => None
     }
+    if replacement is Some(replacement) {
+      // Keep ordinary spans intact: JS StringBuilder appends create rope nodes,
+      // so writing each unchanged character retains excessive intermediate data.
+      output.write_view(text[span_start:cursor])
+      output.write_string(replacement)
+      span_start = cursor + 1
+    }
+    // String slices use UTF-16 units; iter() yields Unicode scalar values.
+    cursor = cursor + (if code > 0xffff { 2 } else { 1 })
   }
-  output.to_string()
+  if span_start == 0 {
+    // Validation still ran, but an unchanged pool entry needs no allocation.
+    text
+  } else {
+    output.write_view(text[span_start:])
+    output.to_string()
+  }
 }
 
 ///|
