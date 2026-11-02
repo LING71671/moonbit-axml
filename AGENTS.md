@@ -22,7 +22,7 @@ Use two-space indentation and `moon fmt`. MoonBit functions/files use snake_case
 
 ## Testing Guidelines
 
-Use `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals; no coverage percentage is mandated. Local counts are 114 wasm-gc, 117 JS, 114 Windows native, and 12 frontend Node tests. Cover bounds, namespaces, typed data, diagnostics, cancellation, stale results, and compiled-bridge integration. Preserve fixture provenance/hashes and independent references. Keep generated frontend code, samples, dependencies, and `dist/` ignored. Record browser checks separately.
+Use `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals; no coverage percentage is mandated. Local counts are 130 wasm-gc, 133 JS, 130 Windows native, and 12 frontend Node tests. Cover bounds, namespaces, typed data, diagnostics, cancellation, stale results, and compiled-bridge integration. Preserve fixture provenance/hashes and independent references. Keep generated frontend code, samples, dependencies, and `dist/` ignored. Record browser checks separately.
 
 ## Commit & Pull Request Guidelines
 

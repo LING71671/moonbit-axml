@@ -16,6 +16,8 @@ pub fn resolve_component_name(String, String) -> String raise DecodeError
 
 pub fn to_xml(Document, max_output_chars? : Int32) -> String raise DecodeError
 
+pub fn to_xml_pretty(Document, max_output_chars? : Int32, max_depth? : Int32) -> String raise DecodeError
+
 // Errors
 pub suberror DecodeError {
   Invalid(Int32, String)

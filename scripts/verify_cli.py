@@ -46,6 +46,27 @@ def element_tree(node: ET.Element) -> dict:
     }
 
 
+def assert_pretty_semantics(compact: ET.Element, pretty: ET.Element) -> None:
+    """Allow indentation only in positions absent from element-only input.
+
+    Existing whitespace text and all mixed content remain exact, including tails
+    that the independent JSON tree representation does not record.
+    """
+    assert compact.tag == pretty.tag, "pretty element name differs"
+    assert normalize_record(compact.attrib) == normalize_record(pretty.attrib), "pretty attributes differ"
+    assert len(compact) == len(pretty), "pretty child count differs"
+    layout = bool(len(compact)) and not compact.text and not any(child.tail for child in compact)
+
+    def same_text(expected: str | None, actual: str | None, allow_layout: bool) -> None:
+        expected, actual = expected or "", actual or ""
+        assert actual == expected or (allow_layout and not expected and not actual.strip()), "pretty text or tail differs"
+
+    same_text(compact.text, pretty.text, layout)
+    for compact_child, pretty_child in zip(compact, pretty):
+        assert_pretty_semantics(compact_child, pretty_child)
+        same_text(compact_child.tail, pretty_child.tail, layout)
+
+
 def manifest_record(tree: dict) -> dict:
     android = lambda name: f"{{{ANDROID_URI}}}{name}"
     children = tree["children"]
@@ -167,6 +188,15 @@ def main() -> None:
         assert help_output.returncode == 0 and b"Usage: axml" in help_output.stdout, f"help failed: {arguments}"
     literal_path = run("validate", "--", str(FIXTURES / "valid" / "menu.axml"))
     assert literal_path.returncode == 0 and literal_path.stdout.strip() == b"valid", "literal filename terminator failed"
+    pretty_literal = run("decode", "--pretty", "--", str(FIXTURES / "valid" / "menu.axml"))
+    assert pretty_literal.returncode == 0 and b"\n  <item" in pretty_literal.stdout, "pretty literal filename terminator failed"
+    for arguments in [
+        ("decode", "--pretty"), ("decode", "--pretty", "--"),
+        ("decode", "--pretty", "--help"), ("decode", "--unknown", "input.axml"),
+        ("decode", "input.axml", "--pretty"), ("decode", "--pretty", "input.axml", "extra.axml"),
+    ]:
+        invalid = run(*arguments)
+        assert invalid.returncode == 2 and not invalid.stdout, f"pretty usage did not fail cleanly: {arguments}"
 
     for fixture in manifest["fixtures"]:
         path = ROOT / fixture["path"]
@@ -176,9 +206,18 @@ def main() -> None:
         if fixture["valid"]:
             decoded = run("decode", str(path))
             assert decoded.returncode == 0, f"decode {path.name}: {decoded.stderr.decode('utf-8')}"
-            actual = normalize_tree(element_tree(ET.fromstring(decoded.stdout)))
+            compact_tree = ET.fromstring(decoded.stdout)
+            actual = normalize_tree(element_tree(compact_tree))
             expected = normalize_tree(json.loads((FIXTURES / "reference" / f"{path.stem}.tree.json").read_text(encoding="utf-8")))
             assert actual == expected, f"semantic tree mismatch: {path.name}\nactual={actual}\nexpected={expected}"
+            pretty = run("decode", "--pretty", str(path))
+            assert pretty.returncode == 0, f"pretty decode {path.name}: {pretty.stderr.decode('utf-8')}"
+            try:
+                assert_pretty_semantics(compact_tree, ET.fromstring(pretty.stdout))
+            except AssertionError as error:
+                raise AssertionError(f"pretty semantic tree mismatch: {path.name}: {error}") from error
+            if path.stem == "menu":
+                assert b"\n  <item" in pretty.stdout and b"\n</menu>" in pretty.stdout, "pretty output contains no child indentation"
             validated = run("validate", str(path))
             assert validated.returncode == 0, f"validate {path.name}: {validated.stderr.decode('utf-8')}"
             if path.stem == "menu":
@@ -208,15 +247,15 @@ def main() -> None:
                 expected_record = manifest_record(expected)
                 assert normalize_record(record) == normalize_record(expected_record), f"metadata mismatch: {path.name}\nactual={record}\nexpected={expected_record}"
         else:
-            for command in ["decode", "validate", "stats", "refs"]:
-                result = run(command, str(path))
+            for command in [("decode",), ("decode", "--pretty"), ("validate",), ("stats",), ("refs",)]:
+                result = run(*command, str(path))
                 assert result.returncode == 1, f"{command} did not report a data error for malformed fixture: {path.name}"
                 assert not result.stdout, f"{command} wrote partial output for malformed fixture: {path.name}"
                 diagnostic = result.stderr.decode("utf-8")
                 assert re.search(r"(?:offset|byte|Invalid\()[^\n]*[0-9]", diagnostic, re.IGNORECASE), f"missing offset diagnostic: {path.name}: {diagnostic}"
                 assert "panic" not in diagnostic.lower(), f"unhandled panic: {path.name}: {diagnostic}"
         checked += 1
-    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/terminator checks.")
+    print(f"PASS: {checked} fixture hashes; 7 compact and pretty XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/pretty-usage/terminator checks.")
 
 
 if __name__ == "__main__":

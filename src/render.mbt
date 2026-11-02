@@ -173,6 +173,8 @@ priv struct RenderElement {
   name : String
   qualified : String
   declarations : Array[RenderBinding]
+  pretty_children : Bool
+  mut has_children : Bool
 }
 
 ///|
@@ -203,6 +205,54 @@ fn RenderOutput::write_string(
   }
   self.size = self.size + value.length()
   self.builder.write_string(value)
+}
+
+///|
+fn RenderOutput::write_indent(
+  self : RenderOutput,
+  depth : Int32,
+) -> Unit raise DecodeError {
+  let remaining = self.limit - self.size
+  // Check before multiplication or writing: custom depth limits must not cause
+  // an overflowing length or allocate an indentation string outside the budget.
+  if remaining < 1 || depth > (remaining - 1) / 2 {
+    raise Invalid(self.offset, "XML output exceeds configured limit")
+  }
+  self.size = self.size + 1 + depth * 2
+  self.builder.write_string("\n")
+  for index = 0; index < depth; index = index + 1 {
+    self.builder.write_string("  ")
+  }
+}
+
+///|
+/// Text events originate from AXML CDATA chunks, including empty/whitespace
+/// events. A look-ahead pass prevents inserting whitespace before later text.
+fn render_text_parents(
+  document : Document,
+  max_depth : Int32,
+) -> Map[Int32, Bool] raise DecodeError {
+  let text_parents : Map[Int32, Bool] = Map([])
+  let starts : Array[Int32] = []
+  for index = 0; index < document.events.length(); index = index + 1 {
+    let event = document.events[index]
+    match event.kind {
+      StartElement(_, _, _) => {
+        if starts.length() >= max_depth {
+          raise Invalid(event.offset, "pretty XML nesting exceeds max_depth")
+        }
+        starts.push(index)
+      }
+      EndElement(_, _) => starts.pop() |> ignore
+      Text(_, _) =>
+        match starts.last() {
+          Some(start) => text_parents[start] = true
+          None => ()
+        }
+      _ => ()
+    }
+  }
+  text_parents
 }
 
 ///|
@@ -384,8 +434,40 @@ pub fn to_xml(
   document : Document,
   max_output_chars~ : Int32 = 32 * 1024 * 1024,
 ) -> String raise DecodeError {
+  render_xml(document, max_output_chars, false, 256)
+}
+
+///|
+/// Render XML with two-space indentation and LF line endings between elements.
+/// Subtrees containing direct text, including whitespace/empty CDATA events,
+/// and xml:space="preserve" subtrees retain compact rendering throughout.
+/// Added indentation counts toward the UTF-16 output budget. Depth is checked
+/// before formatting even for manually constructed documents.
+pub fn to_xml_pretty(
+  document : Document,
+  max_output_chars~ : Int32 = 32 * 1024 * 1024,
+  max_depth~ : Int32 = 256,
+) -> String raise DecodeError {
+  if max_depth <= 0 {
+    raise Invalid(0, "pretty XML depth limit must be positive")
+  }
+  render_xml(document, max_output_chars, true, max_depth)
+}
+
+///|
+fn render_xml(
+  document : Document,
+  max_output_chars : Int32,
+  pretty : Bool,
+  max_depth : Int32,
+) -> String raise DecodeError {
   if max_output_chars <= 0 {
     raise Invalid(0, "XML output limit must be positive")
+  }
+  let text_parents = if pretty {
+    render_text_parents(document, max_depth)
+  } else {
+    Map([])
   }
   let output : RenderOutput = {
     builder: StringBuilder(),
@@ -403,7 +485,10 @@ pub fn to_xml(
   let pending : Array[RenderBinding] = []
   let mut roots = 0
   let mut closing = 0
-  for event in document.events {
+  for event_index = 0
+      event_index < document.events.length()
+      event_index = event_index + 1 {
+    let event = document.events[event_index]
     output.offset = event.offset
     let depth = elements.length()
     match event.kind {
@@ -489,6 +574,7 @@ pub fn to_xml(
         )
         let rendered_attributes : Array[String] = []
         let mut attribute_size = 0
+        let mut preserve_space = false
         let seen_attributes : Map[(String?, String), Bool] = Map([])
         for attribute in attributes {
           let key = (render_normal_uri(attribute.namespace_uri), attribute.name)
@@ -505,17 +591,30 @@ pub fn to_xml(
             depth,
             event.offset,
           )
-          let value = render_escape(
-            render_attribute_text(attribute, event.offset),
-            true,
-            event.offset,
-          )
+          let text = render_attribute_text(attribute, event.offset)
+          if attribute.namespace_uri ==
+            Some("http://www.w3.org/XML/1998/namespace") &&
+            attribute.name == "space" &&
+            text == "preserve" {
+            preserve_space = true
+          }
+          let value = render_escape(text, true, event.offset)
           let rendered = " " + attr_name + "=\"" + value + "\""
           if rendered.length() > max_output_chars - attribute_size {
             raise Invalid(event.offset, "XML output exceeds configured limit")
           }
           attribute_size = attribute_size + rendered.length()
           rendered_attributes.push(rendered)
+        }
+        let parent_pretty = match elements.last() {
+          Some(parent) => {
+            parent.has_children = true
+            if parent.pretty_children {
+              output.write_indent(depth)
+            }
+            parent.pretty_children
+          }
+          None => true
         }
         output.write_string("<" + qualified)
         for binding in declarations {
@@ -541,6 +640,11 @@ pub fn to_xml(
           name,
           qualified,
           declarations,
+          pretty_children: pretty &&
+          parent_pretty &&
+          !text_parents.contains(event_index) &&
+          !preserve_space,
+          has_children: false,
         })
       }
       EndElement(uri, name) => {
@@ -551,6 +655,9 @@ pub fn to_xml(
           Some(element) => {
             if element.uri != render_normal_uri(uri) || element.name != name {
               raise Invalid(event.offset, "mismatched end element")
+            }
+            if element.pretty_children && element.has_children {
+              output.write_indent(elements.length())
             }
             output.write_string("</" + element.qualified + ">")
             for binding in element.declarations {

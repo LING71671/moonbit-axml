@@ -51,6 +51,7 @@ JavaScript CLI 需要 Node.js **22+**；原生 CLI 需要受支持的原生编�
 
 ```sh
 moon run src/cmd/axml --target js -- decode fixtures/valid/manifest_unicode.axml
+moon run src/cmd/axml --target js -- decode --pretty fixtures/valid/manifest_basic.axml
 moon run src/cmd/axml --target js -- inspect --json fixtures/valid/manifest_basic.axml
 moon run src/cmd/axml --target js -- validate fixtures/valid/menu.axml
 moon run src/cmd/axml --target js -- stats --json fixtures/valid/menu.axml
@@ -67,6 +68,9 @@ moon run src/cmd/axml-native --target native -- inspect --json fixtures/valid/ma
 输入上限为 16 MiB。`decode` 输出带命名空间的 XML，`inspect` 输出 JSON，
 `validate` 检查二进制结构与 XML 可输出性。退出码：成功为 0，输入或 I/O 错误为 1，
 参数错误为 2。诊断包含字节偏移，CLI 错误写入 stderr。
+
+`decode --pretty` 在仅含子元素的位置加入两空格缩进。含文本或 `xml:space="preserve"`
+的子树保持紧凑。此可选输出会增加空白文本节点；需要原始文本序列时使用普通 `decode`。
 
 `stats` 报告字符串池、事件、属性数量及嵌套深度。`refs` 按原始位置列出类型化资源或主题
 引用，不解析资源 ID。两者均输出 JSON，可选写上 `--json`。
@@ -97,6 +101,7 @@ Manifest 接口提取包名、版本及 versionCodeMajor、显式 SDK 声明、�
 
 | 接口 | 用途 |
 | --- | --- |
+| [XML 渲染](docs/RENDERING_zh.md) | 选择紧凑 `to_xml` 或有预算限制的 `to_xml_pretty`，保留混合文本子树 |
 | [文档查询](docs/QUERIES_zh.md)与[统计](docs/STATS_zh.md) | 按扩展名称查询，并统计字符串池、事件及嵌套深度 |
 | [类型值视图](docs/VALUES_zh.md)与[尺寸/分数](docs/COMPLEX_VALUES_zh.md) | 读取类型化载荷与编码单位，不强制转换或应用显示参数 |
 | [Manifest 辅助接口](docs/MANIFEST_zh.md)与[Intent Filter](docs/INTENTS_zh.md) | 检查组件、权限、action/category 和 data 声明，不推断平台默认值 |
@@ -115,9 +120,9 @@ python scripts/verify_cli.py
 ```
 
 验证脚本只依赖 Python 标准库。重新生成测试语料另需固定版本的 aapt2 和 androguard，
-详见[语料说明](fixtures/README_zh.md)。最新本地测试为 wasm-gc **114 项**、JavaScript
-**117 项**（包括浏览器桥接）、Windows native **114 项**；Node 和原生 CLI 另通过 **19 份语料**、
-**7 棵独立 XML 语义树**、**3 份 Manifest 记录**、**菜单统计和类型引用位置**、
+详见[语料说明](fixtures/README_zh.md)。最新本地测试为 wasm-gc **130 项**、JavaScript
+**133 项**（包括浏览器桥接）、Windows native **130 项**；Node 和原生 CLI 另通过 **19 份语料**、
+**7 棵独立 XML 语义树的紧凑及缩进形式**、**3 份 Manifest 记录**、**菜单统计和类型引用位置**、
 **12 类畸形输入**检查。
 参考输出来自 aapt2/androguard，生成过程不依赖本解析器。各提交的 Linux、Windows
 GitHub Actions 结果记录在

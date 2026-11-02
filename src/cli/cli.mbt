@@ -2,6 +2,7 @@
 /// Parsed offline CLI operation, independent of host file I/O.
 pub(all) enum Command {
   Decode(String)
+  DecodePretty(String)
   Inspect(String)
   Stats(String)
   Refs(String)
@@ -23,7 +24,7 @@ pub let version : String = "axml 0.1.0"
 ///|
 /// The command accepts already-extracted binary XML, not APK archives.
 pub let usage : String =
-  #|Usage: axml decode FILE
+  #|Usage: axml decode [--pretty] FILE
   #|       axml inspect [--json] FILE
   #|       axml stats [--json] FILE
   #|       axml refs [--json] FILE
@@ -32,6 +33,7 @@ pub let usage : String =
   #|       axml --version
   #|
   #|Read an extracted Android binary XML file (maximum 16 MiB).
+  #|decode --pretty indents element-only content and preserves mixed text.
   #|inspect writes JSON with raw and typed manifest attributes.
   #|stats writes JSON counts from decoded pools and events.
   #|refs writes JSON typed resource usages with source locations.
@@ -55,6 +57,9 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
     | ["validate", "--help"]
     | ["validate", "-h"] => Help
     ["decode", "--", path] if !path.is_empty() => Decode(path)
+    ["decode", "--pretty", "--", path] if !path.is_empty() => DecodePretty(path)
+    ["decode", "--pretty", path] if !path.is_empty() && !path.has_prefix("--") =>
+      DecodePretty(path)
     ["inspect", "--", path] | ["inspect", "--json", "--", path] if !path.is_empty() =>
       Inspect(path)
     ["stats", "--", path] | ["stats", "--json", "--", path] if !path.is_empty() =>
@@ -78,7 +83,7 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
       Validate(path)
     _ =>
       raise Usage(
-        "expected decode, inspect [--json], stats [--json], refs [--json], or validate with one file",
+        "expected decode [--pretty], inspect [--json], stats [--json], refs [--json], or validate with one file",
       )
   }
 }
@@ -87,8 +92,12 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
 /// Return the selected input path, or None for informational commands.
 pub fn Command::path(self : Command) -> String? {
   match self {
-    Decode(path) | Inspect(path) | Stats(path) | Refs(path) | Validate(path) =>
-      Some(path)
+    Decode(path)
+    | DecodePretty(path)
+    | Inspect(path)
+    | Stats(path)
+    | Refs(path)
+    | Validate(path) => Some(path)
     Help | Version => None
   }
 }
@@ -101,6 +110,7 @@ pub fn execute(
 ) -> String raise @axml.DecodeError {
   match command {
     Decode(_) => @axml.to_xml(@axml.decode(data))
+    DecodePretty(_) => @axml.to_xml_pretty(@axml.decode(data))
     Inspect(_) =>
       @axml.inspect_manifest(@axml.decode(data)).to_json().stringify(indent=2)
     Stats(_) => @axml.decode(data).stats().to_json().stringify(indent=2)

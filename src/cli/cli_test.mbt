@@ -132,6 +132,75 @@ test "option terminators select literal leading dash filenames" {
 }
 
 ///|
+test "pretty decode selects the mode before a file or literal terminator" {
+  assert_eq(
+    @cli.parse_args(["decode", "--pretty", "example.axml"]),
+    @cli.DecodePretty("example.axml"),
+  )
+  assert_eq(
+    @cli.parse_args(["decode", "--pretty", "--", "--help"]),
+    @cli.DecodePretty("--help"),
+  )
+  assert_eq(
+    @cli.parse_args(["decode", "--pretty", "--", "--pretty"]),
+    @cli.DecodePretty("--pretty"),
+  )
+  assert_eq(
+    @cli.parse_args(["decode", "--", "--pretty"]),
+    @cli.Decode("--pretty"),
+  )
+  assert_eq(@cli.DecodePretty("example.axml").path(), Some("example.axml"))
+}
+
+///|
+test "pretty decode rejects missing files bad option order and extra arguments" {
+  for
+    args in [
+      ["decode", "--pretty"],
+      ["decode", "--pretty", ""],
+      ["decode", "--pretty", "--"],
+      ["decode", "--pretty", "--", ""],
+      ["decode", "--pretty", "--help"],
+      ["decode", "--pretty", "--unknown"],
+      ["decode", "--unknown", "input.axml"],
+      ["decode", "input.axml", "--pretty"],
+      ["decode", "--pretty", "--pretty", "input.axml"],
+      ["decode", "--pretty", "input.axml", "extra.axml"],
+      ["decode", "--", "input.axml", "--pretty"],
+      ["inspect", "--pretty", "input.axml"],
+    ] {
+    let parsed = Some(@cli.parse_args(args)) catch { _ => None }
+    assert_eq(parsed, None)
+  }
+}
+
+///|
+test "pretty decode preserves decoder diagnostics without returning output" {
+  let rejected = try {
+    @cli.execute(@cli.DecodePretty("broken"), b"") |> ignore
+    false
+  } catch {
+    @axml.DecodeError::Invalid(0, _) => true
+    _ => false
+  }
+  assert_true(rejected)
+}
+
+///|
+test "pretty decode execution indents child elements while compact stays unchanged" {
+  // Owned one-string UTF-8 pool and two nested elements using its root name.
+  let data = b"\x03\x00\x08\x00\xa8\x00\x00\x00\x01\x00\x1c\x00\x28\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x20\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04\x04root\x00\x00\x02\x01\x10\x00\x24\x00\x00\x00\x01\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x14\x00\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x01\x10\x00\x24\x00\x00\x00\x01\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x14\x00\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x03\x01\x10\x00\x18\x00\x00\x00\x01\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x03\x01\x10\x00\x18\x00\x00\x00\x01\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00"
+  assert_eq(
+    @cli.execute(@cli.Decode("nested.axml"), data),
+    "<root><root></root></root>",
+  )
+  assert_eq(
+    @cli.execute(@cli.DecodePretty("nested.axml"), data),
+    "<root>\n  <root></root>\n</root>",
+  )
+}
+
+///|
 test "empty paths and incomplete terminators remain usage errors" {
   for
     args in [

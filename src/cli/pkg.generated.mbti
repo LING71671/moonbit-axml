@@ -23,6 +23,7 @@ pub suberror UsageError {
 // Types and methods
 pub(all) enum Command {
   Decode(String)
+  DecodePretty(String)
   Inspect(String)
   Stats(String)
   Refs(String)

@@ -58,6 +58,7 @@ Run from this checkout:
 
 ```sh
 moon run src/cmd/axml --target js -- decode fixtures/valid/manifest_unicode.axml
+moon run src/cmd/axml --target js -- decode --pretty fixtures/valid/manifest_basic.axml
 moon run src/cmd/axml --target js -- inspect --json fixtures/valid/manifest_basic.axml
 moon run src/cmd/axml --target js -- validate fixtures/valid/menu.axml
 moon run src/cmd/axml --target js -- stats --json fixtures/valid/menu.axml
@@ -75,6 +76,10 @@ locally with a 16 MiB limit. `decode` writes namespace-aware XML, `inspect` writ
 JSON, and `validate` checks binary structure and XML renderability. Exit codes are
 0 for success, 1 for input/I/O errors, and 2 for invalid arguments. Diagnostics
 include byte offsets. CLI errors go to stderr.
+
+`decode --pretty` adds two-space indentation between element-only children.
+Text-bearing and `xml:space="preserve"` subtrees stay compact. This opt-in output
+adds whitespace text nodes; use ordinary `decode` for the original text sequence.
 
 `stats` reports pool sizes, event/attribute counts, and nesting. `refs` lists
 typed resource/theme references with their original locations; it does not
@@ -109,6 +114,7 @@ Additional APIs are documented separately:
 
 | API | Use |
 | --- | --- |
+| [XML rendering](docs/RENDERING.md) | Choose compact `to_xml` or bounded `to_xml_pretty`, preserving mixed-text subtrees |
 | [Document queries](docs/QUERIES.md) and [statistics](docs/STATS.md) | Select expanded names and summarize stored pools, events, and depth |
 | [Typed value views](docs/VALUES.md) and [dimensions/fractions](docs/COMPLEX_VALUES.md) | Read typed payloads and encoded units without coercion or display metrics |
 | [Manifest helpers](docs/MANIFEST.md) and [intent filters](docs/INTENTS.md) | Inspect component, permission, action/category, and data declarations without platform defaults |
@@ -128,9 +134,9 @@ python scripts/verify_cli.py
 
 The verifier uses Python's standard library. Regenerating fixtures additionally
 requires pinned aapt2 and androguard; see [fixture instructions](fixtures/README.md).
-Current local verification covers **114 tests on wasm-gc**, **117 on JavaScript**
-(including the browser bridge), and **114 on Windows native**, plus
-**19 fixtures**, **7 independent XML trees**,
+Current local verification covers **130 tests on wasm-gc**, **133 on JavaScript**
+(including the browser bridge), and **130 on Windows native**, plus
+**19 fixtures**, **7 independent XML trees checked in compact and pretty forms**,
 **3 manifest records**, **menu statistics and typed reference locations**, and
 **12 malformed-input cases** through Node and native
 CLIs. Reference outputs come from aapt2/androguard, independently of this parser.
