@@ -52,3 +52,5 @@ jobs:
         run: moon build src/cmd/axml-native --target native --deny-warn
       - name: Verify native CLI against independent references
         run: python scripts/verify_cli.py --cli ${{ matrix.native_cli }}
+      - name: Verify bounded stress cases on both CLI hosts
+        run: python scripts/benchmark.py --repeats 1 --warmup 0 --output _build/benchmarks/ci.json
