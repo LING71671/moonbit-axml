@@ -49,6 +49,19 @@ pub(all) struct Document {
 } derive(Eq, ToJson, @debug.Debug)
 pub fn Document::elements(Self, String?, String) -> Array[Event]
 pub fn Document::root(Self) -> Event?
+pub fn Document::stats(Self) -> DocumentStats
+
+pub(all) struct DocumentStats {
+  strings : Int32
+  string_utf16_units : Int64
+  resource_ids : Int32
+  events : Int32
+  start_elements : Int32
+  attributes : Int64
+  text_events : Int32
+  namespace_declarations : Int32
+  max_depth : Int32
+} derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct Event {
   offset : Int32
