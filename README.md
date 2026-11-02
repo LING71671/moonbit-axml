@@ -6,7 +6,7 @@ A pure MoonBit decoder for Android binary XML: checked byte parsing, typed event
 XML reconstruction, and manifest metadata. The offline CLI reads extracted AXML
 files. The package namespace is **LING71671/axml**.
 
-**Status: initial implementation, locally verified; not published to Mooncakes.**
+**Status: public Apache-2.0 implementation; not published to Mooncakes.**
 Research and the bounded duplicate search are recorded in [docs/RESEARCH.md](docs/RESEARCH.md).
 
 ## Run the CLI
@@ -56,7 +56,16 @@ code, original 32-bit payload, and decoded string when applicable.
 Manifest inspection exposes package, version/versionCodeMajor, declared SDKs,
 permissions, application attributes, and activity/alias/service/receiver/provider
 records. Optional JSON fields are omitted when absent. Resource references remain
-numeric IDs; component names and Android defaults are not inferred.
+numeric IDs; component names and Android defaults are not inferred by inspection.
+
+Additional APIs are documented separately:
+
+| API | Use |
+| --- | --- |
+| [Document queries](docs/QUERIES.md) | Select elements and attributes by namespace URI and local name |
+| [Typed value views](docs/VALUES.md) | Read strings, signed integers, booleans, floats, and reference kinds without coercion |
+| [Manifest helpers](docs/MANIFEST.md) | Query components and permission declarations; explicitly expand literal component names |
+| [Batch catalog](docs/CATALOG.md) | Import `LING71671/axml/catalog` to process named byte inputs with independent results and diagnostics |
 
 ## Build and verify
 
@@ -71,12 +80,19 @@ python scripts/verify_cli.py
 
 The verifier uses Python's standard library. Regenerating fixtures additionally
 requires pinned aapt2 and androguard; see [fixture instructions](fixtures/README.md).
-Verification covers **46 tests** on wasm-gc, JavaScript, Windows native, and Linux
-native (Debian under WSL2), plus **19 fixtures**, **7 independent XML trees**,
+Current local verification covers **75 tests** each on wasm-gc, JavaScript, and
+Windows native, plus **19 fixtures**, **7 independent XML trees**,
 **3 manifest records**, and **12 malformed-input cases** through Node and native
 CLIs. Reference outputs come from aapt2/androguard, independently of this parser.
 The checked-in GitHub Actions workflow runs the same checks on Linux and Windows;
-remote CI status is tracked separately from these local results.
+per-commit results, including Linux verification, are recorded in
+[the acceptance matrix](docs/ACCEPTANCE.md).
+
+The [bounded stress benchmarks](docs/BENCHMARKS.md) cover 100,000 strings,
+depth 256, repeated string references, and a late malformed index. The recorded
+Windows snapshot checks output hashes, timings, and process peak memory; it is
+not a portable performance guarantee. Run `python scripts/benchmark.py` after
+building both CLI targets to write a fresh report under `_build/benchmarks/`.
 
 ## Bounds and supported scope
 

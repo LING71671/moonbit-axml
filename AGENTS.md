@@ -4,30 +4,30 @@
 
 ## Project Structure & Module Organization
 
-`moon.mod` defines `LING71671/axml`, with the library in `src/`. `reader.mbt`, `string_pool.mbt`, and `decoder.mbt` decode bytes; `model.mbt`, `render.mbt`, and `manifest.mbt` expose events, XML, and metadata. `src/cli/` handles commands; `src/cmd/axml/` supplies Node.js I/O and `src/cmd/axml-native/` native I/O. Tests are colocated. `fixtures/` contains owned sources, binaries, and independent references; `scripts/` reproduces and verifies them. `docs/` and `evidence/` record scope and verification.
+`moon.mod` defines `LING71671/axml`. Core decoding, XML rendering, and manifest inspection live in `src/`; `query.mbt`, `value_views.mbt`, and `manifest_helpers.mbt` provide convenience APIs. `src/catalog/` independently processes named input batches. `src/cli/` handles arguments; `src/cmd/axml/` and `src/cmd/axml-native/` supply Node.js and native I/O. Tests are colocated. `fixtures/` contains owned samples and independent references; `scripts/` reproduces and verifies them. `docs/` and `evidence/` record scope and verification.
 
 ## Build, Test, and Development Commands
 
 Run from the repository root with the pinned MoonBit toolchain:
 
-- `moon fmt --check` and `moon info`: verify formatting and regenerate public interfaces; review resulting `.mbti` changes.
+- `moon fmt --check` and `moon info`: check formatting and regenerate public `.mbti` interfaces.
 - `moon check --target all --deny-warn`: check all backends without warnings.
 - `moon test --target wasm-gc --deny-warn`: run tests; repeat with `js` and `native`.
-- `moon build src/cmd/axml --target js --deny-warn`: build the Node CLI; run `node _build/js/debug/build/cmd/axml/axml.js validate fixtures/valid/menu.axml`.
-- `python scripts/verify_cli.py`: check fixture hashes, XML semantics, metadata, and malformed-input diagnostics. See `fixtures/README.md` for regeneration.
+- `moon build src/cmd/axml --target js --deny-warn`: build the Node CLI. Build native with `moon build src/cmd/axml-native --target native --deny-warn`.
+- `python scripts/verify_cli.py`: verify fixtures and CLI behavior. After building both CLIs, run `python scripts/benchmark.py --backend all --repeats 3`; see `docs/BENCHMARKS.md` for executable paths and measurement limits.
 
 ## Coding Style & Naming Conventions
 
-Use two-space indentation and `moon fmt`. Name functions/files in snake_case and public types in UpperCamelCase. Keep generated `.mbti` files synchronized with `moon info`; do not edit generated fixture tests manually. Write English documentation with reciprocal `_zh.md` translations. Preserve two-space JSON indentation and descriptive uppercase documentation filenames.
+Use two-space indentation and `moon fmt`. Name functions/files in snake_case and public types in UpperCamelCase. Review generated `.mbti` changes; regenerate fixture tests through their script. Maintain English documentation with reciprocal `_zh.md` translations, two-space JSON indentation, and descriptive uppercase documentation filenames.
 
 ## Testing Guidelines
 
-Use MoonBit's built-in test runner: `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals. No coverage percentage is mandated. Cover bounds, encodings, namespace scopes, typed values, escaping, and error offsets. Compare expanded-name semantic trees and metadata against pinned aapt2/androguard references. Maintain origins, licenses, hashes, and reproduction commands in `fixtures/manifest.json`. Local and hosted Linux/Windows checks pass; see `docs/ACCEPTANCE.md` for the verified commit and evidence.
+Use MoonBit's built-in runner: `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals. No coverage percentage is mandated. Cover bounds, encodings, namespaces, typed values, escaping, batch isolation, and error offsets. Compare semantic trees and metadata against pinned aapt2/androguard references. Preserve fixture provenance and hashes in `fixtures/manifest.json`. Consult `docs/ACCEPTANCE.md` for per-commit verification evidence.
 
 ## Commit & Pull Request Guidelines
 
-Use Conventional Commits, such as `feat: decode string pools`. PRs should explain behavior, link acceptance items or issues, list executed checks, identify limitations, and update both documentation languages. Run `git diff --check` before committing.
+Use Conventional Commits, such as `feat: decode string pools`. PRs explain behavior, link issues or acceptance items, list executed checks and limitations, and update both documentation languages. Run `git diff --check` before committing.
 
 ## Account Isolation & Scope
 
-Follow `docs/ACCOUNTS.md`: use repository account wrappers for authenticated operations; never switch global Mooncakes/GitHub accounts or commit credentials. Keep decoding pure MoonBit and offline. Preserve unresolved resource IDs; APK extraction, ARSC resolution, signing, and DEX parsing remain outside scope.
+Follow `docs/ACCOUNTS.md`: use `scripts/moon.ps1` and `scripts/github.ps1` for authenticated operations as `LING71671`. Never switch global accounts or commit credentials. Keep decoding pure MoonBit and offline. Preserve unresolved resource IDs; APK extraction, ARSC resolution, signing, and DEX parsing remain outside scope.

@@ -6,7 +6,7 @@
 XML 重建和 Manifest 元数据。离线 CLI 读取已提取的 AXML 文件。模块名为
 **LING71671/axml**。
 
-**状态：初版实现已通过本地验证，尚未发布到 Mooncakes。**
+**状态：已按 Apache-2.0 公开源码，尚未发布到 Mooncakes。**
 选题研究及有范围限制的查重记录见 [docs/RESEARCH_zh.md](docs/RESEARCH_zh.md)。
 
 ## 运行 CLI
@@ -52,7 +52,16 @@ let manifest = @axml.inspect_manifest(document)
 
 Manifest 接口提取包名、版本及 versionCodeMajor、显式 SDK 声明、权限、application
 属性，以及 activity/alias/service/receiver/provider 记录。缺失的可选 JSON 字段不输出。
-资源引用保留数值 ID，不推断组件完整名称或 Android 默认值。
+资源引用保留数值 ID，检查操作不推断组件完整名称或 Android 默认值。
+
+其他接口见各自说明：
+
+| 接口 | 用途 |
+| --- | --- |
+| [文档查询](docs/QUERIES_zh.md) | 按命名空间 URI 与本地名称选择元素和属性 |
+| [类型值视图](docs/VALUES_zh.md) | 读取字符串、有符号整数、布尔值、浮点数及引用种类，不做强制转换 |
+| [Manifest 辅助接口](docs/MANIFEST_zh.md) | 查询组件与权限声明；显式展开字面量组件名 |
+| [批量目录接口](docs/CATALOG_zh.md) | 导入 `LING71671/axml/catalog`，逐份处理带名称的字节输入并独立返回结果或诊断 |
 
 ## 构建与验证
 
@@ -66,11 +75,17 @@ python scripts/verify_cli.py
 ```
 
 验证脚本只依赖 Python 标准库。重新生成测试语料另需固定版本的 aapt2 和 androguard，
-详见[语料说明](fixtures/README_zh.md)。目前 **46 项测试**已在 wasm-gc、JavaScript、
-Windows native、Linux native（WSL2 Debian）通过；Node 和原生 CLI 另通过 **19 份语料**、
+详见[语料说明](fixtures/README_zh.md)。最新本地 **75 项测试**已分别在 wasm-gc、JavaScript、
+Windows native 通过；Node 和原生 CLI 另通过 **19 份语料**、
 **7 棵独立 XML 语义树**、**3 份 Manifest 记录**、**12 类畸形输入**检查。
 参考输出来自 aapt2/androguard，生成过程不依赖本解析器。仓库已配置在 Linux、Windows
-执行同类检查的 GitHub Actions；远程 CI 状态与本地验证分开记录。
+执行同类检查的 GitHub Actions；各提交的结果（包括 Linux 验证）记录在
+[验收清单](docs/ACCEPTANCE_zh.md)。
+
+[有限压力基准](docs/BENCHMARKS_zh.md)覆盖 100,000 个字符串、256 层嵌套、重复字符串
+引用及在末尾出现的非法索引。Windows 快照校验输出哈希、耗时及进程峰值内存，
+不代表跨平台性能保证。构建两个 CLI 后，运行 `python scripts/benchmark.py`，
+新报告默认写入 `_build/benchmarks/`。
 
 ## 限制与支持范围
 

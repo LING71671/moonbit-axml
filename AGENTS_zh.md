@@ -4,25 +4,25 @@
 
 ## 项目结构与模块组织
 
-`moon.mod` 定义模块 `LING71671/axml`，库源码位于 `src/`。`reader.mbt`、`string_pool.mbt`、`decoder.mbt` 负责字节解码；`model.mbt`、`render.mbt`、`manifest.mbt` 提供事件、XML 和元数据。`src/cli/` 处理命令，`src/cmd/axml/` 提供 Node.js I/O，`src/cmd/axml-native/` 提供 native I/O。测试与源码同目录。`fixtures/` 保存自有来源文件、二进制和独立参考结果；`scripts/` 负责复现与校验；`docs/`、`evidence/` 记录范围与验证证据。
+`moon.mod` 定义模块 `LING71671/axml`。核心解码、XML 渲染与清单检查位于 `src/`；`query.mbt`、`value_views.mbt`、`manifest_helpers.mbt` 提供便捷 API。`src/catalog/` 独立处理具名输入批次。`src/cli/` 处理参数，`src/cmd/axml/` 和 `src/cmd/axml-native/` 提供 Node.js 与 native I/O。测试与源码同目录。`fixtures/` 保存自有样本和独立参考结果；`scripts/` 负责复现与校验；`docs/`、`evidence/` 记录范围与验证证据。
 
 ## 构建、测试与开发命令
 
 使用固定版本的 MoonBit 工具链，在仓库根目录执行：
 
-- `moon fmt --check`、`moon info`：检查格式并重新生成公开接口；审查产生的 `.mbti` 改动。
+- `moon fmt --check`、`moon info`：检查格式并重新生成公开 `.mbti` 接口。
 - `moon check --target all --deny-warn`：检查全部后端，并将警告视为错误。
 - `moon test --target wasm-gc --deny-warn`：运行测试；另以 `js`、`native` 重复执行。
-- `moon build src/cmd/axml --target js --deny-warn`：构建 Node CLI；运行 `node _build/js/debug/build/cmd/axml/axml.js validate fixtures/valid/menu.axml`。
-- `python scripts/verify_cli.py`：检查语料哈希、XML 语义、元数据及畸形输入诊断；重新生成步骤见 `fixtures/README_zh.md`。
+- `moon build src/cmd/axml --target js --deny-warn`：构建 Node CLI。使用 `moon build src/cmd/axml-native --target native --deny-warn` 构建 native CLI。
+- `python scripts/verify_cli.py`：检查语料与 CLI 行为。构建两个 CLI 后运行 `python scripts/benchmark.py --backend all --repeats 3`；可执行文件路径与测量限制见 `docs/BENCHMARKS_zh.md`。
 
 ## 代码风格与命名约定
 
-使用两空格缩进与 `moon fmt`。函数和文件使用 snake_case，公开类型使用 UpperCamelCase。通过 `moon info` 同步生成的 `.mbti` 文件；不要手动修改生成的语料测试。主文档使用英文，中文独立保存为带双向链接的 `_zh.md` 文件。JSON 保持两空格缩进，文档文件沿用有明确含义的大写名称。
+使用两空格缩进与 `moon fmt`。函数和文件使用 snake_case，公开类型使用 UpperCamelCase。审查生成的 `.mbti` 改动；通过脚本重新生成语料测试。维护英文文档及带双向链接的 `_zh.md` 中文对照，JSON 保持两空格缩进，文档文件沿用有明确含义的大写名称。
 
 ## 测试要求
 
-使用 MoonBit 内置测试工具：`*_test.mbt` 验证公开行为，`*_wbtest.mbt` 验证内部逻辑。目前不设覆盖率百分比门槛。覆盖边界、编码、命名空间作用域、类型值、转义及错误偏移。与固定版本 aapt2/androguard 的扩展名称语义树和元数据比较。在 `fixtures/manifest.json` 保留来源、许可、哈希和复现命令。本地及托管 Linux/Windows 检查均已通过；已验证的提交及证据见 `docs/ACCEPTANCE_zh.md`。
+使用 MoonBit 内置测试工具：`*_test.mbt` 验证公开行为，`*_wbtest.mbt` 验证内部逻辑。目前不设覆盖率百分比门槛。覆盖边界、编码、命名空间、类型值、转义、批次隔离及错误偏移。与固定版本 aapt2/androguard 的语义树和元数据比较。在 `fixtures/manifest.json` 保留语料来源和哈希。逐提交验证证据见 `docs/ACCEPTANCE_zh.md`。
 
 ## 提交与拉取请求要求
 
@@ -30,4 +30,4 @@
 
 ## 账号隔离与范围
 
-遵循 `docs/ACCOUNTS_zh.md`：认证操作使用仓库账号封装脚本；禁止切换全局 Mooncakes/GitHub 账号或提交凭据。解码保持纯 MoonBit、离线运行。保留未解析资源 ID；APK 提取、ARSC 解析、签名和 DEX 解析不在范围内。
+遵循 `docs/ACCOUNTS_zh.md`：认证操作使用 `scripts/moon.ps1` 和 `scripts/github.ps1`，身份固定为 `LING71671`。禁止切换全局账号或提交凭据。解码保持纯 MoonBit、离线运行。保留未解析资源 ID；APK 提取、ARSC 解析、签名和 DEX 解析不在范围内。
