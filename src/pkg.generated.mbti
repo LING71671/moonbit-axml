@@ -33,12 +33,15 @@ pub(all) struct Document {
   resource_ids : Array[UInt32]
   events : Array[Event]
 } derive(Eq, ToJson, @debug.Debug)
+pub fn Document::elements(Self, String?, String) -> Array[Event]
+pub fn Document::root(Self) -> Event?
 
 pub(all) struct Event {
   offset : Int32
   line_number : UInt32
   kind : EventKind
 } derive(Eq, ToJson, @debug.Debug)
+pub fn Event::attribute(Self, String?, String) -> Attribute?
 
 pub(all) enum EventKind {
   StartNamespace(String?, String)
