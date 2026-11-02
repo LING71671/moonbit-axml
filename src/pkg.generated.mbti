@@ -111,7 +111,19 @@ pub(all) struct TypedValue {
   data : UInt32
   string_value : String?
 } derive(Eq, ToJson, @debug.Debug)
+pub fn TypedValue::as_boolean(Self) -> Bool?
+pub fn TypedValue::as_float(Self) -> Float?
+pub fn TypedValue::as_integer(Self) -> Int32?
+pub fn TypedValue::as_string(Self) -> String?
+pub fn TypedValue::reference(Self) -> ValueReference?
 pub fn TypedValue::text(Self) -> String raise DecodeError
+
+pub(all) enum ValueReference {
+  Resource(UInt32)
+  ThemeAttribute(UInt32)
+  DynamicResource(UInt32)
+  DynamicThemeAttribute(UInt32)
+} derive(Eq, ToJson, @debug.Debug)
 
 // Type aliases
 
