@@ -8,12 +8,13 @@ Status: **implemented and locally verified on 2026-11-02; release gates remain o
 
 | Check | Verified result | Evidence |
 | --- | --- | --- |
-| Current local MoonBit suite | 75/75 tests each on wasm-gc, JavaScript, and Windows native | [Development verification](../evidence/verification-development.json); colocated tests including `src/catalog/` |
-| Current hosted MoonBit suite | 75/75 tests per backend on Linux and Windows; wasm-gc, JavaScript, and native | [CI for `61279a8`](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996), [recorded results](../evidence/verification-development.json) |
-| CLI corpus | 19 fixture hashes, 7 XML semantic trees, 3 manifest records, 12 malformed-input errors | `scripts/verify_cli.py`, `fixtures/manifest.json` |
-| CLI hosts | Node.js, Windows native, Linux native | Same corpus; [Linux execution record](../evidence/verification-linux.json) |
+| Current local MoonBit suite | 114/114 tests each on wasm-gc, JavaScript, and Windows native | [Extension verification](../evidence/verification-extension.json); colocated tests including `src/catalog/` |
+| Current hosted MoonBit suite | 114/114 tests per backend on Linux and Windows; wasm-gc, JavaScript, and native | [CI for `6bc076b`](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059), [recorded results](../evidence/verification-extension.json) |
+| CLI corpus | 19 fixture hashes, 7 XML semantic trees, 3 manifest records, menu statistics, exact typed-reference origins, 12 malformed-input fixtures | `scripts/verify_cli.py`, `fixtures/manifest.json` |
+| CLI hosts | Node.js, Windows native, Linux native | Same extended corpus; [per-host results](../evidence/verification-extension.json) |
 | Independent references | aapt2 2.20-13193326, Android Build Tools 36.0.0 / android-36, androguard 4.1.3 | `fixtures/reference/`, [reproduction instructions](../fixtures/README.md) |
 | Bounded Windows benchmarks | Four cases, JS/native, three measured runs per case; all 24 pass | [Method and results](BENCHMARKS.md), [raw evidence](../evidence/benchmark.json) |
+| Hosted stress correctness | Four cases × JS/native on Linux and Windows; all 16 pass | [CI and log verification](../evidence/verification-extension.json); no timing thresholds |
 
 The earlier 46-test Linux snapshot ran as a native executable inside Debian on WSL2. It is distinct from hosted CI and does not cover subsequent APIs. Evidence files identify their toolchain versions and source hashes; new code changes require rerunning the relevant checks.
 
@@ -24,6 +25,7 @@ The earlier 46-test Linux snapshot ran as a native executable inside Debian on W
 - [x] Render escaped XML with equivalent expanded names and values. Independent ElementTree comparison uses normalized semantic trees, including namespace shadowing and Unicode cases.
 - [x] Extract package/version, SDK declarations, permissions, application attributes, and components; compare three owned compiled manifests against independent references.
 - [x] Reject malformed input with byte offsets. Twelve invalid fixtures plus whitebox truncation, Unicode, namespace, limits, and single-byte mutation tests pass; this is bounded testing, not exhaustive fuzzing.
+- [x] Inspect explicit intent-filter declarations, summarize document statistics, inventory located resource/theme references, and expose encoded dimension/fraction units. These APIs retain raw data and do not apply Android runtime intent matching, resource lookup, or display metrics.
 
 ## End-to-end workflows
 
@@ -43,8 +45,8 @@ The CLI accepts extracted AXML files, one per invocation, with help/version flag
 
 ## Release gates
 
-- [x] Current hosted Linux and Windows verification passed for `61279a8`: 75 tests per backend and the complete JS/native CLI corpus, including help/version/terminator checks. [GitHub Actions run](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996), [recorded results](../evidence/verification-development.json). Subsequent documentation/evidence commits do not change the tested source.
-- [x] Initial hosted Linux and Windows format/interface/check/build/test and JS/native CLI-corpus jobs passed for commit `19c2e11`: [GitHub Actions run](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057), [recorded results](../evidence/verification-hosted.json). Each backend ran 46 tests on each host. This historical snapshot predates the query, batch, and rendering additions; current verification is recorded separately.
+- [x] Current hosted Linux and Windows verification passed for `6bc076b`: 114 tests per backend, complete extended JS/native CLI corpus, and eight bounded stress cases per host. [GitHub Actions run](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059), [recorded results](../evidence/verification-extension.json). Subsequent documentation/evidence commits do not change the tested source.
+- [x] Historical hosted snapshots remain available: `61279a8` ran 75 tests per backend ([CI](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996), [evidence](../evidence/verification-development.json)); `19c2e11` ran 46 ([CI](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057), [evidence](../evidence/verification-hosted.json)). Both hosts passed their corresponding format/interface/check/build/test and CLI-corpus checks; those snapshots do not cover later APIs.
 - [ ] Review package contents and final metadata, verify the authenticated owner, and explicitly authorize publication. Use repository-scoped account wrappers from [ACCOUNTS.md](ACCOUNTS.md); never switch global accounts.
 - [ ] Publish the approved Mooncakes release and verify installation from the registry. Current status remains unpublished.
 - [ ] Before any contest application, rerun duplicate searches and have the participant review eligibility, application wording, and AI-use declarations. No automatic submission is implied.

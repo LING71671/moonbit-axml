@@ -1,0 +1,944 @@
+{
+  "verification_date": "2026-11-02",
+  "repository": "LING71671/moonbit-axml",
+  "verified_head": "6bc076bf3e11a6cfeb1c5de1df59f4d7c125b378",
+  "source_sha256": {
+    "scripts/benchmark.py": "7c876b4ecf9cdb9d902268ac5c60a7cc5a8ce31cb68d81490ad5913e51d5ce51",
+    "scripts/generate_fixtures.py": "06bbd73ca25df622b099c43b6925841e44158de04fdb5eae3db79ac6dc1b2920",
+    "moon.mod": "bcb98c2ce364a21599ca6c1c2d1013cc0e9a3a09f7ac4c48238f1b345ef9bd89",
+    "src/catalog/catalog.mbt": "a9c9a08a226c7a02c51225359642e87304d023790d1859cf85a33accdecd0957",
+    "src/catalog/catalog_test.mbt": "f64cc2dad72c229fe593369c8062901c94e1b9a5b74888d47846e92973890ef2",
+    "src/catalog/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+    "src/cli/cli.mbt": "4f8dd82f2c63baabe89d25998f045781f4372d9445266f76c49a874600e92174",
+    "src/cli/cli_test.mbt": "30a4c7e6ff476a224e6e4649c7232c7a40d287bb2ceea960af4e8e467bd11f89",
+    "src/cli/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+    "src/cmd/axml/main.mbt": "9ef29aaf781c5466d5aa67543f17b29c7b33b5bb5a45be4dd300f07c5fb1b923",
+    "src/cmd/axml/moon.pkg": "33eb6c3528985f7f1c903e66e4e2de045676ad07296dfe9bc8677a13261319e1",
+    "src/cmd/axml-native/main.mbt": "947cfc889db1fbeab84458c1251ac0c037879d1d29a56fb61a5d7e94eceee289",
+    "src/cmd/axml-native/moon.pkg": "d0827903e054f18a63f8db4e14c41c068840e98c759db9d4ad02110485afe9d8",
+    "src/complex_values.mbt": "ba28134bde2ec9307502f88de0c9d6f7e66926829bac9bcb92d0f547d3f02ae3",
+    "src/complex_values_test.mbt": "4211890bc374bb2445267a30bb877a904dce6bad12936d84d5afae0a0fb6d00b",
+    "src/decoder.mbt": "de909baa9d8273a6f5446269496cc4ff255be0573544eea9474a434d4ae1df1a",
+    "src/decoder_wbtest.mbt": "d8bae7fb0687c4249d1c0499366f682501a4ea2755b638aaae26b7bb52fe911b",
+    "src/fixtures_test.mbt": "d0eee01429451f014e556daffbda1b985c868f0af3cc032a786a389dc784e6bd",
+    "src/intent_filters.mbt": "3c0bae75672d8a7d9086a5b161b8a2f1509a3753ed84c1a609e4ee89df13db03",
+    "src/intent_filters_test.mbt": "7075996b2d8de87aeb23606a76d48957cfa66673fca0f962133f73c2999125e0",
+    "src/manifest.mbt": "caa6efe186f2110e7fbb7ffbd66c6ebd867f17b451c864022f75c1308b818a7a",
+    "src/manifest_helpers.mbt": "abae00213bef2823eecc26c3f2bfafb9bb4628b2cab189b154f3b37663a03a5b",
+    "src/manifest_helpers_test.mbt": "83175714c3d70a5c0086a0c3376861170610953d3f05d1c44ccfeca45d3e9853",
+    "src/manifest_test.mbt": "1ae929829d37c1bcd850ed48318d6e298ad2fcbd55d7b712991d983e0a883505",
+    "src/model.mbt": "c95c85f358df06f7687e018f0a2d1676d04c9ab66a33270237ba66e4e959c2d6",
+    "src/moon.pkg": "fa73e778eb5224993be13a98c893f1a2778999f004bc75af307a1ee52639c952",
+    "src/query.mbt": "85211bcbb68b4d904c42f373196082c8f7103173f997ff0e2ec18d08224239f4",
+    "src/query_test.mbt": "82083b9496b16f38bc7c33f07336f876771ebc1cc9342334ff7f49ada988d56b",
+    "src/reader.mbt": "50f03b85f25205957d1b541be1514a415edb1cdaf6017bc91cab7cb2f85672b2",
+    "src/render.mbt": "c35c3992798347983b463c652f6884aa1afef722568451e81e5d0724ef0ed477",
+    "src/render_allocation_test.mbt": "62f75fa73490116120dc9a2e4cbf280799fd7aab9ad3a69ee17ef5d902bac95c",
+    "src/render_test.mbt": "a6b1d716403ba873ea68f6854ec12b3cb26ec1b9881508101dc5139537e7b20f",
+    "src/resource_usage.mbt": "11b4d835e0be2907fadb4f8589ae4b4473b54674499caa2f29f7464a461abc57",
+    "src/resource_usage_test.mbt": "eabcd9a238839f79f833ba23ae563cf861b41028c9169160593c899c3dca949f",
+    "src/stats.mbt": "cad82d36b3874079bc8d45e1329ede11d26422ad7791fa6cbb363d53f109025c",
+    "src/stats_test.mbt": "dce30c1b065fcd9355162a0a918949c3f0f5162d550ff5fa610d6b129767eef1",
+    "src/string_pool.mbt": "e8ab9e4dcee60cc51a8748873a8eabe04a9ebfe800387abd02be5fd160d78c5b",
+    "src/value_views.mbt": "0df448b83cebdcb5e59641bb0f0f6b09e010c75ee83bf29a987e1fd281b215b8",
+    "src/value_views_test.mbt": "99a21037989b6a533ed1c954246d6afe03c3cfbd33bd1fe8f48474bcbe9cf59a"
+  },
+  "local": {
+    "platform": "Windows 11 AMD64",
+    "toolchain": {
+      "system": "Windows",
+      "release": "11",
+      "machine": "AMD64",
+      "python": "3.13.14",
+      "node": "v22.22.1",
+      "moon": "moon 0.1.20261028 (e1e1f15 2026-10-28) ~\\.moon\\bin\\moon.exe\nmoonc v0.10.18+6c83a7f62 (2026-10-28) \\\\?\\C:\\Users\\www17\\.moon\\bin\\moonc.exe\nmoonrun 0.1.20261028 (e1e1f15 2026-10-28) \\\\?\\C:\\Users\\www17\\.moon\\bin\\moonrun.exe\n\nFeature flags enabled: rr_moon_mod,rr_moon_pkg"
+    },
+    "checks": [
+      "moon fmt --check",
+      "moon info; generated public interfaces unchanged",
+      "moon check --target all --deny-warn",
+      "moon build src/cmd/axml --target js --deny-warn",
+      "moon build src/cmd/axml-native --target native --deny-warn"
+    ],
+    "all_checks_passed": true,
+    "tests": [
+      {
+        "backend": "wasm-gc",
+        "total": 114,
+        "passed": 114,
+        "failed": 0
+      },
+      {
+        "backend": "js",
+        "total": 114,
+        "passed": 114,
+        "failed": 0
+      },
+      {
+        "backend": "native",
+        "total": 114,
+        "passed": 114,
+        "failed": 0
+      }
+    ],
+    "cli_commands": [
+      "python scripts/verify_cli.py --cli node _build/js/debug/build/cmd/axml/axml.js",
+      "python scripts/verify_cli.py --cli _build/native/debug/build/cmd/axml-native/axml-native.exe"
+    ],
+    "cli_result": "Both pass: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; exact typed resource usages; 12 malformed fixtures; help/version/terminator checks",
+    "stress": {
+      "schema_version": 1,
+      "measured_at_utc": "2026-11-02T13:14:36.11039+08:00",
+      "source_commit": "6bc076bf3e11a6cfeb1c5de1df59f4d7c125b378",
+      "tracked_changes_at_measurement": [
+        "M AGENTS.md",
+        " M AGENTS_zh.md",
+        " M README.md",
+        " M README_zh.md",
+        " M THIRD_PARTY.md",
+        " M THIRD_PARTY_zh.md",
+        " M docs/COMPLEX_VALUES.md",
+        " M docs/COMPLEX_VALUES_zh.md",
+        " M docs/PORTFOLIO.md",
+        " M docs/PORTFOLIO_zh.md"
+      ],
+      "source_sha256": {
+        "scripts/benchmark.py": "7c876b4ecf9cdb9d902268ac5c60a7cc5a8ce31cb68d81490ad5913e51d5ce51",
+        "scripts/generate_fixtures.py": "06bbd73ca25df622b099c43b6925841e44158de04fdb5eae3db79ac6dc1b2920",
+        "moon.mod": "bcb98c2ce364a21599ca6c1c2d1013cc0e9a3a09f7ac4c48238f1b345ef9bd89",
+        "src/catalog/catalog.mbt": "a9c9a08a226c7a02c51225359642e87304d023790d1859cf85a33accdecd0957",
+        "src/catalog/catalog_test.mbt": "f64cc2dad72c229fe593369c8062901c94e1b9a5b74888d47846e92973890ef2",
+        "src/catalog/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+        "src/cli/cli.mbt": "4f8dd82f2c63baabe89d25998f045781f4372d9445266f76c49a874600e92174",
+        "src/cli/cli_test.mbt": "30a4c7e6ff476a224e6e4649c7232c7a40d287bb2ceea960af4e8e467bd11f89",
+        "src/cli/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+        "src/cmd/axml/main.mbt": "9ef29aaf781c5466d5aa67543f17b29c7b33b5bb5a45be4dd300f07c5fb1b923",
+        "src/cmd/axml/moon.pkg": "33eb6c3528985f7f1c903e66e4e2de045676ad07296dfe9bc8677a13261319e1",
+        "src/cmd/axml-native/main.mbt": "947cfc889db1fbeab84458c1251ac0c037879d1d29a56fb61a5d7e94eceee289",
+        "src/cmd/axml-native/moon.pkg": "d0827903e054f18a63f8db4e14c41c068840e98c759db9d4ad02110485afe9d8",
+        "src/complex_values.mbt": "ba28134bde2ec9307502f88de0c9d6f7e66926829bac9bcb92d0f547d3f02ae3",
+        "src/complex_values_test.mbt": "4211890bc374bb2445267a30bb877a904dce6bad12936d84d5afae0a0fb6d00b",
+        "src/decoder.mbt": "de909baa9d8273a6f5446269496cc4ff255be0573544eea9474a434d4ae1df1a",
+        "src/decoder_wbtest.mbt": "d8bae7fb0687c4249d1c0499366f682501a4ea2755b638aaae26b7bb52fe911b",
+        "src/fixtures_test.mbt": "d0eee01429451f014e556daffbda1b985c868f0af3cc032a786a389dc784e6bd",
+        "src/intent_filters.mbt": "3c0bae75672d8a7d9086a5b161b8a2f1509a3753ed84c1a609e4ee89df13db03",
+        "src/intent_filters_test.mbt": "7075996b2d8de87aeb23606a76d48957cfa66673fca0f962133f73c2999125e0",
+        "src/manifest.mbt": "caa6efe186f2110e7fbb7ffbd66c6ebd867f17b451c864022f75c1308b818a7a",
+        "src/manifest_helpers.mbt": "abae00213bef2823eecc26c3f2bfafb9bb4628b2cab189b154f3b37663a03a5b",
+        "src/manifest_helpers_test.mbt": "83175714c3d70a5c0086a0c3376861170610953d3f05d1c44ccfeca45d3e9853",
+        "src/manifest_test.mbt": "1ae929829d37c1bcd850ed48318d6e298ad2fcbd55d7b712991d983e0a883505",
+        "src/model.mbt": "c95c85f358df06f7687e018f0a2d1676d04c9ab66a33270237ba66e4e959c2d6",
+        "src/moon.pkg": "fa73e778eb5224993be13a98c893f1a2778999f004bc75af307a1ee52639c952",
+        "src/query.mbt": "85211bcbb68b4d904c42f373196082c8f7103173f997ff0e2ec18d08224239f4",
+        "src/query_test.mbt": "82083b9496b16f38bc7c33f07336f876771ebc1cc9342334ff7f49ada988d56b",
+        "src/reader.mbt": "50f03b85f25205957d1b541be1514a415edb1cdaf6017bc91cab7cb2f85672b2",
+        "src/render.mbt": "c35c3992798347983b463c652f6884aa1afef722568451e81e5d0724ef0ed477",
+        "src/render_allocation_test.mbt": "62f75fa73490116120dc9a2e4cbf280799fd7aab9ad3a69ee17ef5d902bac95c",
+        "src/render_test.mbt": "a6b1d716403ba873ea68f6854ec12b3cb26ec1b9881508101dc5139537e7b20f",
+        "src/resource_usage.mbt": "11b4d835e0be2907fadb4f8589ae4b4473b54674499caa2f29f7464a461abc57",
+        "src/resource_usage_test.mbt": "eabcd9a238839f79f833ba23ae563cf861b41028c9169160593c899c3dca949f",
+        "src/stats.mbt": "cad82d36b3874079bc8d45e1329ede11d26422ad7791fa6cbb363d53f109025c",
+        "src/stats_test.mbt": "dce30c1b065fcd9355162a0a918949c3f0f5162d550ff5fa610d6b129767eef1",
+        "src/string_pool.mbt": "e8ab9e4dcee60cc51a8748873a8eabe04a9ebfe800387abd02be5fd160d78c5b",
+        "src/value_views.mbt": "0df448b83cebdcb5e59641bb0f0f6b09e010c75ee83bf29a987e1fd281b215b8",
+        "src/value_views_test.mbt": "99a21037989b6a533ed1c954246d6afe03c3cfbd33bd1fe8f48474bcbe9cf59a"
+      },
+      "host": {
+        "system": "Windows",
+        "release": "11",
+        "machine": "AMD64",
+        "python": "3.13.14",
+        "node": "v22.22.1",
+        "moon": "moon 0.1.20261028 (e1e1f15 2026-10-28) ~\\.moon\\bin\\moon.exe\nmoonc v0.10.18+6c83a7f62 (2026-10-28) \\\\?\\C:\\Users\\www17\\.moon\\bin\\moonc.exe\nmoonrun 0.1.20261028 (e1e1f15 2026-10-28) \\\\?\\C:\\Users\\www17\\.moon\\bin\\moonrun.exe\n\nFeature flags enabled: rr_moon_mod,rr_moon_pkg"
+      },
+      "method": {
+        "operation": "decode",
+        "build_profile": "debug (unless overridden paths)",
+        "warmup_runs_discarded_per_case": 0,
+        "measured_runs_per_case": 1,
+        "timeout_seconds_per_run": 30,
+        "rss_watchdog_bytes": 1073741824,
+        "poll_seconds": 0.005,
+        "includes": "fresh child startup, input I/O, decoding, XML rendering, output to temporary file",
+        "excludes": "fixture construction, parent Python memory, XML/hash verification, descendants",
+        "note": "RSS watchdog is sampled, not a hard memory cap; POSIX checks RSS at process exit. Fresh-process warmups warm filesystem caches, not a persistent VM. No throughput or portable performance guarantee."
+      },
+      "backends": {
+        "js": {
+          "command": [
+            "node",
+            "--max-old-space-size=256",
+            "_build/js/debug/build/cmd/axml/axml.js"
+          ],
+          "artifact_sha256": "36c7f964937bb09d667eaf690077daded160164f3fa9a55d9fe724dac2a73165"
+        },
+        "native": {
+          "command": [
+            "_build/native/debug/build/cmd/axml-native/axml-native.exe"
+          ],
+          "artifact_sha256": "254604d6e55f898d110f240d293d7a809b04e773339ce6e8f903a18afbda855e"
+        }
+      },
+      "cases": [
+        {
+          "name": "large_pool",
+          "path": "_build/benchmarks/large_pool.axml",
+          "input_bytes": 2000088,
+          "input_sha256": "7e7c7af641dc39b76acc70d29e635aaa5d17dc8c57e3d01043d28fc517282212",
+          "string_count": 100000,
+          "decoded_utf16_units": 1299991,
+          "max_depth": 1,
+          "event_count": 2,
+          "expected_exit_code": 0,
+          "expected_stdout_bytes": 14,
+          "expected_stdout_sha256": "8a4dc1405e7596be2e69f513fd0258c9a218eabc77e68574f7fec46ed1f4deb7",
+          "expected_error_offset": null
+        },
+        {
+          "name": "max_depth",
+          "path": "_build/benchmarks/max_depth.axml",
+          "input_bytes": 15408,
+          "input_sha256": "0bae9e3f49f237ce69cebe75d1aaa37c021c5f152bc4e4f191299f2a8567ed16",
+          "string_count": 1,
+          "decoded_utf16_units": 4,
+          "max_depth": 256,
+          "event_count": 512,
+          "expected_exit_code": 0,
+          "expected_stdout_bytes": 3329,
+          "expected_stdout_sha256": "1bf6d554e4b7cd116aa6d1dffc012cd32f5098add7dbfc36e1698a8bab086999",
+          "expected_error_offset": null
+        },
+        {
+          "name": "repeated_strings",
+          "path": "_build/benchmarks/repeated_strings.axml",
+          "input_bytes": 168064,
+          "input_sha256": "5e63612902ebfa26111c3b8987ce84d1e8599b42e77074f107b4ed64c484e2aa",
+          "string_count": 3,
+          "decoded_utf16_units": 4105,
+          "max_depth": 2,
+          "event_count": 4098,
+          "expected_exit_code": 0,
+          "expected_stdout_bytes": 8454158,
+          "expected_stdout_sha256": "61b7c5b1086657b592671b40760ab166ceb9d94386361e23091196d562f7b4f1",
+          "expected_error_offset": null
+        },
+        {
+          "name": "malformed_input",
+          "path": "_build/benchmarks/malformed_input.axml",
+          "input_bytes": 2000088,
+          "input_sha256": "422c381b99c8392defaa6c2b6a04fd6ec1f70b91e237fb189eb3dfc89634b1fc",
+          "string_count": 100000,
+          "decoded_utf16_units": 1299991,
+          "max_depth": 1,
+          "event_count": 2,
+          "expected_exit_code": 1,
+          "expected_stdout_bytes": 0,
+          "expected_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "expected_error_offset": 2000084
+        }
+      ],
+      "results": [
+        {
+          "backend": "js",
+          "case": "large_pool",
+          "runs": [
+            {
+              "elapsed_seconds": 0.196016,
+              "peak_rss_bytes": 74174464,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 0,
+              "stdout_bytes": 14
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.196016,
+            "median": 0.196016,
+            "max": 0.196016
+          },
+          "peak_rss_bytes_max": 74174464
+        },
+        {
+          "backend": "js",
+          "case": "max_depth",
+          "runs": [
+            {
+              "elapsed_seconds": 0.147443,
+              "peak_rss_bytes": 48406528,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 0,
+              "stdout_bytes": 3329
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.147443,
+            "median": 0.147443,
+            "max": 0.147443
+          },
+          "peak_rss_bytes_max": 48406528
+        },
+        {
+          "backend": "js",
+          "case": "repeated_strings",
+          "runs": [
+            {
+              "elapsed_seconds": 0.251197,
+              "peak_rss_bytes": 71921664,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 0,
+              "stdout_bytes": 8454158
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.251197,
+            "median": 0.251197,
+            "max": 0.251197
+          },
+          "peak_rss_bytes_max": 71921664
+        },
+        {
+          "backend": "js",
+          "case": "malformed_input",
+          "runs": [
+            {
+              "elapsed_seconds": 0.186269,
+              "peak_rss_bytes": 74305536,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 1,
+              "stdout_bytes": 0
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.186269,
+            "median": 0.186269,
+            "max": 0.186269
+          },
+          "peak_rss_bytes_max": 74305536
+        },
+        {
+          "backend": "native",
+          "case": "large_pool",
+          "runs": [
+            {
+              "elapsed_seconds": 0.111025,
+              "peak_rss_bytes": 16502784,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 0,
+              "stdout_bytes": 14
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.111025,
+            "median": 0.111025,
+            "max": 0.111025
+          },
+          "peak_rss_bytes_max": 16502784
+        },
+        {
+          "backend": "native",
+          "case": "max_depth",
+          "runs": [
+            {
+              "elapsed_seconds": 0.021512,
+              "peak_rss_bytes": 9908224,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 0,
+              "stdout_bytes": 3329
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.021512,
+            "median": 0.021512,
+            "max": 0.021512
+          },
+          "peak_rss_bytes_max": 9908224
+        },
+        {
+          "backend": "native",
+          "case": "repeated_strings",
+          "runs": [
+            {
+              "elapsed_seconds": 0.210024,
+              "peak_rss_bytes": 43507712,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 0,
+              "stdout_bytes": 8454158
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.210024,
+            "median": 0.210024,
+            "max": 0.210024
+          },
+          "peak_rss_bytes_max": 43507712
+        },
+        {
+          "backend": "native",
+          "case": "malformed_input",
+          "runs": [
+            {
+              "elapsed_seconds": 0.131734,
+              "peak_rss_bytes": 16457728,
+              "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+              "final_peak_available": true,
+              "exit_code": 1,
+              "stdout_bytes": 0
+            }
+          ],
+          "elapsed_seconds": {
+            "min": 0.131734,
+            "median": 0.131734,
+            "max": 0.131734
+          },
+          "peak_rss_bytes_max": 16457728
+        }
+      ],
+      "all_correctness_checks_passed": true,
+      "all_runs_have_final_peak_rss": true
+    },
+    "independent_review": "Read-only review found no actionable correctness issues in complex values, statistics, resource-usage inventory, intent filters, and helper APIs."
+  },
+  "hosted": {
+    "conclusion": "success",
+    "databaseId": 41392861059,
+    "headSha": "6bc076bf3e11a6cfeb1c5de1df59f4d7c125b378",
+    "jobs": [
+      {
+        "completedAt": "2026-11-02T05:15:54Z",
+        "conclusion": "success",
+        "databaseId": 125107828740,
+        "name": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)",
+        "startedAt": "2026-11-02T05:14:42Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-02T05:14:45Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-02T05:14:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:50Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 2,
+            "startedAt": "2026-11-02T05:14:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:55Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "number": 3,
+            "startedAt": "2026-11-02T05:14:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:55Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "number": 4,
+            "startedAt": "2026-11-02T05:14:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:17Z",
+            "conclusion": "success",
+            "name": "Run hustcer/setup-moonbit@87e2bdf5cf20d3b6f5c5f266a8a513f503bb5b76",
+            "number": 5,
+            "startedAt": "2026-11-02T05:14:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:18Z",
+            "conclusion": "success",
+            "name": "Check formatting",
+            "number": 6,
+            "startedAt": "2026-11-02T05:15:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:19Z",
+            "conclusion": "success",
+            "name": "Generate public interfaces",
+            "number": 7,
+            "startedAt": "2026-11-02T05:15:18Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:19Z",
+            "conclusion": "success",
+            "name": "Verify committed public interfaces",
+            "number": 8,
+            "startedAt": "2026-11-02T05:15:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:20Z",
+            "conclusion": "success",
+            "name": "Check every backend",
+            "number": 9,
+            "startedAt": "2026-11-02T05:15:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:22Z",
+            "conclusion": "success",
+            "name": "Test wasm-gc",
+            "number": 10,
+            "startedAt": "2026-11-02T05:15:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:23Z",
+            "conclusion": "success",
+            "name": "Test JavaScript",
+            "number": 11,
+            "startedAt": "2026-11-02T05:15:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:34Z",
+            "conclusion": "success",
+            "name": "Test native",
+            "number": 12,
+            "startedAt": "2026-11-02T05:15:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:35Z",
+            "conclusion": "success",
+            "name": "Build JavaScript CLI",
+            "number": 13,
+            "startedAt": "2026-11-02T05:15:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:42Z",
+            "conclusion": "success",
+            "name": "Verify JavaScript CLI against independent references",
+            "number": 14,
+            "startedAt": "2026-11-02T05:15:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:46Z",
+            "conclusion": "success",
+            "name": "Build native CLI",
+            "number": 15,
+            "startedAt": "2026-11-02T05:15:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:48Z",
+            "conclusion": "success",
+            "name": "Verify native CLI against independent references",
+            "number": 16,
+            "startedAt": "2026-11-02T05:15:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:50Z",
+            "conclusion": "success",
+            "name": "Verify bounded stress cases on both CLI hosts",
+            "number": 17,
+            "startedAt": "2026-11-02T05:15:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:51Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "number": 32,
+            "startedAt": "2026-11-02T05:15:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:51Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "number": 33,
+            "startedAt": "2026-11-02T05:15:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:53Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 34,
+            "startedAt": "2026-11-02T05:15:51Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:53Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 35,
+            "startedAt": "2026-11-02T05:15:53Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41392861059/job/125107828740"
+      },
+      {
+        "completedAt": "2026-11-02T05:15:16Z",
+        "conclusion": "success",
+        "databaseId": 125107829165,
+        "name": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)",
+        "startedAt": "2026-11-02T05:14:42Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-02T05:14:44Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-02T05:14:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:45Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 2,
+            "startedAt": "2026-11-02T05:14:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:45Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "number": 3,
+            "startedAt": "2026-11-02T05:14:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:45Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "number": 4,
+            "startedAt": "2026-11-02T05:14:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:57Z",
+            "conclusion": "success",
+            "name": "Run hustcer/setup-moonbit@87e2bdf5cf20d3b6f5c5f266a8a513f503bb5b76",
+            "number": 5,
+            "startedAt": "2026-11-02T05:14:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:57Z",
+            "conclusion": "success",
+            "name": "Check formatting",
+            "number": 6,
+            "startedAt": "2026-11-02T05:14:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:57Z",
+            "conclusion": "success",
+            "name": "Generate public interfaces",
+            "number": 7,
+            "startedAt": "2026-11-02T05:14:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:57Z",
+            "conclusion": "success",
+            "name": "Verify committed public interfaces",
+            "number": 8,
+            "startedAt": "2026-11-02T05:14:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:58Z",
+            "conclusion": "success",
+            "name": "Check every backend",
+            "number": 9,
+            "startedAt": "2026-11-02T05:14:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:59Z",
+            "conclusion": "success",
+            "name": "Test wasm-gc",
+            "number": 10,
+            "startedAt": "2026-11-02T05:14:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:14:59Z",
+            "conclusion": "success",
+            "name": "Test JavaScript",
+            "number": 11,
+            "startedAt": "2026-11-02T05:14:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:07Z",
+            "conclusion": "success",
+            "name": "Test native",
+            "number": 12,
+            "startedAt": "2026-11-02T05:14:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:07Z",
+            "conclusion": "success",
+            "name": "Build JavaScript CLI",
+            "number": 13,
+            "startedAt": "2026-11-02T05:15:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:11Z",
+            "conclusion": "success",
+            "name": "Verify JavaScript CLI against independent references",
+            "number": 14,
+            "startedAt": "2026-11-02T05:15:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:13Z",
+            "conclusion": "success",
+            "name": "Build native CLI",
+            "number": 15,
+            "startedAt": "2026-11-02T05:15:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:13Z",
+            "conclusion": "success",
+            "name": "Verify native CLI against independent references",
+            "number": 16,
+            "startedAt": "2026-11-02T05:15:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:14Z",
+            "conclusion": "success",
+            "name": "Verify bounded stress cases on both CLI hosts",
+            "number": 17,
+            "startedAt": "2026-11-02T05:15:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:15Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "number": 32,
+            "startedAt": "2026-11-02T05:15:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:15Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+            "number": 33,
+            "startedAt": "2026-11-02T05:15:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:15Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "number": 34,
+            "startedAt": "2026-11-02T05:15:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T05:15:15Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 35,
+            "startedAt": "2026-11-02T05:15:15Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41392861059/job/125107829165"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41392861059"
+  },
+  "private_material": "Private application documents are excluded from version control and module packaging; no application or publication was submitted.",
+  "hosted_log_verification": {
+    "schema_version": 1,
+    "databaseId": 41392861059,
+    "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41392861059",
+    "headSha": "6bc076bf3e11a6cfeb1c5de1df59f4d7c125b378",
+    "conclusion": "success",
+    "raw_log_path": "_build/hosted-twenty.log",
+    "raw_log_sha256": "af69c7f51699cd53ab2059127a2b4d6d5e7d6e8eb6a5c9ec01c924c28f2eb3d5",
+    "totals": {
+      "test_114_pass_matches": 6,
+      "cli_corpus_pass_matches": 4,
+      "bounded_stress_successful_steps": 2,
+      "bounded_stress_case_matches": 16
+    },
+    "jobs": [
+      {
+        "job": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)",
+        "conclusion": "success",
+        "test_114_pass_matches": 3,
+        "cli_corpus_pass_matches": 2,
+        "bounded_stress_successful_steps": 1,
+        "bounded_stress_case_matches": 8,
+        "test_log_lines": [
+          "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:21.9054237Z Total tests: 114, passed: 114, failed: 0.",
+          "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:23.5397820Z Total tests: 114, passed: 114, failed: 0.",
+          "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:34.5716454Z Total tests: 114, passed: 114, failed: 0."
+        ],
+        "corpus_log_lines": [
+          "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:42.6274025Z PASS: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/terminator checks.",
+          "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:48.0212531Z PASS: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/terminator checks."
+        ],
+        "bounded_stress_samples": [
+          {
+            "backend": "js",
+            "case": "large_pool",
+            "elapsed_seconds": 0.162873,
+            "peak_rss_bytes": 61546496,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:49.4487047Z js     large_pool         median=0.162873s peak_rss=61546496"
+          },
+          {
+            "backend": "js",
+            "case": "max_depth",
+            "elapsed_seconds": 0.086008,
+            "peak_rss_bytes": 35454976,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:49.5357798Z js     max_depth          median=0.086008s peak_rss=35454976"
+          },
+          {
+            "backend": "js",
+            "case": "repeated_strings",
+            "elapsed_seconds": 0.229164,
+            "peak_rss_bytes": 60039168,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:49.7739230Z js     repeated_strings   median=0.229164s peak_rss=60039168"
+          },
+          {
+            "backend": "js",
+            "case": "malformed_input",
+            "elapsed_seconds": 0.147953,
+            "peak_rss_bytes": 56479744,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:49.9228875Z js     malformed_input    median=0.147953s peak_rss=56479744"
+          },
+          {
+            "backend": "native",
+            "case": "large_pool",
+            "elapsed_seconds": 0.157642,
+            "peak_rss_bytes": 15761408,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:50.0814588Z native large_pool         median=0.157642s peak_rss=15761408"
+          },
+          {
+            "backend": "native",
+            "case": "max_depth",
+            "elapsed_seconds": 0.017733,
+            "peak_rss_bytes": 9056256,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:50.1001584Z native max_depth          median=0.017733s peak_rss=9056256"
+          },
+          {
+            "backend": "native",
+            "case": "repeated_strings",
+            "elapsed_seconds": 0.252036,
+            "peak_rss_bytes": 42844160,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:50.3610025Z native repeated_strings   median=0.252036s peak_rss=42844160"
+          },
+          {
+            "backend": "native",
+            "case": "malformed_input",
+            "elapsed_seconds": 0.154291,
+            "peak_rss_bytes": 15769600,
+            "log_line": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:50.5163244Z native malformed_input    median=0.154291s peak_rss=15769600"
+          }
+        ]
+      },
+      {
+        "job": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)",
+        "conclusion": "success",
+        "test_114_pass_matches": 3,
+        "cli_corpus_pass_matches": 2,
+        "bounded_stress_successful_steps": 1,
+        "bounded_stress_case_matches": 8,
+        "test_log_lines": [
+          "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:14:59.0185683Z Total tests: 114, passed: 114, failed: 0.",
+          "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:14:59.9885542Z Total tests: 114, passed: 114, failed: 0.",
+          "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:07.7098842Z Total tests: 114, passed: 114, failed: 0."
+        ],
+        "corpus_log_lines": [
+          "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:11.3085018Z PASS: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/terminator checks.",
+          "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:13.2586009Z PASS: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/terminator checks."
+        ],
+        "bounded_stress_samples": [
+          {
+            "backend": "js",
+            "case": "large_pool",
+            "elapsed_seconds": 0.122619,
+            "peak_rss_bytes": 79351808,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.0199708Z js     large_pool         median=0.122619s peak_rss=79351808"
+          },
+          {
+            "backend": "js",
+            "case": "max_depth",
+            "elapsed_seconds": 0.056703,
+            "peak_rss_bytes": 53182464,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.0769009Z js     max_depth          median=0.056703s peak_rss=53182464"
+          },
+          {
+            "backend": "js",
+            "case": "repeated_strings",
+            "elapsed_seconds": 0.179102,
+            "peak_rss_bytes": 78770176,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.2629120Z js     repeated_strings   median=0.179102s peak_rss=78770176"
+          },
+          {
+            "backend": "js",
+            "case": "malformed_input",
+            "elapsed_seconds": 0.119045,
+            "peak_rss_bytes": 75042816,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.3821998Z js     malformed_input    median=0.119045s peak_rss=75042816"
+          },
+          {
+            "backend": "native",
+            "case": "large_pool",
+            "elapsed_seconds": 0.086856,
+            "peak_rss_bytes": 53182464,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.4694119Z native large_pool         median=0.086856s peak_rss=53182464"
+          },
+          {
+            "backend": "native",
+            "case": "max_depth",
+            "elapsed_seconds": 0.00549,
+            "peak_rss_bytes": 53182464,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.4752029Z native max_depth          median=0.005490s peak_rss=53182464"
+          },
+          {
+            "backend": "native",
+            "case": "repeated_strings",
+            "elapsed_seconds": 0.235723,
+            "peak_rss_bytes": 53182464,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.7175185Z native repeated_strings   median=0.235723s peak_rss=53182464"
+          },
+          {
+            "backend": "native",
+            "case": "malformed_input",
+            "elapsed_seconds": 0.097032,
+            "peak_rss_bytes": 53182464,
+            "log_line": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)\tUNKNOWN STEP\t2026-11-02T05:15:14.8148557Z native malformed_input    median=0.097032s peak_rss=53182464"
+          }
+        ]
+      }
+    ],
+    "all_expected_checks_verified": true,
+    "measurement_scope": "One bounded correctness run per case/backend/host, not a throughput or portable memory guarantee."
+  }
+}

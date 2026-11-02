@@ -19,6 +19,8 @@ Run from this checkout:
 moon run src/cmd/axml --target js -- decode fixtures/valid/manifest_unicode.axml
 moon run src/cmd/axml --target js -- inspect --json fixtures/valid/manifest_basic.axml
 moon run src/cmd/axml --target js -- validate fixtures/valid/menu.axml
+moon run src/cmd/axml --target js -- stats --json fixtures/valid/menu.axml
+moon run src/cmd/axml --target js -- refs --json fixtures/valid/menu.axml
 ```
 
 The native equivalent uses `src/cmd/axml-native --target native`:
@@ -32,6 +34,10 @@ locally with a 16 MiB limit. `decode` writes namespace-aware XML, `inspect` writ
 JSON, and `validate` checks binary structure and XML renderability. Exit codes are
 0 for success, 1 for input/I/O errors, and 2 for invalid arguments. Diagnostics
 include byte offsets. CLI errors go to stderr.
+
+`stats` reports pool sizes, event/attribute counts, and nesting. `refs` lists
+typed resource/theme references with their original locations; it does not
+resolve resource IDs. Both commands write JSON and accept optional `--json`.
 
 Use `--version` for the package version and `decode --help` (or the other
 subcommands) for usage. A `--` terminator makes the next argument a literal file,
@@ -62,9 +68,10 @@ Additional APIs are documented separately:
 
 | API | Use |
 | --- | --- |
-| [Document queries](docs/QUERIES.md) | Select elements and attributes by namespace URI and local name |
-| [Typed value views](docs/VALUES.md) | Read strings, signed integers, booleans, floats, and reference kinds without coercion |
-| [Manifest helpers](docs/MANIFEST.md) | Query components and permission declarations; explicitly expand literal component names |
+| [Document queries](docs/QUERIES.md) and [statistics](docs/STATS.md) | Select expanded names and summarize stored pools, events, and depth |
+| [Typed value views](docs/VALUES.md) and [dimensions/fractions](docs/COMPLEX_VALUES.md) | Read typed payloads and encoded units without coercion or display metrics |
+| [Manifest helpers](docs/MANIFEST.md) and [intent filters](docs/INTENTS.md) | Inspect component, permission, action/category, and data declarations without platform defaults |
+| [Resource references](docs/REFERENCES.md) | Retain every reference kind, ID, location, and attribute/text origin |
 | [Batch catalog](docs/CATALOG.md) | Import `LING71671/axml/catalog` to process named byte inputs with independent results and diagnostics |
 
 ## Build and verify
@@ -80,9 +87,10 @@ python scripts/verify_cli.py
 
 The verifier uses Python's standard library. Regenerating fixtures additionally
 requires pinned aapt2 and androguard; see [fixture instructions](fixtures/README.md).
-Current local verification covers **75 tests** each on wasm-gc, JavaScript, and
+Current local verification covers **114 tests** each on wasm-gc, JavaScript, and
 Windows native, plus **19 fixtures**, **7 independent XML trees**,
-**3 manifest records**, and **12 malformed-input cases** through Node and native
+**3 manifest records**, **menu statistics and typed reference locations**, and
+**12 malformed-input cases** through Node and native
 CLIs. Reference outputs come from aapt2/androguard, independently of this parser.
 The checked-in GitHub Actions workflow runs the same checks on Linux and Windows;
 per-commit results, including Linux verification, are recorded in

@@ -15,7 +15,7 @@ match attribute.value.as_dimension() {
 }
 ```
 
-两个视图按 [AOSP TypedValue](https://github.com/aosp-mirror/platform_frameworks_base/blob/master/core/java/android/util/TypedValue.java)
+两个视图按 [AOSP TypedValue](https://github.com/aosp-mirror/platform_frameworks_base/blob/d67e90e8a8301a87726420a1071fca8e52172bd4/core/java/android/util/TypedValue.java)
 解码有符号定点尾数及四种基数。接口保留编码单位，不执行资源查找、密度换算、字体缩放、
 百分数基数选择或整数像素取整。`TypedValue` 上的原始类型和载荷保持可用。
 

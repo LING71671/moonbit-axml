@@ -19,6 +19,8 @@ JavaScript CLI 需要 Node.js **22+**；原生 CLI 需要受支持的原生编�
 moon run src/cmd/axml --target js -- decode fixtures/valid/manifest_unicode.axml
 moon run src/cmd/axml --target js -- inspect --json fixtures/valid/manifest_basic.axml
 moon run src/cmd/axml --target js -- validate fixtures/valid/menu.axml
+moon run src/cmd/axml --target js -- stats --json fixtures/valid/menu.axml
+moon run src/cmd/axml --target js -- refs --json fixtures/valid/menu.axml
 ```
 
 原生版本使用 `src/cmd/axml-native --target native`：
@@ -31,6 +33,9 @@ moon run src/cmd/axml-native --target native -- inspect --json fixtures/valid/ma
 输入上限为 16 MiB。`decode` 输出带命名空间的 XML，`inspect` 输出 JSON，
 `validate` 检查二进制结构与 XML 可输出性。退出码：成功为 0，输入或 I/O 错误为 1，
 参数错误为 2。诊断包含字节偏移，CLI 错误写入 stderr。
+
+`stats` 报告字符串池、事件、属性数量及嵌套深度。`refs` 按原始位置列出类型化资源或主题
+引用，不解析资源 ID。两者均输出 JSON，可选写上 `--json`。
 
 `--version` 显示包版本，`decode --help` 等子命令帮助显示用法。`--` 后的参数按文件名
 处理，例如 `axml decode -- --help` 读取名为 `--help` 的文件。
@@ -58,9 +63,10 @@ Manifest 接口提取包名、版本及 versionCodeMajor、显式 SDK 声明、�
 
 | 接口 | 用途 |
 | --- | --- |
-| [文档查询](docs/QUERIES_zh.md) | 按命名空间 URI 与本地名称选择元素和属性 |
-| [类型值视图](docs/VALUES_zh.md) | 读取字符串、有符号整数、布尔值、浮点数及引用种类，不做强制转换 |
-| [Manifest 辅助接口](docs/MANIFEST_zh.md) | 查询组件与权限声明；显式展开字面量组件名 |
+| [文档查询](docs/QUERIES_zh.md)与[统计](docs/STATS_zh.md) | 按扩展名称查询，并统计字符串池、事件及嵌套深度 |
+| [类型值视图](docs/VALUES_zh.md)与[尺寸/分数](docs/COMPLEX_VALUES_zh.md) | 读取类型化载荷与编码单位，不强制转换或应用显示参数 |
+| [Manifest 辅助接口](docs/MANIFEST_zh.md)与[Intent Filter](docs/INTENTS_zh.md) | 检查组件、权限、action/category 和 data 声明，不推断平台默认值 |
+| [资源引用](docs/REFERENCES_zh.md) | 保留每个引用的类型、ID、位置及属性或文本来源 |
 | [批量目录接口](docs/CATALOG_zh.md) | 导入 `LING71671/axml/catalog`，逐份处理带名称的字节输入并独立返回结果或诊断 |
 
 ## 构建与验证
@@ -75,9 +81,10 @@ python scripts/verify_cli.py
 ```
 
 验证脚本只依赖 Python 标准库。重新生成测试语料另需固定版本的 aapt2 和 androguard，
-详见[语料说明](fixtures/README_zh.md)。最新本地 **75 项测试**已分别在 wasm-gc、JavaScript、
+详见[语料说明](fixtures/README_zh.md)。最新本地 **114 项测试**已分别在 wasm-gc、JavaScript、
 Windows native 通过；Node 和原生 CLI 另通过 **19 份语料**、
-**7 棵独立 XML 语义树**、**3 份 Manifest 记录**、**12 类畸形输入**检查。
+**7 棵独立 XML 语义树**、**3 份 Manifest 记录**、**菜单统计和类型引用位置**、
+**12 类畸形输入**检查。
 参考输出来自 aapt2/androguard，生成过程不依赖本解析器。仓库已配置在 Linux、Windows
 执行同类检查的 GitHub Actions；各提交的结果（包括 Linux 验证）记录在
 [验收清单](docs/ACCEPTANCE_zh.md)。

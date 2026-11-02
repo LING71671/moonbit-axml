@@ -4,7 +4,7 @@
 
 ## 项目结构与模块组织
 
-`moon.mod` 定义模块 `LING71671/axml`。核心解码、XML 渲染与清单检查位于 `src/`；`query.mbt`、`value_views.mbt`、`manifest_helpers.mbt` 提供便捷 API。`src/catalog/` 独立处理具名输入批次。`src/cli/` 处理参数，`src/cmd/axml/` 和 `src/cmd/axml-native/` 提供 Node.js 与 native I/O。测试与源码同目录。`fixtures/` 保存自有样本和独立参考结果；`scripts/` 负责复现与校验；`docs/`、`evidence/` 记录范围与验证证据。
+`moon.mod` 定义模块 `LING71671/axml`。核心解码、渲染与清单检查位于 `src/`，同时提供查询/类型辅助、`stats.mbt`、`resource_usage.mbt` 和 `intent_filters.mbt`。`src/catalog/` 独立处理具名输入批次。`src/cli/` 处理参数，`src/cmd/axml/` 和 `src/cmd/axml-native/` 提供 Node.js 与 native I/O。测试与源码同目录。`fixtures/` 保存自有样本和独立参考结果；`scripts/` 负责复现与校验；`docs/`、`evidence/` 记录范围与验证证据。
 
 ## 构建、测试与开发命令
 

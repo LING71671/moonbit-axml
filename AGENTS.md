@@ -4,7 +4,7 @@
 
 ## Project Structure & Module Organization
 
-`moon.mod` defines `LING71671/axml`. Core decoding, XML rendering, and manifest inspection live in `src/`; `query.mbt`, `value_views.mbt`, and `manifest_helpers.mbt` provide convenience APIs. `src/catalog/` independently processes named input batches. `src/cli/` handles arguments; `src/cmd/axml/` and `src/cmd/axml-native/` supply Node.js and native I/O. Tests are colocated. `fixtures/` contains owned samples and independent references; `scripts/` reproduces and verifies them. `docs/` and `evidence/` record scope and verification.
+`moon.mod` defines `LING71671/axml`. Core decoding, rendering, and manifest inspection live in `src/`, alongside query/value helpers, `stats.mbt`, `resource_usage.mbt`, and `intent_filters.mbt`. `src/catalog/` independently processes named input batches. `src/cli/` handles arguments; `src/cmd/axml/` and `src/cmd/axml-native/` supply Node.js and native I/O. Tests are colocated. `fixtures/` contains owned samples and independent references; `scripts/` reproduces and verifies them. `docs/` and `evidence/` record scope and verification.
 
 ## Build, Test, and Development Commands
 

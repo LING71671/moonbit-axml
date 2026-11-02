@@ -8,12 +8,13 @@
 
 | 检查 | 已验证结果 | 证据 |
 | --- | --- | --- |
-| 最新本地 MoonBit 测试 | wasm-gc、JavaScript、Windows native 各通过 75/75 项 | [开发验证记录](../evidence/verification-development.json)；包含 `src/catalog/` 的同目录测试 |
-| 最新托管 MoonBit 测试 | Linux、Windows 的 wasm-gc、JavaScript、native 各通过 75/75 项 | [`61279a8` 的 CI](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996)、[结果记录](../evidence/verification-development.json) |
-| CLI 语料 | 19 份语料哈希、7 棵 XML 语义树、3 份 Manifest 记录、12 个畸形输入错误 | `scripts/verify_cli.py`、`fixtures/manifest.json` |
-| CLI 宿主 | Node.js、Windows native、Linux native | 相同语料；[Linux 执行记录](../evidence/verification-linux.json) |
+| 最新本地 MoonBit 测试 | wasm-gc、JavaScript、Windows native 各通过 114/114 项 | [扩展验证记录](../evidence/verification-extension.json)；包含 `src/catalog/` 的同目录测试 |
+| 最新托管 MoonBit 测试 | Linux、Windows 的 wasm-gc、JavaScript、native 各通过 114/114 项 | [`6bc076b` 的 CI](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059)、[结果记录](../evidence/verification-extension.json) |
+| CLI 语料 | 19 份语料哈希、7 棵 XML 语义树、3 份 Manifest 记录、菜单统计、精确类型引用来源、12 份畸形输入 | `scripts/verify_cli.py`、`fixtures/manifest.json` |
+| CLI 宿主 | Node.js、Windows native、Linux native | 相同扩展语料；[各宿主结果](../evidence/verification-extension.json) |
 | 独立参考 | aapt2 2.20-13193326、Android Build Tools 36.0.0 / android-36、androguard 4.1.3 | `fixtures/reference/`、[复现步骤](../fixtures/README_zh.md) |
 | Windows 有限基准 | 四种场景，JS/native，各实测三次，24 次全部通过 | [方法与结果](BENCHMARKS_zh.md)、[原始记录](../evidence/benchmark.json) |
+| 托管压力正确性 | Linux、Windows 上各四种场景 × JS/native，16 次全部通过 | [CI 与日志核验](../evidence/verification-extension.json)；不设置耗时阈值 |
 
 早期 46 项测试的 Linux 快照在 WSL2 的 Debian 中运行 native 可执行文件，与托管 CI 分开，且不覆盖后续新增接口。证据文件记录对应工具链版本与源码哈希；修改代码后须重新执行相关检查。
 
@@ -24,6 +25,7 @@
 - [x] 输出转义正确、扩展名称和属性值等价的 XML。独立 ElementTree 检查比较标准化语义树，覆盖命名空间遮蔽和 Unicode。
 - [x] 提取包名/版本、SDK、权限、application 属性和组件；三个自有编译 Manifest 与独立参考逐字段比较。
 - [x] 畸形输入返回带字节偏移的错误。12 份非法语料及白盒截断、Unicode、命名空间、限制、逐字节变异测试已通过；这是有限测试，不是穷尽 fuzzing。
+- [x] 检查显式 Intent Filter 声明、统计文档、列出带位置的资源/主题引用，并暴露尺寸/分数的编码单位。接口保留原始数据，不执行 Android 运行时 Intent 匹配、资源查找或显示参数换算。
 
 ## 端到端流程
 
@@ -43,8 +45,8 @@ CLI 每次接受一个已提取的 AXML 文件，支持帮助、版本参数和�
 
 ## 发布关卡
 
-- [x] 提交 `61279a8` 的最新托管 Linux、Windows 验证通过：每个后端 75 项测试，完整 JS/native CLI 语料及帮助、版本、终止符检查通过。[GitHub Actions](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996)、[结果记录](../evidence/verification-development.json)。后续文档及证据提交不改变已测试源码。
-- [x] 初始提交 `19c2e11` 的托管 Linux、Windows 格式/接口/check/build/test 及 JS/native CLI 语料任务全部通过：[GitHub Actions](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057)、[结果记录](../evidence/verification-hosted.json)。每个宿主的每个后端均运行 46 项测试。该历史快照早于查询、批量及渲染新增功能；最新验证单独记录。
+- [x] 提交 `6bc076b` 的最新托管 Linux、Windows 验证通过：每个后端 114 项测试、完整扩展 JS/native CLI 语料，每个宿主八种压力组合通过。[GitHub Actions](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059)、[结果记录](../evidence/verification-extension.json)。后续文档及证据提交不改变已测试源码。
+- [x] 保留历史托管快照：`61279a8` 每个后端 75 项（[CI](https://github.com/LING71671/moonbit-axml/actions/runs/41391697996)、[证据](../evidence/verification-development.json)）；`19c2e11` 为 46 项（[CI](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057)、[证据](../evidence/verification-hosted.json)）。两个宿主均通过对应的格式、接口、检查、构建、测试及 CLI 语料；这些快照不覆盖之后的新增接口。
 - [ ] 审查包内容及最终元数据，验证认证账号，并明确授权发布。使用 [ACCOUNTS_zh.md](ACCOUNTS_zh.md) 中的仓库账号封装脚本；禁止切换全局账号。
 - [ ] 发布获准的 Mooncakes 版本，并验证从仓库安装；目前仍未发布。
 - [ ] 参赛申报前重新查重，由参与者审阅资格、申请文字及 AI 使用声明；不隐含自动报名。
