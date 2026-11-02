@@ -10,6 +10,8 @@ pub fn decode(Bytes, limits? : Limits) -> Document raise DecodeError
 
 pub fn inspect_manifest(Document) -> Manifest raise DecodeError
 
+pub fn resolve_component_name(String, String) -> String raise DecodeError
+
 pub fn to_xml(Document, max_output_chars? : Int32) -> String raise DecodeError
 
 // Errors
@@ -66,6 +68,8 @@ pub(all) struct Manifest {
   application : ManifestApplication?
   components : Array[ManifestComponent]
 } derive(Eq, ToJson, @debug.Debug)
+pub fn Manifest::components_of_kind(Self, String) -> Array[ManifestComponent]
+pub fn Manifest::requests_permission(Self, String) -> Bool
 
 pub(all) struct ManifestApplication {
   name : Attribute?
@@ -84,6 +88,7 @@ pub(all) struct ManifestComponent {
   permission : Attribute?
   attributes : Array[Attribute]
 } derive(Eq, ToJson, @debug.Debug)
+pub fn ManifestComponent::qualified_name(Self, String) -> String? raise DecodeError
 
 pub(all) struct ManifestPermission {
   kind : String
