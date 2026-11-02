@@ -48,6 +48,7 @@ pub(all) struct Document {
   events : Array[Event]
 } derive(Eq, ToJson, @debug.Debug)
 pub fn Document::elements(Self, String?, String) -> Array[Event]
+pub fn Document::resource_references(Self) -> Array[ResourceUsage]
 pub fn Document::root(Self) -> Event?
 pub fn Document::stats(Self) -> DocumentStats
 
@@ -141,6 +142,18 @@ pub(all) struct ManifestSdk {
   min_sdk : Attribute?
   target_sdk : Attribute?
   max_sdk : Attribute?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ResourceUsage {
+  offset : Int32
+  line_number : UInt32
+  origin : ResourceUsageOrigin
+  reference : ValueReference
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum ResourceUsageOrigin {
+  Attribute(String?, String)
+  Text
 } derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct TypedValue {
