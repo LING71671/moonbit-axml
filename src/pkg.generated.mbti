@@ -8,6 +8,8 @@ import {
 // Values
 pub fn decode(Bytes, limits? : Limits) -> Document raise DecodeError
 
+pub fn inspect_intent_filters(Document) -> Array[ManifestIntentFilter] raise DecodeError
+
 pub fn inspect_manifest(Document) -> Manifest raise DecodeError
 
 pub fn resolve_component_name(String, String) -> String raise DecodeError
@@ -130,6 +132,19 @@ pub(all) struct ManifestComponent {
   attributes : Array[Attribute]
 } derive(Eq, ToJson, @debug.Debug)
 pub fn ManifestComponent::qualified_name(Self, String) -> String? raise DecodeError
+
+pub(all) struct ManifestIntentFilter {
+  component_kind : String
+  component_name : Attribute?
+  offset : Int32
+  line_number : UInt32
+  attributes : Array[Attribute]
+  actions : Array[Attribute]
+  categories : Array[Attribute]
+  data : Array[Array[Attribute]]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn ManifestIntentFilter::has_action(Self, String) -> Bool
+pub fn ManifestIntentFilter::has_category(Self, String) -> Bool
 
 pub(all) struct ManifestPermission {
   kind : String
