@@ -41,7 +41,7 @@ CLI 每次接受一个已提取的 AXML 文件；尚未实现 APK 提取或持�
 
 ## 发布关卡
 
-- [ ] 远程运行 `.github/workflows/ci.yml`，确认格式/接口/check/build/test 和 CLI 语料任务。工作流已存在，尚不宣称托管 CI 成功。
+- [x] 提交 `19c2e11` 的托管 Linux、Windows 格式/接口/check/build/test 及 JS/native CLI 语料任务全部通过：[GitHub Actions](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057)、[结果记录](../evidence/verification-hosted.json)。每个宿主的每个后端均运行 46 项测试。后续仅更新验证文档的提交不改变已测试代码。
 - [ ] 审查包内容及最终元数据，验证认证账号，并明确授权发布。使用 [ACCOUNTS_zh.md](ACCOUNTS_zh.md) 中的仓库账号封装脚本；禁止切换全局账号。
 - [ ] 发布获准的 Mooncakes 版本，并验证从仓库安装；目前仍未发布。
 - [ ] 参赛申报前重新查重，由参与者审阅资格、申请文字及 AI 使用声明；不隐含自动报名。

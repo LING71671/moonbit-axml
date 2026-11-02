@@ -22,7 +22,7 @@
 
 ## 测试要求
 
-使用 MoonBit 内置测试工具：`*_test.mbt` 验证公开行为，`*_wbtest.mbt` 验证内部逻辑。目前不设覆盖率百分比门槛。覆盖边界、编码、命名空间作用域、类型值、转义及错误偏移。与固定版本 aapt2/androguard 的扩展名称语义树和元数据比较。在 `fixtures/manifest.json` 保留来源、许可、哈希和复现命令。本地 wasm-gc、JavaScript、Windows native、Linux native 均已通过测试；远程 CI 仍待验证。
+使用 MoonBit 内置测试工具：`*_test.mbt` 验证公开行为，`*_wbtest.mbt` 验证内部逻辑。目前不设覆盖率百分比门槛。覆盖边界、编码、命名空间作用域、类型值、转义及错误偏移。与固定版本 aapt2/androguard 的扩展名称语义树和元数据比较。在 `fixtures/manifest.json` 保留来源、许可、哈希和复现命令。本地及托管 Linux/Windows 检查均已通过；已验证的提交及证据见 `docs/ACCEPTANCE_zh.md`。
 
 ## 提交与拉取请求要求
 

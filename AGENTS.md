@@ -22,7 +22,7 @@ Use two-space indentation and `moon fmt`. Name functions/files in snake_case and
 
 ## Testing Guidelines
 
-Use MoonBit's built-in test runner: `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals. No coverage percentage is mandated. Cover bounds, encodings, namespace scopes, typed values, escaping, and error offsets. Compare expanded-name semantic trees and metadata against pinned aapt2/androguard references. Maintain origins, licenses, hashes, and reproduction commands in `fixtures/manifest.json`. Local tests currently pass on wasm-gc, JavaScript, Windows native, and Linux native; remote CI remains unverified.
+Use MoonBit's built-in test runner: `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals. No coverage percentage is mandated. Cover bounds, encodings, namespace scopes, typed values, escaping, and error offsets. Compare expanded-name semantic trees and metadata against pinned aapt2/androguard references. Maintain origins, licenses, hashes, and reproduction commands in `fixtures/manifest.json`. Local and hosted Linux/Windows checks pass; see `docs/ACCEPTANCE.md` for the verified commit and evidence.
 
 ## Commit & Pull Request Guidelines
 

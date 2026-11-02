@@ -1,0 +1,190 @@
+{
+  "verification_date": "2026-11-02",
+  "repository": "LING71671/moonbit-axml",
+  "run_url": "https://github.com/LING71671/moonbit-axml/actions/runs/41377746057",
+  "verified_head": "19c2e11b1f4812f5b49ba87f36fe11fdd9e9af3c",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "verify (windows-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)",
+      "conclusion": "success",
+      "completed_at": "2026-11-02T02:28:00Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run hustcer/setup-moonbit@87e2bdf5cf20d3b6f5c5f266a8a513f503bb5b76",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check formatting",
+          "conclusion": "success"
+        },
+        {
+          "name": "Generate public interfaces",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify committed public interfaces",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check every backend",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test wasm-gc",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test JavaScript",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test native",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build JavaScript CLI",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify JavaScript CLI against independent references",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build native CLI",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify native CLI against independent references",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "verify (ubuntu-latest, _build/native/debug/build/cmd/axml-native/axml-native.exe)",
+      "conclusion": "success",
+      "completed_at": "2026-11-02T02:27:11Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run hustcer/setup-moonbit@87e2bdf5cf20d3b6f5c5f266a8a513f503bb5b76",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check formatting",
+          "conclusion": "success"
+        },
+        {
+          "name": "Generate public interfaces",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify committed public interfaces",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check every backend",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test wasm-gc",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test JavaScript",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test native",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build JavaScript CLI",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify JavaScript CLI against independent references",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build native CLI",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify native CLI against independent references",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "tests_per_backend": 46,
+  "tested_backends": [
+    "wasm-gc",
+    "js",
+    "native"
+  ],
+  "cli_fixture_summary": "19 fixture hashes; 7 XML semantic trees; 3 manifest records; 12 malformed errors, for JS and native on both hosts"
+}

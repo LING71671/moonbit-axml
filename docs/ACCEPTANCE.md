@@ -41,7 +41,7 @@ The CLI accepts extracted AXML files, one per invocation. APK extraction and a p
 
 ## Release gates
 
-- [ ] Run `.github/workflows/ci.yml` remotely and confirm format/interface/check/build/test plus CLI-corpus jobs. The workflow exists; no successful hosted run is claimed.
+- [x] Hosted Linux and Windows format/interface/check/build/test and JS/native CLI-corpus jobs passed for commit `19c2e11`: [GitHub Actions run](https://github.com/LING71671/moonbit-axml/actions/runs/41377746057), [recorded results](../evidence/verification-hosted.json). Each backend ran 46 tests on each host. Later documentation-only verification records do not alter that tested code.
 - [ ] Review package contents and final metadata, verify the authenticated owner, and explicitly authorize publication. Use repository-scoped account wrappers from [ACCOUNTS.md](ACCOUNTS.md); never switch global accounts.
 - [ ] Publish the approved Mooncakes release and verify installation from the registry. Current status remains unpublished.
 - [ ] Before any contest application, rerun duplicate searches and have the participant review eligibility, application wording, and AI-use declarations. No automatic submission is implied.
