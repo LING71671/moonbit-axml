@@ -6,6 +6,7 @@ colors:
   plate: "#292823"
   ink: "#ece5d4"
   muted: "#b6ac98"
+  faint: "#8e8573"
   rule: "#615743"
   soft-rule: "#443e32"
   accent: "#ce6857"
@@ -37,6 +38,9 @@ typography:
     fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", monospace'
     fontSize: "0.75rem"
     lineHeight: 1.6
+  search:
+    fontFamily: 'Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif'
+    fontSize: "1rem"
 spacing:
   compact: "0.75rem"
   standard: "1rem"
@@ -61,6 +65,11 @@ components:
     textColor: "{colors.ink}"
   tab-selected:
     textColor: "{colors.ink}"
+  table-search:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.ink}"
+    typography: "{typography.search}"
+    padding: "0.65rem 0.8rem"
 ---
 
 # Design System: MoonAXML
@@ -82,7 +91,7 @@ The system is flat and restrained. Color marks actions, selection, and diagnosti
 - Square controls and one continuous result surface.
 - Fixed reading sizes with explicit responsive adjustments.
 
-This record describes the implemented browser workbench. Ground truth is [the stylesheet](playground/src/style.css), [the markup](playground/index.html), and [the controller](playground/src/main.ts). The reviewed captures are the desktop (1440 px), mobile (390 px), and user-width (1280 px) views in `.impeccable/review/`. Surface composition belongs to [the surface brief](.impeccable/surfaces/playground-index-html.md); product capabilities belong to [PRODUCT.md](PRODUCT.md). This document does not establish deployment status.
+This record describes the implemented browser workbench. Ground truth is [the stylesheet](playground/src/style.css), [the markup](playground/index.html), and [the controller](playground/src/main.ts). The reviewed search-extension captures are the desktop (1440 px), mobile (390 px), and user-width (723 px) views in `.impeccable/review/round2/`. Surface composition belongs to [the surface brief](.impeccable/surfaces/playground-index-html.md); product capabilities belong to [PRODUCT.md](PRODUCT.md). This document does not establish deployment status.
 
 ## Colors
 
@@ -99,6 +108,7 @@ The frontmatter contains the reusable palette. The interface has one scarlet acc
 - **Charcoal ground** (`ground`) supports the outer workspace; **warm charcoal plate** (`plate`) carries the result folio.
 - **Ivory ink** (`ink`) carries headings and primary information; **aged-paper muted** (`muted`) carries supporting labels and context.
 - **Sepia rule** (`rule`) divides main regions; **soft sepia rule** (`soft-rule`) divides rows and internal regions.
+- **Faint sepia** (`faint`) outlines the search fields, providing a visible control boundary against the ground (4.31:1 contrast).
 
 **The Restrained Scarlet Rule.** Use scarlet for actionable controls, selected-view markers, source links, focus, and diagnostics; keep long-form result data neutral.
 
@@ -113,6 +123,7 @@ Alegreya gives the brand and headings their printed character. Arial, with Noto 
 - **Display:** the wordmark uses the display role; its AXML suffix is italic. It becomes smaller (1.75rem) on narrow screens.
 - **Headline and title:** result headings use the headline role; content subheadings use the title role. Four-view selectors use Alegreya (1.3125rem desktop; 1.0625rem narrow).
 - **Labels:** primary and text actions, sample selection, and header navigation use the label role. Supporting UI text generally stays at the smaller reading step (0.75rem).
+- **Search:** native search fields use the system sans-serif stack at the search role (16px), retaining that reading size on narrow screens.
 - **Data:** XML uses the data role, changing to 0.8125rem with line-height 1.85 on narrow screens. Tables use monospaced cells (0.8125rem); package identifiers use a larger mono step (1rem). Metadata uses tabular numerals where appropriate.
 
 **The Fixed Reading Scale Rule.** Keep data and control sizes tied to their reading role. Change layout before reducing the type scale.
@@ -156,6 +167,14 @@ Interactive controls receive a light-scarlet outline on keyboard focus (2px, off
 ### Registered view navigation
 
 XML, Manifest, Structure, and References share the same input. Separators align the four equal columns. The selected tab combines ivory text and the scarlet underline. Tabs use selected state, controlled panels, and roving focus; Left/Right, Home, and End move between views.
+
+### Local table search
+
+Structure and References each use a visibly labeled native search field, a clear text action, and a polite matched/available count. The field has a square one-pixel faint-sepia border, ground background, ivory text, muted placeholder, and light-scarlet caret. Keyboard focus uses a two-pixel light-scarlet outline with a three-pixel offset. Fields and clear actions are at least 44px high, rising to 48px at or below 45em; summaries stack on narrow screens.
+
+Filtering trims and lowercases a literal substring against raw names, kinds, namespace URIs, reference origins, and decimal or hexadecimal IDs/offsets as applicable. It retains the input node while updating result rows and defers filtering during IME composition. Native input behavior handles Enter. Queries persist across tabs and language changes and reset for a new file or sample. Clear restores the available rows and returns focus to the field. Zero matches use concise factual text.
+
+Structure searches only the original preview of up to 1,000 events. Following a source action clears its query and locates the original preview page. Copy and download ignore both queries; Structure JSON still contains only that bounded event preview. Table pages remain 50 rows, and narrow tables scroll locally.
 
 ### Result folio and data rows
 

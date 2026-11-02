@@ -30,11 +30,16 @@ pnpm dev
 Intent Filter 各预览前 **50 条**，显示总数，完整 JSON 可通过复制/下载获取。
 这些浏览器限制与下文的库默认值分别设置。
 
+结构与引用视图支持本地字面子串筛选，忽略大小写及首尾空格，可按名称/来源、类型、
+命名空间 URI、ID 或字节偏移查找。切换视图或语言保留查询，新输入会清空查询。
+结构仅筛选前 1,000 条事件预览。复制/下载不受筛选影响；结构 JSON 仍只包含有限预览。
+各视图的具体字段与示例见[筛选说明](docs/DEMO_zh.md#筛选事件与引用)。
+
 内置 6 份 Apache-2.0 自有语料：基础、Unicode、资源引用 Manifest，菜单 XML，
 UTF-16 字符串池，以及故意截断的文件头。来源与哈希保留在[语料清单](fixtures/manifest.json)。
 工作台不提取 APK，也不查询 ARSC 资源表。
 
-在 `playground/` 中，`pnpm test` 运行 12 项 Node 测试，`pnpm build` 执行类型检查并生成
+在 `playground/` 中，`pnpm test` 运行 18 项 Node 测试，`pnpm build` 执行类型检查并生成
 静态构建，`pnpm preview` 在本机预览该构建。准备过程重新编译 MoonBit ESM，校验复制
 语料的哈希；不需要 Mooncakes 账号。相对资源路径适配 GitHub Pages 等仓库子路径。
 [Pages 工作流](.github/workflows/pages.yml) 在 `main` 推送或手动运行时测试、构建，

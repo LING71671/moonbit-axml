@@ -34,12 +34,19 @@ Events retain the first **1,000 summaries**; event/reference tables show
 **50 entries**, with totals and full JSON available through Copy/Download.
 These browser limits are separate from the library defaults below.
 
+Structure and References support local, case-insensitive literal filtering by
+name/origin, kind, namespace URI, ID, or byte offset; surrounding spaces are
+ignored. Queries survive view/language switches and reset for new input.
+Structure searches only its 1,000-event preview. Copy/Download ignore filters;
+Structure JSON still contains only that bounded preview. See the
+[filter guide](docs/DEMO.md#filter-events-and-references) for fields and examples.
+
 Six Apache-2.0 owned fixtures cover basic/Unicode/reference manifests, menu XML,
 a UTF-16 string pool, and a deliberately truncated header. Provenance and hashes
 remain in [the fixture manifest](fixtures/manifest.json). The workbench does not
 extract APKs or resolve ARSC resources.
 
-From `playground/`, `pnpm test` runs 12 Node tests, `pnpm build` type-checks and
+From `playground/`, `pnpm test` runs 18 Node tests, `pnpm build` type-checks and
 builds a static bundle, and `pnpm preview` serves that bundle locally. Preparation
 rebuilds the MoonBit ESM and verifies copied sample hashes; no Mooncakes account
 is required. Relative asset paths support repository subpaths such as GitHub

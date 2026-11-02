@@ -22,3 +22,14 @@ FIRST VIEWPORT: Compact brand header; one aligned input row; four fixed-baseline
 FORM: Continuous folio, chosen challenger editorial-sequence-montage-botanical-folio-season; seed 6f6a7a35.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## Local table search extension
+
+Retain the folio and four shared views. Structure and References gain independent,
+visibly labeled native search inputs, clear actions, and matched/available counts.
+Filtering updates the result rows without replacing the input or interrupting IME
+composition. Queries stay on the device, persist across view/language changes,
+and reset for a new input. Structure searches only the bounded event preview;
+exports retain the full available data. A source jump clears the Structure query
+before selecting the original event page. Preserve readable controls, keyboard
+focus, a concise zero-match state, and internal table scrolling at narrow widths.

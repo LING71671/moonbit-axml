@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-02T06:24:47.228Z",
+  "generatedAt": "2026-11-02T07:30:02.272Z",
   "title": "Design System: MoonAXML",
   "extensions": {
     "colorMeta": {
@@ -115,6 +115,20 @@
           "oklch(83.57% 0.12092 31.11)",
           "oklch(95.00% 0.12092 31.11)"
         ]
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Faint sepia search border",
+        "tonalRamp": [
+          "oklch(15.00% 0.02837 84.57)",
+          "oklch(26.43% 0.02837 84.57)",
+          "oklch(37.86% 0.02837 84.57)",
+          "oklch(49.29% 0.02837 84.57)",
+          "oklch(60.71% 0.02837 84.57)",
+          "oklch(72.14% 0.02837 84.57)",
+          "oklch(83.57% 0.02837 84.57)",
+          "oklch(95.00% 0.02837 84.57)"
+        ]
       }
     },
     "typographyMeta": {
@@ -141,6 +155,10 @@
       "metadata": {
         "displayName": "Source metadata",
         "purpose": "Context rail and supporting numeric information."
+      },
+      "search": {
+        "displayName": "Native search text",
+        "purpose": "System sans-serif search fields at 1rem on desktop and narrow screens."
       }
     },
     "shadows": [],
@@ -229,6 +247,14 @@
       "description": "A stage-specific error retains the document context and an actionable recovery.",
       "html": "<div class=\"ds-diagnostic\"><h3>Could not decode this file</h3><p>The input is truncated.</p><p class=\"ds-location\">decode · Byte offset 0 / 0x00000000</p><p class=\"ds-recovery\">Choose another sample or open an extracted binary XML file.</p></div>",
       "css": ".ds-diagnostic{padding:2.5rem 1.6rem;max-width:60rem;color:var(--ink,#ece5d4);font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif}.ds-diagnostic h3{font-family:Alegreya,Georgia,serif;font-size:1.5rem;font-weight:400;color:var(--accent-hover,#df806f);margin:0 0 1rem}.ds-diagnostic p{font-size:.8125rem;line-height:1.8;overflow-wrap:anywhere;max-width:65ch}.ds-diagnostic .ds-location{font-family:\"SFMono-Regular\",Consolas,\"Liberation Mono\",monospace;font-size:.75rem;color:var(--muted,#b6ac98)}.ds-diagnostic .ds-recovery{color:var(--muted,#b6ac98);margin-top:1.5rem}@media(max-width:45em){.ds-diagnostic{padding:1.8rem 1rem}}"
+    },
+    {
+      "name": "Local table search",
+      "kind": "input",
+      "refersTo": "table-search",
+      "description": "Labeled native search with clear action and a polite matched/available count; filters rows while preserving the input and IME composition.",
+      "html": "<div class=\"ds-search\"><label for=\"ds-event-search\">Filter event preview</label><div class=\"ds-search-field\"><input id=\"ds-event-search\" type=\"search\" placeholder=\"Name, kind, namespace, or byte offset\" autocomplete=\"off\" spellcheck=\"false\"><button type=\"button\" disabled>Clear</button></div><div class=\"ds-search-summary\"><span role=\"status\" aria-live=\"polite\" aria-atomic=\"true\">26 / 26 preview events match</span><span>Copy and download ignore this filter.</span></div></div>",
+      "css": ".ds-search{padding:1.2rem 1.6rem 1rem;border-bottom:1px solid var(--soft-rule,#443e32);font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;color:var(--ink,#ece5d4)}.ds-search>label{display:block;font-size:.875rem;margin-bottom:.65rem}.ds-search-field{display:flex;align-items:center;gap:1rem}.ds-search-field input{width:min(100%,38rem);min-width:0;min-height:2.75rem;padding:.65rem .8rem;border:1px solid var(--faint,#8e8573);border-radius:0;background:var(--ground,#24231f);color:var(--ink,#ece5d4);font:1rem Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;caret-color:var(--accent-hover,#df806f)}.ds-search-field input::placeholder{color:var(--muted,#b6ac98);opacity:1}.ds-search-field input:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:3px}.ds-search-field button{min-height:2.75rem;min-width:3.5rem;padding:.4rem .2rem;border:0;border-radius:0;background:none;color:var(--muted,#b6ac98);font:.875rem Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;cursor:pointer;transition:color 160ms ease-out}.ds-search-field button:hover{color:var(--ink,#ece5d4)}.ds-search-field button:disabled{cursor:not-allowed;opacity:.4}.ds-search-field button:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:4px}.ds-search-summary{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.7rem;color:var(--muted,#b6ac98);font-size:.75rem;line-height:1.6}.ds-search-summary>span:first-child{font-variant-numeric:tabular-nums}@media(max-width:45em){.ds-search{padding:1rem}.ds-search-field{gap:.75rem}.ds-search-field input{flex:1;min-height:3rem}.ds-search-field button{min-height:3rem}.ds-search-summary{flex-direction:column;gap:.25rem}}@media(prefers-reduced-motion:reduce){.ds-search-field button{transition:none}}"
     }
   ],
   "narrative": {

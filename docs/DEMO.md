@@ -44,6 +44,33 @@ select corresponding event summaries within the preview. IDs remain numeric;
 resource tables and Android runtime defaults are not inferred. Extract APK
 entries separately: the workbench accepts AXML, not APK archives or textual XML.
 
+## Filter events and references
+
+Structure and References each have a search field and Clear button. Matching is
+a case-insensitive literal substring search after trimming surrounding spaces;
+there is no regular-expression or query syntax. It runs locally without
+re-decoding or uploading the input.
+
+| View | Searchable fields | Examples |
+| --- | --- | --- |
+| Structure | Element/namespace name, protocol event kind, namespace URI, and byte offset in decimal or padded hexadecimal | `application`, `StartElement`, `android`, `0x00000100` |
+| References | Reference kind, numeric ID, attribute/text origin, attribute namespace URI/name or expanded name, and byte offset | `Resource`, `0x7f010000`, `2130771968`, `Attribute`, `android` |
+
+Hexadecimal IDs and offsets use `0x` followed by eight digits; decimal searches
+do not use display grouping separators. Kind names use protocol values such as
+`StartElement`, `Resource`, `Attribute`, and `Text` in both interface languages.
+Queries stay in memory across view and language switches, and reset when a new
+sample or file is selected. Clearing or editing a query returns to the first
+result page. Source-location selection clears the Structure query and selects
+the matching original event page; a source beyond the preview stays unavailable.
+
+Structure's match count uses the retained event-preview length as its
+denominator, at most 1,000, rather than the complete document event count.
+References uses the full reference list. Both filtered tables retain 50-row
+pagination. Copy/Download ignore the query and export the corresponding analysis
+result; Structure JSON still has only the bounded event preview, never omitted
+original events.
+
 ## Understand the limits
 
 | Boundary | Workbench behavior |
@@ -72,11 +99,12 @@ pnpm build
 pnpm preview
 ```
 
-The frontend has 12 Node tests for limits, cancellation/races, Worker failures,
-fixture copying, account-free contributor setup, and the compiled bridge.
+The frontend has 18 Node tests for limits, cancellation/races, Worker failures,
+fixture copying, account-free contributor setup, the compiled bridge, and
+literal filtering/source-page helpers.
 `build` runs strict TypeScript checks and Vite; `preview` serves the resulting
-`dist/` locally. Local MoonBit counts are 117 JavaScript tests, including the
-JS-only bridge, and 114 each on wasm-gc and Windows native.
+`dist/` locally. Local MoonBit counts are 133 JavaScript tests, including the
+JS-only bridge, and 130 each on wasm-gc and Windows native.
 
 Local browser checks covered Unicode files, replacing prior results with a
 malformed-input error, independent menu/manifest results, source-location

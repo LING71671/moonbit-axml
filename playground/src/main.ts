@@ -5,6 +5,7 @@ import "@fontsource/alegreya/latin-400-italic.css";
 import { AnalysisClientError, createAnalysisClient } from "./analysis-client.ts";
 import type { AnalysisError, AnalysisReport, AnalysisSuccess, Attribute, EventSummary, ResourceUsage, SampleIndex, SampleInfo } from "./protocol.ts";
 import { text, type Language, type TextKey } from "./i18n.ts";
+import { clampPage, filterEvents, filterReferences, sourceEventPage } from "./table-filter.ts";
 
 type View = "xml" | "manifest" | "structure" | "references";
 const views: View[] = ["xml", "manifest", "structure", "references"];
@@ -32,6 +33,8 @@ let samples: SampleInfo[] = [];
 let selectedOffset: number | null = null;
 let eventPage = 0;
 let referencePage = 0;
+let eventQuery = "";
+let referenceQuery = "";
 let wrapLines = true;
 const pageSize = 50;
 const manifestPreviewLimit = 50;
@@ -211,8 +214,8 @@ function sourceLink(offset: number, line: number): HTMLButtonElement {
   link.addEventListener("click", () => {
     if (!report?.ok) return;
     selectedOffset = offset;
-    const index = report.events.preview.findIndex(event => event.offset === offset);
-    if (index >= 0) eventPage = Math.floor(index / pageSize);
+    eventQuery = "";
+    eventPage = sourceEventPage(report.events.preview, offset, pageSize) ?? 0;
     panels.structure.replaceChildren();
     renderStructure(report);
     switchView("structure");
@@ -244,6 +247,37 @@ function table(headers: string[]): { wrap: HTMLElement; body: HTMLTableSectionEl
   header.append(row); const body = element("tbody"); grid.append(header, body); wrap.append(grid);
   return { wrap, body };
 }
+function tableFilter(container: HTMLElement, kind: "events" | "references", query: string,
+  update: (query: string) => void): { results: HTMLElement; count: HTMLElement } {
+  const controls = element("div", undefined, "table-filter");
+  const label = element("label", t(kind === "events" ? "filterEvents" : "filterReferences"));
+  const input = element("input");
+  input.id = `filter-${kind}`; input.type = "search"; input.value = query;
+  input.placeholder = t(kind === "events" ? "eventFilterPlaceholder" : "referenceFilterPlaceholder");
+  input.autocomplete = "off"; input.spellcheck = false;
+  input.setAttribute("autocapitalize", "off"); input.setAttribute("autocorrect", "off");
+  label.htmlFor = input.id;
+  const clear = element("button", t("clearFilter"), "text-button");
+  clear.type = "button"; clear.disabled = !query;
+  const field = element("div", undefined, "filter-field"); field.append(input, clear);
+  const summary = element("div", undefined, "filter-summary");
+  const count = element("span");
+  count.setAttribute("role", "status"); count.setAttribute("aria-live", "polite"); count.setAttribute("aria-atomic", "true");
+  summary.append(count, element("span", t("unfilteredExport")));
+  controls.append(label, field, summary);
+  const results = element("div", undefined, "filter-results");
+  container.append(controls, results);
+  let composing = false;
+  const apply = (): void => { clear.disabled = !input.value; update(input.value); };
+  input.addEventListener("compositionstart", () => { composing = true; });
+  input.addEventListener("compositionend", () => { composing = false; apply(); });
+  input.addEventListener("input", event => {
+    clear.disabled = !input.value;
+    if (!composing && !(event instanceof InputEvent && event.isComposing)) apply();
+  });
+  clear.addEventListener("click", () => { input.value = ""; composing = false; apply(); input.focus(); });
+  return { results, count };
+}
 function renderStructure(data: AnalysisSuccess): void {
   const container = panels.structure;
   const stats = element("div", undefined, "stats-grid");
@@ -253,14 +287,27 @@ function renderStructure(data: AnalysisSuccess): void {
   container.append(stats);
   if (data.events.truncated) container.append(element("p", `${t("previewEvents")} (${number(data.events.preview.length)} / ${number(data.events.total)})`, "preview-note"));
   if (!data.events.preview.length) return empty(container, "noEvents");
-  const grid = table([t("event"), t("kind"), t("name"), t("offset")]);
-  for (const event of data.events.preview.slice(eventPage * pageSize, (eventPage + 1) * pageSize)) {
-    const row = element("tr"); row.classList.toggle("selected", event.offset === selectedOffset);
-    row.append(element("td", number(event.index)), element("td", event.kind), element("td", eventName(event)));
-    const source = element("td"); source.append(sourceLink(event.offset, event.line_number)); row.append(source); grid.body.append(row);
+  const filter = tableFilter(container, "events", eventQuery, query => {
+    eventQuery = query; eventPage = 0; renderStructureRows(data, filter.results, filter.count);
+  });
+  renderStructureRows(data, filter.results, filter.count);
+}
+function renderStructureRows(data: AnalysisSuccess, container: HTMLElement, count: HTMLElement): void {
+  const events = filterEvents(data.events.preview, eventQuery);
+  eventPage = clampPage(eventPage, events.length, pageSize);
+  count.textContent = `${number(events.length)} / ${number(data.events.preview.length)} ${t("previewMatches")}`;
+  container.replaceChildren();
+  if (!events.length) empty(container, "noMatches");
+  else {
+    const grid = table([t("event"), t("kind"), t("name"), t("offset")]);
+    for (const event of events.slice(eventPage * pageSize, (eventPage + 1) * pageSize)) {
+      const row = element("tr"); row.classList.toggle("selected", event.offset === selectedOffset);
+      row.append(element("td", number(event.index)), element("td", event.kind), element("td", eventName(event)));
+      const source = element("td"); source.append(sourceLink(event.offset, event.line_number)); row.append(source); grid.body.append(row);
+    }
+    container.append(grid.wrap);
+    pager(container, eventPage, events.length, page => { eventPage = page; renderStructureRows(data, container, count); });
   }
-  container.append(grid.wrap);
-  pager(container, eventPage, data.events.preview.length, page => { eventPage = page; container.replaceChildren(); renderStructure(data); });
   const selected = data.events.preview.find(event => event.offset === selectedOffset);
   if (selected) {
     const block = element("div", undefined, "event-detail");
@@ -276,14 +323,25 @@ function referenceOrigin(usage: ResourceUsage): string {
 function renderReferences(data: AnalysisSuccess): void {
   const container = panels.references;
   if (!data.references.length) return empty(container, "noReferences");
+  const filter = tableFilter(container, "references", referenceQuery, query => {
+    referenceQuery = query; referencePage = 0; renderReferenceRows(data, filter.results, filter.count);
+  });
+  renderReferenceRows(data, filter.results, filter.count);
+}
+function renderReferenceRows(data: AnalysisSuccess, container: HTMLElement, count: HTMLElement): void {
+  const references = filterReferences(data.references, referenceQuery);
+  referencePage = clampPage(referencePage, references.length, pageSize);
+  count.textContent = `${number(references.length)} / ${number(data.references.length)} ${t("referenceMatches")}`;
+  container.replaceChildren();
+  if (!references.length) return empty(container, "noMatches");
   const grid = table([t("reference"), t("kind"), t("origin"), t("offset")]);
-  for (const usage of data.references.slice(referencePage * pageSize, (referencePage + 1) * pageSize)) {
+  for (const usage of references.slice(referencePage * pageSize, (referencePage + 1) * pageSize)) {
     const row = element("tr");
     row.append(element("td", hex(usage.reference[1])), element("td", usage.reference[0]), element("td", referenceOrigin(usage)));
     const source = element("td"); source.append(sourceLink(usage.offset, usage.line_number)); row.append(source); grid.body.append(row);
   }
   container.append(grid.wrap);
-  pager(container, referencePage, data.references.length, page => { referencePage = page; container.replaceChildren(); renderReferences(data); });
+  pager(container, referencePage, references.length, page => { referencePage = page; renderReferenceRows(data, container, count); });
 }
 function render(): void {
   renderLanguage(); renderState();
@@ -300,7 +358,7 @@ function render(): void {
 function begin(name: string, size: number): number {
   serial += 1; requestController?.abort(); requestController = null; client.cancel();
   currentName = name; currentSize = size; loading = true; report = null; problem = null; wasCancelled = false;
-  selectedOffset = null; eventPage = 0; referencePage = 0;
+  selectedOffset = null; eventPage = 0; referencePage = 0; eventQuery = ""; referenceQuery = "";
   render(); return serial;
 }
 function clientProblem(error: unknown): TextKey {

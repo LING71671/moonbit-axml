@@ -25,6 +25,10 @@ const en = {
   protocolError: "The decoder returned an unsupported result. Reload the page.", unknownError: "The file could not be analyzed.",
   sampleBasic: "Basic manifest", sampleUnicode: "Unicode manifest", sampleReferences: "Resource references", sampleMenu: "Menu XML", sampleUtf16: "UTF-16 string pool", sampleTruncated: "Truncated header",
   downloadJson: "Download JSON", downloadXml: "Download XML", sourceLocation: "Original source locations", referenceCount: "typed references", eventCount: "events", attributeCount: "attributes",
+  filterEvents: "Filter event preview", filterReferences: "Filter references", clearFilter: "Clear",
+  eventFilterPlaceholder: "Name, kind, namespace, or byte offset", referenceFilterPlaceholder: "ID, kind, origin, or byte offset",
+  previewMatches: "preview events matched", referenceMatches: "references matched", noMatches: "No matching entries.",
+  unfilteredExport: "Copy and download ignore this filter.",
 } as const;
 export type TextKey = keyof typeof en;
 const zh: Record<TextKey, string> = {
@@ -40,5 +44,9 @@ const zh: Record<TextKey, string> = {
   sampleFailed: "无法加载此样例。请重试或打开本机文件。", fileTooLarge: "此文件超出 16 MiB 输入上限。", readFailed: "无法读取文件，请重新选择。", timeout: "分析已在 10 秒后停止，请尝试较小的输入。", workerFailed: "分析线程未能完成，请刷新页面或选择其他文件。", protocolError: "解码器返回了不支持的结果，请刷新页面。", unknownError: "无法分析此文件。",
   previewDeclarations: "仅预览前 50 条声明；复制或下载可获取完整 JSON。",
   sampleBasic: "基础 Manifest", sampleUnicode: "Unicode Manifest", sampleReferences: "资源引用", sampleMenu: "菜单 XML", sampleUtf16: "UTF-16 字符串池", sampleTruncated: "截断文件头", downloadJson: "下载 JSON", downloadXml: "下载 XML", sourceLocation: "原始源位置", referenceCount: "个类型引用", eventCount: "个事件", attributeCount: "个属性",
+  filterEvents: "筛选事件预览", filterReferences: "筛选引用", clearFilter: "清除",
+  eventFilterPlaceholder: "名称、类型、命名空间或字节偏移", referenceFilterPlaceholder: "ID、类型、来源或字节偏移",
+  previewMatches: "条预览事件匹配", referenceMatches: "条引用匹配", noMatches: "没有匹配项。",
+  unfilteredExport: "筛选不影响复制和下载。",
 };
 export function text(language: Language, key: TextKey): string { return (language === "zh" ? zh : en)[key]; }

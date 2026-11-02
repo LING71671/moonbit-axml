@@ -6,6 +6,7 @@ colors:
   plate: "#292823"
   ink: "#ece5d4"
   muted: "#b6ac98"
+  faint: "#8e8573"
   rule: "#615743"
   soft-rule: "#443e32"
   accent: "#ce6857"
@@ -37,6 +38,9 @@ typography:
     fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", monospace'
     fontSize: "0.75rem"
     lineHeight: 1.6
+  search:
+    fontFamily: 'Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif'
+    fontSize: "1rem"
 spacing:
   compact: "0.75rem"
   standard: "1rem"
@@ -61,6 +65,11 @@ components:
     textColor: "{colors.ink}"
   tab-selected:
     textColor: "{colors.ink}"
+  table-search:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.ink}"
+    typography: "{typography.search}"
+    padding: "0.65rem 0.8rem"
 ---
 
 # 设计系统：MoonAXML
@@ -82,7 +91,7 @@ MoonAXML 采用连续、有分隔线的卷册结构：暖炭色承托象牙色�
 - 方角控件和连续的结果表面。
 - 固定阅读字号，并在明确的响应式条件下调整。
 
-本文件记录已实现的浏览器工作台，以[样式表](playground/src/style.css)、[页面结构](playground/index.html)和[控制器](playground/src/main.ts)为依据。审查截图位于 `.impeccable/review/`，覆盖桌面（1440 px）、手机（390 px）和用户指定宽度（1280 px）。页面构图由[界面简报](.impeccable/surfaces/playground-index-html.md)记录，产品能力由 [PRODUCT_zh.md](PRODUCT_zh.md)记录。本文件不声明部署状态。
+本文件记录已实现的浏览器工作台，以[样式表](playground/src/style.css)、[页面结构](playground/index.html)和[控制器](playground/src/main.ts)为依据。搜索扩展的审查截图位于 `.impeccable/review/round2/`，覆盖桌面（1440 px）、手机（390 px）和用户指定宽度（723 px）。页面构图由[界面简报](.impeccable/surfaces/playground-index-html.md)记录，产品能力由 [PRODUCT_zh.md](PRODUCT_zh.md)记录。本文件不声明部署状态。
 
 ## 颜色
 
@@ -99,6 +108,7 @@ MoonAXML 采用连续、有分隔线的卷册结构：暖炭色承托象牙色�
 - **炭色底面**（`ground`）承托外部工作区；**暖炭色面板**（`plate`）承托结果卷册。
 - **象牙色正文**（`ink`）用于标题及主要信息；**旧纸色次要文字**（`muted`）用于辅助标签和上下文。
 - **棕褐分隔线**（`rule`）划分主要区域；**柔和棕褐分隔线**（`soft-rule`）划分行和内部区域。
+- **浅棕褐色**（`faint`）用于搜索字段边框，与底面保持可辨识的控件边界（对比度 4.31:1）。
 
 **克制朱红规则。** 朱红用于可操作控件、选中视图标记、源位置链接、焦点和诊断；长篇结果数据保持中性色。
 
@@ -113,6 +123,7 @@ Alegreya 赋予品牌文字和标题印刷品特征。Arial 配合 Noto Sans SC�
 - **品牌标题：** 标志文字使用 display 角色，AXML 后缀为斜体；窄屏缩小至 1.75rem。
 - **主标题和子标题：** 结果标题使用 headline 角色，内容子标题使用 title 角色。四个视图标签采用 Alegreya（桌面 1.3125rem，窄屏 1.0625rem）。
 - **标签：** 主要操作、文字操作、样例选择和页头导航使用 label 角色；辅助界面文字通常采用较小阅读档位（0.75rem）。
+- **搜索：** 原生搜索字段采用系统无衬线字体的 search 角色（16px），窄屏保持相同阅读字号。
 - **数据：** XML 使用 data 角色；窄屏改为 0.8125rem，行高 1.85。表格单元格使用等宽文字（0.8125rem），包名使用较大的等宽档位（1rem）；元数据在适当位置启用等宽数字。
 
 **固定阅读字号规则。** 按阅读角色确定数据与控件字号。优先调整布局，再考虑缩小文字。
@@ -156,6 +167,14 @@ Alegreya 赋予品牌文字和标题印刷品特征。Arial 配合 Noto Sans SC�
 ### 对齐的视图导航
 
 XML、Manifest、结构和引用共用同一输入。分隔线对齐四个等宽列。选中标签结合象牙色文字与朱红下划线。标签使用选中状态、受控面板和单一可进入焦点；左右方向键、Home 和 End 可切换视图。
+
+### 本机表格搜索
+
+结构与引用各自提供带可见标签的原生搜索字段、清除文字操作和礼貌播报的匹配数/可用数。字段采用方角、一像素浅棕褐边框、底面背景、象牙色文字、次要色占位提示和浅朱红光标。键盘焦点使用两像素浅朱红轮廓，偏移三像素。字段与清除操作至少高 44px，在不超过 45em 时增至 48px；窄屏摘要纵向排列。
+
+筛选会去除查询首尾空白并转为小写，按适用字段对原始名称、类型、命名空间 URI、引用来源，以及十进制或十六进制 ID/偏移执行字面子串匹配。更新结果行时保留输入节点，并在输入法组合期间暂缓筛选。Enter 由原生输入行为处理。查询在切换视图或语言时保留，载入新文件或样例时重置。清除恢复可用行并将焦点返回字段。零匹配使用简短事实文字。
+
+结构只搜索最多 1,000 个事件的原始预览。源位置操作会清除结构查询并定位原始预览页。复制与下载均忽略查询；结构 JSON 仍只包含该有界事件预览。表格每页保持 50 行，窄屏表格在局部滚动。
 
 ### 结果卷册与数据行
 
