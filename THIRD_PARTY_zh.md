@@ -12,6 +12,7 @@ MoonBit 实现及测试 XML 源码均为本仓库编写，采用 [Apache-2.0](LI
 | Android SDK aapt2 | Build Tools 36.0.0，修订 2.20-13193326 | 编译自有 XML 并输出独立参考记录 |
 | [Androguard](https://github.com/androguard/androguard) | 4.1.3；Apache-2.0 | 独立解码测试 XML 并记录语义树 |
 | [MoonBit core](https://github.com/moonbitlang/core) | 0.10.18+6c83a7f62；Apache-2.0 | 标准库和原生文件 I/O，由工具链提供 |
+| [Alegreya](https://github.com/huertatipografica/Alegreya)，通过 `@fontsource/alegreya` 引入 | 5.3.0；SIL Open Font License 1.1 | 工作台自托管字体；[字体许可证](playground/public/third-party/Alegreya-OFL.txt) |
 
 准确的工具和输入哈希、源码路径、语料来源及参考输出哈希记录在
 [fixtures/manifest.json](fixtures/manifest.json)。Android SDK 工具和 Python 依赖仅用于开发，

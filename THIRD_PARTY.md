@@ -13,6 +13,7 @@ included. The following external tools and specifications informed verification:
 | Android SDK aapt2 | Build Tools 36.0.0, revision 2.20-13193326 | Compile authored XML and produce independent reference dumps |
 | [Androguard](https://github.com/androguard/androguard) | 4.1.3; Apache-2.0 | Independently decode fixture XML and record semantic trees |
 | [MoonBit core](https://github.com/moonbitlang/core) | 0.10.18+6c83a7f62; Apache-2.0 | Standard library and native host I/O; supplied by the toolchain |
+| [Alegreya](https://github.com/huertatipografica/Alegreya) via `@fontsource/alegreya` | 5.3.0; SIL Open Font License 1.1 | Self-hosted workbench typography; [font license](playground/public/third-party/Alegreya-OFL.txt) |
 
 Exact tool and input hashes, source paths, fixture origins, and reference-output
 hashes are in [fixtures/manifest.json](fixtures/manifest.json). Android SDK tools

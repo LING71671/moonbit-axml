@@ -2,6 +2,12 @@ _build/
 .moon/
 node_modules/
 __pycache__/
+.impeccable/build/
+.impeccable/review/
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/direction-options.json
+.impeccable/config.local.json
 .env
 .env.*
 !.env.example
