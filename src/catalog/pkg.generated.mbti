@@ -1,0 +1,46 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "LING71671/axml/catalog"
+
+import {
+  "LING71671/axml",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn decode_batch(Array[NamedInput], limits? : @axml.Limits) -> Array[Record[@axml.Document]]
+
+pub fn inspect_batch(Array[NamedInput], limits? : @axml.Limits) -> Array[Record[@axml.Manifest]]
+
+// Errors
+
+// Types and methods
+pub(all) struct Diagnostic {
+  stage : FailureStage
+  offset : Int32
+  message : String
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum FailureStage {
+  Decode
+  InspectManifest
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct NamedInput {
+  name : String
+  data : Bytes
+} derive(Eq, @debug.Debug)
+
+pub(all) enum Outcome[T] {
+  Success(T)
+  Failure(Diagnostic)
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Record[T] {
+  name : String
+  byte_length : Int32
+  outcome : Outcome[T]
+} derive(Eq, ToJson, @debug.Debug)
+
+// Type aliases
+
+// Traits
