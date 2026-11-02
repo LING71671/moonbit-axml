@@ -4,6 +4,7 @@ pub(all) enum Command {
   Decode(String)
   Inspect(String)
   Stats(String)
+  Refs(String)
   Validate(String)
   Help
   Version
@@ -25,6 +26,7 @@ pub let usage : String =
   #|Usage: axml decode FILE
   #|       axml inspect [--json] FILE
   #|       axml stats [--json] FILE
+  #|       axml refs [--json] FILE
   #|       axml validate FILE
   #|       axml --help
   #|       axml --version
@@ -32,6 +34,7 @@ pub let usage : String =
   #|Read an extracted Android binary XML file (maximum 16 MiB).
   #|inspect writes JSON with raw and typed manifest attributes.
   #|stats writes JSON counts from decoded pools and events.
+  #|refs writes JSON typed resource usages with source locations.
   #|Use -- before a literal filename that begins with --.
   #|Exit codes: 0 success, 1 data/I/O error, 2 invalid arguments.
 
@@ -47,6 +50,8 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
     | ["inspect", "-h"]
     | ["stats", "--help"]
     | ["stats", "-h"]
+    | ["refs", "--help"]
+    | ["refs", "-h"]
     | ["validate", "--help"]
     | ["validate", "-h"] => Help
     ["decode", "--", path] if !path.is_empty() => Decode(path)
@@ -54,6 +59,8 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
       Inspect(path)
     ["stats", "--", path] | ["stats", "--json", "--", path] if !path.is_empty() =>
       Stats(path)
+    ["refs", "--", path] | ["refs", "--json", "--", path] if !path.is_empty() =>
+      Refs(path)
     ["validate", "--", path] if !path.is_empty() => Validate(path)
     ["decode", path] if !path.is_empty() && !path.has_prefix("--") =>
       Decode(path)
@@ -64,11 +71,14 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
     ["stats", path] if !path.is_empty() && !path.has_prefix("--") => Stats(path)
     ["stats", "--json", path] if !path.is_empty() && !path.has_prefix("--") =>
       Stats(path)
+    ["refs", path] if !path.is_empty() && !path.has_prefix("--") => Refs(path)
+    ["refs", "--json", path] if !path.is_empty() && !path.has_prefix("--") =>
+      Refs(path)
     ["validate", path] if !path.is_empty() && !path.has_prefix("--") =>
       Validate(path)
     _ =>
       raise Usage(
-        "expected decode, inspect [--json], stats [--json], or validate with one file",
+        "expected decode, inspect [--json], stats [--json], refs [--json], or validate with one file",
       )
   }
 }
@@ -77,7 +87,8 @@ pub fn parse_args(args : Array[String]) -> Command raise UsageError {
 /// Return the selected input path, or None for informational commands.
 pub fn Command::path(self : Command) -> String? {
   match self {
-    Decode(path) | Inspect(path) | Stats(path) | Validate(path) => Some(path)
+    Decode(path) | Inspect(path) | Stats(path) | Refs(path) | Validate(path) =>
+      Some(path)
     Help | Version => None
   }
 }
@@ -93,6 +104,8 @@ pub fn execute(
     Inspect(_) =>
       @axml.inspect_manifest(@axml.decode(data)).to_json().stringify(indent=2)
     Stats(_) => @axml.decode(data).stats().to_json().stringify(indent=2)
+    Refs(_) =>
+      Json(@axml.decode(data).resource_references()).stringify(indent=2)
     Validate(_) => {
       let _ = @axml.to_xml(@axml.decode(data))
       "valid"

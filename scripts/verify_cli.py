@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify fixture hashes, CLI XML semantics, metadata, statistics, and errors.
+"""Verify fixture hashes, CLI semantics, metadata, statistics, usages, and errors.
 
 Uses only Python's standard library and committed independent reference trees.
 Run `moon build src/cmd/axml --target js` first, or omit --cli for moon run.
@@ -13,6 +13,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import struct
 import subprocess
 import xml.etree.ElementTree as ET
 
@@ -106,6 +107,43 @@ def normalize_record(value: object) -> object:
     return value
 
 
+def menu_reference_records(data: bytes) -> list[dict]:
+    """Scan typed attributes of the pinned owned menu fixture independently.
+
+    Name indices and IDs come from the committed aapt2/reference menu, not CLI
+    output. Locations come from its binary node and attribute headers. This is
+    deliberately a fixture oracle, not another general-purpose AXML decoder.
+    """
+    names = {0: "icon", 2: "id", 5: "title"}
+    kinds = {1: "Resource", 2: "ThemeAttribute", 7: "DynamicResource", 8: "DynamicThemeAttribute"}
+    records = []
+    offset = 8
+    while offset < len(data):
+        kind, header_size, chunk_size = struct.unpack_from("<HHI", data, offset)
+        assert chunk_size >= header_size >= 8, "invalid oracle chunk header"
+        if kind == 0x0102:
+            extension = offset + header_size
+            attribute_start, attribute_size, count = struct.unpack_from("<HHH", data, extension + 8)
+            line = struct.unpack_from("<I", data, offset + 8)[0]
+            for index in range(count):
+                attribute = extension + attribute_start + index * attribute_size
+                namespace, name = struct.unpack_from("<II", data, attribute)
+                value_size, reserved, value_type, value = struct.unpack_from("<HBBI", data, attribute + 12)
+                assert value_size == 8 and reserved == 0, "invalid oracle typed value"
+                if value_type in kinds:
+                    assert namespace == 8 and name in names, "unexpected menu reference origin"
+                    records.append({"offset": offset, "line_number": line,
+                                    "origin": ["Attribute", [ANDROID_URI], names[name]],
+                                    "reference": [kinds[value_type], value]})
+        offset += chunk_size
+    assert offset == len(data), "oracle chunk does not end at document boundary"
+    assert [record["reference"] for record in records] == [
+        ["Resource", 0x01080033], ["Resource", 0x7f010000],
+        ["Resource", 0x7f010001], ["Resource", 0x7f030000],
+    ], "menu reference IDs differ from independent aapt2 expectations"
+    return records
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cli", nargs="+", default=["moon", "run", "src/cmd/axml", "--target", "js", "--"], help="CLI command, preceding its subcommand and input path")
@@ -124,7 +162,7 @@ def main() -> None:
     assert version, "missing module version"
     version_output = run("--version")
     assert version_output.returncode == 0 and version_output.stdout.decode("utf-8").strip() == f"axml {version[1]}", "CLI and package versions differ"
-    for arguments in [("--help",), ("decode", "--help"), ("inspect", "-h"), ("stats", "--help"), ("stats", "-h"), ("validate", "--help")]:
+    for arguments in [("--help",), ("decode", "--help"), ("inspect", "-h"), ("stats", "--help"), ("stats", "-h"), ("refs", "--help"), ("refs", "-h"), ("validate", "--help")]:
         help_output = run(*arguments)
         assert help_output.returncode == 0 and b"Usage: axml" in help_output.stdout, f"help failed: {arguments}"
     literal_path = run("validate", "--", str(FIXTURES / "valid" / "menu.axml"))
@@ -155,6 +193,14 @@ def main() -> None:
                     statistics = run(*arguments)
                     assert statistics.returncode == 0, f"stats {path.name}: {statistics.stderr.decode('utf-8')}"
                     assert json.loads(statistics.stdout) == expected_stats, f"statistics mismatch: {path.name}"
+                expected_references = menu_reference_records(data)
+                for arguments in [("refs", str(path)), ("refs", "--json", "--", str(path))]:
+                    references = run(*arguments)
+                    assert references.returncode == 0, f"refs {path.name}: {references.stderr.decode('utf-8')}"
+                    assert json.loads(references.stdout) == expected_references, f"reference usage mismatch: {path.name}"
+            if path.stem == "synthetic_utf8":
+                references = run("refs", "--json", str(path))
+                assert references.returncode == 0 and json.loads(references.stdout) == [], "ordinary strings must not create typed usages"
             if path.stem.startswith("manifest_"):
                 inspected = run("inspect", "--json", str(path))
                 assert inspected.returncode == 0, f"inspect {path.name}: {inspected.stderr.decode('utf-8')}"
@@ -162,7 +208,7 @@ def main() -> None:
                 expected_record = manifest_record(expected)
                 assert normalize_record(record) == normalize_record(expected_record), f"metadata mismatch: {path.name}\nactual={record}\nexpected={expected_record}"
         else:
-            for command in ["decode", "validate", "stats"]:
+            for command in ["decode", "validate", "stats", "refs"]:
                 result = run(command, str(path))
                 assert result.returncode == 1, f"{command} did not report a data error for malformed fixture: {path.name}"
                 assert not result.stdout, f"{command} wrote partial output for malformed fixture: {path.name}"
@@ -170,7 +216,7 @@ def main() -> None:
                 assert re.search(r"(?:offset|byte|Invalid\()[^\n]*[0-9]", diagnostic, re.IGNORECASE), f"missing offset diagnostic: {path.name}: {diagnostic}"
                 assert "panic" not in diagnostic.lower(), f"unhandled panic: {path.name}: {diagnostic}"
         checked += 1
-    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; 12 malformed fixtures; CLI help/version/terminator checks.")
+    print(f"PASS: {checked} fixture hashes; 7 XML semantic trees; 3 manifest records; menu statistics; typed resource usages; 12 malformed fixtures; CLI help/version/terminator checks.")
 
 
 if __name__ == "__main__":

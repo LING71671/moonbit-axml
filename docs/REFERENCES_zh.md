@@ -2,6 +2,24 @@
 
 [English](REFERENCES.md) | [类型化值](VALUES_zh.md) | [项目](../README_zh.md)
 
+## CLI
+
+```sh
+moon build src/cmd/axml --target js --deny-warn
+node _build/js/debug/build/cmd/axml/axml.js refs --json fixtures/valid/menu.axml
+```
+
+`refs FILE` 和 `refs --json FILE` 输出相同的缩进 JSON 数组。native CLI 接受相同
+参数。没有类型引用时返回 `[]`。文件名以 `--` 开头时，使用
+`refs -- --leading-dash.axml` 或 `refs --json -- --leading-dash.axml`；
+`refs --help` 和 `refs -h` 显示用法。畸形二进制输入退出码为一，并输出带字节偏移的诊断。
+
+记录使用 MoonBit 派生的 JSON 表示：带命名空间的属性来源为
+`["Attribute", [namespace_uri], local_name]`；无命名空间时为
+`["Attribute", null, local_name]`。可选的位置参数 URI 在存在时使用单元素数组。
+文本来源为 `"Text"`，引用为 `["Resource", numeric_id]` 或下述其他类型。
+ID 为 JSON 数字，不是解析后的名称。偏移指向所属事件块。
+
 ## 收集引用
 
 `Document::resource_references() -> Array[ResourceUsage]` 列出类型化资源引用和主题属性引用，不解析资源表：
@@ -40,3 +58,6 @@ moon test src --target js --filter '*resource*usage*' --deny-warn
 ```
 
 测试覆盖属性与文本中的全部四种引用类型、事件及属性顺序、重复 ID、精确命名空间、位置、零 ID、空清单，以及不会转换外观类似引用的字符串或数字值。
+
+`python scripts/verify_cli.py` 还会将 CLI 菜单引用与独立二进制属性扫描及 aapt2
+参考 ID 对比，检查空引用清单，并确认畸形语料不会产生部分 JSON。

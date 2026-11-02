@@ -2,6 +2,26 @@
 
 [中文](REFERENCES_zh.md) | [Typed values](VALUES.md) | [Project](../README.md)
 
+## CLI
+
+```sh
+moon build src/cmd/axml --target js --deny-warn
+node _build/js/debug/build/cmd/axml/axml.js refs --json fixtures/valid/menu.axml
+```
+
+`refs FILE` and `refs --json FILE` write the same indented JSON array. The native
+CLI accepts the same arguments. An inventory without typed references is `[]`.
+Use `refs -- --leading-dash.axml` or `refs --json -- --leading-dash.axml` for
+literal names beginning with `--`; `refs --help` and `refs -h` display usage.
+Malformed binary input exits with code one and a byte-offset diagnostic.
+
+Records use MoonBit's derived JSON representation: a qualified attribute origin
+is `["Attribute", [namespace_uri], local_name]`; an unqualified origin is
+`["Attribute", null, local_name]`. The optional positional URI uses a one-element
+array when present. Text origin is `"Text"`, and a reference is
+`["Resource", numeric_id]` or another kind listed below. IDs are JSON numbers,
+not resolved names. Offsets identify the containing event chunk.
+
 ## Collect usages
 
 `Document::resource_references() -> Array[ResourceUsage]` lists typed resource and theme-attribute references without resource-table resolution:
@@ -40,3 +60,7 @@ moon test src --target js --filter '*resource*usage*' --deny-warn
 ```
 
 Tests cover all four reference kinds in attributes and text, event/attribute ordering, duplicate IDs, exact namespaces, locations, zero IDs, empty inventories, and rejection of lookalike strings or numeric values.
+
+`python scripts/verify_cli.py` also compares menu CLI usages with an independent
+binary attribute scan and aapt2 reference IDs, checks an empty inventory, and
+verifies that malformed fixtures produce no partial JSON.
