@@ -4,30 +4,30 @@
 
 ## 项目结构与模块组织
 
-`moon.mod` 定义模块 `LING71671/axml`。核心解码、渲染与清单检查位于 `src/`，同时提供查询/类型辅助、`stats.mbt`、`resource_usage.mbt` 和 `intent_filters.mbt`。`src/catalog/` 独立处理具名输入批次。`src/cli/` 处理参数，`src/cmd/axml/` 和 `src/cmd/axml-native/` 提供 Node.js 与 native I/O。测试与源码同目录。`fixtures/` 保存自有样本和独立参考结果；`scripts/` 负责复现与校验；`docs/`、`evidence/` 记录范围与验证证据。
+`moon.mod` 定义 `LING71671/axml`。`src/` 提供解码、渲染、清单检查、统计、引用与 Intent。`src/catalog/` 处理批次；`src/cli/`、`src/cmd/` 提供参数与宿主 I/O。`src/browser/` 导出 JS 桥接。`playground/` 包含 Vite/TypeScript/Tailwind 工作台、Worker 控制器和 Node 测试。MoonBit 测试与源码同目录。`fixtures/`、`scripts/`、`docs/`、`evidence/` 保存语料、复现工具、说明与验证记录。
 
 ## 构建、测试与开发命令
 
-使用固定版本的 MoonBit 工具链，在仓库根目录执行：
+使用 README 固定的 MoonBit 版本；前端需要 Node.js 22.18+ 和 pnpm 11.14.0。在仓库根目录运行：
 
-- `moon fmt --check`、`moon info`：检查格式并重新生成公开 `.mbti` 接口。
-- `moon check --target all --deny-warn`：检查全部后端，并将警告视为错误。
-- `moon test --target wasm-gc --deny-warn`：运行测试；另以 `js`、`native` 重复执行。
-- `moon build src/cmd/axml --target js --deny-warn`：构建 Node CLI。使用 `moon build src/cmd/axml-native --target native --deny-warn` 构建 native CLI。
-- `python scripts/verify_cli.py`：检查语料与 CLI 行为。构建两个 CLI 后运行 `python scripts/benchmark.py --backend all --repeats 3`；可执行文件路径与测量限制见 `docs/BENCHMARKS_zh.md`。
+- `moon fmt --check`、`moon info`：检查格式，重新生成公开 `.mbti` 接口。
+- `moon check --target all --deny-warn`；`moon test --target wasm-gc --deny-warn`：检查/测试；另以 `js`、`native` 测试。
+- `python scripts/verify_cli.py`：验证独立语料；构建两个 CLI 后可运行 `python scripts/benchmark.py`。
+- `pnpm --dir playground install --frozen-lockfile`；`pnpm --dir playground dev`：准备 ESM/样例并启动 Vite。
+- `pnpm --dir playground test`、`pnpm --dir playground build`、`pnpm --dir playground preview`：测试、类型检查及构建，或在本机提供已有产物。详见 `docs/DEMO_zh.md`。
 
 ## 代码风格与命名约定
 
-使用两空格缩进与 `moon fmt`。函数和文件使用 snake_case，公开类型使用 UpperCamelCase。审查生成的 `.mbti` 改动；通过脚本重新生成语料测试。维护英文文档及带双向链接的 `_zh.md` 中文对照，JSON 保持两空格缩进，文档文件沿用有明确含义的大写名称。
+使用两空格缩进与 `moon fmt`。MoonBit 函数、文件采用 snake_case，公开类型采用 UpperCamelCase。TypeScript 沿用现有 camelCase 函数与 kebab-case 文件名。审查生成接口；通过脚本重新生成语料测试。同步英文说明与带双向链接的 `_zh.md` 中文版本。
 
 ## 测试要求
 
-使用 MoonBit 内置测试工具：`*_test.mbt` 验证公开行为，`*_wbtest.mbt` 验证内部逻辑。目前不设覆盖率百分比门槛。覆盖边界、编码、命名空间、类型值、转义、批次隔离及错误偏移。与固定版本 aapt2/androguard 的语义树和元数据比较。在 `fixtures/manifest.json` 保留语料来源和哈希。逐提交验证证据见 `docs/ACCEPTANCE_zh.md`。
+`*_test.mbt` 验证公开行为，`*_wbtest.mbt` 验证内部逻辑，不设覆盖率百分比门槛。本地测试为 wasm-gc 114 项、JS 117 项、Windows native 114 项、前端 Node 12 项。覆盖边界、命名空间、类型数据、诊断、取消、旧结果及实际桥接集成。保留语料来源、哈希和独立参考结果。前端生成代码、样例、依赖与 `dist/` 保持忽略。浏览器检查分别记录。
 
 ## 提交与拉取请求要求
 
-采用 Conventional Commits，例如 `feat: decode string pools`。拉取请求须说明行为、关联验收项或 issue、列出实际执行的检查、指出限制，并同步两种语言的文档。提交前运行 `git diff --check`。
+采用 Conventional Commits。PR 说明行为、关联 issue/验收项，列出实际执行的检查和限制，并同步两种文档语言。运行 `git diff --check`。
 
 ## 账号隔离与范围
 
-遵循 `docs/ACCOUNTS_zh.md`：认证操作使用 `scripts/moon.ps1` 和 `scripts/github.ps1`，身份固定为 `LING71671`。禁止切换全局账号或提交凭据。解码保持纯 MoonBit、离线运行。保留未解析资源 ID；APK 提取、ARSC 解析、签名和 DEX 解析不在范围内。
+认证操作遵循 `docs/ACCOUNTS_zh.md` 的封装入口；禁止切换全局账号或提交凭据。公开构建无需登录。解析保持本地运行，资源 ID 不解析。浏览器输入上限为 16 MiB，超时监测为 10 秒。APK 提取和 ARSC 解析不在范围内。`.github/workflows/pages.yml` 仅将 `playground/dist` 发布到 GitHub Pages。

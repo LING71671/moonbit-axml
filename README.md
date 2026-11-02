@@ -9,6 +9,47 @@ files. The package namespace is **LING71671/axml**.
 **Status: public Apache-2.0 implementation; not published to Mooncakes.**
 Research and the bounded duplicate search are recorded in [docs/RESEARCH.md](docs/RESEARCH.md).
 
+## Browser workbench
+
+Use the pinned MoonBit toolchain below, Node.js **22.18+**, and pnpm **11.14.0**:
+
+```sh
+cd playground
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Open the local URL printed by Vite. Choose an owned sample, select a local
+extracted AXML file, or drop one onto the page. A module Worker runs the actual
+compiled MoonBit decoder; selected file bytes are not uploaded. The page fetches
+its own static assets and sample files. XML, manifest/intent declarations,
+structure statistics, and typed references share one analysis result. A new
+selection or Cancel terminates the previous task.
+
+Input is capped at **16 MiB**, with a **10-second** analysis watchdog. Browser
+XML generation allows **2,097,152 UTF-16 units**; the screen previews the first
+**100,000**, while copying/downloading uses the full successful XML result.
+Events retain the first **1,000 summaries**; event/reference tables show
+**50 rows per page**. Permissions, components, and intent filters each preview
+**50 entries**, with totals and full JSON available through Copy/Download.
+These browser limits are separate from the library defaults below.
+
+Six Apache-2.0 owned fixtures cover basic/Unicode/reference manifests, menu XML,
+a UTF-16 string pool, and a deliberately truncated header. Provenance and hashes
+remain in [the fixture manifest](fixtures/manifest.json). The workbench does not
+extract APKs or resolve ARSC resources.
+
+From `playground/`, `pnpm test` runs 12 Node tests, `pnpm build` type-checks and
+builds a static bundle, and `pnpm preview` serves that bundle locally. Preparation
+rebuilds the MoonBit ESM and verifies copied sample hashes; no Mooncakes account
+is required. Relative asset paths support repository subpaths such as GitHub
+Pages. The [Pages workflow](.github/workflows/pages.yml) tests/builds on `main`
+pushes or manual runs, then publishes only `playground/dist`.
+Deployment target: [LING71671 AXML workbench](https://ling71671.github.io/moonbit-axml/).
+**Deployed and browser-verified on 2026-11-02:** samples, local Unicode input,
+reference source selection, and XML download. See [the demo guide](docs/DEMO.md)
+and [browser bridge schema](docs/BROWSER.md).
+
 ## Run the CLI
 
 Use MoonBit **0.10.18+6c83a7f62** (moon **0.1.20261028**). The JavaScript CLI
@@ -87,13 +128,13 @@ python scripts/verify_cli.py
 
 The verifier uses Python's standard library. Regenerating fixtures additionally
 requires pinned aapt2 and androguard; see [fixture instructions](fixtures/README.md).
-Current local verification covers **114 tests** each on wasm-gc, JavaScript, and
-Windows native, plus **19 fixtures**, **7 independent XML trees**,
+Current local verification covers **114 tests on wasm-gc**, **117 on JavaScript**
+(including the browser bridge), and **114 on Windows native**, plus
+**19 fixtures**, **7 independent XML trees**,
 **3 manifest records**, **menu statistics and typed reference locations**, and
 **12 malformed-input cases** through Node and native
 CLIs. Reference outputs come from aapt2/androguard, independently of this parser.
-The checked-in GitHub Actions workflow runs the same checks on Linux and Windows;
-per-commit results, including Linux verification, are recorded in
+Per-commit GitHub Actions results on Linux and Windows are recorded in
 [the acceptance matrix](docs/ACCEPTANCE.md).
 
 The [bounded stress benchmarks](docs/BENCHMARKS.md) cover 100,000 strings,

@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T06:24:47.228Z",
+  "title": "Design System: MoonAXML",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Charcoal ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.00747 95.35)",
+          "oklch(26.43% 0.00747 95.35)",
+          "oklch(37.86% 0.00747 95.35)",
+          "oklch(49.29% 0.00747 95.35)",
+          "oklch(60.71% 0.00747 95.35)",
+          "oklch(72.14% 0.00747 95.35)",
+          "oklch(83.57% 0.00747 95.35)",
+          "oklch(95.00% 0.00747 95.35)"
+        ]
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "Warm charcoal plate",
+        "tonalRamp": [
+          "oklch(15.00% 0.00908 97.67)",
+          "oklch(26.43% 0.00908 97.67)",
+          "oklch(37.86% 0.00908 97.67)",
+          "oklch(49.29% 0.00908 97.67)",
+          "oklch(60.71% 0.00908 97.67)",
+          "oklch(72.14% 0.00908 97.67)",
+          "oklch(83.57% 0.00908 97.67)",
+          "oklch(95.00% 0.00908 97.67)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ivory ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.02388 88.24)",
+          "oklch(26.43% 0.02388 88.24)",
+          "oklch(37.86% 0.02388 88.24)",
+          "oklch(49.29% 0.02388 88.24)",
+          "oklch(60.71% 0.02388 88.24)",
+          "oklch(72.14% 0.02388 88.24)",
+          "oklch(83.57% 0.02388 88.24)",
+          "oklch(95.00% 0.02388 88.24)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Aged-paper muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.03016 84.58)",
+          "oklch(26.43% 0.03016 84.58)",
+          "oklch(37.86% 0.03016 84.58)",
+          "oklch(49.29% 0.03016 84.58)",
+          "oklch(60.71% 0.03016 84.58)",
+          "oklch(72.14% 0.03016 84.58)",
+          "oklch(83.57% 0.03016 84.58)",
+          "oklch(95.00% 0.03016 84.58)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Sepia rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.03341 84.45)",
+          "oklch(26.43% 0.03341 84.45)",
+          "oklch(37.86% 0.03341 84.45)",
+          "oklch(49.29% 0.03341 84.45)",
+          "oklch(60.71% 0.03341 84.45)",
+          "oklch(72.14% 0.03341 84.45)",
+          "oklch(83.57% 0.03341 84.45)",
+          "oklch(95.00% 0.03341 84.45)"
+        ]
+      },
+      "soft-rule": {
+        "role": "neutral",
+        "displayName": "Soft sepia rule",
+        "tonalRamp": [
+          "oklch(15.00% 0.02142 84.53)",
+          "oklch(26.43% 0.02142 84.53)",
+          "oklch(37.86% 0.02142 84.53)",
+          "oklch(49.29% 0.02142 84.53)",
+          "oklch(60.71% 0.02142 84.53)",
+          "oklch(72.14% 0.02142 84.53)",
+          "oklch(83.57% 0.02142 84.53)",
+          "oklch(95.00% 0.02142 84.53)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Scarlet accent",
+        "tonalRamp": [
+          "oklch(15.00% 0.13270 30.91)",
+          "oklch(26.43% 0.13270 30.91)",
+          "oklch(37.86% 0.13270 30.91)",
+          "oklch(49.29% 0.13270 30.91)",
+          "oklch(60.71% 0.13270 30.91)",
+          "oklch(72.14% 0.13270 30.91)",
+          "oklch(83.57% 0.13270 30.91)",
+          "oklch(95.00% 0.13270 30.91)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Light scarlet",
+        "tonalRamp": [
+          "oklch(15.00% 0.12092 31.11)",
+          "oklch(26.43% 0.12092 31.11)",
+          "oklch(37.86% 0.12092 31.11)",
+          "oklch(49.29% 0.12092 31.11)",
+          "oklch(60.71% 0.12092 31.11)",
+          "oklch(72.14% 0.12092 31.11)",
+          "oklch(83.57% 0.12092 31.11)",
+          "oklch(95.00% 0.12092 31.11)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Wordmark",
+        "purpose": "Brand name, with italic AXML suffix and narrow-screen size adjustment."
+      },
+      "headline": {
+        "displayName": "Result heading",
+        "purpose": "Context title above a result surface."
+      },
+      "title": {
+        "displayName": "Content heading",
+        "purpose": "Manifest and result subsections."
+      },
+      "label": {
+        "displayName": "Functional label",
+        "purpose": "Primary and text actions, sample selector, and header navigation."
+      },
+      "data": {
+        "displayName": "XML reading text",
+        "purpose": "Monospaced XML; reduced to 0.8125rem on narrow screens."
+      },
+      "metadata": {
+        "displayName": "Source metadata",
+        "purpose": "Context rail and supporting numeric information."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state-color",
+        "value": "160ms ease-out",
+        "purpose": "Background, text, and border color transitions on interactive controls."
+      },
+      {
+        "name": "loading-pulse",
+        "value": "1s ease-in-out infinite alternate",
+        "purpose": "In-place opacity from 0.35 to 1 for loading rules and the processing indicator."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disables animations and transitions; scroll behavior becomes auto."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-max",
+        "value": "45em"
+      },
+      {
+        "name": "compact-max",
+        "value": "68em"
+      },
+      {
+        "name": "wide-min",
+        "value": "100rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary file action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The scarlet action opens the local AXML chooser.",
+      "html": "<button type=\"button\" class=\"ds-primary\"><svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 6V4h5l2 2h7v10H3V6Z\" stroke=\"currentColor\" stroke-width=\"1.4\"/><path d=\"M3 8h14\" stroke=\"currentColor\" stroke-width=\"1.4\"/></svg><span>Open AXML</span></button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:2.75rem;padding:.65rem 1rem;background:#b34e3e;color:#fff4df;font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;font-size:.875rem;border:0;border-radius:0;white-space:nowrap;cursor:pointer;transition:background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out}.ds-primary:hover{background:#9e4134}.ds-primary:active{background:#a14638}.ds-primary:disabled{cursor:not-allowed;opacity:.4}.ds-primary:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Quiet toolbar actions; pressed state marks XML wrapping.",
+      "html": "<button type=\"button\" class=\"ds-text\" aria-pressed=\"true\">Wrap lines</button>",
+      "css": ".ds-text{font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;font-size:.875rem;color:var(--muted,#b6ac98);min-height:2.5rem;padding:.4rem .2rem;border:0;border-radius:0;background:none;cursor:pointer;transition:color 160ms ease-out}.ds-text:hover{color:var(--ink,#ece5d4)}.ds-text[aria-pressed=true]{color:var(--accent-hover,#df806f)}.ds-text:disabled{cursor:not-allowed;opacity:.4}.ds-text:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-text{transition:none}}"
+    },
+    {
+      "name": "Sample selector",
+      "kind": "input",
+      "description": "A native selector within the same ruled, square control vocabulary.",
+      "html": "<label class=\"ds-sample\"><span>Sample</span><select aria-label=\"Choose a sample\"><option>Basic manifest</option><option>Resource references</option></select></label>",
+      "css": ".ds-sample{display:inline-flex;gap:.8rem;align-items:center;border:1px solid var(--rule,#615743);min-height:2.75rem;padding:0 .85rem;color:var(--ink,#ece5d4);font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif}.ds-sample>span{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted,#b6ac98)}.ds-sample select{border:0;border-radius:0;background:var(--ground,#24231f);color:var(--ink,#ece5d4);font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;font-size:.875rem;min-width:10rem;max-width:100%;padding:.6rem 1rem .6rem 0;cursor:pointer;transition:background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out}.ds-sample select:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:4px}@media(max-width:45em){.ds-sample{min-width:0;gap:.5rem;padding:0 .6rem}.ds-sample>span{display:none}.ds-sample select{min-width:0;width:100%}}@media(prefers-reduced-motion:reduce){.ds-sample select{transition:none}}"
+    },
+    {
+      "name": "Registered view tabs",
+      "kind": "nav",
+      "refersTo": "tab-selected",
+      "description": "Four equal columns with ruled dividers and an understated selected-view marker.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Result views\"><button type=\"button\" role=\"tab\" aria-selected=\"true\">XML</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Manifest</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Structure</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">References</button></div>",
+      "css": ".ds-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--rule,#615743);border-bottom:1px solid var(--rule,#615743)}.ds-tabs button{position:relative;text-align:left;font-family:Alegreya,Georgia,serif;font-size:1.3125rem;font-weight:400;color:var(--muted,#b6ac98);padding:1rem 1.25rem 1rem 0;background:none;border:0;border-radius:0;cursor:pointer;transition:background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out}.ds-tabs button+button{padding-left:1.4rem;border-left:1px solid var(--soft-rule,#443e32)}.ds-tabs button:hover{color:var(--ink,#ece5d4);background:#ffffff04}.ds-tabs button[aria-selected=true]{color:var(--ink,#ece5d4)}.ds-tabs button[aria-selected=true]::after{content:\"\";position:absolute;bottom:-1px;left:0;width:2.6rem;height:2px;background:var(--accent,#ce6857)}.ds-tabs button+button[aria-selected=true]::after{left:1.4rem}.ds-tabs button:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:4px}@media(max-width:45em){.ds-tabs button{font-size:1.0625rem;padding:.9rem .35rem .9rem 0}.ds-tabs button+button{padding-left:.65rem}.ds-tabs button+button[aria-selected=true]::after{left:.65rem}.ds-tabs button[aria-selected=true]::after{width:1.8rem}}@media(prefers-reduced-motion:reduce){.ds-tabs button{transition:none}}"
+    },
+    {
+      "name": "Result folio",
+      "kind": "custom",
+      "refersTo": "folio",
+      "description": "A flat result surface; data and source context share the same ruled frame.",
+      "html": "<section class=\"ds-folio\"><header><h2>Reconstructed XML</h2><p>Namespace-aware XML reconstructed from this input.</p></header><pre>&lt;manifest package=\"org.example.axml.basic\"&gt;&lt;/manifest&gt;</pre><div class=\"ds-context\">26 events · 25 attributes · Original source locations</div></section>",
+      "css": ".ds-folio{background:var(--plate,#292823);color:var(--ink,#ece5d4)}.ds-folio header{padding:1.7rem 1.6rem 1.35rem;border-bottom:1px solid var(--soft-rule,#443e32)}.ds-folio h2{font-family:Alegreya,Georgia,serif;font-size:1.5rem;font-weight:400;line-height:1.15;margin:0}.ds-folio p{font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;font-size:.75rem;color:var(--muted,#b6ac98);margin:.5rem 0 0;line-height:1.6}.ds-folio pre{font-family:\"SFMono-Regular\",Consolas,\"Liberation Mono\",monospace;font-size:.875rem;line-height:1.9;margin:0;padding:1.35rem 1.5rem 3.5rem;color:#ded5bf;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-ligatures:none}.ds-context{border-top:1px solid var(--rule,#615743);padding:.9rem 1.6rem;color:var(--muted,#b6ac98);font-family:\"SFMono-Regular\",Consolas,\"Liberation Mono\",monospace;font-size:.75rem;line-height:1.6;font-variant-numeric:tabular-nums}@media(max-width:45em){.ds-folio header{padding:1.2rem 1rem}.ds-folio h2{font-size:1.375rem}.ds-folio pre{font-size:.8125rem;line-height:1.85;padding:1rem .8rem 2.5rem}.ds-context{padding:.8rem 1rem}}"
+    },
+    {
+      "name": "Source location action",
+      "kind": "button",
+      "description": "An underlined offset connects a reference to its original event.",
+      "html": "<button type=\"button\" class=\"ds-source\">2,208 · Source line 9</button>",
+      "css": ".ds-source{border:0;border-radius:0;background:none;color:var(--accent-hover,#df806f);font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif;font-size:.75rem;min-height:2.25rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer;transition:background-color 160ms ease-out,color 160ms ease-out,border-color 160ms ease-out}.ds-source:focus-visible{outline:2px solid var(--accent-hover,#df806f);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-source{transition:none}}"
+    },
+    {
+      "name": "Located diagnostic",
+      "kind": "custom",
+      "description": "A stage-specific error retains the document context and an actionable recovery.",
+      "html": "<div class=\"ds-diagnostic\"><h3>Could not decode this file</h3><p>The input is truncated.</p><p class=\"ds-location\">decode · Byte offset 0 / 0x00000000</p><p class=\"ds-recovery\">Choose another sample or open an extracted binary XML file.</p></div>",
+      "css": ".ds-diagnostic{padding:2.5rem 1.6rem;max-width:60rem;color:var(--ink,#ece5d4);font-family:Arial,\"Noto Sans SC\",\"Microsoft YaHei\",sans-serif}.ds-diagnostic h3{font-family:Alegreya,Georgia,serif;font-size:1.5rem;font-weight:400;color:var(--accent-hover,#df806f);margin:0 0 1rem}.ds-diagnostic p{font-size:.8125rem;line-height:1.8;overflow-wrap:anywhere;max-width:65ch}.ds-diagnostic .ds-location{font-family:\"SFMono-Regular\",Consolas,\"Liberation Mono\",monospace;font-size:.75rem;color:var(--muted,#b6ac98)}.ds-diagnostic .ds-recovery{color:var(--muted,#b6ac98);margin-top:1.5rem}@media(max-width:45em){.ds-diagnostic{padding:1.8rem 1rem}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Continuous Folio",
+    "overview": "MoonAXML uses a continuous, ruled folio: warm charcoal supports ivory content, serif headings mark changes in reading context, and compact interface controls leave most of the page to the inspected artifact. The XML-bracket and binary-block mark is the identity asset.\n\nThe system is flat and restrained. Color marks actions, selection, and diagnostics; spacing and sepia rules organize information. English and Chinese share the same controls and reading hierarchy.",
+    "keyCharacteristics": [
+      "Warm dark surfaces, ivory text, and sepia divisions.",
+      "Alegreya branding and headings; system sans-serif controls and monospaced data.",
+      "Square controls and one continuous result surface.",
+      "Fixed reading sizes with explicit responsive adjustments."
+    ],
+    "rules": [
+      {
+        "name": "The Restrained Scarlet Rule",
+        "body": "Use scarlet for actionable controls, selected-view markers, source links, focus, and diagnostics; keep long-form result data neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed Reading Scale Rule",
+        "body": "Keep data and control sizes tied to their reading role. Change layout before reducing the type scale.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Separation Rule",
+        "body": "Separate regions with the ground/plate relationship and one-pixel sepia rules; do not add raised card shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the warm dark palette, the XML-bracket mark, and the serif/sans/mono role split.",
+      "Do keep source values readable with wrapping or a bounded local scroll area.",
+      "Do give each action a visible keyboard-focus treatment and an accurate state.",
+      "Do keep bilingual labels concise and allow long filenames and values to wrap."
+    ],
+    "donts": [
+      "Don't apply scarlet to entire result sheets or add decorative surface effects.",
+      "Don't replace the continuous folio with nested cards or rounded promotional chips.",
+      "Don't imply resource resolution, Android defaults, uploads, or a security verdict.",
+      "Don't introduce decorative onboarding, invented evidence, or unverified deployment claims."
+    ]
+  }
+}

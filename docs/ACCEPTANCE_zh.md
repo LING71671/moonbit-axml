@@ -8,8 +8,10 @@
 
 | 检查 | 已验证结果 | 证据 |
 | --- | --- | --- |
-| 最新本地 MoonBit 测试 | wasm-gc、JavaScript、Windows native 各通过 114/114 项 | [扩展验证记录](../evidence/verification-extension.json)；包含 `src/catalog/` 的同目录测试 |
-| 最新托管 MoonBit 测试 | Linux、Windows 的 wasm-gc、JavaScript、native 各通过 114/114 项 | [`6bc076b` 的 CI](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059)、[结果记录](../evidence/verification-extension.json) |
+| 含浏览器桥接的本地 MoonBit 测试 | wasm-gc、Windows native 各通过 114/114 项；JavaScript 通过 117/117 项 | `src/browser/` 新增三项 JS 专用测试；[扩展基线](../evidence/verification-extension.json) |
+| `8dffd5b` 浏览器工作台 | 12 项前端测试、严格 TypeScript/构建、隔离 ESM 检查、本地浏览器流程与子路径加载 | [工作台验证](../evidence/verification-workbench.json)、[演示说明](DEMO_zh.md) |
+| `b1dd568` 托管测试 | Linux、Windows 各通过 wasm-gc 114 项、JS 117 项、native 114 项、前端 12 项；完整 CLI 语料、浏览器沙箱及每宿主八种压力组合通过 | [CI](https://github.com/LING71671/moonbit-axml/actions/runs/41399307068)、[工作台托管证据](../evidence/verification-workbench-hosted.json) |
+| GitHub Pages 工作台 | 构建及部署成功；线上样例、本机 Unicode 输入、引用选择及精确 XML 下载验证通过 | [线上工作台](https://ling71671.github.io/moonbit-axml/)、[部署记录](https://github.com/LING71671/moonbit-axml/actions/runs/41399307093) |
 | CLI 语料 | 19 份语料哈希、7 棵 XML 语义树、3 份 Manifest 记录、菜单统计、精确类型引用来源、12 份畸形输入 | `scripts/verify_cli.py`、`fixtures/manifest.json` |
 | CLI 宿主 | Node.js、Windows native、Linux native | 相同扩展语料；[各宿主结果](../evidence/verification-extension.json) |
 | 独立参考 | aapt2 2.20-13193326、Android Build Tools 36.0.0 / android-36、androguard 4.1.3 | `fixtures/reference/`、[复现步骤](../fixtures/README_zh.md) |

@@ -8,8 +8,10 @@ Status: **implemented and locally verified on 2026-11-02; release gates remain o
 
 | Check | Verified result | Evidence |
 | --- | --- | --- |
-| Current local MoonBit suite | 114/114 tests each on wasm-gc, JavaScript, and Windows native | [Extension verification](../evidence/verification-extension.json); colocated tests including `src/catalog/` |
-| Current hosted MoonBit suite | 114/114 tests per backend on Linux and Windows; wasm-gc, JavaScript, and native | [CI for `6bc076b`](https://github.com/LING71671/moonbit-axml/actions/runs/41392861059), [recorded results](../evidence/verification-extension.json) |
+| Local MoonBit suite with browser bridge | 114/114 on wasm-gc and Windows native; 117/117 on JavaScript | `src/browser/` adds three JS-only tests; [extension baseline](../evidence/verification-extension.json) |
+| Browser workbench at `8dffd5b` | 12 frontend tests, strict TypeScript/build, isolated ESM checks, local browser flows and subpath loading | [Workbench verification](../evidence/verification-workbench.json), [demo guide](DEMO.md) |
+| Hosted suite at `b1dd568` | Linux and Windows each pass 114 wasm-gc, 117 JS, 114 native, and 12 frontend tests; full CLI corpus, browser sandbox, and eight stress cases per host | [CI](https://github.com/LING71671/moonbit-axml/actions/runs/41399307068), [hosted workbench evidence](../evidence/verification-workbench-hosted.json) |
+| GitHub Pages workbench | Build/deploy succeeded; hosted samples, local Unicode input, reference selection, and exact XML download verified | [Live workbench](https://ling71671.github.io/moonbit-axml/), [deployment](https://github.com/LING71671/moonbit-axml/actions/runs/41399307093) |
 | CLI corpus | 19 fixture hashes, 7 XML semantic trees, 3 manifest records, menu statistics, exact typed-reference origins, 12 malformed-input fixtures | `scripts/verify_cli.py`, `fixtures/manifest.json` |
 | CLI hosts | Node.js, Windows native, Linux native | Same extended corpus; [per-host results](../evidence/verification-extension.json) |
 | Independent references | aapt2 2.20-13193326, Android Build Tools 36.0.0 / android-36, androguard 4.1.3 | `fixtures/reference/`, [reproduction instructions](../fixtures/README.md) |

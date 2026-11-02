@@ -4,30 +4,30 @@
 
 ## Project Structure & Module Organization
 
-`moon.mod` defines `LING71671/axml`. Core decoding, rendering, and manifest inspection live in `src/`, alongside query/value helpers, `stats.mbt`, `resource_usage.mbt`, and `intent_filters.mbt`. `src/catalog/` independently processes named input batches. `src/cli/` handles arguments; `src/cmd/axml/` and `src/cmd/axml-native/` supply Node.js and native I/O. Tests are colocated. `fixtures/` contains owned samples and independent references; `scripts/` reproduces and verifies them. `docs/` and `evidence/` record scope and verification.
+`moon.mod` defines `LING71671/axml`. `src/` contains decoding, rendering, manifest inspection, statistics, references, and intents. `src/catalog/` handles batches; `src/cli/` and `src/cmd/` provide arguments and host I/O. `src/browser/` exports the JS bridge. `playground/` holds the Vite/TypeScript/Tailwind workbench, Worker controller, and Node tests. MoonBit tests are colocated. `fixtures/`, `scripts/`, `docs/`, and `evidence/` preserve samples, reproduction, guidance, and verification.
 
 ## Build, Test, and Development Commands
 
-Run from the repository root with the pinned MoonBit toolchain:
+Use README-pinned MoonBit; frontend requirements are Node.js 22.18+ and pnpm 11.14.0. From the root:
 
 - `moon fmt --check` and `moon info`: check formatting and regenerate public `.mbti` interfaces.
-- `moon check --target all --deny-warn`: check all backends without warnings.
-- `moon test --target wasm-gc --deny-warn`: run tests; repeat with `js` and `native`.
-- `moon build src/cmd/axml --target js --deny-warn`: build the Node CLI. Build native with `moon build src/cmd/axml-native --target native --deny-warn`.
-- `python scripts/verify_cli.py`: verify fixtures and CLI behavior. After building both CLIs, run `python scripts/benchmark.py --backend all --repeats 3`; see `docs/BENCHMARKS.md` for executable paths and measurement limits.
+- `moon check --target all --deny-warn`; `moon test --target wasm-gc --deny-warn`: check/test; repeat tests with `js` and `native`.
+- `python scripts/verify_cli.py`: verify independent fixtures. Build both CLIs before `python scripts/benchmark.py`.
+- `pnpm --dir playground install --frozen-lockfile`; `pnpm --dir playground dev`: prepare ESM/samples and start Vite.
+- `pnpm --dir playground test`, `pnpm --dir playground build`, `pnpm --dir playground preview`: test, type-check/build, or locally serve existing output. See `docs/DEMO.md`.
 
 ## Coding Style & Naming Conventions
 
-Use two-space indentation and `moon fmt`. Name functions/files in snake_case and public types in UpperCamelCase. Review generated `.mbti` changes; regenerate fixture tests through their script. Maintain English documentation with reciprocal `_zh.md` translations, two-space JSON indentation, and descriptive uppercase documentation filenames.
+Use two-space indentation and `moon fmt`. MoonBit functions/files use snake_case; public types use UpperCamelCase. TypeScript follows existing camelCase functions and kebab-case filenames. Review generated interfaces; regenerate fixture tests through scripts. Synchronize English documentation and reciprocal `_zh.md` translations.
 
 ## Testing Guidelines
 
-Use MoonBit's built-in runner: `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals. No coverage percentage is mandated. Cover bounds, encodings, namespaces, typed values, escaping, batch isolation, and error offsets. Compare semantic trees and metadata against pinned aapt2/androguard references. Preserve fixture provenance and hashes in `fixtures/manifest.json`. Consult `docs/ACCEPTANCE.md` for per-commit verification evidence.
+Use `*_test.mbt` for public behavior and `*_wbtest.mbt` for internals; no coverage percentage is mandated. Local counts are 114 wasm-gc, 117 JS, 114 Windows native, and 12 frontend Node tests. Cover bounds, namespaces, typed data, diagnostics, cancellation, stale results, and compiled-bridge integration. Preserve fixture provenance/hashes and independent references. Keep generated frontend code, samples, dependencies, and `dist/` ignored. Record browser checks separately.
 
 ## Commit & Pull Request Guidelines
 
-Use Conventional Commits, such as `feat: decode string pools`. PRs explain behavior, link issues or acceptance items, list executed checks and limitations, and update both documentation languages. Run `git diff --check` before committing.
+Use Conventional Commits. PRs explain behavior, link issues/acceptance items, list executed checks and limitations, and update both documentation languages. Run `git diff --check`.
 
 ## Account Isolation & Scope
 
-Follow `docs/ACCOUNTS.md`: use `scripts/moon.ps1` and `scripts/github.ps1` for authenticated operations as `LING71671`. Never switch global accounts or commit credentials. Keep decoding pure MoonBit and offline. Preserve unresolved resource IDs; APK extraction, ARSC resolution, signing, and DEX parsing remain outside scope.
+Follow `docs/ACCOUNTS.md` for authenticated wrappers; never switch global accounts or commit credentials. Public builds require no login. Keep parsing local and IDs unresolved. Browser input is capped at 16 MiB with a 10-second watchdog. APK extraction and ARSC resolution remain outside scope. `.github/workflows/pages.yml` publishes only `playground/dist` to GitHub Pages.

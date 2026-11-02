@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-11-02",
+  "code_revision": "8dffd5b155895e49e37d46ef9e53b97911eb072a",
+  "host": "Windows; Node.js v22.22.1; pnpm 11.14.0",
+  "commands": [
+    { "command": "pnpm --dir playground test", "exit_code": 0, "passed": 12 },
+    { "command": "pnpm --dir playground build", "exit_code": 0, "includes": ["strict TypeScript", "Vite production build", "module Worker", "self-hosted fonts", "six hash-verified fixtures"] },
+    { "command": "node --experimental-vm-modules scripts/verify_browser.mjs", "exit_code": 0, "includes": ["sandbox without Node globals", "sliced Uint8Array", "12 malformed fixtures", "1000-event boundary", "XML output budget"] }
+  ],
+  "browser_checks": [
+    "Local Unicode manifest parsed through the file chooser.",
+    "A malformed sample replaced previous results and reported decode offset 0.",
+    "Menu XML remained usable when manifest inspection rejected its root.",
+    "Reference byte offset 984 selected manifest event index 1.",
+    "Language switching preserved the input, view, and selected source.",
+    "ArrowRight moved the selected XML tab to Manifest.",
+    "Downloaded menu.xml matched the complete decoded XML.",
+    "The production bundle loaded fonts, samples, and its Worker under /moonbit-axml/ and decoded the basic manifest.",
+    "A 121-permission input displayed 50 permission declarations and an explicit total/preview notice."
+  ],
+  "large_manifest_check": {
+    "input_bytes": 12364,
+    "sha256": "e27e8b8b90271414375ce41541c0b89872fc1b0136bdd5e50541584184b2b687",
+    "construction": "Replace the 80-byte uses-permission start/end pair at offset 1876 in manifest_basic.axml with 120 copies; update only the outer chunk size.",
+    "decoded_permissions": 121,
+    "decoded_events": 264
+  },
+  "visual_review": {
+    "disposition": "ship",
+    "requested_viewports": ["1440x1000", "390x844", "1280x720"],
+    "scope": "Independent review of the supplied desktop, mobile, and user-width captures, implementation, product brief, and direction contract.",
+    "detector": "Regex fallback; parser modules unavailable. Custom-property contrast and selector analysis were not evaluated.",
+    "remaining_detector_finding": "Arial warning reviewed as intentional operation-label typography; branding and headings use self-hosted Alegreya."
+  },
+  "limitations": [
+    "The clipboard success state was observed; clipboard payload contents were not verified.",
+    "Responsive checks used browser emulation, not physical mobile hardware.",
+    "These local checks do not establish a public deployment or a hosted CI result."
+  ]
+}

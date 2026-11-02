@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-11-02",
+  "source_revision": "b1dd568080d52b63d8e0a5f399639faa3bb1a6bb",
+  "ci": {
+    "run_id": 41399307068,
+    "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41399307068",
+    "conclusion": "success",
+    "jobs": [
+      { "id": 125127423383, "host": "ubuntu-latest", "conclusion": "success", "wasm_gc_tests": 114, "js_tests": 117, "native_tests": 114, "frontend_tests": 12 },
+      { "id": 125127423729, "host": "windows-latest", "conclusion": "success", "wasm_gc_tests": 114, "js_tests": 117, "native_tests": 114, "frontend_tests": 12 }
+    ],
+    "additional_checks_per_host": ["format/interfaces/all-backend check", "two CLI corpus verifiers", "browser ESM sandbox", "strict TypeScript/static build", "eight bounded stress combinations"],
+    "corpus_per_cli": { "fixture_hashes": 19, "xml_trees": 7, "manifest_records": 3, "malformed_fixtures": 12, "menu_stats_and_references": "pass" }
+  },
+  "deployment": {
+    "run_id": 41399307093,
+    "url": "https://github.com/LING71671/moonbit-axml/actions/runs/41399307093",
+    "conclusion": "success",
+    "build_job_id": 125127422060,
+    "deploy_job_id": 125127577751,
+    "site": "https://ling71671.github.io/moonbit-axml/",
+    "build_type": "workflow",
+    "uploaded_directory": "playground/dist",
+    "https_enforced": true
+  },
+  "hosted_browser_checks": [
+    "Basic manifest decoded through the hosted module Worker and displayed package, versions, and SDK declarations.",
+    "Menu sample decoded; its downloaded XML exactly matched the complete compiled MoonBit result.",
+    "An owned local Unicode manifest was read through the hosted file chooser and decoded correctly.",
+    "Resource-reference offset 984 selected original manifest event index 1.",
+    "The language selector changed the workbench to Chinese while preserving input and views.",
+    "No warning/error console entries appeared during the checked flows."
+  ],
+  "scope": "One successful deployment and bounded browser flows; clipboard payload contents and physical mobile devices were not verified. Mooncakes publication is separate and remains unpublished."
+}

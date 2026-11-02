@@ -9,6 +9,40 @@ XML 重建和 Manifest 元数据。离线 CLI 读取已提取的 AXML 文件。�
 **状态：已按 Apache-2.0 公开源码，尚未发布到 Mooncakes。**
 选题研究及有范围限制的查重记录见 [docs/RESEARCH_zh.md](docs/RESEARCH_zh.md)。
 
+## 浏览器工作台
+
+使用下文固定版本的 MoonBit 工具链、Node.js **22.18+** 和 pnpm **11.14.0**：
+
+```sh
+cd playground
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+打开 Vite 输出的本机地址。选择自有样例、打开已提取的本机 AXML 文件，或将文件拖入页面。
+模块 Worker 执行实际编译的 MoonBit 解码器；所选文件字节不会上传。页面会请求自身的静态
+资源和样例。XML、Manifest/Intent 声明、结构统计和类型化引用共用一次分析结果。
+重新选择文件或点击取消会终止之前的任务。
+
+输入上限为 **16 MiB**，分析设置 **10 秒**超时监测。浏览器 XML 生成预算为
+**2,097,152 个 UTF-16 单元**；屏幕预览前 **100,000 个单元**，复制/下载使用成功生成的
+完整 XML。事件保留前 **1,000 条摘要**；事件、引用表均**每页 50 条**。权限、组件、
+Intent Filter 各预览前 **50 条**，显示总数，完整 JSON 可通过复制/下载获取。
+这些浏览器限制与下文的库默认值分别设置。
+
+内置 6 份 Apache-2.0 自有语料：基础、Unicode、资源引用 Manifest，菜单 XML，
+UTF-16 字符串池，以及故意截断的文件头。来源与哈希保留在[语料清单](fixtures/manifest.json)。
+工作台不提取 APK，也不查询 ARSC 资源表。
+
+在 `playground/` 中，`pnpm test` 运行 12 项 Node 测试，`pnpm build` 执行类型检查并生成
+静态构建，`pnpm preview` 在本机预览该构建。准备过程重新编译 MoonBit ESM，校验复制
+语料的哈希；不需要 Mooncakes 账号。相对资源路径适配 GitHub Pages 等仓库子路径。
+[Pages 工作流](.github/workflows/pages.yml) 在 `main` 推送或手动运行时测试、构建，
+随后仅发布 `playground/dist`。部署目标为
+[LING71671 AXML 工作台](https://ling71671.github.io/moonbit-axml/)。
+**已于 2026-11-02 部署并通过浏览器验证：**样例、本机 Unicode 输入、引用源位置选择与 XML 下载。
+详见[演示说明](docs/DEMO_zh.md)和[浏览器桥接协议](docs/BROWSER_zh.md)。
+
 ## 运行 CLI
 
 使用 MoonBit **0.10.18+6c83a7f62**，对应 moon **0.1.20261028**。
@@ -81,12 +115,12 @@ python scripts/verify_cli.py
 ```
 
 验证脚本只依赖 Python 标准库。重新生成测试语料另需固定版本的 aapt2 和 androguard，
-详见[语料说明](fixtures/README_zh.md)。最新本地 **114 项测试**已分别在 wasm-gc、JavaScript、
-Windows native 通过；Node 和原生 CLI 另通过 **19 份语料**、
+详见[语料说明](fixtures/README_zh.md)。最新本地测试为 wasm-gc **114 项**、JavaScript
+**117 项**（包括浏览器桥接）、Windows native **114 项**；Node 和原生 CLI 另通过 **19 份语料**、
 **7 棵独立 XML 语义树**、**3 份 Manifest 记录**、**菜单统计和类型引用位置**、
 **12 类畸形输入**检查。
-参考输出来自 aapt2/androguard，生成过程不依赖本解析器。仓库已配置在 Linux、Windows
-执行同类检查的 GitHub Actions；各提交的结果（包括 Linux 验证）记录在
+参考输出来自 aapt2/androguard，生成过程不依赖本解析器。各提交的 Linux、Windows
+GitHub Actions 结果记录在
 [验收清单](docs/ACCEPTANCE_zh.md)。
 
 [有限压力基准](docs/BENCHMARKS_zh.md)覆盖 100,000 个字符串、256 层嵌套、重复字符串
