@@ -1,0 +1,265 @@
+{
+  "review_date": "2026-11-01",
+  "timezone": "UTC+8",
+  "scope": "Public discovery only; no absolute nonexistence claim.",
+  "registry": {
+    "file": "mooncakes_modules_2026-11-01.json",
+    "endpoint": "https://mooncakes.io/api/v0/modules",
+    "record_count": 3518,
+    "fields": [
+      "name",
+      "description",
+      "keywords",
+      "repository"
+    ],
+    "patterns": [
+      "axml",
+      "apk",
+      "android",
+      "sparse",
+      "logcat",
+      "libsparse",
+      "simg2img",
+      "xml",
+      "plist",
+      "firmware"
+    ],
+    "finding": "No matching Android AXML, Android sparse-v1 image codec, or binary-logcat codec located. Similar names were inspected below."
+  },
+  "tools": [
+    "mcp__codex_apps__github_search_repositories",
+    "mcp__codex_apps__github_search",
+    "mcp__codex_apps__github_fetch",
+    "web__run"
+  ],
+  "searches": [
+    {
+      "kind": "github_repository",
+      "query": "MoonBit axml",
+      "result_count": 0
+    },
+    {
+      "kind": "github_repository",
+      "query": "MoonBit logcat",
+      "result_count": 0
+    },
+    {
+      "kind": "github_repository",
+      "query": "MoonBit sparse",
+      "results": [
+        "hp0200/moonbit-sparse-math",
+        "Zjyyer/moonbit-klt-tracker",
+        "Freon793/moonopt",
+        "red6667/moonldpc"
+      ],
+      "finding": "Numerical sparse matrices, feature tracking, optimization, and parity-check code; not Android image format."
+    },
+    {
+      "kind": "github_repository",
+      "query": "\"Android sparse\" MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_repository",
+      "query": "\"logcat\" MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_repository",
+      "query": "android language:MoonBit",
+      "results": [
+        "wzzc-dev/MoUI",
+        "fenriliuguang/wasmtime-android-kt-examples",
+        "moonbit-community/tonyfettes-raylib-android-games",
+        "moonbit-community/tonyfettes-android-raylib-minesweeper",
+        "moonbit-community/tonyfettes-android-raylib-battle-city",
+        "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+        "bobzhang/games",
+        "zzj3720/mbui"
+      ]
+    },
+    {
+      "kind": "github_code",
+      "query": "AXML language:MoonBit",
+      "finding": "Substring matches RAxML phylogenetic wrapper and PdfMetadataXml types; not Android AXML."
+    },
+    {
+      "kind": "github_code",
+      "query": "\"RES_XML_TYPE\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"RES_STRING_POOL_TYPE\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"binary xml\" language:MoonBit",
+      "finding": "Only mirek/bitsql comment about SQL Server internal binary XML; not Android codec."
+    },
+    {
+      "kind": "github_code",
+      "query": "\"AndroidManifest\" language:MoonBit",
+      "finding": "MoUI builds plain-text manifests; still.fail APK tool invokes aapt2; raylib generator emits text templates. Sources were read."
+    },
+    {
+      "kind": "github_code",
+      "query": "\"simg2img\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"0xed26ff3a\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"CHUNK_TYPE_DONT_CARE\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"CHUNK_TYPE_RAW\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"libsparse\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"logger_entry\" language:MoonBit",
+      "result_count": 0
+    },
+    {
+      "kind": "github_code",
+      "query": "\"logcat\" language:MoonBit",
+      "finding": "MoUI marker-specific plain-text parser; still.fail comments; SDL log-category substring hits; no binary decoder located."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit AXML AndroidManifest binary XML",
+      "finding": "Mature non-MoonBit AXML implementations and unrelated MoonBite project."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit Android sparse image libsparse simg2img",
+      "finding": "AOSP and standalone non-MoonBit tools; no corresponding MoonBit codec located."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit logcat binary logger_entry",
+      "finding": "General log libraries and Android references; no corresponding MoonBit codec located."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit \"binary logcat\"",
+      "finding": "No matching MoonBit codec located."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit \"binary XML\" Android",
+      "finding": "General MoonBit XML parsers and mature Android binary-XML upstreams."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit \"sparse image\"",
+      "finding": "General sparse-image information, no matching MoonBit Android codec located."
+    },
+    {
+      "kind": "web",
+      "query": "MoonBit AXML parser",
+      "finding": "MoonBit language parser and text XML libraries; no matching Android codec located."
+    }
+  ],
+  "limitations": [
+    "The Mooncakes endpoint covers public registered module metadata, not every package source.",
+    "GitHub code search covers indexed default branches, not private repos, unindexed fresh repos, or all branches.",
+    "Repository language qualifiers may miss mixed-language projects; keyword and code searches were also used.",
+    "No public discovery method proves that nobody is independently implementing a topic.",
+    "Recheck immediately before submitting the application."
+  ],
+  "implementation_status": "Not implemented; no tests run; no contest registration submitted.",
+  "project": "moonbit-axml",
+  "decision": "Recommend local project initiation",
+  "effort": {
+    "person_days": [
+      7,
+      10
+    ],
+    "hours_per_day": 8,
+    "total_hours": [
+      56,
+      80
+    ]
+  },
+  "closest_projects": [
+    {
+      "name": "moonbitstack/moonxml",
+      "url": "https://github.com/moonbitstack/moonxml/blob/master/README.md",
+      "read": true,
+      "difference": "XML 1.0 text/HTML trees, CSS and XPath; not Android ResXMLTree binary chunks."
+    },
+    {
+      "name": "Han-Wentao/moonplist",
+      "url": "https://github.com/Han-Wentao/moonplist/blob/codex/moonplist/README.md",
+      "read": true,
+      "difference": "Apple bplist00 and plist XML; different binary format and object model."
+    },
+    {
+      "name": "kekeshuo/moonevtx",
+      "url": "https://github.com/kekeshuo/moonevtx/blob/main/README.md",
+      "read": true,
+      "difference": "Microsoft EVTX/BINXML and CRC; not Android AXML or logcat."
+    },
+    {
+      "name": "Xpeng/linuxpkg",
+      "url": "https://github.com/pxgt/linuxpkg/blob/main/README.md",
+      "read": true,
+      "difference": "Its .apk means Alpine Linux packages, not Android APK manifests."
+    },
+    {
+      "name": "AFK-surf/still.fail",
+      "url": "https://github.com/AFK-surf/still.fail/blob/main/apps/mbui/mbui/tools/apk/main.mbt",
+      "read": true,
+      "difference": "APK build orchestrator calls aapt2 and reads plain source/AAR manifests; no in-process binary AXML reader located."
+    }
+  ],
+  "upstreams": [
+    {
+      "name": "AOSP ResourceTypes.h",
+      "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/d67e90e8a8301a87726420a1071fca8e52172bd4/libs/androidfw/include/androidfw/ResourceTypes.h",
+      "commit": "d67e90e8a8301a87726420a1071fca8e52172bd4",
+      "license": "Apache-2.0",
+      "read": true,
+      "role": "Canonical chunk/string-pool/typed-value structure"
+    },
+    {
+      "name": "hsiafan/apk-parser",
+      "url": "https://github.com/hsiafan/apk-parser",
+      "commit": "4d5a08e4d28fa2fce7fa356394c62c5e51a192e2",
+      "license": "BSD-2-Clause",
+      "read": true,
+      "stars_on_review": 1284,
+      "archived": true,
+      "role": "Mature Java API and scope reference; not sole current-format authority"
+    },
+    {
+      "name": "androguard/axml-parser",
+      "url": "https://github.com/androguard/axml-parser/tree/93d008a7ce337fb9bafb708bc8ce93ecdc25f80b",
+      "commit": "93d008a7ce337fb9bafb708bc8ce93ecdc25f80b",
+      "license": "Apache-2.0",
+      "read": true,
+      "role": "AXML fixtures and differential oracle; 284-line axml_tests.rs inspected"
+    },
+    {
+      "name": "Android APK Analyzer",
+      "url": "https://developer.android.com/studio/debug/apk-analyzer",
+      "read": true,
+      "role": "Official real-use evidence: inspect final compiled manifest after build/merge"
+    }
+  ],
+  "fixture_plan": "Pin source revisions, generate own aapt2 fixtures from source XML, record SHA-256 and reference event/typed-value expectations, and compare existing androguard fixtures after per-file redistribution review. No fixtures downloaded or tests run in this review."
+}

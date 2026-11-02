@@ -1,0 +1,24 @@
+N: android=http://schemas.android.com/apk/res/android (line=2)
+  E: manifest (line=2)
+    A: http://schemas.android.com/apk/res/android:versionCode(0x0101021b)=9
+    A: http://schemas.android.com/apk/res/android:versionName(0x0101021c)="版本 & "二"" (Raw: "版本 & "二"")
+    A: http://schemas.android.com/apk/res/android:compileSdkVersion(0x01010572)=36
+    A: http://schemas.android.com/apk/res/android:compileSdkVersionCodename(0x01010573)="16" (Raw: "16")
+    A: package="org.example.axml.unicode" (Raw: "org.example.axml.unicode")
+    A: platformBuildVersionCode=36
+    A: platformBuildVersionName=16
+      E: uses-sdk (line=4)
+        A: http://schemas.android.com/apk/res/android:minSdkVersion(0x0101020c)=24
+        A: http://schemas.android.com/apk/res/android:targetSdkVersion(0x01010270)=35
+      E: uses-permission (line=5)
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.permission.ACCESS_NETWORK_STATE" (Raw: "android.permission.ACCESS_NETWORK_STATE")
+      E: application (line=6)
+        A: http://schemas.android.com/apk/res/android:label(0x01010001)="月亮 𠀀 & <XML> "引号"" (Raw: "月亮 𠀀 & <XML> "引号"")
+          E: activity (line=7)
+            A: http://schemas.android.com/apk/res/android:name(0x01010003)=".UnicodeActivity" (Raw: ".UnicodeActivity")
+            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false
+          E: meta-data (line=8)
+            A: http://schemas.android.com/apk/res/android:name(0x01010003)="escaped" (Raw: "escaped")
+            A: http://schemas.android.com/apk/res/android:value(0x01010024)="line
+            tab	&<>"'" (Raw: "line
+            tab	&<>"'")

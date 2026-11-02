@@ -1,0 +1,16 @@
+_build/
+.moon/
+.git/
+.github/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+AGENTS.md
+AGENTS_zh.md
+evidence/
+scripts/
+docs/PORTFOLIO.md
+docs/PORTFOLIO_zh.md

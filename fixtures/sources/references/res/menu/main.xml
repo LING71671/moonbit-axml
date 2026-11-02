@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_add" android:title="Add &amp; &lt;new&gt;" android:icon="@android:drawable/ic_menu_add" android:enabled="true" />
+    <item android:id="@+id/action_settings" android:title="@string/app_name" android:orderInCategory="10" android:visible="false" />
+</menu>

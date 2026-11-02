@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.axml -text
+*.png -text
+*.jpg -text

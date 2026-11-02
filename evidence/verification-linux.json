@@ -1,0 +1,117 @@
+{
+  "verification_date": "2026-11-02",
+  "platform": {
+    "distribution": "Debian (WSL2)",
+    "kernel": "Linux 6.18.33.2-microsoft-standard-WSL2",
+    "architecture": "x86_64",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "python": "CPython 3.12.12"
+  },
+  "moonbit": {
+    "version": "moon 0.1.20261028 (e1e1f15 2026-10-28)",
+    "installation": "_build/linux-moon; extracted manually after reviewing official installer; no global shell changes",
+    "toolchain_download": "https://cli.moonbitlang.com/binaries/latest/moonbit-linux-x86_64.tar.gz",
+    "toolchain_sha256": "0e4cde1ace98e8ef00552a937738b59c6901c4b8a004ebad71ea0e63688f63f1",
+    "core_download": "https://cli.moonbitlang.com/cores/core-latest.tar.gz",
+    "core_sha256": "30a8ae1c1e1e8fde478ea742cbc928c8f4ae1f5c00090afe3f10c97be9e5da64"
+  },
+  "environment": {
+    "MOON_HOME": "/mnt/e/moonbit-axml/_build/linux-moon",
+    "PATH": "/mnt/e/moonbit-axml/_build/linux-moon/bin:/usr/bin:/bin",
+    "CC": "gcc"
+  },
+  "checks": [
+    {
+      "command": "moon -C /mnt/e/moonbit-axml test --target native --deny-warn --target-dir /mnt/e/moonbit-axml/_build/linux-build",
+      "exit_code": 0,
+      "result": "Total tests: 46, passed: 46, failed: 0."
+    },
+    {
+      "command": "moon -C /mnt/e/moonbit-axml build src/cmd/axml-native --target native --deny-warn --target-dir /mnt/e/moonbit-axml/_build/linux-build",
+      "exit_code": 0,
+      "result": "Finished. moon: ran 31 tasks, now up to date"
+    },
+    {
+      "command": "python3.12 scripts/verify_cli.py --cli /mnt/e/moonbit-axml/_build/linux-build/native/debug/build/cmd/axml-native/axml-native.exe",
+      "exit_code": 0,
+      "result": "PASS: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; 12 malformed errors."
+    }
+  ],
+  "source_sha256": {
+    "moon.mod": "bcb98c2ce364a21599ca6c1c2d1013cc0e9a3a09f7ac4c48238f1b345ef9bd89",
+    "src/cli/cli.mbt": "5c86d2a3dbe4d4cf59774f7a6282d463a118f347956c85ccc72c84b28d11f86c",
+    "src/cli/cli_test.mbt": "9fb6ac47b4aff68e853b0841d05f7cdcab8f031ba118ead930c35b39be0ad58a",
+    "src/cmd/axml/main.mbt": "6d1e54043cbdd397bedceec03da3421b437202318e4fd826ec63850abbda7243",
+    "src/cmd/axml-native/main.mbt": "85968bee08bbbbbd19b5ae804c4c1e1d9d486a47b37d6cd165f89562cf41d14a",
+    "src/decoder.mbt": "de909baa9d8273a6f5446269496cc4ff255be0573544eea9474a434d4ae1df1a",
+    "src/decoder_wbtest.mbt": "d8bae7fb0687c4249d1c0499366f682501a4ea2755b638aaae26b7bb52fe911b",
+    "src/fixtures_test.mbt": "d0eee01429451f014e556daffbda1b985c868f0af3cc032a786a389dc784e6bd",
+    "src/manifest.mbt": "caa6efe186f2110e7fbb7ffbd66c6ebd867f17b451c864022f75c1308b818a7a",
+    "src/manifest_test.mbt": "1ae929829d37c1bcd850ed48318d6e298ad2fcbd55d7b712991d983e0a883505",
+    "src/model.mbt": "c95c85f358df06f7687e018f0a2d1676d04c9ab66a33270237ba66e4e959c2d6",
+    "src/reader.mbt": "50f03b85f25205957d1b541be1514a415edb1cdaf6017bc91cab7cb2f85672b2",
+    "src/render.mbt": "5a729050e749412c6c41a3127e4aadcfd9d01658dd2f81da7fb2dd00d6c04bcb",
+    "src/render_test.mbt": "a6b1d716403ba873ea68f6854ec12b3cb26ec1b9881508101dc5139537e7b20f",
+    "src/string_pool.mbt": "e8ab9e4dcee60cc51a8748873a8eabe04a9ebfe800387abd02be5fd160d78c5b",
+    "src/cli/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+    "src/cmd/axml/moon.pkg": "33eb6c3528985f7f1c903e66e4e2de045676ad07296dfe9bc8677a13261319e1",
+    "src/cmd/axml-native/moon.pkg": "d0827903e054f18a63f8db4e14c41c068840e98c759db9d4ad02110485afe9d8",
+    "src/moon.pkg": "fa73e778eb5224993be13a98c893f1a2778999f004bc75af307a1ee52639c952",
+    "scripts/verify_cli.py": "7847b5be4f6d9cfed495575839fadea998699d4a3224b6626c735b11f36b2cc3",
+    "fixtures/manifest.json": "90d18ba1f34d88457bd04ba3eac1fc35a1707d930703ccc04312f37befe73492"
+  },
+  "limitations": [
+    "WSL2 verification is Linux-native execution, not an Android runtime or a remote CI result.",
+    "Latest download URLs are mutable; archive hashes and exact reported version are recorded above."
+  ],
+  "lf_normalization_recheck": {
+    "verification_date": "2026-11-02",
+    "purpose": "Recheck regenerated LF-normalized fixture hashes and CLI behavior; original checks and original source hashes above are preserved.",
+    "all_19_binary_fixture_hashes_unchanged": true,
+    "checks": [
+      {
+        "command": "moon -C /mnt/e/moonbit-axml test --target native --deny-warn --target-dir /mnt/e/moonbit-axml/_build/linux-build",
+        "exit_code": 0,
+        "result": "Total tests: 46, passed: 46, failed: 0."
+      },
+      {
+        "command": "moon -C /mnt/e/moonbit-axml build src/cmd/axml-native --target native --deny-warn --target-dir /mnt/e/moonbit-axml/_build/linux-build",
+        "exit_code": 0,
+        "result": "Finished. moon: no work to do"
+      },
+      {
+        "command": "python3.12 scripts/verify_cli.py --cli /mnt/e/moonbit-axml/_build/linux-build/native/debug/build/cmd/axml-native/axml-native.exe",
+        "exit_code": 0,
+        "result": "PASS: 19 fixture hashes; 7 XML semantic trees; 3 manifest records; 12 malformed errors."
+      }
+    ],
+    "source_sha256": {
+      "moon.mod": "bcb98c2ce364a21599ca6c1c2d1013cc0e9a3a09f7ac4c48238f1b345ef9bd89",
+      "src/cli/cli.mbt": "5c86d2a3dbe4d4cf59774f7a6282d463a118f347956c85ccc72c84b28d11f86c",
+      "src/cli/cli_test.mbt": "9fb6ac47b4aff68e853b0841d05f7cdcab8f031ba118ead930c35b39be0ad58a",
+      "src/cmd/axml/main.mbt": "6d1e54043cbdd397bedceec03da3421b437202318e4fd826ec63850abbda7243",
+      "src/cmd/axml-native/main.mbt": "85968bee08bbbbbd19b5ae804c4c1e1d9d486a47b37d6cd165f89562cf41d14a",
+      "src/decoder.mbt": "de909baa9d8273a6f5446269496cc4ff255be0573544eea9474a434d4ae1df1a",
+      "src/decoder_wbtest.mbt": "d8bae7fb0687c4249d1c0499366f682501a4ea2755b638aaae26b7bb52fe911b",
+      "src/fixtures_test.mbt": "d0eee01429451f014e556daffbda1b985c868f0af3cc032a786a389dc784e6bd",
+      "src/manifest.mbt": "caa6efe186f2110e7fbb7ffbd66c6ebd867f17b451c864022f75c1308b818a7a",
+      "src/manifest_test.mbt": "1ae929829d37c1bcd850ed48318d6e298ad2fcbd55d7b712991d983e0a883505",
+      "src/model.mbt": "c95c85f358df06f7687e018f0a2d1676d04c9ab66a33270237ba66e4e959c2d6",
+      "src/reader.mbt": "50f03b85f25205957d1b541be1514a415edb1cdaf6017bc91cab7cb2f85672b2",
+      "src/render.mbt": "5a729050e749412c6c41a3127e4aadcfd9d01658dd2f81da7fb2dd00d6c04bcb",
+      "src/render_test.mbt": "a6b1d716403ba873ea68f6854ec12b3cb26ec1b9881508101dc5139537e7b20f",
+      "src/string_pool.mbt": "e8ab9e4dcee60cc51a8748873a8eabe04a9ebfe800387abd02be5fd160d78c5b",
+      "src/cli/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+      "src/cmd/axml/moon.pkg": "33eb6c3528985f7f1c903e66e4e2de045676ad07296dfe9bc8677a13261319e1",
+      "src/cmd/axml-native/moon.pkg": "d0827903e054f18a63f8db4e14c41c068840e98c759db9d4ad02110485afe9d8",
+      "src/moon.pkg": "fa73e778eb5224993be13a98c893f1a2778999f004bc75af307a1ee52639c952",
+      "scripts/verify_cli.py": "7847b5be4f6d9cfed495575839fadea998699d4a3224b6626c735b11f36b2cc3",
+      "scripts/generate_fixtures.py": "06bbd73ca25df622b099c43b6925841e44158de04fdb5eae3db79ac6dc1b2920",
+      "fixtures/manifest.json": "984f6198474590d184cd9b179d557fdf6ae7aebdff810fe40159710dff19fedf"
+    },
+    "new_or_changed_hash_paths_since_initial_verification": [
+      "scripts/generate_fixtures.py",
+      "fixtures/manifest.json"
+    ]
+  }
+}

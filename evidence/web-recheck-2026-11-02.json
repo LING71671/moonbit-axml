@@ -1,0 +1,68 @@
+{
+  "review_date": "2026-11-02",
+  "timezone": "UTC+8",
+  "checked_at_utc": "2026-11-02T02:04:01Z",
+  "project": "moonbit-axml",
+  "method": "Fresh web searches followed by primary repository README inspection; no implementation tests executed.",
+  "queries": [
+    "MoonBit AXML parser Android binary XML",
+    "\"MoonBit\" \"AXML\"",
+    "\"MoonBit\" \"AndroidManifest\" parser",
+    "\"MoonBit\" \"binary XML\" Android",
+    "\"moonbit-axml\"",
+    "\"moonbit\" \"axml\" github",
+    "\"MoonBit\" \"AndroidManifest.xml\"",
+    "\"MoonBit\" 安卓 二进制 XML",
+    "\"MoonBit\" \"AXML\" site:github.com",
+    "\"AXML\" site:mooncakes.io",
+    "\"MoonBit\" \"Android binary\"",
+    "\"月兔\" \"AXML\"",
+    "MoonBit AndroidManifest parser github AXML 月兔",
+    "\"MoonBit\" \"AXML\" hackathon",
+    "\"MoonBit\" \"axml\" site:gitee.com",
+    "\"MoonBit\" \"axml\" site:gitlink.org.cn",
+    "\"MoonBit\" \"ResXMLTree\"",
+    "\"MoonBit\" \"RES_XML_TYPE\"",
+    "\"MoonBit\" \"RES_STRING_POOL_TYPE\"",
+    "\"moonbit\" \"apk-parser\""
+  ],
+  "finding": "No direct MoonBit Android binary XML decoder candidate surfaced in the returned web results. Some strict queries returned unrelated material, so web searches have no reliable zero-result count.",
+  "primary_sources_inspected": [
+    {
+      "name": "moonbit-community/xml-mbt",
+      "url": "https://github.com/moonbit-community/xml-mbt",
+      "inspected_scope": "README",
+      "finding": "XML 1.0/Namespaces 1.0 pull parser. README explicitly requires caller-supplied XML text and Reader::from_string/NamespaceReader::from_string. No Android binary chunk decoder is described."
+    },
+    {
+      "name": "moonbitstack/moonxml",
+      "url": "https://github.com/moonbitstack/moonxml",
+      "inspected_scope": "README",
+      "finding": "HTML/XML/SVG text trees, CSS selectors and XPath; no Android binary XML decoder is described."
+    },
+    {
+      "name": "thy7/mbt.xml (thy1016/moonxml)",
+      "url": "https://www.gitlink.org.cn/thy7/mbt.xml",
+      "inspected_scope": "Repository page and README",
+      "finding": "XML text parsing/serialization, XML editions, namespaces and text encodings; parse accepts XML source strings. No Android binary XML decoder is described."
+    },
+    {
+      "name": "moonbitlang/awesome-moonbit",
+      "url": "https://github.com/moonbitlang/awesome-moonbit",
+      "inspected_scope": "README library listings",
+      "finding": "Lists text XML parsing and other ecosystem packages; no AXML decoder listing located. Curated lists are not exhaustive."
+    },
+    {
+      "name": "androguard/axml-parser",
+      "url": "https://github.com/androguard/axml-parser",
+      "inspected_scope": "README",
+      "finding": "Directly overlapping AXML/ARSC parsing, manifest metadata and CLI exist in Rust with optional Python bindings. This establishes existing functionality outside MoonBit, not an existing MoonBit implementation."
+    }
+  ],
+  "limitations": [
+    "Search engine indexing, spelling and query interpretation can miss public work.",
+    "Gitee/GitLink checks used indexed web search, not exhaustive platform APIs.",
+    "README inspection identifies advertised scope and does not prove absence from every source file or branch.",
+    "Private repositories, unpublished work and private contest submissions are outside this review."
+  ]
+}

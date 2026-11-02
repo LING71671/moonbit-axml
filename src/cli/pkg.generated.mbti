@@ -1,0 +1,32 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "LING71671/axml/cli"
+
+import {
+  "LING71671/axml",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn execute(Command, Bytes) -> String raise @axml.DecodeError
+
+pub fn parse_args(Array[String]) -> Command raise UsageError
+
+pub let usage : String
+
+// Errors
+pub suberror UsageError {
+  Usage(String)
+} derive(@debug.Debug)
+
+// Types and methods
+pub(all) enum Command {
+  Decode(String)
+  Inspect(String)
+  Validate(String)
+  Help
+} derive(Eq, @debug.Debug)
+pub fn Command::path(Self) -> String?
+
+// Type aliases
+
+// Traits

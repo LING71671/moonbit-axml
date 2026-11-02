@@ -1,0 +1,12 @@
+N: android=http://schemas.android.com/apk/res/android (line=2)
+  E: menu (line=2)
+      E: item (line=3)
+        A: http://schemas.android.com/apk/res/android:icon(0x01010002)=@0x01080033
+        A: http://schemas.android.com/apk/res/android:enabled(0x0101000e)=true
+        A: http://schemas.android.com/apk/res/android:id(0x010100d0)=@0x7f010000
+        A: http://schemas.android.com/apk/res/android:title(0x010101e1)="Add & <new>" (Raw: "Add & <new>")
+      E: item (line=4)
+        A: http://schemas.android.com/apk/res/android:id(0x010100d0)=@0x7f010001
+        A: http://schemas.android.com/apk/res/android:visible(0x01010194)=false
+        A: http://schemas.android.com/apk/res/android:orderInCategory(0x010101df)=10
+        A: http://schemas.android.com/apk/res/android:title(0x010101e1)=@0x7f030000

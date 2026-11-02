@@ -1,0 +1,4 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:icon="@android:01080033" android:enabled="true" android:id="@7F010000" android:title="Add &amp; &lt;new&gt;"/>
+  <item android:id="@7F010001" android:visible="false" android:orderInCategory="10" android:title="@7F030000"/>
+</menu>

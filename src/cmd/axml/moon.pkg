@@ -1,0 +1,13 @@
+import {
+  "LING71671/axml" @codec,
+  "LING71671/axml/cli",
+  "moonbitlang/core/env",
+}
+
+supported_targets = "-all+js"
+
+pkgtype(kind: "executable")
+
+options(
+  link: { "js": { "format": "cjs" } },
+)

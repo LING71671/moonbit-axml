@@ -1,0 +1,69 @@
+{
+  "checked_at": "2026-11-01T21:33:22.646800+08:00",
+  "registry_url": "https://mooncakes.io/api/v0/modules",
+  "snapshot_date": "2026-11-01",
+  "record_count": 3518,
+  "snapshot_sha256": "6d841579a0b6e8060eb0dfe5578e27c1c34c07f739004e830f6c637914d306d4",
+  "queries": [
+    {
+      "regex": "axml",
+      "count": 0,
+      "modules": []
+    },
+    {
+      "regex": "android.*manifest",
+      "count": 0,
+      "modules": []
+    },
+    {
+      "regex": "binary.?xml",
+      "count": 1,
+      "modules": [
+        {
+          "name": "Han-Wentao/moonplist",
+          "version": "0.1.1",
+          "yanked": false,
+          "yanked_reason": null,
+          "license": "Apache-2.0",
+          "repository": "https://github.com/Han-Wentao/moonplist",
+          "keywords": [
+            "plist",
+            "bplist",
+            "serialization",
+            "configuration"
+          ],
+          "description": "Typed Apple binary/XML property lists with bounded decoding and structural editing",
+          "is_new": false,
+          "created_at": "2026-10-20T11:41:52.307534"
+        }
+      ]
+    },
+    {
+      "regex": "apk",
+      "count": 1,
+      "modules": [
+        {
+          "name": "Xpeng/linuxpkg",
+          "version": "0.5.0",
+          "yanked": false,
+          "yanked_reason": null,
+          "license": "Apache-2.0",
+          "repository": "https://github.com/pxgt/linuxpkg",
+          "keywords": [
+            "deb",
+            "rpm",
+            "packaging",
+            "linux",
+            "archive",
+            "apk",
+            "pacman"
+          ],
+          "description": "Pure-MoonBit toolkit to build, inspect and verify Linux packages (deb, rpm, Arch, Alpine) and apt/dnf repositories, without dpkg-deb or rpmbuild",
+          "is_new": false,
+          "created_at": "2026-10-22T16:48:20.791328"
+        }
+      ]
+    }
+  ],
+  "interpretation": "Metadata matches, including false positives; absence is not proof of no implementation."
+}

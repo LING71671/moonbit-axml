@@ -1,0 +1,112 @@
+{
+  "tag": "manifest",
+  "attributes": {
+    "package": "org.example.axml.basic",
+    "platformBuildVersionCode": "36",
+    "platformBuildVersionName": "16",
+    "{http://schemas.android.com/apk/res/android}compileSdkVersion": "36",
+    "{http://schemas.android.com/apk/res/android}compileSdkVersionCodename": "16",
+    "{http://schemas.android.com/apk/res/android}versionCode": "7",
+    "{http://schemas.android.com/apk/res/android}versionName": "1.2.3"
+  },
+  "text": "",
+  "children": [
+    {
+      "tag": "uses-sdk",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}minSdkVersion": "23",
+        "{http://schemas.android.com/apk/res/android}targetSdkVersion": "35"
+      },
+      "text": "",
+      "children": []
+    },
+    {
+      "tag": "uses-permission",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}name": "android.permission.INTERNET"
+      },
+      "text": "",
+      "children": []
+    },
+    {
+      "tag": "uses-permission",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}maxSdkVersion": "32",
+        "{http://schemas.android.com/apk/res/android}name": "android.permission.CAMERA"
+      },
+      "text": "",
+      "children": []
+    },
+    {
+      "tag": "application",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}debuggable": "false",
+        "{http://schemas.android.com/apk/res/android}label": "AXML Example"
+      },
+      "text": "",
+      "children": [
+        {
+          "tag": "activity",
+          "attributes": {
+            "{http://schemas.android.com/apk/res/android}exported": "true",
+            "{http://schemas.android.com/apk/res/android}name": ".MainActivity"
+          },
+          "text": "",
+          "children": [
+            {
+              "tag": "intent-filter",
+              "attributes": {},
+              "text": "",
+              "children": [
+                {
+                  "tag": "action",
+                  "attributes": {
+                    "{http://schemas.android.com/apk/res/android}name": "android.intent.action.MAIN"
+                  },
+                  "text": "",
+                  "children": []
+                },
+                {
+                  "tag": "category",
+                  "attributes": {
+                    "{http://schemas.android.com/apk/res/android}name": "android.intent.category.LAUNCHER"
+                  },
+                  "text": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "service",
+          "attributes": {
+            "{http://schemas.android.com/apk/res/android}exported": "false",
+            "{http://schemas.android.com/apk/res/android}name": ".SyncService"
+          },
+          "text": "",
+          "children": []
+        },
+        {
+          "tag": "receiver",
+          "attributes": {
+            "{http://schemas.android.com/apk/res/android}exported": "false",
+            "{http://schemas.android.com/apk/res/android}name": ".BootReceiver"
+          },
+          "text": "",
+          "children": []
+        },
+        {
+          "tag": "provider",
+          "attributes": {
+            "{http://schemas.android.com/apk/res/android}authorities": "org.example.axml.basic.data",
+            "{http://schemas.android.com/apk/res/android}exported": "false",
+            "{http://schemas.android.com/apk/res/android}name": ".DataProvider"
+          },
+          "text": "",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.example.axml.unicode" android:versionCode="9" android:versionName="版本 &amp; &quot;二&quot;">
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="35" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application android:label="月亮 𠀀 &amp; &lt;XML&gt; &quot;引号&quot;">
+        <activity android:name=".UnicodeActivity" android:exported="false" />
+        <meta-data android:name="escaped" android:value="line&#10;tab&#9;&amp;&lt;&gt;&quot;&apos;" />
+    </application>
+</manifest>

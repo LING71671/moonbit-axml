@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.example.axml.references" android:versionCode="11" android:versionName="@string/version_name">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application android:label="@string/app_name" android:theme="@android:style/Theme.Material.Light">
+        <activity android:name=".ReferenceActivity" android:exported="false" android:label="@string/app_name" />
+    </application>
+</manifest>

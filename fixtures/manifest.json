@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "license": "Apache-2.0",
+  "reproduction": "python scripts/generate_fixtures.py --sdk <ANDROID_SDK_ROOT>",
+  "tools": {
+    "aapt2": {
+      "version": "Android Asset Packaging Tool (aapt) 2.20-13193326",
+      "build_tools": "36.0.0",
+      "host_platform": "win32",
+      "executable_sha256": "babf3122e515ddb954c5ac4669e085ce990536c035e3072de30127bddd6e3608"
+    },
+    "android_platform": {
+      "version": "android-36",
+      "android_jar_sha256": "d9eb9da824d9e247a352f570f01e1169e725b2954bca9e283a71786c59b59f9a"
+    },
+    "androguard": "4.1.3"
+  },
+  "source_sha256": {
+    "fixtures/sources/basic/AndroidManifest.xml": "79ff5b00cb62c95ec78b623ccb066404aa0e91dd2dfece9f10cd29ecda2dab99",
+    "fixtures/sources/references/AndroidManifest.xml": "c50301b5b0fa10b49b1b0e81c38b796fc1dacfc1365d18eab02cdbec51a38faf",
+    "fixtures/sources/references/res/menu/main.xml": "6439393e6822ea67bbbda1884182e4b9195acfca2e23e6e416dadca7465cc361",
+    "fixtures/sources/references/res/values/strings.xml": "f921c687cdc58751cb46422d2bc580d14e53dfefafc6e0c4b3aa82ad17fcfc94",
+    "fixtures/sources/unicode/AndroidManifest.xml": "b5a6878e293e4ebeb05571f09241d2a70b5a33607287452fa5eb01d29a4b511c"
+  },
+  "reference_sha256": {
+    "fixtures/reference/manifest_basic.aapt2.txt": "70d6f72d5a89d67ac7ad7228aa91a3d1b96aaec665f11e5ec4920e6cc20b2333",
+    "fixtures/reference/manifest_basic.badging.txt": "575e52dad1c454848ee3c9e1e60906c565bde95b35b0f64e37090b4860af596c",
+    "fixtures/reference/manifest_basic.tree.json": "cec2f413ef86bc0db8b4aa251b49d312f1272812eca185af68677769c48f8a73",
+    "fixtures/reference/manifest_basic.xml": "15514b35539e26f77a70f0a7cb53fbb480ba054cf7b0b564bf4225d6e1dcc356",
+    "fixtures/reference/manifest_references.aapt2.txt": "7e3d4d938e2aa9092034a460fe874bf809d7de33b49c7dfb8440030de233d61d",
+    "fixtures/reference/manifest_references.badging.txt": "7a4bf3cdae2a631d41f62ba3f4b9cf2691f823ae008666a4bba2a2bc0af74b77",
+    "fixtures/reference/manifest_references.tree.json": "b2b52163591f674d6afe5c82098d8423a5c9d6b1112cb5731a10bf09acb0f7b6",
+    "fixtures/reference/manifest_references.xml": "5d705271f9a835a4a118f519ee4785aceefee969ac6e3537cc8f041a99250638",
+    "fixtures/reference/manifest_unicode.aapt2.txt": "3dc02d9fde25cea91f5c4558403a64645a9d475184c3bd733e9130da5b4496eb",
+    "fixtures/reference/manifest_unicode.badging.txt": "ca10817fa2c4b03f8d5f822e63815f4f5d198b31f6ca420ab951bedd9ee0763f",
+    "fixtures/reference/manifest_unicode.tree.json": "38d3a95b1cb1b178b7a20780cbab045956ee643b0fdb564eb3aff7feb22e5f3f",
+    "fixtures/reference/manifest_unicode.xml": "f0470d0c9490073b12b3c0ca78a4b8e1722842a8a4984eefcacd2d2e6d83290d",
+    "fixtures/reference/menu.aapt2.txt": "12e881afb0393884cf343286e7bcfa2c3dfa588a29ee580355978f5ed365a604",
+    "fixtures/reference/menu.tree.json": "3834a0838d7ab7b069553da5b4e3c6d796f35596d3eef25739b230856bf9d3d8",
+    "fixtures/reference/menu.xml": "7073971d731cba11c2158dfa3ca6960c0930ec1e7d34e281d536a6c83fa0df83",
+    "fixtures/reference/synthetic_utf16.tree.json": "2b9106e5732a5c289f8bdaef7ef4825c8609f7e139a809900d4648479815419f",
+    "fixtures/reference/synthetic_utf16.xml": "fc6dc0da3b6fd70b8594206e4e75424e3a4d19483e1f96845c44f3b1b7fb209b",
+    "fixtures/reference/synthetic_utf16_long.tree.json": "2c87f155a5616a8cc32a3a546a84fe31e1b84caa57fa23383fad0b33fcb5fc16",
+    "fixtures/reference/synthetic_utf16_long.xml": "754be434c476ab18a273cd5f4e3d9961c63cc1d7c85c41d5a4c9578b40994ab4",
+    "fixtures/reference/synthetic_utf8.tree.json": "2b9106e5732a5c289f8bdaef7ef4825c8609f7e139a809900d4648479815419f",
+    "fixtures/reference/synthetic_utf8.xml": "fc6dc0da3b6fd70b8594206e4e75424e3a4d19483e1f96845c44f3b1b7fb209b"
+  },
+  "fixtures": [
+    {
+      "path": "fixtures/valid/manifest_basic.axml",
+      "sha256": "d682b33dd52b91ad2fdb4b6c81f28d6c237827c262deaad178749797bffc9362",
+      "bytes": 2844,
+      "origin": "aapt2 linked owned source",
+      "sources": [
+        "fixtures/sources/basic/AndroidManifest.xml"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter; aapt2 xmltree and badging"
+    },
+    {
+      "path": "fixtures/valid/manifest_unicode.axml",
+      "sha256": "ab97177e379e88299c26ae10680dcad6a9a244df739777ab0445fab60494fec7",
+      "bytes": 1836,
+      "origin": "aapt2 linked owned source",
+      "sources": [
+        "fixtures/sources/unicode/AndroidManifest.xml"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter; aapt2 xmltree and badging"
+    },
+    {
+      "path": "fixtures/valid/manifest_references.axml",
+      "sha256": "4bb37a5e4d2d48d35f35d8ae69fede666fb4c546bfcef012d3a599c5dd7b010e",
+      "bytes": 1608,
+      "origin": "aapt2 linked owned source",
+      "sources": [
+        "fixtures/sources/references/AndroidManifest.xml",
+        "fixtures/sources/references/res/menu/main.xml",
+        "fixtures/sources/references/res/values/strings.xml"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter; aapt2 xmltree and badging"
+    },
+    {
+      "path": "fixtures/valid/menu.axml",
+      "sha256": "79bf57f4ecbe71657af02cea1418de730e9512ad1d783be61a011800b760b154",
+      "bytes": 644,
+      "origin": "aapt2 compiled and linked owned source",
+      "sources": [
+        "fixtures/sources/references/AndroidManifest.xml",
+        "fixtures/sources/references/res/menu/main.xml",
+        "fixtures/sources/references/res/values/strings.xml"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter; aapt2 xmltree and badging"
+    },
+    {
+      "path": "fixtures/valid/synthetic_utf8.axml",
+      "sha256": "79da6dbafce143d4f9d82526516d1a2eb69efa4ffa5617467420c128bf190c20",
+      "bytes": 372,
+      "origin": "synthetic AOSP ResXMLTree layout",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter"
+    },
+    {
+      "path": "fixtures/valid/synthetic_utf16.axml",
+      "sha256": "3af641f9d31bb6a2218fb732f9ece849d81d8aa124c462a246fdfe0872872ee3",
+      "bytes": 428,
+      "origin": "synthetic AOSP ResXMLTree layout",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter"
+    },
+    {
+      "path": "fixtures/valid/synthetic_utf16_long.axml",
+      "sha256": "a2220c645e96888df18abd0a5af895568bbb5cf06bd32c0266c5093a283c1233",
+      "bytes": 66388,
+      "origin": "synthetic AOSP layout; two-word UTF-16 length",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": true,
+      "oracle": "androguard 4.1.3 AXMLPrinter"
+    },
+    {
+      "path": "fixtures/invalid/empty.axml",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "truncated document header"
+    },
+    {
+      "path": "fixtures/invalid/truncated_header.axml",
+      "sha256": "384fb362262fdf98fcf876afc9f5e9a03bb53f9f4bc49023613218e04de478a8",
+      "bytes": 7,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "truncated document header"
+    },
+    {
+      "path": "fixtures/invalid/truncated_body.axml",
+      "sha256": "1bc3ab75a588c4c53b5174ce121f559cab8aa963dd99a42109c0951c7a907602",
+      "bytes": 371,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "declared size exceeds available bytes"
+    },
+    {
+      "path": "fixtures/invalid/zero_chunk_size.axml",
+      "sha256": "79d13e94c4b2c8582c4909e4dba8260c13b01b84b40a19d4f7bd53210aea89e0",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "zero-length string-pool chunk"
+    },
+    {
+      "path": "fixtures/invalid/chunk_outside_document.axml",
+      "sha256": "7b93b317c6b859b54a096c9810b4c29e644797fcb078428976878ef544bf79f6",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "chunk exceeds document boundary"
+    },
+    {
+      "path": "fixtures/invalid/invalid_name_index.axml",
+      "sha256": "693871469a15ade117b43640cf4439809f3d5c45993eb024fd5cf28b1ad209c1",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "element name index outside string pool"
+    },
+    {
+      "path": "fixtures/invalid/invalid_raw_index.axml",
+      "sha256": "2ad091b3af2dce07d74a41bb61398839a9867b486484030b984576b9189caf51",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "attribute raw-value index outside string pool"
+    },
+    {
+      "path": "fixtures/invalid/invalid_typed_index.axml",
+      "sha256": "e697e518cc2d0e1f3efe0825cdd960613ee85c105c9403d6af61f00d12194e69",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "typed string index outside string pool"
+    },
+    {
+      "path": "fixtures/invalid/mismatched_end.axml",
+      "sha256": "8fdef9675f33b78691db269c51f5d70e88fde15e531d2fd5e894e2030f6d7f09",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "child end tag mismatches active element"
+    },
+    {
+      "path": "fixtures/invalid/invalid_utf8.axml",
+      "sha256": "74ba263c248191240024a4a2d08adb850937bfb633ebad4376f2cd0ba769c7da",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "malformed UTF-8 string"
+    },
+    {
+      "path": "fixtures/invalid/missing_terminator.axml",
+      "sha256": "098153acfb1f56fb9a46d3195d183366b7ef65ff8d28a5474f183515608a1e86",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "missing UTF-8 string terminator"
+    },
+    {
+      "path": "fixtures/invalid/bad_attribute_stride.axml",
+      "sha256": "884ab4fdf9b08c84d7ce899c3886890e74e6b5d128eec7d6735f2c69e7e28fd6",
+      "bytes": 372,
+      "origin": "single-field mutation of synthetic_utf8 (or truncation)",
+      "sources": [
+        "scripts/generate_fixtures.py"
+      ],
+      "license": "Apache-2.0",
+      "valid": false,
+      "reason": "attribute record size is smaller than ResXMLTree_attribute"
+    }
+  ]
+}

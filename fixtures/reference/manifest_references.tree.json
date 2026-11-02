@@ -1,0 +1,52 @@
+{
+  "tag": "manifest",
+  "attributes": {
+    "package": "org.example.axml.references",
+    "platformBuildVersionCode": "36",
+    "platformBuildVersionName": "16",
+    "{http://schemas.android.com/apk/res/android}compileSdkVersion": "36",
+    "{http://schemas.android.com/apk/res/android}compileSdkVersionCodename": "16",
+    "{http://schemas.android.com/apk/res/android}versionCode": "11",
+    "{http://schemas.android.com/apk/res/android}versionName": "@7F030001"
+  },
+  "text": "",
+  "children": [
+    {
+      "tag": "uses-sdk",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}minSdkVersion": "26",
+        "{http://schemas.android.com/apk/res/android}targetSdkVersion": "35"
+      },
+      "text": "",
+      "children": []
+    },
+    {
+      "tag": "uses-permission",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}name": "android.permission.VIBRATE"
+      },
+      "text": "",
+      "children": []
+    },
+    {
+      "tag": "application",
+      "attributes": {
+        "{http://schemas.android.com/apk/res/android}label": "@7F030000",
+        "{http://schemas.android.com/apk/res/android}theme": "@android:01030237"
+      },
+      "text": "",
+      "children": [
+        {
+          "tag": "activity",
+          "attributes": {
+            "{http://schemas.android.com/apk/res/android}exported": "false",
+            "{http://schemas.android.com/apk/res/android}label": "@7F030000",
+            "{http://schemas.android.com/apk/res/android}name": ".ReferenceActivity"
+          },
+          "text": "",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

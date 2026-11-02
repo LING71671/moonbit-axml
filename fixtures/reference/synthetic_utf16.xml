@@ -1,0 +1,3 @@
+<p:root xmlns:p="urn:fixture" p:label="月亮 𠀀 &amp; &lt;xml&gt; &quot;quote&quot;">
+  <child>text &amp; &lt; &gt; 𠀀</child>
+</p:root>

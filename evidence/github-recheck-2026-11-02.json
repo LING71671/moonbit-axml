@@ -1,0 +1,2620 @@
+{
+  "checked_at": "2026-11-02T02:04:00Z",
+  "checked_at_note": "Session research time in UTC; checks completed during this session.",
+  "scope": "Public GitHub repositories, default-branch indexed code, public issues and pull requests, with candidate source inspection. No private repository findings included.",
+  "conclusion": "No public MoonBit Android AXML/binary-XML decoding library, offline CLI, or identified in-progress issue/PR was found by these searches. This is a search result, not proof no project exists.",
+  "limitations": [
+    "GitHub code search indexes accessible default branches and can lag; no private or unindexed repositories are covered.",
+    "GitHub search is case-insensitive and often matches substrings. All 27 AXML code hits were fetched and inspected, rather than treated as Android AXML implementations.",
+    "Repository connector exposes returned_count, not total_count. No unreturned pages are assumed absent.",
+    "Issues/PR searches can hit comments or broad indexed text; broad results were triaged, then title/body AXML+MoonBit queries returned zero."
+  ],
+  "queries": [
+    {
+      "kind": "code",
+      "query": "\"AXML\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22AXML%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 27,
+      "incomplete_results": false,
+      "items": [
+        {
+          "repository": "paipai-Studio/BioSeqs",
+          "path": "src/phylo_applications.mbt",
+          "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/src/phylo_applications.mbt"
+        },
+        {
+          "repository": "paipai-Studio/BioSeqs",
+          "path": "examples/phylo_applications_demo/main.mbt",
+          "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/examples/phylo_applications_demo/main.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/metadata/xml_model.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/metadata/xml_model.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_tree.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_tree.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse_names.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_names.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse_element.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_element.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/metadata/deprecated_promotions.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/metadata/deprecated_promotions.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_report_xmp_fields.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_report_xmp_fields.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse_tags.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_tags.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "metadata/xml_model.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/metadata/xml_model.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_tree.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_tree.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse_names.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_names.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse_element.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_element.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse_tags.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_tags.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_report_xmp_fields.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_report_xmp_fields.mbt"
+        },
+        {
+          "repository": "unmbt/http-server-mbt",
+          "path": "full/ca_bundle.mbt",
+          "url": "https://github.com/unmbt/http-server-mbt/blob/8568527a325b0545cf00d4c9a1b901d52fb6f9c8/full/ca_bundle.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/hls_crypto_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/hls_crypto_wbtest.mbt"
+        },
+        {
+          "repository": "paipai-Studio/BioSeqs",
+          "path": "test/moonbit/phylo_applications_test.mbt",
+          "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/test/moonbit/phylo_applications_test.mbt"
+        },
+        {
+          "repository": "dotnet/wpf-test",
+          "path": "src/Test/ElementServices/FeatureTests/TestData/bvt/propertyengine/Template/Template.mbt",
+          "url": "https://github.com/dotnet/wpf-test/blob/40265e329eab1ef3f9999cf46d5324db1d86e58f/src/Test/ElementServices/FeatureTests/TestData/bvt/propertyengine/Template/Template.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_test.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_test.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pptx/integration/corpus_testppt_embed_test.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pptx/integration/corpus_testppt_embed_test.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_test.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_test.mbt"
+        },
+        {
+          "repository": "moonbitlang/typst.mbt",
+          "path": "codecs/webp_oracle_test.mbt",
+          "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/webp_oracle_test.mbt"
+        },
+        {
+          "repository": "moonbitlang/typst.mbt",
+          "path": "codecs/image_oracle_test.mbt",
+          "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/image_oracle_test.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/av1_inter_realdata_vectors/resize_lag_fixture_test.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/av1_inter_realdata_vectors/resize_lag_fixture_test.mbt"
+        }
+      ]
+    },
+    {
+      "kind": "code",
+      "query": "\"RES_XML_TYPE\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22RES_XML_TYPE%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"RES_STRING_POOL_TYPE\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22RES_STRING_POOL_TYPE%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"AndroidManifest\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22AndroidManifest%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 5,
+      "incomplete_results": false,
+      "items": [
+        {
+          "repository": "wzzc-dev/MoUI",
+          "path": "moui_cli/build_android.mbt",
+          "url": "https://github.com/wzzc-dev/MoUI/blob/d06fc6af43ea7856e352d16bea686e3a44fad270/moui_cli/build_android.mbt"
+        },
+        {
+          "repository": "AFK-surf/still.fail",
+          "path": "apps/mbui/mbui/tools/apk/main.mbt",
+          "url": "https://github.com/AFK-surf/still.fail/blob/20cfc279f9393f8f5b02280ba649b0df7545e255/apps/mbui/mbui/tools/apk/main.mbt"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "path": "generator.mbt",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/generator.mbt"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "path": "templates_android.mbt",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/templates_android.mbt"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "path": "generator_wbtest.mbt",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/generator_wbtest.mbt"
+        }
+      ]
+    },
+    {
+      "kind": "code",
+      "query": "\"binary xml\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22binary%20xml%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 1,
+      "incomplete_results": false,
+      "items": [
+        {
+          "repository": "mirek/bitsql",
+          "path": "src/core/exec/fn_string.mbt",
+          "url": "https://github.com/mirek/bitsql/blob/0a4b813058b5cd737291d3bdc35c21022fa89850/src/core/exec/fn_string.mbt"
+        }
+      ]
+    },
+    {
+      "kind": "code",
+      "query": "\"axml\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22axml%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 27,
+      "incomplete_results": false,
+      "items": [
+        {
+          "repository": "paipai-Studio/BioSeqs",
+          "path": "src/phylo_applications.mbt",
+          "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/src/phylo_applications.mbt"
+        },
+        {
+          "repository": "paipai-Studio/BioSeqs",
+          "path": "examples/phylo_applications_demo/main.mbt",
+          "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/examples/phylo_applications_demo/main.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/metadata/xml_model.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/metadata/xml_model.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_tree.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_tree.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse_names.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_names.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse_element.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_element.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/metadata/deprecated_promotions.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/metadata/deprecated_promotions.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_report_xmp_fields.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_report_xmp_fields.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_xml_parse_tags.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_tags.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "metadata/xml_model.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/metadata/xml_model.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_tree.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_tree.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse_names.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_names.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse_element.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_element.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_xml_parse_tags.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_tags.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_report_xmp_fields.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_report_xmp_fields.mbt"
+        },
+        {
+          "repository": "unmbt/http-server-mbt",
+          "path": "full/ca_bundle.mbt",
+          "url": "https://github.com/unmbt/http-server-mbt/blob/8568527a325b0545cf00d4c9a1b901d52fb6f9c8/full/ca_bundle.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/hls_crypto_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/hls_crypto_wbtest.mbt"
+        },
+        {
+          "repository": "paipai-Studio/BioSeqs",
+          "path": "test/moonbit/phylo_applications_test.mbt",
+          "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/test/moonbit/phylo_applications_test.mbt"
+        },
+        {
+          "repository": "dotnet/wpf-test",
+          "path": "src/Test/ElementServices/FeatureTests/TestData/bvt/propertyengine/Template/Template.mbt",
+          "url": "https://github.com/dotnet/wpf-test/blob/40265e329eab1ef3f9999cf46d5324db1d86e58f/src/Test/ElementServices/FeatureTests/TestData/bvt/propertyengine/Template/Template.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pdflite/pdf_metadata_test.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_test.mbt"
+        },
+        {
+          "repository": "moonbitlang/office.mbt",
+          "path": "pptx/integration/corpus_testppt_embed_test.mbt",
+          "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pptx/integration/corpus_testppt_embed_test.mbt"
+        },
+        {
+          "repository": "bobzhang/pdflite",
+          "path": "pdf_metadata_test.mbt",
+          "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_test.mbt"
+        },
+        {
+          "repository": "moonbitlang/typst.mbt",
+          "path": "codecs/webp_oracle_test.mbt",
+          "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/webp_oracle_test.mbt"
+        },
+        {
+          "repository": "moonbitlang/typst.mbt",
+          "path": "codecs/image_oracle_test.mbt",
+          "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/image_oracle_test.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/av1_inter_realdata_vectors/resize_lag_fixture_test.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/av1_inter_realdata_vectors/resize_lag_fixture_test.mbt"
+        }
+      ]
+    },
+    {
+      "kind": "code",
+      "query": "\"ResXMLTree\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22ResXMLTree%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"RES_XML_START_ELEMENT_TYPE\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22RES_XML_START_ELEMENT_TYPE%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"aapt\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22aapt%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 17,
+      "incomplete_results": false,
+      "items": [
+        {
+          "repository": "AFK-surf/still.fail",
+          "path": "apps/mbui/mbui/tools/apk/main.mbt",
+          "url": "https://github.com/AFK-surf/still.fail/blob/20cfc279f9393f8f5b02280ba649b0df7545e255/apps/mbui/mbui/tools/apk/main.mbt"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "path": "templates_const.mbt",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/templates_const.mbt"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "path": "generator_wbtest.mbt",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/generator_wbtest.mbt"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "path": "templates_static_wbtest.mbt",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/templates_static_wbtest.mbt"
+        },
+        {
+          "repository": "wzzc-dev/MoUI",
+          "path": "moui_cli/doctor_android.mbt",
+          "url": "https://github.com/wzzc-dev/MoUI/blob/d06fc6af43ea7856e352d16bea686e3a44fad270/moui_cli/doctor_android.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/aac_960_realdata_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/aac_960_realdata_wbtest.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/aac_sbr_pcm_3ch_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/aac_sbr_pcm_3ch_wbtest.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/aac_asc_realdata_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/aac_asc_realdata_wbtest.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/aac_coupling_realdata_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/aac_coupling_realdata_wbtest.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/aac_coupling_960_realdata_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/aac_coupling_960_realdata_wbtest.mbt"
+        },
+        {
+          "repository": "OverflowCat/tiago",
+          "path": "renderer_svg/embedded_fonts.mbt",
+          "url": "https://github.com/OverflowCat/tiago/blob/b5e81fe334efb3e39ec3e9e7f763c9bd8c002426/renderer_svg/embedded_fonts.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/caf_realdata_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/caf_realdata_wbtest.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/hevc_422_realdata_wbtest.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/hevc_422_realdata_wbtest.mbt"
+        },
+        {
+          "repository": "moonbitlang/typst.mbt",
+          "path": "codecs/image_oracle_test.mbt",
+          "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/image_oracle_test.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/ac3_eac3_realdata_test.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/ac3_eac3_realdata_test.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavformat/container_codec_matrix_realdata_test.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/container_codec_matrix_realdata_test.mbt"
+        },
+        {
+          "repository": "milkbobo/ffmpeg-moonbit",
+          "path": "libavcodec/av1_inter_realdata_vectors/resize_qm_fixture_test.mbt",
+          "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/av1_inter_realdata_vectors/resize_qm_fixture_test.mbt"
+        }
+      ]
+    },
+    {
+      "kind": "code",
+      "query": "\"AXMLParser\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22AXMLParser%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"AXMLPrinter\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22AXMLPrinter%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"string_pool\" \"android\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22string_pool%22%20%22android%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"ResStringPool\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22ResStringPool%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"binary_xml\" extension:mbt",
+      "url": "https://api.github.com/search/code?q=%22binary_xml%22%20extension%3Ambt&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "code",
+      "query": "\"android binary\" language:MoonBit",
+      "url": "https://api.github.com/search/code?q=%22android%20binary%22%20language%3AMoonBit&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "axml MoonBit",
+      "url": "https://github.com/search?q=axml%20MoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "binary xml MoonBit",
+      "url": "https://github.com/search?q=binary%20xml%20MoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 2,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "Han-Wentao/moonplist",
+          "url": "https://github.com/Han-Wentao/moonplist"
+        },
+        {
+          "repository": "bobzhang/yrs",
+          "url": "https://github.com/bobzhang/yrs"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "axml language:MoonBit",
+      "url": "https://github.com/search?q=axml%20language%3AMoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "android language:MoonBit",
+      "url": "https://github.com/search?q=android%20language%3AMoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 8,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "wzzc-dev/MoUI",
+          "url": "https://github.com/wzzc-dev/MoUI"
+        },
+        {
+          "repository": "moonbit-community/tonyfettes-raylib-android-games",
+          "url": "https://github.com/moonbit-community/tonyfettes-raylib-android-games"
+        },
+        {
+          "repository": "moonbit-community/tonyfettes-android-raylib-minesweeper",
+          "url": "https://github.com/moonbit-community/tonyfettes-android-raylib-minesweeper"
+        },
+        {
+          "repository": "fenriliuguang/wasmtime-android-kt-examples",
+          "url": "https://github.com/fenriliuguang/wasmtime-android-kt-examples"
+        },
+        {
+          "repository": "moonbit-community/tonyfettes-android-raylib-battle-city",
+          "url": "https://github.com/moonbit-community/tonyfettes-android-raylib-battle-city"
+        },
+        {
+          "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+          "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app"
+        },
+        {
+          "repository": "bobzhang/games",
+          "url": "https://github.com/bobzhang/games"
+        },
+        {
+          "repository": "zzj3720/mbui",
+          "url": "https://github.com/zzj3720/mbui"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "\"binary XML\" MoonBit",
+      "url": "https://github.com/search?q=%22binary%20XML%22%20MoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 1,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "Han-Wentao/moonplist",
+          "url": "https://github.com/Han-Wentao/moonplist"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "\"android\" \"xml\" MoonBit",
+      "url": "https://github.com/search?q=%22android%22%20%22xml%22%20MoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "aapt MoonBit",
+      "url": "https://github.com/search?q=aapt%20MoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "axml in:name",
+      "url": "https://github.com/search?q=axml%20in%3Aname&type=repositories",
+      "status": "ok",
+      "returned_count": 100,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "xgouchet/AXML",
+          "url": "https://github.com/xgouchet/AXML"
+        },
+        {
+          "repository": "Sable/axml",
+          "url": "https://github.com/Sable/axml"
+        },
+        {
+          "repository": "apk-editor/aXML",
+          "url": "https://github.com/apk-editor/aXML"
+        },
+        {
+          "repository": "wtchoi/axml",
+          "url": "https://github.com/wtchoi/axml"
+        },
+        {
+          "repository": "fourbrother/AXMLEditor",
+          "url": "https://github.com/fourbrother/AXMLEditor"
+        },
+        {
+          "repository": "antitree/AxmlParserPY",
+          "url": "https://github.com/antitree/AxmlParserPY"
+        },
+        {
+          "repository": "rednaga/axmlprinter",
+          "url": "https://github.com/rednaga/axmlprinter"
+        },
+        {
+          "repository": "gturri/aXMLRPC",
+          "url": "https://github.com/gturri/aXMLRPC"
+        },
+        {
+          "repository": "johanns/axml",
+          "url": "https://github.com/johanns/axml"
+        },
+        {
+          "repository": "hzw1199/xml2axml",
+          "url": "https://github.com/hzw1199/xml2axml"
+        },
+        {
+          "repository": "ytsutano/axmldec",
+          "url": "https://github.com/ytsutano/axmldec"
+        },
+        {
+          "repository": "androguard/axml",
+          "url": "https://github.com/androguard/axml"
+        },
+        {
+          "repository": "lunny/axmlParser",
+          "url": "https://github.com/lunny/axmlParser"
+        },
+        {
+          "repository": "developer-krushna/AXMLPrinter",
+          "url": "https://github.com/developer-krushna/AXMLPrinter"
+        },
+        {
+          "repository": "pxb1988/axml",
+          "url": "https://github.com/pxb1988/axml"
+        },
+        {
+          "repository": "codyi96/xml2axml",
+          "url": "https://github.com/codyi96/xml2axml"
+        },
+        {
+          "repository": "digitalsleuth/AXMLPrinter2",
+          "url": "https://github.com/digitalsleuth/AXMLPrinter2"
+        },
+        {
+          "repository": "l0neman/AXmlParser",
+          "url": "https://github.com/l0neman/AXmlParser"
+        },
+        {
+          "repository": "thadd/axml2xml.rb",
+          "url": "https://github.com/thadd/axml2xml.rb"
+        },
+        {
+          "repository": "ecnx/axml",
+          "url": "https://github.com/ecnx/axml"
+        },
+        {
+          "repository": "jjanier/axml",
+          "url": "https://github.com/jjanier/axml"
+        },
+        {
+          "repository": "Ayrx/axmldecoder",
+          "url": "https://github.com/Ayrx/axmldecoder"
+        },
+        {
+          "repository": "AloysHF/AXMLPrinter3",
+          "url": "https://github.com/AloysHF/AXMLPrinter3"
+        },
+        {
+          "repository": "wanchouchou/playWithAXML",
+          "url": "https://github.com/wanchouchou/playWithAXML"
+        },
+        {
+          "repository": "AbdurazaaqMohammed/AXML-Editor",
+          "url": "https://github.com/AbdurazaaqMohammed/AXML-Editor"
+        },
+        {
+          "repository": "kzjeef/AxmlParserPY",
+          "url": "https://github.com/kzjeef/AxmlParserPY"
+        },
+        {
+          "repository": "endlesscpp/axmleditor",
+          "url": "https://github.com/endlesscpp/axmleditor"
+        },
+        {
+          "repository": "mozhimen/AXmlKit",
+          "url": "https://github.com/mozhimen/AXmlKit"
+        },
+        {
+          "repository": "tracer0tong/axmlprinter",
+          "url": "https://github.com/tracer0tong/axmlprinter"
+        },
+        {
+          "repository": "developer-krushna/Axml2xml",
+          "url": "https://github.com/developer-krushna/Axml2xml"
+        },
+        {
+          "repository": "kin9-0rz/axmlparser",
+          "url": "https://github.com/kin9-0rz/axmlparser"
+        },
+        {
+          "repository": "ZaratustraN/axml-parser",
+          "url": "https://github.com/ZaratustraN/axml-parser"
+        },
+        {
+          "repository": "l741589/xml2axml",
+          "url": "https://github.com/l741589/xml2axml"
+        },
+        {
+          "repository": "MCMrARM/axml-parser",
+          "url": "https://github.com/MCMrARM/axml-parser"
+        },
+        {
+          "repository": "asmore/AXMLEditor",
+          "url": "https://github.com/asmore/AXMLEditor"
+        },
+        {
+          "repository": "softice70/AXMLEditor2",
+          "url": "https://github.com/softice70/AXMLEditor2"
+        },
+        {
+          "repository": "mARTini2020/AxmlParser",
+          "url": "https://github.com/mARTini2020/AxmlParser"
+        },
+        {
+          "repository": "shuoGG1239/AXMLParser",
+          "url": "https://github.com/shuoGG1239/AXMLParser"
+        },
+        {
+          "repository": "ZengRun/AxmlEditor",
+          "url": "https://github.com/ZengRun/AxmlEditor"
+        },
+        {
+          "repository": "kenjinote/AxmlParserCPP",
+          "url": "https://github.com/kenjinote/AxmlParserCPP"
+        },
+        {
+          "repository": "flownclouds/androidAXMLprinter",
+          "url": "https://github.com/flownclouds/androidAXMLprinter"
+        },
+        {
+          "repository": "AbdurazaaqMohammed/axml2xml",
+          "url": "https://github.com/AbdurazaaqMohammed/axml2xml"
+        },
+        {
+          "repository": "idokit/axmlparser",
+          "url": "https://github.com/idokit/axmlparser"
+        },
+        {
+          "repository": "AFinalStone/xml2axml",
+          "url": "https://github.com/AFinalStone/xml2axml"
+        },
+        {
+          "repository": "timscriptov/axmlparser",
+          "url": "https://github.com/timscriptov/axmlparser"
+        },
+        {
+          "repository": "SectionTN/Xml2Axml",
+          "url": "https://github.com/SectionTN/Xml2Axml"
+        },
+        {
+          "repository": "rusty-rs/rusty-axml",
+          "url": "https://github.com/rusty-rs/rusty-axml"
+        },
+        {
+          "repository": "aOrz/wxml2axml",
+          "url": "https://github.com/aOrz/wxml2axml"
+        },
+        {
+          "repository": "Aliucord/axml",
+          "url": "https://github.com/Aliucord/axml"
+        },
+        {
+          "repository": "Philorganon/axml",
+          "url": "https://github.com/Philorganon/axml"
+        },
+        {
+          "repository": "duangsuse-valid-projects/AXMLEdit",
+          "url": "https://github.com/duangsuse-valid-projects/AXMLEdit"
+        },
+        {
+          "repository": "Aefyr/AXML",
+          "url": "https://github.com/Aefyr/AXML"
+        },
+        {
+          "repository": "lpcdma/axmleditor",
+          "url": "https://github.com/lpcdma/axmleditor"
+        },
+        {
+          "repository": "micblo/axml2xml",
+          "url": "https://github.com/micblo/axml2xml"
+        },
+        {
+          "repository": "easyaspi314/AxmlParserPY",
+          "url": "https://github.com/easyaspi314/AxmlParserPY"
+        },
+        {
+          "repository": "Belee/axml",
+          "url": "https://github.com/Belee/axml"
+        },
+        {
+          "repository": "loulei/axml",
+          "url": "https://github.com/loulei/axml"
+        },
+        {
+          "repository": "JealousCat/AndroidXml2AXml",
+          "url": "https://github.com/JealousCat/AndroidXml2AXml"
+        },
+        {
+          "repository": "dotedu/AXML",
+          "url": "https://github.com/dotedu/AXML"
+        },
+        {
+          "repository": "willcolby/axml",
+          "url": "https://github.com/willcolby/axml"
+        },
+        {
+          "repository": "fo06qrmups/axml",
+          "url": "https://github.com/fo06qrmups/axml"
+        },
+        {
+          "repository": "andjelk/axml",
+          "url": "https://github.com/andjelk/axml"
+        },
+        {
+          "repository": "bvzrojcva8/axml",
+          "url": "https://github.com/bvzrojcva8/axml"
+        },
+        {
+          "repository": "wantu537/Axml",
+          "url": "https://github.com/wantu537/Axml"
+        },
+        {
+          "repository": "StevenArzt/axml",
+          "url": "https://github.com/StevenArzt/axml"
+        },
+        {
+          "repository": "nikeleat/axml",
+          "url": "https://github.com/nikeleat/axml"
+        },
+        {
+          "repository": "at0m-b0mb/AWUS036AXML-Kali",
+          "url": "https://github.com/at0m-b0mb/AWUS036AXML-Kali"
+        },
+        {
+          "repository": "privateDuck/AxML",
+          "url": "https://github.com/privateDuck/AxML"
+        },
+        {
+          "repository": "a-ross-cohen/axml",
+          "url": "https://github.com/a-ross-cohen/axml"
+        },
+        {
+          "repository": "alexsobolev/axml",
+          "url": "https://github.com/alexsobolev/axml"
+        },
+        {
+          "repository": "sidalevenici/axml",
+          "url": "https://github.com/sidalevenici/axml"
+        },
+        {
+          "repository": "KL-WLCR/axmlprinter",
+          "url": "https://github.com/KL-WLCR/axmlprinter"
+        },
+        {
+          "repository": "mofada/AxmlPlugin",
+          "url": "https://github.com/mofada/AxmlPlugin"
+        },
+        {
+          "repository": "duangsuse-valid-projects/TinyAXML",
+          "url": "https://github.com/duangsuse-valid-projects/TinyAXML"
+        },
+        {
+          "repository": "tomowang/axml2xml",
+          "url": "https://github.com/tomowang/axml2xml"
+        },
+        {
+          "repository": "ShaoboFeng/PyAXML",
+          "url": "https://github.com/ShaoboFeng/PyAXML"
+        },
+        {
+          "repository": "Grey-Wind/AXMLPrinter3-GUI",
+          "url": "https://github.com/Grey-Wind/AXMLPrinter3-GUI"
+        },
+        {
+          "repository": "ksora94/axml-loader",
+          "url": "https://github.com/ksora94/axml-loader"
+        },
+        {
+          "repository": "duangsuse-valid-projects/SomeAXML",
+          "url": "https://github.com/duangsuse-valid-projects/SomeAXML"
+        },
+        {
+          "repository": "agusibrahim/aXML",
+          "url": "https://github.com/agusibrahim/aXML"
+        },
+        {
+          "repository": "AbdurazaaqMohammed/AXML-Editor-Online",
+          "url": "https://github.com/AbdurazaaqMohammed/AXML-Editor-Online"
+        },
+        {
+          "repository": "pyNpy/axml",
+          "url": "https://github.com/pyNpy/axml"
+        },
+        {
+          "repository": "BwRy/AXML",
+          "url": "https://github.com/BwRy/AXML"
+        },
+        {
+          "repository": "Klex1982/aXML",
+          "url": "https://github.com/Klex1982/aXML"
+        },
+        {
+          "repository": "javaeryang/axml",
+          "url": "https://github.com/javaeryang/axml"
+        },
+        {
+          "repository": "lryl/AXML",
+          "url": "https://github.com/lryl/AXML"
+        },
+        {
+          "repository": "waelchateur/axml",
+          "url": "https://github.com/waelchateur/axml"
+        },
+        {
+          "repository": "Mrbenoit624/axml",
+          "url": "https://github.com/Mrbenoit624/axml"
+        },
+        {
+          "repository": "hexingzhou/AXMLEditor",
+          "url": "https://github.com/hexingzhou/AXMLEditor"
+        },
+        {
+          "repository": "xiyuan-520/AXMLPrinter",
+          "url": "https://github.com/xiyuan-520/AXMLPrinter"
+        },
+        {
+          "repository": "Freebird2014/AxmlParserPY",
+          "url": "https://github.com/Freebird2014/AxmlParserPY"
+        },
+        {
+          "repository": "JhnEngblm/axml",
+          "url": "https://github.com/JhnEngblm/axml"
+        },
+        {
+          "repository": "lvjiancong/axml",
+          "url": "https://github.com/lvjiancong/axml"
+        },
+        {
+          "repository": "Tarnak-public/AXML",
+          "url": "https://github.com/Tarnak-public/AXML"
+        },
+        {
+          "repository": "gubaojian/AXML",
+          "url": "https://github.com/gubaojian/AXML"
+        },
+        {
+          "repository": "YuKnight/axml",
+          "url": "https://github.com/YuKnight/axml"
+        },
+        {
+          "repository": "penn5/axml",
+          "url": "https://github.com/penn5/axml"
+        },
+        {
+          "repository": "markjian/AXML",
+          "url": "https://github.com/markjian/AXML"
+        },
+        {
+          "repository": "cherrishes/AxmlParserPY",
+          "url": "https://github.com/cherrishes/AxmlParserPY"
+        },
+        {
+          "repository": "jokerNi/axml",
+          "url": "https://github.com/jokerNi/axml"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "axml MoonBit in:readme",
+      "url": "https://github.com/search?q=axml%20MoonBit%20in%3Areadme&type=repositories",
+      "status": "ok",
+      "returned_count": 100,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "AlDanial/cloc",
+          "url": "https://github.com/AlDanial/cloc"
+        },
+        {
+          "repository": "IlyaBSenko/Git-Langs",
+          "url": "https://github.com/IlyaBSenko/Git-Langs"
+        },
+        {
+          "repository": "areyoulockedin/langs",
+          "url": "https://github.com/areyoulockedin/langs"
+        },
+        {
+          "repository": "vectie/bunnia",
+          "url": "https://github.com/vectie/bunnia"
+        },
+        {
+          "repository": "ktwu01/cloc",
+          "url": "https://github.com/ktwu01/cloc"
+        },
+        {
+          "repository": "EDM115/cloc-actions",
+          "url": "https://github.com/EDM115/cloc-actions"
+        },
+        {
+          "repository": "AlDanial/sandbox_cloc_release",
+          "url": "https://github.com/AlDanial/sandbox_cloc_release"
+        },
+        {
+          "repository": "SobhikaKamalavasan/cloc",
+          "url": "https://github.com/SobhikaKamalavasan/cloc"
+        },
+        {
+          "repository": "deepin-community/cloc",
+          "url": "https://github.com/deepin-community/cloc"
+        },
+        {
+          "repository": "LunaStev/cloc",
+          "url": "https://github.com/LunaStev/cloc"
+        },
+        {
+          "repository": "0xFA709394/cloc",
+          "url": "https://github.com/0xFA709394/cloc"
+        },
+        {
+          "repository": "duaneking/cloc",
+          "url": "https://github.com/duaneking/cloc"
+        },
+        {
+          "repository": "DougThompson1976/cloc",
+          "url": "https://github.com/DougThompson1976/cloc"
+        },
+        {
+          "repository": "mehmetsinc/cloc",
+          "url": "https://github.com/mehmetsinc/cloc"
+        },
+        {
+          "repository": "Ashish-Chavan/cloc",
+          "url": "https://github.com/Ashish-Chavan/cloc"
+        },
+        {
+          "repository": "cpiprint/cloc",
+          "url": "https://github.com/cpiprint/cloc"
+        },
+        {
+          "repository": "bilalislam/cloc",
+          "url": "https://github.com/bilalislam/cloc"
+        },
+        {
+          "repository": "Blandt/cloc",
+          "url": "https://github.com/Blandt/cloc"
+        },
+        {
+          "repository": "jpalmero9/cloc",
+          "url": "https://github.com/jpalmero9/cloc"
+        },
+        {
+          "repository": "oakkaya/cloc",
+          "url": "https://github.com/oakkaya/cloc"
+        },
+        {
+          "repository": "StevenLooman/cloc",
+          "url": "https://github.com/StevenLooman/cloc"
+        },
+        {
+          "repository": "lbentea/cloc",
+          "url": "https://github.com/lbentea/cloc"
+        },
+        {
+          "repository": "ericdachen/cloc",
+          "url": "https://github.com/ericdachen/cloc"
+        },
+        {
+          "repository": "MyAiAd/cloc",
+          "url": "https://github.com/MyAiAd/cloc"
+        },
+        {
+          "repository": "wuyi316904/cloc",
+          "url": "https://github.com/wuyi316904/cloc"
+        },
+        {
+          "repository": "chuanlei-coding/cloc",
+          "url": "https://github.com/chuanlei-coding/cloc"
+        },
+        {
+          "repository": "TCATools/cloc",
+          "url": "https://github.com/TCATools/cloc"
+        },
+        {
+          "repository": "serundengsapi/cloc",
+          "url": "https://github.com/serundengsapi/cloc"
+        },
+        {
+          "repository": "KrisTonny/cloc",
+          "url": "https://github.com/KrisTonny/cloc"
+        },
+        {
+          "repository": "hieu-nv/cloc",
+          "url": "https://github.com/hieu-nv/cloc"
+        },
+        {
+          "repository": "DecimalTurn/cloc",
+          "url": "https://github.com/DecimalTurn/cloc"
+        },
+        {
+          "repository": "Ryuno-Ki/cloc",
+          "url": "https://github.com/Ryuno-Ki/cloc"
+        },
+        {
+          "repository": "Tezei/cloc",
+          "url": "https://github.com/Tezei/cloc"
+        },
+        {
+          "repository": "gngnai/cloc",
+          "url": "https://github.com/gngnai/cloc"
+        },
+        {
+          "repository": "NoahBPeterson/cloc",
+          "url": "https://github.com/NoahBPeterson/cloc"
+        },
+        {
+          "repository": "Adarsh-Prakash-Agarwal/cloc",
+          "url": "https://github.com/Adarsh-Prakash-Agarwal/cloc"
+        },
+        {
+          "repository": "zhanxiangxiang/cloc",
+          "url": "https://github.com/zhanxiangxiang/cloc"
+        },
+        {
+          "repository": "rusty-Lopez/cloc",
+          "url": "https://github.com/rusty-Lopez/cloc"
+        },
+        {
+          "repository": "jonas18121/cloc",
+          "url": "https://github.com/jonas18121/cloc"
+        },
+        {
+          "repository": "ramblerSY/cloc",
+          "url": "https://github.com/ramblerSY/cloc"
+        },
+        {
+          "repository": "vcheckk-archive/cloc",
+          "url": "https://github.com/vcheckk-archive/cloc"
+        },
+        {
+          "repository": "Naapperas/cloc",
+          "url": "https://github.com/Naapperas/cloc"
+        },
+        {
+          "repository": "amad3i/cloc",
+          "url": "https://github.com/amad3i/cloc"
+        },
+        {
+          "repository": "HAGIs-Git/cloc",
+          "url": "https://github.com/HAGIs-Git/cloc"
+        },
+        {
+          "repository": "satyasai69/cloc",
+          "url": "https://github.com/satyasai69/cloc"
+        },
+        {
+          "repository": "smileofjoyce/cloc",
+          "url": "https://github.com/smileofjoyce/cloc"
+        },
+        {
+          "repository": "scm-repo-mirror/AlDanial_cloc",
+          "url": "https://github.com/scm-repo-mirror/AlDanial_cloc"
+        },
+        {
+          "repository": "Boyquotes/cloc",
+          "url": "https://github.com/Boyquotes/cloc"
+        },
+        {
+          "repository": "andika-s/cloc",
+          "url": "https://github.com/andika-s/cloc"
+        },
+        {
+          "repository": "vishhxyz/cloc",
+          "url": "https://github.com/vishhxyz/cloc"
+        },
+        {
+          "repository": "lntai327/cloc_forked",
+          "url": "https://github.com/lntai327/cloc_forked"
+        },
+        {
+          "repository": "rvivekabr/cloc",
+          "url": "https://github.com/rvivekabr/cloc"
+        },
+        {
+          "repository": "BrandonPacewic/cloc",
+          "url": "https://github.com/BrandonPacewic/cloc"
+        },
+        {
+          "repository": "Chasing987/cloc",
+          "url": "https://github.com/Chasing987/cloc"
+        },
+        {
+          "repository": "pramithap/cloc",
+          "url": "https://github.com/pramithap/cloc"
+        },
+        {
+          "repository": "z5ishere/cloc",
+          "url": "https://github.com/z5ishere/cloc"
+        },
+        {
+          "repository": "WooodHead/cloc",
+          "url": "https://github.com/WooodHead/cloc"
+        },
+        {
+          "repository": "cka09191/cloc",
+          "url": "https://github.com/cka09191/cloc"
+        },
+        {
+          "repository": "4N70N1017/cloc",
+          "url": "https://github.com/4N70N1017/cloc"
+        },
+        {
+          "repository": "RabbitSeries/cloc",
+          "url": "https://github.com/RabbitSeries/cloc"
+        },
+        {
+          "repository": "quasarea/cloc",
+          "url": "https://github.com/quasarea/cloc"
+        },
+        {
+          "repository": "HajjerAhmed5/cloc",
+          "url": "https://github.com/HajjerAhmed5/cloc"
+        },
+        {
+          "repository": "li-ji/cloc",
+          "url": "https://github.com/li-ji/cloc"
+        },
+        {
+          "repository": "aphroteus/cloc",
+          "url": "https://github.com/aphroteus/cloc"
+        },
+        {
+          "repository": "MaTriXy/cloc",
+          "url": "https://github.com/MaTriXy/cloc"
+        },
+        {
+          "repository": "zeeneddie/cloc",
+          "url": "https://github.com/zeeneddie/cloc"
+        },
+        {
+          "repository": "StevenM73/cloc",
+          "url": "https://github.com/StevenM73/cloc"
+        },
+        {
+          "repository": "PengKuang/cloc",
+          "url": "https://github.com/PengKuang/cloc"
+        },
+        {
+          "repository": "matthewhall79/cloc",
+          "url": "https://github.com/matthewhall79/cloc"
+        },
+        {
+          "repository": "xmx0632/cloc",
+          "url": "https://github.com/xmx0632/cloc"
+        },
+        {
+          "repository": "huth-stacks/cloc",
+          "url": "https://github.com/huth-stacks/cloc"
+        },
+        {
+          "repository": "deribaucourt/cloc",
+          "url": "https://github.com/deribaucourt/cloc"
+        },
+        {
+          "repository": "1nk1/cloc",
+          "url": "https://github.com/1nk1/cloc"
+        },
+        {
+          "repository": "Drilmo/cloc",
+          "url": "https://github.com/Drilmo/cloc"
+        },
+        {
+          "repository": "eoqci/cloc",
+          "url": "https://github.com/eoqci/cloc"
+        },
+        {
+          "repository": "zero-was-here/cloc",
+          "url": "https://github.com/zero-was-here/cloc"
+        },
+        {
+          "repository": "epicDavid-private/cloc",
+          "url": "https://github.com/epicDavid-private/cloc"
+        },
+        {
+          "repository": "NeoScript-hub/cloc",
+          "url": "https://github.com/NeoScript-hub/cloc"
+        },
+        {
+          "repository": "meonkeys/cloc",
+          "url": "https://github.com/meonkeys/cloc"
+        },
+        {
+          "repository": "aosen-xiong/cloc",
+          "url": "https://github.com/aosen-xiong/cloc"
+        },
+        {
+          "repository": "Windswept-Horizons/cloc",
+          "url": "https://github.com/Windswept-Horizons/cloc"
+        },
+        {
+          "repository": "sageneox/cloc",
+          "url": "https://github.com/sageneox/cloc"
+        },
+        {
+          "repository": "black-desk/cloc",
+          "url": "https://github.com/black-desk/cloc"
+        },
+        {
+          "repository": "pnnh/cloc",
+          "url": "https://github.com/pnnh/cloc"
+        },
+        {
+          "repository": "includesec-erik/cloc",
+          "url": "https://github.com/includesec-erik/cloc"
+        },
+        {
+          "repository": "U1traTC/cloc",
+          "url": "https://github.com/U1traTC/cloc"
+        },
+        {
+          "repository": "dhOrg/cloc",
+          "url": "https://github.com/dhOrg/cloc"
+        },
+        {
+          "repository": "xindicao/cloc",
+          "url": "https://github.com/xindicao/cloc"
+        },
+        {
+          "repository": "cfal/cloc",
+          "url": "https://github.com/cfal/cloc"
+        },
+        {
+          "repository": "Svarshick/cloc",
+          "url": "https://github.com/Svarshick/cloc"
+        },
+        {
+          "repository": "lu4nx/cloc",
+          "url": "https://github.com/lu4nx/cloc"
+        },
+        {
+          "repository": "kobihikri/cloc",
+          "url": "https://github.com/kobihikri/cloc"
+        },
+        {
+          "repository": "henryhe0719-del/cloc",
+          "url": "https://github.com/henryhe0719-del/cloc"
+        },
+        {
+          "repository": "millette/perl-cloc",
+          "url": "https://github.com/millette/perl-cloc"
+        },
+        {
+          "repository": "Oppslia/cloc",
+          "url": "https://github.com/Oppslia/cloc"
+        },
+        {
+          "repository": "kh-cho-ascentko/cloc",
+          "url": "https://github.com/kh-cho-ascentko/cloc"
+        },
+        {
+          "repository": "Self-Perfection/cloc",
+          "url": "https://github.com/Self-Perfection/cloc"
+        },
+        {
+          "repository": "Wolfsrudel/dev-cloc",
+          "url": "https://github.com/Wolfsrudel/dev-cloc"
+        },
+        {
+          "repository": "fairhopeweb/cloc",
+          "url": "https://github.com/fairhopeweb/cloc"
+        },
+        {
+          "repository": "duzhenyi/cloc",
+          "url": "https://github.com/duzhenyi/cloc"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "\"AXMLParser\"",
+      "url": "https://github.com/search?q=%22AXMLParser%22&type=repositories",
+      "status": "ok",
+      "returned_count": 100,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "antitree/AxmlParserPY",
+          "url": "https://github.com/antitree/AxmlParserPY"
+        },
+        {
+          "repository": "lunny/axmlParser",
+          "url": "https://github.com/lunny/axmlParser"
+        },
+        {
+          "repository": "kzjeef/AxmlParserPY",
+          "url": "https://github.com/kzjeef/AxmlParserPY"
+        },
+        {
+          "repository": "l0neman/AXmlParser",
+          "url": "https://github.com/l0neman/AXmlParser"
+        },
+        {
+          "repository": "kin9-0rz/axmlparser",
+          "url": "https://github.com/kin9-0rz/axmlparser"
+        },
+        {
+          "repository": "shuoGG1239/AXMLParser",
+          "url": "https://github.com/shuoGG1239/AXMLParser"
+        },
+        {
+          "repository": "idokit/axmlparser",
+          "url": "https://github.com/idokit/axmlparser"
+        },
+        {
+          "repository": "timscriptov/axmlparser",
+          "url": "https://github.com/timscriptov/axmlparser"
+        },
+        {
+          "repository": "mARTini2020/AxmlParser",
+          "url": "https://github.com/mARTini2020/AxmlParser"
+        },
+        {
+          "repository": "kenjinote/AxmlParserCPP",
+          "url": "https://github.com/kenjinote/AxmlParserCPP"
+        },
+        {
+          "repository": "easyaspi314/AxmlParserPY",
+          "url": "https://github.com/easyaspi314/AxmlParserPY"
+        },
+        {
+          "repository": "Freebird2014/AxmlParserPY",
+          "url": "https://github.com/Freebird2014/AxmlParserPY"
+        },
+        {
+          "repository": "ahapingping/AXMLParser",
+          "url": "https://github.com/ahapingping/AXMLParser"
+        },
+        {
+          "repository": "titze/axmlparser",
+          "url": "https://github.com/titze/axmlparser"
+        },
+        {
+          "repository": "cherrishes/AxmlParserPY",
+          "url": "https://github.com/cherrishes/AxmlParserPY"
+        },
+        {
+          "repository": "Sw41n/AXMLParser",
+          "url": "https://github.com/Sw41n/AXMLParser"
+        },
+        {
+          "repository": "illahaha/AXMLParser",
+          "url": "https://github.com/illahaha/AXMLParser"
+        },
+        {
+          "repository": "kanzure/axmlparserpy",
+          "url": "https://github.com/kanzure/axmlparserpy"
+        },
+        {
+          "repository": "cszuo/AxmlParserPY",
+          "url": "https://github.com/cszuo/AxmlParserPY"
+        },
+        {
+          "repository": "Salah004/AxmlParserPY",
+          "url": "https://github.com/Salah004/AxmlParserPY"
+        },
+        {
+          "repository": "dacongy/AxmlParserPY",
+          "url": "https://github.com/dacongy/AxmlParserPY"
+        },
+        {
+          "repository": "qisong3/AxmlParser",
+          "url": "https://github.com/qisong3/AxmlParser"
+        },
+        {
+          "repository": "kindevil/axmlParser",
+          "url": "https://github.com/kindevil/axmlParser"
+        },
+        {
+          "repository": "lucasduffey/AxmlParserPY",
+          "url": "https://github.com/lucasduffey/AxmlParserPY"
+        },
+        {
+          "repository": "nodoraiz/AxmlParserPY",
+          "url": "https://github.com/nodoraiz/AxmlParserPY"
+        },
+        {
+          "repository": "onlyfish79/AxmlParserPY",
+          "url": "https://github.com/onlyfish79/AxmlParserPY"
+        },
+        {
+          "repository": "bincker/AxmlParserPY",
+          "url": "https://github.com/bincker/AxmlParserPY"
+        },
+        {
+          "repository": "Python3pkg/AxmlParserPY",
+          "url": "https://github.com/Python3pkg/AxmlParserPY"
+        },
+        {
+          "repository": "ttimz1313/AxmlParserPY",
+          "url": "https://github.com/ttimz1313/AxmlParserPY"
+        },
+        {
+          "repository": "GirlLily/AxmlParserPY",
+          "url": "https://github.com/GirlLily/AxmlParserPY"
+        },
+        {
+          "repository": "liumin0/AxmlParserPY",
+          "url": "https://github.com/liumin0/AxmlParserPY"
+        },
+        {
+          "repository": "zhujian198/AxmlParserPY",
+          "url": "https://github.com/zhujian198/AxmlParserPY"
+        },
+        {
+          "repository": "stopro/AxmlParserPY",
+          "url": "https://github.com/stopro/AxmlParserPY"
+        },
+        {
+          "repository": "gpalsingh/AxmlParserPY",
+          "url": "https://github.com/gpalsingh/AxmlParserPY"
+        },
+        {
+          "repository": "arashsa07/AxmlParserPY",
+          "url": "https://github.com/arashsa07/AxmlParserPY"
+        },
+        {
+          "repository": "NekoisJelly/AxmlParserPY",
+          "url": "https://github.com/NekoisJelly/AxmlParserPY"
+        },
+        {
+          "repository": "yangxiaozhe13/AxmlParserPY",
+          "url": "https://github.com/yangxiaozhe13/AxmlParserPY"
+        },
+        {
+          "repository": "ShayneC/AxmlParserPY",
+          "url": "https://github.com/ShayneC/AxmlParserPY"
+        },
+        {
+          "repository": "mohammadnassiri/AxmlParserPY",
+          "url": "https://github.com/mohammadnassiri/AxmlParserPY"
+        },
+        {
+          "repository": "DariuszAniszewski/AxmlParserPY",
+          "url": "https://github.com/DariuszAniszewski/AxmlParserPY"
+        },
+        {
+          "repository": "bigfool/AxmlParserPY",
+          "url": "https://github.com/bigfool/AxmlParserPY"
+        },
+        {
+          "repository": "cxl008/AxmlParserPY",
+          "url": "https://github.com/cxl008/AxmlParserPY"
+        },
+        {
+          "repository": "yufeikang/AxmlParserPY",
+          "url": "https://github.com/yufeikang/AxmlParserPY"
+        },
+        {
+          "repository": "jfsanchez91/AxmlParserPY",
+          "url": "https://github.com/jfsanchez91/AxmlParserPY"
+        },
+        {
+          "repository": "boyliang/AxmlParserPY",
+          "url": "https://github.com/boyliang/AxmlParserPY"
+        },
+        {
+          "repository": "xuziyan001/AxmlParserPY",
+          "url": "https://github.com/xuziyan001/AxmlParserPY"
+        },
+        {
+          "repository": "adhu2018/AxmlParserPY",
+          "url": "https://github.com/adhu2018/AxmlParserPY"
+        },
+        {
+          "repository": "lryl/AxmlParserPY",
+          "url": "https://github.com/lryl/AxmlParserPY"
+        },
+        {
+          "repository": "kemkle/AxmlParserPY",
+          "url": "https://github.com/kemkle/AxmlParserPY"
+        },
+        {
+          "repository": "jbushmaster007/AxmlParserPY",
+          "url": "https://github.com/jbushmaster007/AxmlParserPY"
+        },
+        {
+          "repository": "urwithajit9/AxmlParserPY",
+          "url": "https://github.com/urwithajit9/AxmlParserPY"
+        },
+        {
+          "repository": "b0b0505/AxmlParserPY",
+          "url": "https://github.com/b0b0505/AxmlParserPY"
+        },
+        {
+          "repository": "safl/AxmlParserPY",
+          "url": "https://github.com/safl/AxmlParserPY"
+        },
+        {
+          "repository": "caodan4linux/AxmlParserPY",
+          "url": "https://github.com/caodan4linux/AxmlParserPY"
+        },
+        {
+          "repository": "obaby/AxmlParserPY",
+          "url": "https://github.com/obaby/AxmlParserPY"
+        },
+        {
+          "repository": "nervouna/AxmlParserPY",
+          "url": "https://github.com/nervouna/AxmlParserPY"
+        },
+        {
+          "repository": "bkavanagh/AxmlParserPY",
+          "url": "https://github.com/bkavanagh/AxmlParserPY"
+        },
+        {
+          "repository": "patriotemeritus/AxmlParserPY",
+          "url": "https://github.com/patriotemeritus/AxmlParserPY"
+        },
+        {
+          "repository": "djcui/AxmlParserPY",
+          "url": "https://github.com/djcui/AxmlParserPY"
+        },
+        {
+          "repository": "ExiaHan/AxmlParserPY",
+          "url": "https://github.com/ExiaHan/AxmlParserPY"
+        },
+        {
+          "repository": "illahaha/AxmlParserPY",
+          "url": "https://github.com/illahaha/AxmlParserPY"
+        },
+        {
+          "repository": "eric-zhu/AxmlParserPY",
+          "url": "https://github.com/eric-zhu/AxmlParserPY"
+        },
+        {
+          "repository": "Devil00k/AxmlParserPY",
+          "url": "https://github.com/Devil00k/AxmlParserPY"
+        },
+        {
+          "repository": "GLianwei/AxmlParserPY",
+          "url": "https://github.com/GLianwei/AxmlParserPY"
+        },
+        {
+          "repository": "vzabudskyi/axmlparser",
+          "url": "https://github.com/vzabudskyi/axmlparser"
+        },
+        {
+          "repository": "cnxtech/axmlparser",
+          "url": "https://github.com/cnxtech/axmlparser"
+        },
+        {
+          "repository": "jyotidwi/axmlparser",
+          "url": "https://github.com/jyotidwi/axmlparser"
+        },
+        {
+          "repository": "shuixi2013/axmlparser",
+          "url": "https://github.com/shuixi2013/axmlparser"
+        },
+        {
+          "repository": "waelchateur/axmlparser",
+          "url": "https://github.com/waelchateur/axmlparser"
+        },
+        {
+          "repository": "adobe-sid/AxmlParserPY",
+          "url": "https://github.com/adobe-sid/AxmlParserPY"
+        },
+        {
+          "repository": "adewale/AxmlParserPY",
+          "url": "https://github.com/adewale/AxmlParserPY"
+        },
+        {
+          "repository": "ohyeah521/AxmlParserPY",
+          "url": "https://github.com/ohyeah521/AxmlParserPY"
+        },
+        {
+          "repository": "kerasking/AxmlParserPY",
+          "url": "https://github.com/kerasking/AxmlParserPY"
+        },
+        {
+          "repository": "audyzhu/AxmlParserPY",
+          "url": "https://github.com/audyzhu/AxmlParserPY"
+        },
+        {
+          "repository": "0xr0ot/AxmlParserPY",
+          "url": "https://github.com/0xr0ot/AxmlParserPY"
+        },
+        {
+          "repository": "sherwinkoo/AxmlParserPY",
+          "url": "https://github.com/sherwinkoo/AxmlParserPY"
+        },
+        {
+          "repository": "tangjn/AxmlParserPY",
+          "url": "https://github.com/tangjn/AxmlParserPY"
+        },
+        {
+          "repository": "W0lfier/AxmlParserPY",
+          "url": "https://github.com/W0lfier/AxmlParserPY"
+        },
+        {
+          "repository": "rovellipaolo/AxmlParserPY",
+          "url": "https://github.com/rovellipaolo/AxmlParserPY"
+        },
+        {
+          "repository": "KaliRootSuperUser/AXMLParserY",
+          "url": "https://github.com/KaliRootSuperUser/AXMLParserY"
+        },
+        {
+          "repository": "FrenchYeti/axmlparser",
+          "url": "https://github.com/FrenchYeti/axmlparser"
+        },
+        {
+          "repository": "Tubbz-alt/axmlparser",
+          "url": "https://github.com/Tubbz-alt/axmlparser"
+        },
+        {
+          "repository": "ColaSnow/AXMLParser",
+          "url": "https://github.com/ColaSnow/AXMLParser"
+        },
+        {
+          "repository": "go0517/axmlparser",
+          "url": "https://github.com/go0517/axmlparser"
+        },
+        {
+          "repository": "githubXiaowangzi/AXMLParser",
+          "url": "https://github.com/githubXiaowangzi/AXMLParser"
+        },
+        {
+          "repository": "denghm/axmlparser",
+          "url": "https://github.com/denghm/axmlparser"
+        },
+        {
+          "repository": "fhaoquan/axmlparser",
+          "url": "https://github.com/fhaoquan/axmlparser"
+        },
+        {
+          "repository": "9hao/AXMLParser",
+          "url": "https://github.com/9hao/AXMLParser"
+        },
+        {
+          "repository": "msmt2018/axmlparser",
+          "url": "https://github.com/msmt2018/axmlparser"
+        },
+        {
+          "repository": "itpreneur/axmlparser",
+          "url": "https://github.com/itpreneur/axmlparser"
+        },
+        {
+          "repository": "pombredanne/axmlparser",
+          "url": "https://github.com/pombredanne/axmlparser"
+        },
+        {
+          "repository": "liwanfei999/AXMLParser",
+          "url": "https://github.com/liwanfei999/AXMLParser"
+        },
+        {
+          "repository": "electrofreakk/axmlparser",
+          "url": "https://github.com/electrofreakk/axmlparser"
+        },
+        {
+          "repository": "RandyWei/axmlParser",
+          "url": "https://github.com/RandyWei/axmlParser"
+        },
+        {
+          "repository": "xuejun-deng/AxmlParser",
+          "url": "https://github.com/xuejun-deng/AxmlParser"
+        },
+        {
+          "repository": "Abdelhak-Bahri/axmlparserpy",
+          "url": "https://github.com/Abdelhak-Bahri/axmlparserpy"
+        },
+        {
+          "repository": "CrackerCat/AxmlParser",
+          "url": "https://github.com/CrackerCat/AxmlParser"
+        },
+        {
+          "repository": "2017398956/AXmlParser",
+          "url": "https://github.com/2017398956/AXmlParser"
+        },
+        {
+          "repository": "ralic/axmlParser",
+          "url": "https://github.com/ralic/axmlParser"
+        },
+        {
+          "repository": "waknow/axmlParser",
+          "url": "https://github.com/waknow/axmlParser"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "\"AXMLPrinter\" MoonBit",
+      "url": "https://github.com/search?q=%22AXMLPrinter%22%20MoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "\"binary XML\" language:MoonBit",
+      "url": "https://github.com/search?q=%22binary%20XML%22%20language%3AMoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 1,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "Han-Wentao/moonplist",
+          "url": "https://github.com/Han-Wentao/moonplist"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "\"android binary\" in:readme language:MoonBit",
+      "url": "https://github.com/search?q=%22android%20binary%22%20in%3Areadme%20language%3AMoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "AndroidManifest parser MoonBit in:readme",
+      "url": "https://github.com/search?q=AndroidManifest%20parser%20MoonBit%20in%3Areadme&type=repositories",
+      "status": "ok",
+      "returned_count": 1,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "sangam14/my-awesome-stars",
+          "url": "https://github.com/sangam14/my-awesome-stars"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "AXML MoonBit in:name,description,readme fork:false",
+      "url": "https://github.com/search?q=AXML%20MoonBit%20in%3Aname%2Cdescription%2Creadme%20fork%3Afalse&type=repositories",
+      "status": "ok",
+      "returned_count": 8,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "AlDanial/cloc",
+          "url": "https://github.com/AlDanial/cloc"
+        },
+        {
+          "repository": "IlyaBSenko/Git-Langs",
+          "url": "https://github.com/IlyaBSenko/Git-Langs"
+        },
+        {
+          "repository": "areyoulockedin/langs",
+          "url": "https://github.com/areyoulockedin/langs"
+        },
+        {
+          "repository": "vectie/bunnia",
+          "url": "https://github.com/vectie/bunnia"
+        },
+        {
+          "repository": "AlDanial/sandbox_cloc_release",
+          "url": "https://github.com/AlDanial/sandbox_cloc_release"
+        },
+        {
+          "repository": "SobhikaKamalavasan/cloc",
+          "url": "https://github.com/SobhikaKamalavasan/cloc"
+        },
+        {
+          "repository": "deepin-community/cloc",
+          "url": "https://github.com/deepin-community/cloc"
+        },
+        {
+          "repository": "LunaStev/cloc",
+          "url": "https://github.com/LunaStev/cloc"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "\"binary xml\" \"moonbit\" in:readme fork:false",
+      "url": "https://github.com/search?q=%22binary%20xml%22%20%22moonbit%22%20in%3Areadme%20fork%3Afalse&type=repositories",
+      "status": "ok",
+      "returned_count": 1,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": [
+        {
+          "repository": "Han-Wentao/moonplist",
+          "url": "https://github.com/Han-Wentao/moonplist"
+        }
+      ]
+    },
+    {
+      "kind": "repositories",
+      "query": "AXML 月兔 in:name,description,readme",
+      "url": "https://github.com/search?q=AXML%20%E6%9C%88%E5%85%94%20in%3Aname%2Cdescription%2Creadme&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "AndroidManifest language:MoonBit",
+      "url": "https://github.com/search?q=AndroidManifest%20language%3AMoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "repositories",
+      "query": "aapt2 language:MoonBit",
+      "url": "https://github.com/search?q=aapt2%20language%3AMoonBit&type=repositories",
+      "status": "ok",
+      "returned_count": 0,
+      "total_count": null,
+      "count_note": "Connector exposes returned repositories, not GitHub total_count. per_page=100.",
+      "items": []
+    },
+    {
+      "kind": "issues",
+      "query": "\"axml\" \"moonbit\" is:issue",
+      "url": "https://api.github.com/search/issues?q=%22axml%22%20%22moonbit%22%20is%3Aissue&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "issues",
+      "query": "\"axml\" \"moonbit\" is:pull-request",
+      "url": "https://api.github.com/search/issues?q=%22axml%22%20%22moonbit%22%20is%3Apull-request&per_page=100",
+      "status": "ok",
+      "total_count": 1,
+      "incomplete_results": false,
+      "items": [
+        {
+          "title": "Patch 1",
+          "url": "https://github.com/roseteromeo56/docs/pull/7"
+        }
+      ]
+    },
+    {
+      "kind": "issues",
+      "query": "\"binary xml\" \"moonbit\" is:issue",
+      "url": "https://api.github.com/search/issues?q=%22binary%20xml%22%20%22moonbit%22%20is%3Aissue&per_page=100",
+      "status": "ok",
+      "total_count": 2,
+      "incomplete_results": false,
+      "items": [
+        {
+          "title": "Spec: import an OpenAPI 3.0, 3.1 or 3.2 document into a Definition file",
+          "url": "https://github.com/hirunefu/smock/issues/74"
+        },
+        {
+          "title": "Enforce normalized SVG parity with D2 on Dagre and ELK",
+          "url": "https://github.com/moonbit-community/diago/issues/22"
+        }
+      ]
+    },
+    {
+      "kind": "issues",
+      "query": "\"binary xml\" \"moonbit\" is:pull-request",
+      "url": "https://api.github.com/search/issues?q=%22binary%20xml%22%20%22moonbit%22%20is%3Apull-request&per_page=100",
+      "status": "ok",
+      "total_count": 5,
+      "incomplete_results": false,
+      "items": [
+        {
+          "title": "Move to mbtexcel 0.2.0 and decline trait-method promotion",
+          "url": "https://github.com/t-ujiie-g/yxl/pull/88"
+        },
+        {
+          "title": "feat(pptx): integrate PPTX as an Office workspace module",
+          "url": "https://github.com/moonbitlang/office.mbt/pull/550"
+        },
+        {
+          "title": "Move to moonbitlang/mbtexcel@0.1.10; lift four refusals, extract pivots",
+          "url": "https://github.com/t-ujiie-g/yxl/pull/83"
+        },
+        {
+          "title": "build(deps): Bump the javascript group across 1 directory with 14 updates",
+          "url": "https://github.com/42-b3yond-6ug/ssebench/pull/73"
+        },
+        {
+          "title": "build(deps): Bump the javascript group with 14 updates",
+          "url": "https://github.com/42-b3yond-6ug/ssebench/pull/27"
+        }
+      ]
+    },
+    {
+      "kind": "issues",
+      "query": "\"AndroidManifest\" \"MoonBit\" is:issue",
+      "url": "https://api.github.com/search/issues?q=%22AndroidManifest%22%20%22MoonBit%22%20is%3Aissue&per_page=100",
+      "status": "ok",
+      "total_count": 1,
+      "incomplete_results": false,
+      "items": [
+        {
+          "title": "[每日信息流] 2023-08-31",
+          "url": "https://github.com/Tyaoo/picker/issues/301"
+        }
+      ]
+    },
+    {
+      "kind": "issues",
+      "query": "\"AndroidManifest\" \"MoonBit\" is:pull-request",
+      "url": "https://api.github.com/search/issues?q=%22AndroidManifest%22%20%22MoonBit%22%20is%3Apull-request&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "issues",
+      "query": "axml MoonBit in:title,body is:issue",
+      "url": "https://api.github.com/search/issues?q=axml%20MoonBit%20in%3Atitle%2Cbody%20is%3Aissue&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "issues",
+      "query": "axml MoonBit in:title,body is:pull-request",
+      "url": "https://api.github.com/search/issues?q=axml%20MoonBit%20in%3Atitle%2Cbody%20is%3Apull-request&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "issues",
+      "query": "\"Android binary XML\" MoonBit is:issue",
+      "url": "https://api.github.com/search/issues?q=%22Android%20binary%20XML%22%20MoonBit%20is%3Aissue&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    },
+    {
+      "kind": "issues",
+      "query": "axml repo:moonbitlang/moonbit-docs is:issue",
+      "url": "https://api.github.com/search/issues?q=axml%20repo%3Amoonbitlang%2Fmoonbit-docs%20is%3Aissue&per_page=100",
+      "status": "ok",
+      "total_count": 0,
+      "incomplete_results": false,
+      "items": []
+    }
+  ],
+  "candidates": [
+    {
+      "repository": "wzzc-dev/MoUI",
+      "url": "https://github.com/wzzc-dev/MoUI/blob/d06fc6af43ea7856e352d16bea686e3a44fad270/moui_cli/build_android.mbt",
+      "classification": "Android UI framework and APK build support, not pure MoonBit AXML decoder",
+      "evidence": "Source header and line 478 delegate packaging to gradle :app:assembleDebug."
+    },
+    {
+      "repository": "AFK-surf/still.fail",
+      "url": "https://github.com/AFK-surf/still.fail/blob/20cfc279f9393f8f5b02280ba649b0df7545e255/apps/mbui/mbui/tools/apk/main.mbt",
+      "classification": "MoonBit APK build orchestrator, not AXML decoder",
+      "evidence": "Header says SDK aapt2 links resources and manifest; source lines 742/754 invoke aapt2 compile; lines 765–785 invoke aapt2 link."
+    },
+    {
+      "repository": "tonyfettes/tonyfettes-create-moonbit-raylib-android-app",
+      "url": "https://github.com/tonyfettes/tonyfettes-create-moonbit-raylib-android-app/blob/92591abacf6649b475741e855ade9c9e1bb50cb3/templates_android.mbt",
+      "classification": "Android project template generator, not binary XML parser",
+      "evidence": "android_manifest_xml returns literal XML beginning <?xml version=\"1.0\" encoding=\"utf-8\"?>."
+    },
+    {
+      "repository": "Han-Wentao/moonplist",
+      "url": "https://github.com/Han-Wentao/moonplist",
+      "classification": "Apple property list codec, not Android binary XML",
+      "evidence": "Fetched README specifies bplist00 binary format and plist 1.0 XML."
+    },
+    {
+      "repository": "mirek/bitsql",
+      "url": "https://github.com/mirek/bitsql/blob/0a4b813058b5cd737291d3bdc35c21022fa89850/src/core/exec/fn_string.mbt",
+      "classification": "SQL XML behavior, not Android binary XML",
+      "evidence": "Single binary xml code hit is comment 'its internal binary XML form' in SQL engine fn_string.mbt."
+    }
+  ],
+  "axml_code_hit_inspection": [
+    {
+      "repository": "paipai-Studio/BioSeqs",
+      "path": "src/phylo_applications.mbt",
+      "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/src/phylo_applications.mbt",
+      "sha": "11ae41c5e77cda59676e37b3e9dd18cee56d6a9d",
+      "error": false,
+      "length": 21429,
+      "occurrences": 77,
+      "excerpts": [
+        "'s Bio.Phylo.Applications package (FastTree, PhyML and /// RAxML command-line wrappers), built on the Bio.Application /// AbstractCommandline base. Each wrapper",
+        "e.build_command() }  ///| /// Command-line wrapper for the RAxML tree inference program (raxmlHPC). /// /// Reference: Stamatakis, A. (2014) \"RAxML version 8: a",
+        "Command-line wrapper for the RAxML tree inference program (raxmlHPC). /// /// Reference: Stamatakis, A. (2014) \"RAxML version 8: a tool for /// phylogenetic ana",
+        "gram (raxmlHPC). /// /// Reference: Stamatakis, A. (2014) \"RAxML version 8: a tool for /// phylogenetic analysis and post-analysis of large phylogenies\". /// Bi",
+        "ylogenies\". /// Bioinformatics 30(9):1312-1313. pub struct RaxmlCommandline {   commandline : AbstractCommandline }  ///| /// Create a RAxML wrapper; `executabl",
+        "{   commandline : AbstractCommandline }  ///| /// Create a RAxML wrapper; `executable` defaults to \"raxmlHPC\". pub fn RaxmlCommandline::new(executable? : String",
+        "///| /// Create a RAxML wrapper; `executable` defaults to \"raxmlHPC\". pub fn RaxmlCommandline::new(executable? : String) -> RaxmlCommandline {   RaxmlCommandlin",
+        "RAxML wrapper; `executable` defaults to \"raxmlHPC\". pub fn RaxmlCommandline::new(executable? : String) -> RaxmlCommandline {   RaxmlCommandline::{     commandli"
+      ]
+    },
+    {
+      "repository": "paipai-Studio/BioSeqs",
+      "path": "examples/phylo_applications_demo/main.mbt",
+      "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/examples/phylo_applications_demo/main.mbt",
+      "sha": "def42da0eb63bd6118ec64d4c067beb5aea57ae7",
+      "error": false,
+      "length": 2295,
+      "occurrences": 29,
+      "excerpts": [
+        " the command-line wrappers for the FastTree, PhyML and /// RAxML phylogenetics tools. The wrappers are pure parameter collectors: /// they serialize to the exac",
+        ".set_quiet()   println(phyml.build())    println(\"\\n=== 3. RAxML: rapid bootstrapping ===\")   let raxml = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\") ",
+        "  println(\"\\n=== 3. RAxML: rapid bootstrapping ===\")   let raxml = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   raxml.set_alignment(\"alignment.phy\") ",
+        "=== 3. RAxML: rapid bootstrapping ===\")   let raxml = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   raxml.set_alignment(\"alignment.phy\")   raxml.set_n",
+        "===\")   let raxml = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   raxml.set_alignment(\"alignment.phy\")   raxml.set_name(\"T1\")   raxml.set_model(\"PROTG",
+        " = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   raxml.set_alignment(\"alignment.phy\")   raxml.set_name(\"T1\")   raxml.set_model(\"PROTGAMMAWAG\")   raxml",
+        "e=\"raxmlHPC-AVX\")   raxml.set_alignment(\"alignment.phy\")   raxml.set_name(\"T1\")   raxml.set_model(\"PROTGAMMAWAG\")   raxml.set_algorithm(\"a\")   raxml.set_rapid_b",
+        "ml.set_alignment(\"alignment.phy\")   raxml.set_name(\"T1\")   raxml.set_model(\"PROTGAMMAWAG\")   raxml.set_algorithm(\"a\")   raxml.set_rapid_bootstrap_seed(12345)   "
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/metadata/xml_model.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/metadata/xml_model.mbt",
+      "sha": "5c629feeb3ad6add6d0ae680b49d4b6d61246f72",
+      "error": false,
+      "length": 982,
+      "occurrences": 13,
+      "excerpts": [
+        " by the metadata XML tree parser. pub(all) struct PdfMetadataXmlName {   uri : String   local_name : String   prefix : String? } derive(Debug, Eq, ToJson)  ///|",
+        " by the metadata XML tree parser. pub(all) struct PdfMetadataXmlAttribute {   name : PdfMetadataXmlName   value : String } derive(Debug, Eq, ToJson)  ///| /// X",
+        "ub(all) struct PdfMetadataXmlAttribute {   name : PdfMetadataXmlName   value : String } derive(Debug, Eq, ToJson)  ///| /// XML element tag name and attributes ",
+        "ttributes used by metadata trees. pub(all) struct PdfMetadataXmlTag {   name : PdfMetadataXmlName   attributes : Array[PdfMetadataXmlAttribute] } derive(Debug, ",
+        "ees. pub(all) struct PdfMetadataXmlTag {   name : PdfMetadataXmlName   attributes : Array[PdfMetadataXmlAttribute] } derive(Debug, Eq, ToJson)  ///| /// Minimal",
+        "   name : PdfMetadataXmlName   attributes : Array[PdfMetadataXmlAttribute] } derive(Debug, Eq, ToJson)  ///| /// Minimal XML tree representation used for XMP me",
+        "presentation used for XMP metadata. pub(all) enum PdfMetadataXmlTree {   PdfMetadataXmlElement(PdfMetadataXmlTag, Array[PdfMetadataXmlTree])   PdfMetadataXmlDat",
+        "MP metadata. pub(all) enum PdfMetadataXmlTree {   PdfMetadataXmlElement(PdfMetadataXmlTag, Array[PdfMetadataXmlTree])   PdfMetadataXmlData(String) } derive(Debu"
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_xml_tree.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_tree.mbt",
+      "sha": "097e0c66a6e04654a8d3e7e40298842ec7c44eb6",
+      "error": false,
+      "length": 6607,
+      "occurrences": 26,
+      "excerpts": [
+        "f_metadata_xml_string_of_name(   name : @metadata.PdfMetadataXmlName, ) -> String {   \"NAME |\" + name.uri + \"| |\" + name.local_name + \"|\" }  ///| fn pdf_metadat",
+        "_xml_string_of_attribute(   attribute : @metadata.PdfMetadataXmlAttribute, ) -> String {   \"ATTRNAME |\" +   attribute.name.uri +   \"| |\" +   attribute.name.loca",
+        "of_attributes(   attributes : ArrayView[@metadata.PdfMetadataXmlAttribute], ) -> String {   let output = StringBuilder()   for attribute in attributes {     out",
+        "ml_string_of_trees(   trees : ArrayView[@metadata.PdfMetadataXmlTree], ) -> String {   let output = StringBuilder()   for tree in trees {     output.write_strin",
+        "df_metadata_string_of_xmltree(   tree : @metadata.PdfMetadataXmlTree, ) -> String {   match tree {     PdfMetadataXmlData(data) => \"D {\" + data + \"}\"     PdfMet",
+        "MetadataXmlTree, ) -> String {   match tree {     PdfMetadataXmlData(data) => \"D {\" + data + \"}\"     PdfMetadataXmlElement(tag, children) =>       \"E (\" +      ",
+        "dfMetadataXmlData(data) => \"D {\" + data + \"}\"     PdfMetadataXmlElement(tag, children) =>       \"E (\" +       pdf_metadata_xml_string_of_name(tag.name) +       ",
+        "e`. pub fn pdf_string_of_xmltree(tree : @metadata.PdfMetadataXmlTree) -> String {   pdf_metadata_string_of_xmltree(tree) }  ///| fn pdf_metadata_xml_collect_lis"
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_xml_parse.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse.mbt",
+      "sha": "24dd27d32b6dc6d79dd142a7865b3b0476e89eee",
+      "error": false,
+      "length": 1150,
+      "occurrences": 2,
+      "excerpts": [
+        "_of_bytes(   metadata : BytesView, ) -> @metadata.PdfMetadataXmlDocument raise @core.PdfError {   let (dtd, after_dtd) = pdf_metadata_xml_parse_dtd(metadata, 0)",
+        "_of_bytes(   metadata : BytesView, ) -> @metadata.PdfMetadataXmlDocument raise @core.PdfError {   pdf_metadata_xmltree_of_bytes(metadata) } "
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_xml_parse_names.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_names.mbt",
+      "sha": "f66caaa4f582a55a5166da14ff21329fa3ce4790",
+      "error": false,
+      "length": 4743,
+      "occurrences": 3,
+      "excerpts": [
+        "ext : ArrayView[(String, String)], ) -> @metadata.PdfMetadataXmlName raise @core.PdfError {   let colon = pdf_metadata_find_byte(qname, 0, 58)   if colon >= 0 {",
+        "ext : ArrayView[(String, String)], ) -> @metadata.PdfMetadataXmlTag raise @core.PdfError {   let resolved_attributes : Array[@metadata.PdfMetadataXmlAttribute] ",
+        "ror {   let resolved_attributes : Array[@metadata.PdfMetadataXmlAttribute] = []   for attribute in attributes {     resolved_attributes.push({       name: pdf_m"
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_xml_parse_element.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_element.mbt",
+      "sha": "58a783d5f44dc3c09f51e12b6509f0f9e328429d",
+      "error": false,
+      "length": 1824,
+      "occurrences": 5,
+      "excerpts": [
+        "xt : ArrayView[(String, String)], ) -> (@metadata.PdfMetadataXmlTree, Int32) raise @core.PdfError {   let (qualified_name, tag, child_context, self_closing, aft",
+        "ata, start, context,   )   if self_closing {     (PdfMetadataXmlElement(tag, []), after_tag)   } else {     let children : Array[@metadata.PdfMetadataXmlTree] =",
+        "ag)   } else {     let children : Array[@metadata.PdfMetadataXmlTree] = []     let mut index = after_tag     let mut closed = false     while !closed {       gu",
+        "        Some(text) if text != \"\" => children.push(PdfMetadataXmlData(text))           Some(_) => ()           None => raise InvalidUTF8         }         index ",
+        "    }         index = data_end       }     }     (PdfMetadataXmlElement(tag, children), index)   } } "
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/metadata/deprecated_promotions.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/metadata/deprecated_promotions.mbt",
+      "sha": "89e5d03fa9131277c94e840c74887acd12d396a4",
+      "error": false,
+      "length": 2869,
+      "occurrences": 15,
+      "excerpts": [
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlAttribute with @debug.Debug::{to_repr}  ///| #deprecated(\"implicit trait-method promotion is bei",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlAttribute with Eq::{not_equal, equal}  ///| #deprecated(\"implicit trait-method promotion is bein",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlAttribute with ToJson::{to_json}  ///| #deprecated(\"implicit trait-method promotion is being rem",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlDocument with @debug.Debug::{to_repr}  ///| #deprecated(\"implicit trait-method promotion is bein",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlDocument with Eq::{not_equal, equal}  ///| #deprecated(\"implicit trait-method promotion is being",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlDocument with ToJson::{to_json}  ///| #deprecated(\"implicit trait-method promotion is being remo",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlName with @debug.Debug::{to_repr}  ///| #deprecated(\"implicit trait-method promotion is being re",
+        "is being removed; call via the trait\") pub extend PdfMetadataXmlName with Eq::{not_equal, equal}  ///| #deprecated(\"implicit trait-method promotion is being rem"
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_report_xmp_fields.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_report_xmp_fields.mbt",
+      "sha": "7376fcfd72a1b666fc5bb77716c2f5c103cafe5d",
+      "error": false,
+      "length": 2264,
+      "occurrences": 1,
+      "excerpts": [
+        "ine(   output : Array[String],   tree : @metadata.PdfMetadataXmlTree,   field : (String, String, String), ) -> Unit {   match pdf_metadata_xmltree_get_data_for("
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_xml_parse_tags.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_xml_parse_tags.mbt",
+      "sha": "d96a1731e360b2f6865ad142e5f4ab9f61d07508",
+      "error": false,
+      "length": 2423,
+      "occurrences": 1,
+      "excerpts": [
+        "ayView[(String, String)], ) -> (String, @metadata.PdfMetadataXmlTag, Array[(String, String)], Bool, Int32) raise @core.PdfError {   guard start < data.length() "
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "metadata/xml_model.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/metadata/xml_model.mbt",
+      "sha": "5c629feeb3ad6add6d0ae680b49d4b6d61246f72",
+      "error": false,
+      "length": 982,
+      "occurrences": 13,
+      "excerpts": [
+        " by the metadata XML tree parser. pub(all) struct PdfMetadataXmlName {   uri : String   local_name : String   prefix : String? } derive(Debug, Eq, ToJson)  ///|",
+        " by the metadata XML tree parser. pub(all) struct PdfMetadataXmlAttribute {   name : PdfMetadataXmlName   value : String } derive(Debug, Eq, ToJson)  ///| /// X",
+        "ub(all) struct PdfMetadataXmlAttribute {   name : PdfMetadataXmlName   value : String } derive(Debug, Eq, ToJson)  ///| /// XML element tag name and attributes ",
+        "ttributes used by metadata trees. pub(all) struct PdfMetadataXmlTag {   name : PdfMetadataXmlName   attributes : Array[PdfMetadataXmlAttribute] } derive(Debug, ",
+        "ees. pub(all) struct PdfMetadataXmlTag {   name : PdfMetadataXmlName   attributes : Array[PdfMetadataXmlAttribute] } derive(Debug, Eq, ToJson)  ///| /// Minimal",
+        "   name : PdfMetadataXmlName   attributes : Array[PdfMetadataXmlAttribute] } derive(Debug, Eq, ToJson)  ///| /// Minimal XML tree representation used for XMP me",
+        "presentation used for XMP metadata. pub(all) enum PdfMetadataXmlTree {   PdfMetadataXmlElement(PdfMetadataXmlTag, Array[PdfMetadataXmlTree])   PdfMetadataXmlDat",
+        "MP metadata. pub(all) enum PdfMetadataXmlTree {   PdfMetadataXmlElement(PdfMetadataXmlTag, Array[PdfMetadataXmlTree])   PdfMetadataXmlData(String) } derive(Debu"
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_xml_tree.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_tree.mbt",
+      "sha": "e53ae98e3b9d8c6465125049241e8a8f99d60167",
+      "error": false,
+      "length": 6513,
+      "occurrences": 26,
+      "excerpts": [
+        "f_metadata_xml_string_of_name(   name : @metadata.PdfMetadataXmlName, ) -> String {   \"NAME |\" + name.uri + \"| |\" + name.local_name + \"|\" }  ///| fn pdf_metadat",
+        "_xml_string_of_attribute(   attribute : @metadata.PdfMetadataXmlAttribute, ) -> String {   \"ATTRNAME |\" +   attribute.name.uri +   \"| |\" +   attribute.name.loca",
+        "of_attributes(   attributes : ArrayView[@metadata.PdfMetadataXmlAttribute], ) -> String {   let mut output = \"\"   for attribute in attributes {     output = out",
+        "ml_string_of_trees(   trees : ArrayView[@metadata.PdfMetadataXmlTree], ) -> String {   let mut output = \"\"   for tree in trees {     output = output + \" \" + pdf",
+        "df_metadata_string_of_xmltree(   tree : @metadata.PdfMetadataXmlTree, ) -> String {   match tree {     PdfMetadataXmlData(data) => \"D {\" + data + \"}\"     PdfMet",
+        "MetadataXmlTree, ) -> String {   match tree {     PdfMetadataXmlData(data) => \"D {\" + data + \"}\"     PdfMetadataXmlElement(tag, children) =>       \"E (\" +      ",
+        "dfMetadataXmlData(data) => \"D {\" + data + \"}\"     PdfMetadataXmlElement(tag, children) =>       \"E (\" +       pdf_metadata_xml_string_of_name(tag.name) +       ",
+        "e`. pub fn pdf_string_of_xmltree(tree : @metadata.PdfMetadataXmlTree) -> String {   pdf_metadata_string_of_xmltree(tree) }  ///| fn pdf_metadata_xml_collect_lis"
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_xml_parse.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse.mbt",
+      "sha": "3c4fd95fe96622cc99d851be083d29f0f4931364",
+      "error": false,
+      "length": 1149,
+      "occurrences": 2,
+      "excerpts": [
+        "_of_bytes(   metadata : BytesView, ) -> @metadata.PdfMetadataXmlDocument raise @core.PdfError {   let (dtd, after_dtd) = pdf_metadata_xml_parse_dtd(metadata, 0)",
+        "_of_bytes(   metadata : BytesView, ) -> @metadata.PdfMetadataXmlDocument raise @core.PdfError {   pdf_metadata_xmltree_of_bytes(metadata) } "
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_xml_parse_names.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_names.mbt",
+      "sha": "79fd758aab34da539641f0faf93229a294df2195",
+      "error": false,
+      "length": 4731,
+      "occurrences": 3,
+      "excerpts": [
+        "ext : ArrayView[(String, String)], ) -> @metadata.PdfMetadataXmlName raise @core.PdfError {   let colon = pdf_metadata_find_byte(qname, 0, 58)   if colon >= 0 {",
+        "ext : ArrayView[(String, String)], ) -> @metadata.PdfMetadataXmlTag raise @core.PdfError {   let resolved_attributes : Array[@metadata.PdfMetadataXmlAttribute] ",
+        "ror {   let resolved_attributes : Array[@metadata.PdfMetadataXmlAttribute] = []   for attribute in attributes {     resolved_attributes.push({       name: pdf_m"
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_xml_parse_element.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_element.mbt",
+      "sha": "b227095e1dd801567ae2161d81556d2abf924916",
+      "error": false,
+      "length": 1820,
+      "occurrences": 5,
+      "excerpts": [
+        "xt : ArrayView[(String, String)], ) -> (@metadata.PdfMetadataXmlTree, Int) raise @core.PdfError {   let (qualified_name, tag, child_context, self_closing, after",
+        "ata, start, context,   )   if self_closing {     (PdfMetadataXmlElement(tag, []), after_tag)   } else {     let children : Array[@metadata.PdfMetadataXmlTree] =",
+        "ag)   } else {     let children : Array[@metadata.PdfMetadataXmlTree] = []     let mut index = after_tag     let mut closed = false     while !closed {       gu",
+        "        Some(text) if text != \"\" => children.push(PdfMetadataXmlData(text))           Some(_) => ()           None => raise InvalidUTF8         }         index ",
+        "    }         index = data_end       }     }     (PdfMetadataXmlElement(tag, children), index)   } } "
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_xml_parse_tags.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_xml_parse_tags.mbt",
+      "sha": "f343c039bc27e124f0218feeeb096c83c14e758d",
+      "error": false,
+      "length": 2409,
+      "occurrences": 1,
+      "excerpts": [
+        "ayView[(String, String)], ) -> (String, @metadata.PdfMetadataXmlTag, Array[(String, String)], Bool, Int) raise @core.PdfError {   guard start < data.length() &&"
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_report_xmp_fields.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_report_xmp_fields.mbt",
+      "sha": "7376fcfd72a1b666fc5bb77716c2f5c103cafe5d",
+      "error": false,
+      "length": 2264,
+      "occurrences": 1,
+      "excerpts": [
+        "ine(   output : Array[String],   tree : @metadata.PdfMetadataXmlTree,   field : (String, String, String), ) -> Unit {   match pdf_metadata_xmltree_get_data_for("
+      ]
+    },
+    {
+      "repository": "unmbt/http-server-mbt",
+      "path": "full/ca_bundle.mbt",
+      "url": "https://github.com/unmbt/http-server-mbt/blob/8568527a325b0545cf00d4c9a1b901d52fb6f9c8/full/ca_bundle.mbt",
+      "sha": "208d1501f848a3d474a13ca31e34a4d1c111100a",
+      "error": false,
+      "length": 242317,
+      "occurrences": 8,
+      "excerpts": [
+        "UzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3Qg   #|UjEwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UE   ",
+        "CAGA1UE   #|ChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwggIiMA0G   #|CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC2EQKLHuOhd5s73L+UPreVp0A8of2C+X0",
+        "UzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3Qg   #|UjIwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UE   ",
+        "CAGA1UE   #|ChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjIwggIiMA0G   #|CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDO3v2m++zsFDQ8BwZabFn3GTXd98GdVar",
+        "  #|MCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMw   #|HhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChM",
+        "CAGA1UEChMZ   #|R29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjO   #|PQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+K",
+        "  #|MCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjQw   #|HhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChM",
+        "CAGA1UEChMZ   #|R29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjQwdjAQBgcqhkjO   #|PQIBBgUrgQQAIgNiAATzdHOnaItgrkO4NcWBMHtLSZ37wWHO5t5GvWvVYRg1rkD"
+      ]
+    },
+    {
+      "repository": "milkbobo/ffmpeg-moonbit",
+      "path": "libavformat/hls_crypto_wbtest.mbt",
+      "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavformat/hls_crypto_wbtest.mbt",
+      "sha": "6ea22161fda3257668218e6c40e96f065756db07",
+      "error": false,
+      "length": 8101,
+      "occurrences": 1,
+      "excerpts": [
+        "2F++zBvqh/sBc1MFmfvo2Fiu7NSW4vF5xCzPxWLMIxLj1TTRE6PY5kVOwSthaxmLaPyrM7548aJd+kuB4+SBFwAkUSGTJ35hn\",   b\"h8GZ8r6jCIcYVy8iy3l5qqA7paGl+i0rkifZIXqpXkikevJrDCF9nh0R"
+      ]
+    },
+    {
+      "repository": "paipai-Studio/BioSeqs",
+      "path": "test/moonbit/phylo_applications_test.mbt",
+      "url": "https://github.com/paipai-Studio/BioSeqs/blob/68f2702fe565ec837a11553813167f129492bc23/test/moonbit/phylo_applications_test.mbt",
+      "sha": "ef7820b7c66c7887281f89c6c6eb20d8b6f02902",
+      "error": false,
+      "length": 6462,
+      "occurrences": 14,
+      "excerpts": [
+        "pplications command-line wrappers (FastTree, /// PhyML and RAxML). The wrappers are pure parameter collectors built on /// Bio.Application's AbstractCommandline",
+        "d run1 -f e -n 1 -q -p 0.5 -u tree.phy\",   ) }  ///| test \"raxml_basic_mla\" {   let cmd = @src.RaxmlCommandline::new()   cmd.set_alignment(\"align.phy\")   cmd.se",
+        "hy\",   ) }  ///| test \"raxml_basic_mla\" {   let cmd = @src.RaxmlCommandline::new()   cmd.set_alignment(\"align.phy\")   cmd.set_name(\"run1\")   cmd.set_model(\"GTRG",
+        "orithm(\"a\")   cmd.set_threads(4)   assert_eq(cmd.build(), \"raxmlHPC -s align.phy -n run1 -m GTRGAMMA -f a -T 4\") }  ///| test \"raxml_rapid_bootstrap\" {   let cm",
+        "-s align.phy -n run1 -m GTRGAMMA -f a -T 4\") }  ///| test \"raxml_rapid_bootstrap\" {   let cmd = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   cmd.set_",
+        "\") }  ///| test \"raxml_rapid_bootstrap\" {   let cmd = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   cmd.set_alignment(\"aln.phy\")   cmd.set_name(\"T1\") ",
+        "trap\" {   let cmd = @src.RaxmlCommandline::new(executable=\"raxmlHPC-AVX\")   cmd.set_alignment(\"aln.phy\")   cmd.set_name(\"T1\")   cmd.set_model(\"PROTGAMMAWAG\")   ",
+        "orking_dir(\"/tmp/tree\")   assert_eq(     cmd.build(),     \"raxmlHPC-AVX -s aln.phy -n T1 -m PROTGAMMAWAG -f a -x 12345 -N 100 -k -o OutSpec -w /tmp/tree\",   ) }"
+      ]
+    },
+    {
+      "repository": "dotnet/wpf-test",
+      "path": "src/Test/ElementServices/FeatureTests/TestData/bvt/propertyengine/Template/Template.mbt",
+      "url": "https://github.com/dotnet/wpf-test/blob/40265e329eab1ef3f9999cf46d5324db1d86e58f/src/Test/ElementServices/FeatureTests/TestData/bvt/propertyengine/Template/Template.mbt",
+      "sha": "faabb284df6ce1d1c6d02dbd72e8f9a8af29a858",
+      "error": false,
+      "length": 109112,
+      "occurrences": 2,
+      "excerpts": [
+        "1.2005.0, Culture=neutral, PublicKeyToken=null~\" externalDataXml=\"\" externalDataType=\"\" disabled=\"false\">             <TestPattern seed=\"1\" referenceID=\"50b0ae7",
+        "1.2005.0, Culture=neutral, PublicKeyToken=null~\" externalDataXml=\"\" externalDataType=\"\" disabled=\"false\">             <TestPattern seed=\"1\" referenceID=\"624d0b9"
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pdflite/pdf_metadata_test.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pdflite/pdf_metadata_test.mbt",
+      "sha": "2eb8358cbd210c8169aac8b2371ab1c981f457d8",
+      "error": false,
+      "length": 43135,
+      "occurrences": 1,
+      "excerpts": [
+        "ii.encode(xmp_text),   )   guard document.tree is PdfMetadataXmlElement(root_tag, children) else {     fail(\"expected XML element root\")   }   @test.assert_eq(r"
+      ]
+    },
+    {
+      "repository": "moonbitlang/office.mbt",
+      "path": "pptx/integration/corpus_testppt_embed_test.mbt",
+      "url": "https://github.com/moonbitlang/office.mbt/blob/ab131f72ece4a0a306d836bcba67e5f647949b1b/pptx/integration/corpus_testppt_embed_test.mbt",
+      "sha": "d5ffc3324b913b6f8a3e01edd798ea1eb546e648",
+      "error": false,
+      "length": 52867,
+      "occurrences": 1,
+      "excerpts": [
+        " \"7r58a/Q8B+uw3q6p2q9f/vnl65d/X6FmlbA0Lx3gEt9RqFIU1QdWPqzVEIaXMlBPE3WrhNcw\",   \"EBeE7iHIoV/rjP4DAAD//wMAUEsDBBQABgAIAAAAIQB8VQdFrAQAAIwRAAAhAAAAcHB0L3Ns\", \"aWRl"
+      ]
+    },
+    {
+      "repository": "bobzhang/pdflite",
+      "path": "pdf_metadata_test.mbt",
+      "url": "https://github.com/bobzhang/pdflite/blob/b1f6f496c64c85eb802ae222fe0c2ec28b1b5a1b/pdf_metadata_test.mbt",
+      "sha": "34a6a4d36a42216e6116cdcb132a62dbde15d7d2",
+      "error": false,
+      "length": 43642,
+      "occurrences": 1,
+      "excerpts": [
+        "ii.encode(xmp_text),   )   guard document.tree is PdfMetadataXmlElement(root_tag, children) else {     fail(\"expected XML element root\")   }   @test.assert_eq(r"
+      ]
+    },
+    {
+      "repository": "moonbitlang/typst.mbt",
+      "path": "codecs/webp_oracle_test.mbt",
+      "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/webp_oracle_test.mbt",
+      "sha": "1df8921d641be30997ce55e6fdcb822464fc99a6",
+      "error": false,
+      "length": 206606,
+      "occurrences": 1,
+      "excerpts": [
+        "urwQAqgp32gRbK6EvySWGihjh2VtC1DIrhwwNkdmkFGm0dFAyWEWmoo3+TRCaXmL0jZHEWVVNwTy5jbLflRMz0BE4+RyNK7Ie18ge8uaLrPf+yiS2EHCueg9EU4zZ8R1HMXpORBYPrNXJlK1TsOSAs8exJEIbPzy"
+      ]
+    },
+    {
+      "repository": "moonbitlang/typst.mbt",
+      "path": "codecs/image_oracle_test.mbt",
+      "url": "https://github.com/moonbitlang/typst.mbt/blob/711ceef2e8cb8fb44ec9b05db5396755bcaa1dd5/codecs/image_oracle_test.mbt",
+      "sha": "656b1b864a3649bb14a07f5a1549494b902277a7",
+      "error": false,
+      "length": 284959,
+      "occurrences": 1,
+      "excerpts": [
+        "urwQAqgp32gRbK6EvySWGihjh2VtC1DIrhwwNkdmkFGm0dFAyWEWmoo3+TRCaXmL0jZHEWVVNwTy5jbLflRMz0BE4+RyNK7Ie18ge8uaLrPf+yiS2EHCueg9EU4zZ8R1HMXpORBYPrNXJlK1TsOSAs8exJEIbPzy"
+      ]
+    },
+    {
+      "repository": "milkbobo/ffmpeg-moonbit",
+      "path": "libavcodec/av1_inter_realdata_vectors/resize_lag_fixture_test.mbt",
+      "url": "https://github.com/milkbobo/ffmpeg-moonbit/blob/b8dc22900f5a736dc0de2aa57265d0a33c7fb04f/libavcodec/av1_inter_realdata_vectors/resize_lag_fixture_test.mbt",
+      "sha": "47b7d591a21b3025eb563ac0830484685c06281d",
+      "error": false,
+      "length": 30302,
+      "occurrences": 1,
+      "excerpts": [
+        "/Q4wo7kX9DYRbq5Igp4BIcGrz6SPZe1Y5SO02/ah00uHiVNEqs9PEGo5uJ2waXMlb62hALIkOjGgp2YBP6qz/kcmr1ssKUEf\" +   b\"k9puOIPULGjJyxS2D9if2hm4XmruyDiRPQe1OXXua/uJzkc8+fJ+Ru/S"
+      ]
+    }
+  ],
+  "query_errors_and_corrections": [
+    {
+      "query": "\"aapt\" language:MoonBit",
+      "status": "retried_successfully",
+      "initial_error": "GitHub API error 429; retried after other independent work; final total_count=17."
+    },
+    {
+      "query": "axml moonbit in:name,description,readme -fork:true",
+      "status": "unsupported_endpoint",
+      "error": "github_fetch search/repositories endpoint not allowed. Reissued through search_repositories with supported fork:false."
+    },
+    {
+      "query": "\"binary xml\" \"moonbit\" in:readme -fork:true",
+      "status": "unsupported_endpoint",
+      "error": "github_fetch search/repositories endpoint not allowed. Reissued through search_repositories with supported fork:false."
+    },
+    {
+      "query": "\"axml\" \"moonbit\"",
+      "status": "corrected",
+      "error": "Issues endpoint requires is:issue or is:pull-request. Both explicit query variants were then run."
+    },
+    {
+      "query": "axml repo:moonbit-community/awesome-moonbit is:issue",
+      "status": "unusable",
+      "error": "422 repository not found or not accessible. Not counted as zero."
+    }
+  ]
+}

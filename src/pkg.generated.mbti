@@ -1,0 +1,110 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "LING71671/axml"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn decode(Bytes, limits? : Limits) -> Document raise DecodeError
+
+pub fn inspect_manifest(Document) -> Manifest raise DecodeError
+
+pub fn to_xml(Document, max_output_chars? : Int32) -> String raise DecodeError
+
+// Errors
+pub suberror DecodeError {
+  Invalid(Int32, String)
+} derive(ToJson, @debug.Debug)
+
+// Types and methods
+pub(all) struct Attribute {
+  namespace_uri : String?
+  name : String
+  resource_id : UInt32?
+  raw_value : String?
+  value : TypedValue
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Document {
+  strings : Array[String]
+  resource_ids : Array[UInt32]
+  events : Array[Event]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Event {
+  offset : Int32
+  line_number : UInt32
+  kind : EventKind
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum EventKind {
+  StartNamespace(String?, String)
+  EndNamespace(String?, String)
+  StartElement(String?, String, Array[Attribute])
+  EndElement(String?, String)
+  Text(String, TypedValue)
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Limits {
+  max_input_bytes : Int32
+  max_strings : Int32
+  max_depth : Int32
+  max_events : Int32
+  max_attributes : Int32
+  max_string_units : Int32
+} derive(Eq, ToJson, @debug.Debug)
+pub fn Limits::default() -> Self
+
+pub(all) struct Manifest {
+  package_name : String
+  version_code : Attribute?
+  version_code_major : Attribute?
+  version_name : Attribute?
+  sdk : ManifestSdk?
+  permissions : Array[ManifestPermission]
+  application : ManifestApplication?
+  components : Array[ManifestComponent]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ManifestApplication {
+  name : Attribute?
+  label : Attribute?
+  debuggable : Attribute?
+  enabled : Attribute?
+  attributes : Array[Attribute]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ManifestComponent {
+  kind : String
+  name : Attribute?
+  exported : Attribute?
+  enabled : Attribute?
+  authorities : Attribute?
+  permission : Attribute?
+  attributes : Array[Attribute]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ManifestPermission {
+  kind : String
+  name : Attribute?
+  max_sdk : Attribute?
+  attributes : Array[Attribute]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct ManifestSdk {
+  min_sdk : Attribute?
+  target_sdk : Attribute?
+  max_sdk : Attribute?
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct TypedValue {
+  data_type : Int32
+  data : UInt32
+  string_value : String?
+} derive(Eq, ToJson, @debug.Debug)
+pub fn TypedValue::text(Self) -> String raise DecodeError
+
+// Type aliases
+
+// Traits

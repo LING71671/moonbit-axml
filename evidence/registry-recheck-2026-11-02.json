@@ -1,0 +1,929 @@
+{
+  "source_url": "https://mooncakes.io/api/v0/modules",
+  "source_type": "official_public_module_registry",
+  "fetched_at": "2026-11-02T10:03:28.7583326+08:00",
+  "fetched_at_timezone": "UTC+8",
+  "client_date": "2026-11-02",
+  "client_timezone": "Asia/Shanghai",
+  "response_date": [
+    "Mon, 02 Nov 2026 02:03:23 GMT"
+  ],
+  "http_status": 200,
+  "record_count": 3520,
+  "response_body_length_utf8_bytes": 1257807,
+  "response_body_sha256_utf8": "27db13fe577744485be0183e1e388e17250a71646a4a44bb626eed1c9bcee619",
+  "query_method": "Case-insensitive PowerShell regular-expression search across serialized public module metadata (name, description, keywords, repository, version and other returned fields).",
+  "searches": [
+    {
+      "query": "axml",
+      "matching_modules": 0,
+      "results": []
+    },
+    {
+      "query": "android",
+      "matching_modules": 5,
+      "results": [
+        {
+          "name": "Nanaloveyuki/ajni",
+          "version": "0.3.4",
+          "description": "Checked bidirectional Java/MoonBit JNI runtime and Android host bridge.",
+          "keywords": [
+            "moonbit",
+            "android",
+            "jni",
+            "ndk"
+          ],
+          "repository": "https://github.com/Nanaloveyuki/ajni",
+          "yanked": false
+        },
+        {
+          "name": "Nanaloveyuki/madk",
+          "version": "0.1.0",
+          "description": "Transport-independent Android Open Accessory protocol support for MoonBit.",
+          "keywords": [
+            "moonbit",
+            "android",
+            "usb",
+            "aoa",
+            "accessory"
+          ],
+          "repository": "https://github.com/Nanaloveyuki/madk",
+          "yanked": false
+        },
+        {
+          "name": "Nanaloveyuki/wasee-moon",
+          "version": "0.1.0",
+          "description": "Android WASI host integration for MoonBit guests.",
+          "keywords": [
+            "moonbit",
+            "wasm",
+            "wasi",
+            "android",
+            "usb",
+            "aoa"
+          ],
+          "repository": "https://github.com/Nanaloveyuki/wasee-moon",
+          "yanked": false
+        },
+        {
+          "name": "tonyfettes/create-moonbit-raylib-android-app",
+          "version": "0.1.0",
+          "description": "",
+          "keywords": [],
+          "repository": "",
+          "yanked": false
+        },
+        {
+          "name": "XiLaiTL/moobile",
+          "version": "0.6.0",
+          "description": "MoonBit UI for mobile: Android, iOS and Web from one rabbita (TEA) app, rendered by React Native",
+          "keywords": [
+            "moonbit",
+            "mobile",
+            "android",
+            "ios",
+            "web",
+            "cross-platform",
+            "react-native",
+            "rabbita",
+            "UI",
+            "TEA"
+          ],
+          "repository": "https://github.com/XiLaiTL/moobile.git",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "query": "apk",
+      "matching_modules": 1,
+      "results": [
+        {
+          "name": "Xpeng/linuxpkg",
+          "version": "0.5.0",
+          "description": "Pure-MoonBit toolkit to build, inspect and verify Linux packages (deb, rpm, Arch, Alpine) and apt/dnf repositories, without dpkg-deb or rpmbuild",
+          "keywords": [
+            "deb",
+            "rpm",
+            "packaging",
+            "linux",
+            "archive",
+            "apk",
+            "pacman"
+          ],
+          "repository": "https://github.com/pxgt/linuxpkg",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "query": "binary.?xml",
+      "matching_modules": 1,
+      "results": [
+        {
+          "name": "Han-Wentao/moonplist",
+          "version": "0.1.1",
+          "description": "Typed Apple binary/XML property lists with bounded decoding and structural editing",
+          "keywords": [
+            "plist",
+            "bplist",
+            "serialization",
+            "configuration"
+          ],
+          "repository": "https://github.com/Han-Wentao/moonplist",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "query": "resxml",
+      "matching_modules": 0,
+      "results": []
+    },
+    {
+      "query": "arsc",
+      "matching_modules": 0,
+      "results": []
+    },
+    {
+      "query": "aapt",
+      "matching_modules": 0,
+      "results": []
+    },
+    {
+      "query": "xml",
+      "matching_modules": 38,
+      "results": [
+        {
+          "name": "2111950632/szs",
+          "version": "0.2.2",
+          "description": "PO/POT catalog checking for MoonBit, with format and HTML/XML contracts, cross-file consistency, and bounded plural analysis.",
+          "keywords": [
+            "gettext",
+            "po",
+            "pot",
+            "localization",
+            "validation"
+          ],
+          "repository": "https://github.com/2111950632/CatalogGuard",
+          "yanked": false
+        },
+        {
+          "name": "2973181701/moongpx",
+          "version": "0.1.0",
+          "description": "A spec-compliant GPX (GPS Exchange Format) library for MoonBit: parse, validate, serialize and migrate GPX 1.0 / 1.1 with line-accurate diagnostics.",
+          "keywords": [
+            "gpx",
+            "gps",
+            "track",
+            "wgs84",
+            "geo",
+            "xml",
+            "parser"
+          ],
+          "repository": "https://github.com/2973181701/moongpx",
+          "yanked": false
+        },
+        {
+          "name": "bobzhang/mbtexcel",
+          "version": "0.1.9",
+          "description": "A MoonBit port of the Go excelize library for reading and writing XLSX (Excel) spreadsheets.",
+          "keywords": [
+            "excel",
+            "xlsx",
+            "spreadsheet",
+            "ooxml",
+            "office"
+          ],
+          "repository": "https://github.com/moonbitlang/mbtexcel",
+          "yanked": true
+        },
+        {
+          "name": "bobzhang/office",
+          "version": "0.6.0",
+          "description": "Agent-oriented XLSX and DOCX command-line tooling",
+          "keywords": [
+            "office",
+            "xlsx",
+            "docx",
+            "ooxml",
+            "cli"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": true
+        },
+        {
+          "name": "bobzhang/office-lib",
+          "version": "0.5.0",
+          "description": "Agent-oriented XLSX and DOCX tooling for MoonBit",
+          "keywords": [
+            "office",
+            "xlsx",
+            "docx",
+            "ooxml",
+            "cli"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": true
+        },
+        {
+          "name": "cravan371/xpath-evaluator",
+          "version": "0.1.0",
+          "description": "A specification-driven XPath 1.0 compiler and evaluator for MoonBit.",
+          "keywords": [
+            "xpath",
+            "xml",
+            "query",
+            "parser",
+            "interoperability"
+          ],
+          "repository": "https://github.com/cravan371/xpath-evaluator",
+          "yanked": false
+        },
+        {
+          "name": "FikaRomantic/moongraphml",
+          "version": "0.2.0",
+          "description": "Typed, bounded GraphML interchange with atomic relabeling and edge subgraphs",
+          "keywords": [
+            "graphml",
+            "graph",
+            "interchange",
+            "xml",
+            "data"
+          ],
+          "repository": "https://github.com/FikaRomantic/MoonGraphML",
+          "yanked": false
+        },
+        {
+          "name": "Han-Wentao/moonplist",
+          "version": "0.1.1",
+          "description": "Typed Apple binary/XML property lists with bounded decoding and structural editing",
+          "keywords": [
+            "plist",
+            "bplist",
+            "serialization",
+            "configuration"
+          ],
+          "repository": "https://github.com/Han-Wentao/moonplist",
+          "yanked": false
+        },
+        {
+          "name": "hyl-star/moonsic",
+          "version": "0.1.0",
+          "description": "A MoonBit music IR and interoperability library with MIDI, MusicXML, WAV, and browser event export.",
+          "keywords": [
+            "moonbit",
+            "music",
+            "midi",
+            "musicxml",
+            "wav"
+          ],
+          "repository": "https://github.com/hyl-star/moonsic",
+          "yanked": false
+        },
+        {
+          "name": "kekeshuo/moonevtx",
+          "version": "0.1.1",
+          "description": "Windows EVTX and BINXML codec with CRC verification, XML rendering and an in-memory writer",
+          "keywords": [
+            "evtx",
+            "binxml",
+            "windows-event-log",
+            "forensics",
+            "python-evtx"
+          ],
+          "repository": "https://github.com/kekeshuo/moonevtx",
+          "yanked": false
+        },
+        {
+          "name": "kupas/xmlfmt",
+          "version": "0.1.4",
+          "description": "An XML formatter written in MoonBit, ported from python xmlformatter.",
+          "keywords": [
+            "xml",
+            "formatter",
+            "pretty-print",
+            "cli"
+          ],
+          "repository": "https://github.com/tomasky/xmlfmt",
+          "yanked": false
+        },
+        {
+          "name": "liu-fang38/webdav",
+          "version": "0.4.2",
+          "description": "WebDAV XML/authoring core with HTTP(S), Digest, locks and streaming host",
+          "keywords": [],
+          "repository": "https://github.com/liu-fang38/moonbit-webdav",
+          "yanked": false
+        },
+        {
+          "name": "Ljh684/MoonParse",
+          "version": "0.1.4",
+          "description": "MoonBit 解析器组合子库 — 与生态中其他 combinator 不同：(1)内置完整 JSON 解析器（JsonValue 枚举+双向序列化）和 TOML 解析器，开箱即用；(2)支持二进制解析（u8-u64/LEB128/计数字符串），覆盖 Protobuf 等场景；(3)11 种格式化输出（ANSI/Syslog RFC5424/GELF/JSON/XML）；(4)行列号位置追踪+ErrorContext 累积错误上下文。零依赖",
+          "keywords": [
+            "parser",
+            "combinator",
+            "parsing",
+            "json",
+            "toml",
+            "csv",
+            "binary",
+            "leb128",
+            "protobuf"
+          ],
+          "repository": "https://gitlink.org.cn/a678b789/MoonParse",
+          "yanked": false
+        },
+        {
+          "name": "Magic486/moon-miniprogram",
+          "version": "0.6.1",
+          "description": "MoonBit 微信小程序开发框架：类型安全运行时、状态自动 diff、跨页 store、声明式路由与无头测试基建",
+          "keywords": [
+            "miniprogram",
+            "wechat",
+            "weapp",
+            "wxml",
+            "framework"
+          ],
+          "repository": "https://github.com/Magic486/moon-miniprogram",
+          "yanked": false
+        },
+        {
+          "name": "MaoDingA/moonpost",
+          "version": "0.2.1",
+          "description": "Pure MoonBit toolkit for subtitles, timecode, creator cleanup, delivery checks, and post-production QC.",
+          "keywords": [
+            "subtitle",
+            "timecode",
+            "smpte",
+            "drop-frame",
+            "frame-rate",
+            "media",
+            "broadcast",
+            "qc",
+            "post-production",
+            "webvtt",
+            "srt",
+            "ass",
+            "ssa",
+            "creator",
+            "delivery",
+            "dcp",
+            "fcpxml",
+            "imf"
+          ],
+          "repository": "https://github.com/MaoDingA/moonbitpostqc",
+          "yanked": false
+        },
+        {
+          "name": "marianoguerra/xml",
+          "version": "0.2.2",
+          "description": "Minimal streaming XML pull-parser and writer",
+          "keywords": [],
+          "repository": "https://github.com/marianoguerra/syndication-mb",
+          "yanked": false
+        },
+        {
+          "name": "Milky2018/xml",
+          "version": "0.6.1",
+          "description": "A document-buffered pull XML parser for MoonBit",
+          "keywords": [
+            "xml",
+            "parser"
+          ],
+          "repository": "https://github.com/moonbit-community/xml-mbt.git",
+          "yanked": false
+        },
+        {
+          "name": "mldong/moon-cos",
+          "version": "0.20.0",
+          "description": "Tencent Cloud COS native XML-API client for MoonBit",
+          "keywords": [
+            "moonbit",
+            "tencent",
+            "cos",
+            "native-signature",
+            "multipart-upload"
+          ],
+          "repository": "https://github.com/mldong/moon-cos",
+          "yanked": false
+        },
+        {
+          "name": "moonbit-community/XMLParser",
+          "version": "0.2.7",
+          "description": "An XML parsing library written in MoonBit that converts XML strings into structured data, supporting elements, attributes, comments, CDATA, and processing instructions.",
+          "keywords": [
+            "XML",
+            "parser"
+          ],
+          "repository": "https://github.com/moonbit-community/XMLParser",
+          "yanked": false
+        },
+        {
+          "name": "moonbitlang/mbtexcel",
+          "version": "0.3.1",
+          "description": "A MoonBit port of the Go excelize library for reading and writing XLSX (Excel) spreadsheets.",
+          "keywords": [
+            "excel",
+            "xlsx",
+            "spreadsheet",
+            "ooxml",
+            "office"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": false
+        },
+        {
+          "name": "moonbitlang/office",
+          "version": "0.3.1",
+          "description": "Agent-oriented Office and PDF command-line tooling",
+          "keywords": [
+            "office",
+            "xlsx",
+            "docx",
+            "ooxml",
+            "pdf",
+            "cli"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": false
+        },
+        {
+          "name": "moonbitlang/office-lib",
+          "version": "0.7.1",
+          "description": "Agent-oriented XLSX and DOCX tooling for MoonBit",
+          "keywords": [
+            "office",
+            "xlsx",
+            "docx",
+            "ooxml",
+            "cli"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": false
+        },
+        {
+          "name": "moonbitlang/ooxml",
+          "version": "0.1.1",
+          "description": "Shared OPC packaging and XML support for office.mbt",
+          "keywords": [
+            "ooxml",
+            "opc",
+            "office"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": false
+        },
+        {
+          "name": "moonbitlang/pptx",
+          "version": "0.1.1",
+          "description": "Pure-MoonBit library for reading, building, and writing PPTX (OOXML) presentations with a type-safe builder API.",
+          "keywords": [
+            "pptx",
+            "powerpoint",
+            "ooxml",
+            "office",
+            "presentation"
+          ],
+          "repository": "https://github.com/moonbitlang/office.mbt",
+          "yanked": false
+        },
+        {
+          "name": "moonbitstack/moonxml",
+          "version": "0.1.0",
+          "description": "HTML, XML and SVG for MoonBit: parse, query and edit.",
+          "keywords": [
+            "html",
+            "xml",
+            "xpath"
+          ],
+          "repository": "https://github.com/moonbitstack/moonxml",
+          "yanked": false
+        },
+        {
+          "name": "MuVirus/moonfig",
+          "version": "0.1.8",
+          "description": "MoonBit 原生配置库：一处声明，多来源汇入。",
+          "keywords": [
+            "config",
+            "configuration",
+            "settings",
+            "merge",
+            "json",
+            "yaml",
+            "toml",
+            "xml",
+            "ini",
+            "env",
+            "cbor"
+          ],
+          "repository": "https://github.com/MuVirus/moonfig.git",
+          "yanked": false
+        },
+        {
+          "name": "ouoankang/moonbit-xsd-datatypes",
+          "version": "0.1.2",
+          "description": "XSD 1.0 datatype validation for MoonBit: lexical-space parsing and facet checking for the built-in simple types.",
+          "keywords": [
+            "xml",
+            "xsd",
+            "xml-schema",
+            "datatype",
+            "validation",
+            "w3c"
+          ],
+          "repository": "https://github.com/ouoankang/moonbit-xsd-datatypes",
+          "yanked": false
+        },
+        {
+          "name": "R00TK17/moonreader",
+          "version": "0.1.3",
+          "description": "MoonReader — 纯 MoonBit 实现的文件内容读取库（TXT / CSV / JSON / JSONL / XML / Markdown / ZIP / TAR / DOCX / XLSX / PPTX / PDF，中文文件名友好）",
+          "keywords": [
+            "file",
+            "reader",
+            "csv",
+            "json",
+            "xml",
+            "markdown",
+            "zip",
+            "tar",
+            "docx",
+            "xlsx",
+            "pptx",
+            "pdf",
+            "encoding"
+          ],
+          "repository": "https://github.com/R00TK17/MoonReader",
+          "yanked": false
+        },
+        {
+          "name": "ruifeng/XMLParser",
+          "version": "0.2.6",
+          "description": "An XML parsing library written in MoonBit that converts XML strings into structured data, supporting elements, attributes, comments, CDATA, and processing instructions.",
+          "keywords": [
+            "XML",
+            "parser"
+          ],
+          "repository": "https://github.com/moonbit-community/XMLParser",
+          "yanked": false
+        },
+        {
+          "name": "thy1016/moonxml",
+          "version": "0.3.2",
+          "description": "MoonBit XML base and RDF/XML parser: spec-shaped document model, namespace-aware pull parsing with BOM/encoding detection, canonical serialization, with W3C XML Conformance and RDF/XML test-suite coverage.",
+          "keywords": [
+            "rdf",
+            "xml"
+          ],
+          "repository": "https://www.gitlink.org.cn/thy7/mbt.xml",
+          "yanked": false
+        },
+        {
+          "name": "tkancf/feed_gen",
+          "version": "0.3.1",
+          "description": "RSS 2.0 and Atom 1.0 feed generation library",
+          "keywords": [
+            "rss",
+            "atom",
+            "xml",
+            "feed",
+            "syndication"
+          ],
+          "repository": "https://github.com/tkancf/feed_gen.mbt",
+          "yanked": false
+        },
+        {
+          "name": "tonyfettes/gir",
+          "version": "0.3.2",
+          "description": "GIR XML code generator for MoonBit GTK/GLib/GIO bindings",
+          "keywords": [
+            "gir",
+            "codegen",
+            "gtk",
+            "gobject-introspection"
+          ],
+          "repository": "https://github.com/moonbit-community/tonyfettes-g",
+          "yanked": false
+        },
+        {
+          "name": "t-ujiie-g/moon-pptx",
+          "version": "0.10.1",
+          "description": "Pure-MoonBit library for reading, building, and writing PPTX (OOXML) presentations with a type-safe builder API.",
+          "keywords": [
+            "pptx",
+            "powerpoint",
+            "ooxml",
+            "office",
+            "presentation",
+            "builder"
+          ],
+          "repository": "https://github.com/t-ujiie-g/moon-pptx",
+          "yanked": true
+        },
+        {
+          "name": "vectie/moonleaf",
+          "version": "0.1.15",
+          "description": "A pure MoonBit, cross-platform OOXML viewer and lightweight editor core.",
+          "keywords": [
+            "office",
+            "ooxml",
+            "docx",
+            "xlsx",
+            "pptx"
+          ],
+          "repository": "https://github.com/vectie/moonleaf",
+          "yanked": false
+        },
+        {
+          "name": "wuhaiting321/moonprobe",
+          "version": "0.2.1",
+          "description": "A pure-MoonBit declarative API test runner: parses .probe cases, sends HTTP requests, asserts responses, and emits console / JUnit XML reports.",
+          "keywords": [
+            "testing",
+            "http",
+            "cli",
+            "declarative"
+          ],
+          "repository": "https://github.com/wuhaiting321/MoonProbe",
+          "yanked": false
+        },
+        {
+          "name": "yeshenyue2017/web-discovery-kit",
+          "version": "0.1.1",
+          "description": "Offline RFC 9309 robots policy and Sitemap protocol toolkit with streaming XML and consistency audits.",
+          "keywords": [
+            "robots",
+            "sitemap",
+            "rfc9309",
+            "seo",
+            "moonbit"
+          ],
+          "repository": "https://github.com/yeshenyue2017/web-discovery-kit",
+          "yanked": false
+        },
+        {
+          "name": "zlhahaha/partsieve",
+          "version": "0.8.0-spike",
+          "description": "OOXML capability audit and verified rebuild; restricted Word and spreadsheet profiles",
+          "keywords": [
+            "ooxml",
+            "xlsx",
+            "docx",
+            "vba",
+            "audit",
+            "verified-rebuild"
+          ],
+          "repository": "https://github.com/zlhahaha/partsieve.git",
+          "yanked": false
+        },
+        {
+          "name": "ZSeanYves/doc_parser",
+          "version": "0.1.1",
+          "description": "MoonBit-native document structure foundation for source-native parsing, inspect, validation, and custom tooling",
+          "keywords": [
+            "parser",
+            "docx",
+            "pptx",
+            "xlsx",
+            "pdf",
+            "epub",
+            "html",
+            "xml",
+            "json",
+            "yaml",
+            "csv",
+            "zip"
+          ],
+          "repository": "https://github.com/ZSeanYves/markitdown.git",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "query": "manifest",
+      "matching_modules": 9,
+      "results": [
+        {
+          "name": "chensuiyi/mwork",
+          "version": "0.3.0",
+          "description": "moon.work / moon.mod manifest parsing with stable dependency topological sorting for MoonBit workspaces",
+          "keywords": [
+            "moonbit",
+            "workspace",
+            "manifest",
+            "toposort",
+            "moon.work"
+          ],
+          "repository": "https://github.com/chenbimo/moonbit",
+          "yanked": false
+        },
+        {
+          "name": "chenzehaoo/moon_guard",
+          "version": "0.1.11",
+          "description": "MoonGuard is a pure-MoonBit supply chain security toolchain providing Ed25519 package signing and verification, SHA-256 manifest integrity checks, JSON+PEM trusted key management, Levenshtein and homoglyph typosquat detection, CVSS-style cumulative risk scores, JSON security reports, and a `moon_guard` CLI with subcommands for keygen, sign, verify, trust, typosquat, manifest, hash, audit, and version. Includes a runnable end-to-end audit example at `examples/basic_audit`. MoonGuard 是用纯 MoonBit 实现的 MoonBit 包供应链安全工具链，提供 Ed25519 签名、SHA-256 清单、JSON+PEM 可信密钥管理、Levenshtein 与同形（homoglyph）双模式 typosquat 检测、CVSS 风格风险评分、JSON 安全报告与 9 子命令 CLI。",
+          "keywords": [
+            "security",
+            "supply-chain",
+            "moonbit",
+            "ed25519",
+            "sha256",
+            "typosquat",
+            "supply-chain-security",
+            "manifest",
+            "trust-store",
+            "code-signing",
+            "依赖混淆",
+            "供应链安全",
+            "代码签名",
+            "清单校验",
+            "Typosquat 检测"
+          ],
+          "repository": "https://github.com/chenzehaoo/MoonGUARD",
+          "yanked": false
+        },
+        {
+          "name": "hcjbat/moonbit-notary",
+          "version": "0.1.0",
+          "description": "Reusable MoonBit library and CLI for electronic evidence manifests, integrity verification, audit trails, and compliance reporting",
+          "keywords": [
+            "notary",
+            "manifest",
+            "evidence",
+            "verification",
+            "digest",
+            "audit",
+            "pipeline"
+          ],
+          "repository": "https://github.com/hcjbat/moonbit-notary",
+          "yanked": false
+        },
+        {
+          "name": "hxiuzheng/media-pack-audit",
+          "version": "0.1.1",
+          "description": "A MoonBit library for validating complete file packages against JSON manifests, with optional image metadata checks and machine-readable reports.",
+          "keywords": [
+            "moonbit",
+            "manifest",
+            "file-validation",
+            "asset-validation",
+            "image-metadata",
+            "library"
+          ],
+          "repository": "https://github.com/hxiuzheng/media-pack-audit",
+          "yanked": false
+        },
+        {
+          "name": "JM-ai-n/moonfolio",
+          "version": "0.1.0",
+          "description": "MoonBit-native Markdown metadata contract and content folio toolkit.",
+          "keywords": [
+            "markdown",
+            "metadata-contract",
+            "content-folio",
+            "manifest",
+            "wasm"
+          ],
+          "repository": "https://github.com/JM-ai-n/moonfolio.git",
+          "yanked": false
+        },
+        {
+          "name": "moonbit-community/proton_updater",
+          "version": "0.6.0",
+          "description": "Update manifest schema shared by the Proton runtime and CLI.",
+          "keywords": [
+            "proton",
+            "updater",
+            "manifest"
+          ],
+          "repository": "https://github.com/moonbit-community/proton",
+          "yanked": false
+        },
+        {
+          "name": "Noverberrain/moonmodguard",
+          "version": "0.3.0",
+          "description": "A MoonBit project manifest and supply-chain policy auditor.",
+          "keywords": [
+            "moonbit",
+            "audit",
+            "manifest",
+            "supply-chain",
+            "policy"
+          ],
+          "repository": "https://gitlink.org.cn/Wyc060514/moonmodguard",
+          "yanked": false
+        },
+        {
+          "name": "unmbt/moon-manifest",
+          "version": "0.1.1",
+          "description": "Lossless MoonBit manifest queries and edits",
+          "keywords": [
+            "moonbit",
+            "manifest",
+            "moon-mod",
+            "moon-pkg",
+            "moon-work"
+          ],
+          "repository": "https://github.com/unmbt/moon-manifest",
+          "yanked": false
+        },
+        {
+          "name": "WSH-ai-nb/reslock",
+          "version": "0.1.0",
+          "description": "Deterministic resource lockfile and integrity manifest toolkit for MoonBit asset pipelines.",
+          "keywords": [
+            "moonbit",
+            "assets",
+            "fingerprint",
+            "manifest",
+            "wasm",
+            "resource-pipeline"
+          ],
+          "repository": "https://github.com/WSH-ai-nb/reslock.git",
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "query": "bin.?xml",
+      "matching_modules": 1,
+      "results": [
+        {
+          "name": "kekeshuo/moonevtx",
+          "version": "0.1.1",
+          "description": "Windows EVTX and BINXML codec with CRC verification, XML rendering and an in-memory writer",
+          "keywords": [
+            "evtx",
+            "binxml",
+            "windows-event-log",
+            "forensics",
+            "python-evtx"
+          ],
+          "repository": "https://github.com/kekeshuo/moonevtx",
+          "yanked": false
+        }
+      ],
+      "note": "Searched the complete xml query result subset; any bin.?xml match necessarily contains xml."
+    }
+  ],
+  "conclusion": "No published module metadata matched axml, resxml, arsc or aapt in this fetched registry snapshot. The five Android metadata matches describe JNI, AOA, WASI hosting, a raylib Android-app template, and mobile UI. Binary/XML matched Apple property lists; binxml matched Windows Event Log BINXML; apk matched Alpine Linux packages. No direct Android binary XML decoder library or CLI was identified in the searched metadata and reviewed candidate READMEs.",
+  "limitations": [
+    "Registry metadata search does not search package source code or private or unpublished projects.",
+    "Package descriptions may omit Android or AXML terminology; a zero match count is not proof that no implementation exists.",
+    "Registry contents may change after fetched_at.",
+    "The SHA-256 is for the complete decoded response body re-encoded as UTF-8; the raw HTTP transfer encoding is not persisted.",
+    "GitHub README review is a scope check, not an exhaustive audit of every candidate source file. The Android raylib template could only be classified by package name."
+  ],
+  "primary_source_checks": [
+    {
+      "module": "Han-Wentao/moonplist",
+      "url": "https://github.com/Han-Wentao/moonplist",
+      "finding": "Apple binary/XML property lists; a different format from Android AXML."
+    },
+    {
+      "module": "Xpeng/linuxpkg",
+      "url": "https://github.com/pxgt/linuxpkg",
+      "finding": "Linux packaging; README identifies apk as Alpine Linux packages."
+    },
+    {
+      "module": "kekeshuo/moonevtx",
+      "url": "https://github.com/kekeshuo/moonevtx",
+      "finding": "Windows Event Log EVTX and Microsoft BINXML; a different format from Android AXML."
+    },
+    {
+      "module": "Nanaloveyuki/ajni",
+      "url": "https://github.com/Nanaloveyuki/ajni",
+      "finding": "Java/MoonBit JNI runtime and Android lifecycle/Surface/main-Looper adapter."
+    },
+    {
+      "module": "Nanaloveyuki/madk",
+      "url": "https://github.com/Nanaloveyuki/madk",
+      "finding": "Android Open Accessory protocol state machine and transports."
+    },
+    {
+      "module": "Nanaloveyuki/wasee-moon",
+      "url": "https://github.com/Nanaloveyuki/wasee-moon",
+      "finding": "Android WASI host for running MoonBit guests with bounded USB capabilities."
+    },
+    {
+      "module": "XiLaiTL/moobile",
+      "url": "https://github.com/XiLaiTL/moobile",
+      "finding": "MoonBit UI rendered through React Native."
+    },
+    {
+      "module": "moonbit-community/XMLParser",
+      "url": "https://github.com/moonbit-community/XMLParser",
+      "finding": "README documents parsing XML strings, including elements, attributes, comments and CDATA."
+    },
+    {
+      "module": "moonbitstack/moonxml",
+      "url": "https://github.com/moonbitstack/moonxml",
+      "finding": "README documents text HTML/XML/SVG parsing, tree queries, mutation and serialization."
+    },
+    {
+      "module": "tonyfettes/create-moonbit-raylib-android-app",
+      "url": "https://mooncakes.io/docs/tonyfettes/create-moonbit-raylib-android-app",
+      "finding": "Registry name indicates an Android raylib application template; metadata description and repository URL are empty; browser page had no readable content."
+    }
+  ]
+}
