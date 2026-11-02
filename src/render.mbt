@@ -19,9 +19,7 @@ pub fn TypedValue::text(self : TypedValue) -> String raise DecodeError {
     }
     5 | 6 => {
       let unit = (self.data & 15U).reinterpret_as_int()
-      let radix = ((self.data >> 4) & 3U).reinterpret_as_int()
-      let magnitude = (self.data & 0xffffff00U).reinterpret_as_int().to_double() /
-        [256.0, 32768.0, 8388608.0, 2147483648.0][radix]
+      let magnitude = value_complex_magnitude(self.data)
       if self.data_type == 5 {
         if unit > 5 {
           raise Invalid(-1, "invalid dimension unit")

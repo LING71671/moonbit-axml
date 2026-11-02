@@ -28,6 +28,20 @@ pub(all) struct Attribute {
   value : TypedValue
 } derive(Eq, ToJson, @debug.Debug)
 
+pub(all) struct Dimension {
+  magnitude : Double
+  unit : DimensionUnit
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum DimensionUnit {
+  Px
+  Dip
+  Sp
+  Pt
+  Inch
+  Mm
+} derive(Eq, ToJson, @debug.Debug)
+
 pub(all) struct Document {
   strings : Array[String]
   resource_ids : Array[UInt32]
@@ -49,6 +63,16 @@ pub(all) enum EventKind {
   StartElement(String?, String, Array[Attribute])
   EndElement(String?, String)
   Text(String, TypedValue)
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Fraction {
+  ratio : Double
+  unit : FractionUnit
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) enum FractionUnit {
+  Base
+  Parent
 } derive(Eq, ToJson, @debug.Debug)
 
 pub(all) struct Limits {
@@ -112,7 +136,9 @@ pub(all) struct TypedValue {
   string_value : String?
 } derive(Eq, ToJson, @debug.Debug)
 pub fn TypedValue::as_boolean(Self) -> Bool?
+pub fn TypedValue::as_dimension(Self) -> Dimension?
 pub fn TypedValue::as_float(Self) -> Float?
+pub fn TypedValue::as_fraction(Self) -> Fraction?
 pub fn TypedValue::as_integer(Self) -> Int32?
 pub fn TypedValue::as_string(Self) -> String?
 pub fn TypedValue::reference(Self) -> ValueReference?
