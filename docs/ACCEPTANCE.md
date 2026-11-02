@@ -37,7 +37,7 @@ The CLI accepts extracted AXML files, one per invocation. APK extraction and a p
 - [x] XML output defaults to 32 Mi UTF-16 units. Output-limit tests and shared-string/style-offset cases guard expansion; a 32,768-unit whitebox string and 33,000-unit corpus string exercise extended UTF-16 lengths.
 - [x] Owned fixtures include origins, licenses, hashes, source XML, reference outputs, and generation scripts. No third-party APK is redistributed; the library itself needs no Android/JVM runtime.
 - [ ] Establish measured large-pool, maximal-depth, repeated-reference, and malformed-input time/memory benchmarks. No throughput, peak-memory, or zero-copy guarantee is claimed.
-- [ ] Commit the implementation, evidence, licenses, and reproducibility material together; verify reproduction from that committed clean checkout.
+- [x] Commit the implementation, evidence, licenses, and reproducibility material together. Initial commit `087beb9` was cloned into a clean checkout; formatting, all-backend checking, 46 JavaScript tests, CLI build, and the complete corpus verifier passed with a clean working tree.
 
 ## Release gates
 

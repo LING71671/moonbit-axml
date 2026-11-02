@@ -30,11 +30,12 @@ jobs:
         with:
           version: '0.10.18+6c83a7f62'
           core-version: '0.10.18+6c83a7f62'
-      - name: Format and interfaces
-        run: |
-          moon fmt --check
-          moon info
-          git diff --exit-code -- src
+      - name: Check formatting
+        run: moon fmt --check
+      - name: Generate public interfaces
+        run: moon info
+      - name: Verify committed public interfaces
+        run: git diff --exit-code -- src
       - name: Check every backend
         run: moon check --target all --deny-warn
       - name: Test wasm-gc
