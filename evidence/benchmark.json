@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "measured_at_utc": "2026-11-02T05:00:46.673524+00:00",
+  "source_commit": "5c7e29f50408e560146f2dd0da02f636344f3f17",
+  "tracked_changes_at_measurement": [
+    "M src/render.mbt"
+  ],
+  "source_sha256": {
+    "scripts/benchmark.py": "7c876b4ecf9cdb9d902268ac5c60a7cc5a8ce31cb68d81490ad5913e51d5ce51",
+    "scripts/generate_fixtures.py": "06bbd73ca25df622b099c43b6925841e44158de04fdb5eae3db79ac6dc1b2920",
+    "moon.mod": "bcb98c2ce364a21599ca6c1c2d1013cc0e9a3a09f7ac4c48238f1b345ef9bd89",
+    "src/catalog/catalog.mbt": "a9c9a08a226c7a02c51225359642e87304d023790d1859cf85a33accdecd0957",
+    "src/catalog/catalog_test.mbt": "f64cc2dad72c229fe593369c8062901c94e1b9a5b74888d47846e92973890ef2",
+    "src/catalog/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+    "src/cli/cli.mbt": "5de9924141f788cd9483c576695b27e9f98cf45f194d3821c7718aa4ee04e671",
+    "src/cli/cli_test.mbt": "c0f319efe26b2b7b989f96d306d52c5ca4edeb9fa197ba7fca71bc3d25a8ba90",
+    "src/cli/moon.pkg": "fcc990edbf57348d174c200986f45c1e13d995f9648a02a24e439f830de3892c",
+    "src/cmd/axml/main.mbt": "9ef29aaf781c5466d5aa67543f17b29c7b33b5bb5a45be4dd300f07c5fb1b923",
+    "src/cmd/axml/moon.pkg": "33eb6c3528985f7f1c903e66e4e2de045676ad07296dfe9bc8677a13261319e1",
+    "src/cmd/axml-native/main.mbt": "947cfc889db1fbeab84458c1251ac0c037879d1d29a56fb61a5d7e94eceee289",
+    "src/cmd/axml-native/moon.pkg": "d0827903e054f18a63f8db4e14c41c068840e98c759db9d4ad02110485afe9d8",
+    "src/decoder.mbt": "de909baa9d8273a6f5446269496cc4ff255be0573544eea9474a434d4ae1df1a",
+    "src/decoder_wbtest.mbt": "d8bae7fb0687c4249d1c0499366f682501a4ea2755b638aaae26b7bb52fe911b",
+    "src/fixtures_test.mbt": "d0eee01429451f014e556daffbda1b985c868f0af3cc032a786a389dc784e6bd",
+    "src/manifest.mbt": "caa6efe186f2110e7fbb7ffbd66c6ebd867f17b451c864022f75c1308b818a7a",
+    "src/manifest_helpers.mbt": "abae00213bef2823eecc26c3f2bfafb9bb4628b2cab189b154f3b37663a03a5b",
+    "src/manifest_helpers_test.mbt": "83175714c3d70a5c0086a0c3376861170610953d3f05d1c44ccfeca45d3e9853",
+    "src/manifest_test.mbt": "1ae929829d37c1bcd850ed48318d6e298ad2fcbd55d7b712991d983e0a883505",
+    "src/model.mbt": "c95c85f358df06f7687e018f0a2d1676d04c9ab66a33270237ba66e4e959c2d6",
+    "src/moon.pkg": "fa73e778eb5224993be13a98c893f1a2778999f004bc75af307a1ee52639c952",
+    "src/query.mbt": "85211bcbb68b4d904c42f373196082c8f7103173f997ff0e2ec18d08224239f4",
+    "src/query_test.mbt": "82083b9496b16f38bc7c33f07336f876771ebc1cc9342334ff7f49ada988d56b",
+    "src/reader.mbt": "50f03b85f25205957d1b541be1514a415edb1cdaf6017bc91cab7cb2f85672b2",
+    "src/render.mbt": "c08cb0f79d9d2c4394e7ede044c7e346bba05e64231150daad475e3f2155bde2",
+    "src/render_allocation_test.mbt": "62f75fa73490116120dc9a2e4cbf280799fd7aab9ad3a69ee17ef5d902bac95c",
+    "src/render_test.mbt": "a6b1d716403ba873ea68f6854ec12b3cb26ec1b9881508101dc5139537e7b20f",
+    "src/string_pool.mbt": "e8ab9e4dcee60cc51a8748873a8eabe04a9ebfe800387abd02be5fd160d78c5b",
+    "src/value_views.mbt": "0df448b83cebdcb5e59641bb0f0f6b09e010c75ee83bf29a987e1fd281b215b8",
+    "src/value_views_test.mbt": "99a21037989b6a533ed1c954246d6afe03c3cfbd33bd1fe8f48474bcbe9cf59a"
+  },
+  "host": {
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "python": "3.13.14",
+    "node": "v22.22.1",
+    "moon": "moon 0.1.20261028 (e1e1f15 2026-10-28) ~\\.moon\\bin\\moon.exe\nmoonc v0.10.18+6c83a7f62 (2026-10-28) \\\\?\\C:\\Users\\www17\\.moon\\bin\\moonc.exe\nmoonrun 0.1.20261028 (e1e1f15 2026-10-28) \\\\?\\C:\\Users\\www17\\.moon\\bin\\moonrun.exe\n\nFeature flags enabled: rr_moon_mod,rr_moon_pkg"
+  },
+  "method": {
+    "operation": "decode",
+    "build_profile": "debug (unless overridden paths)",
+    "warmup_runs_discarded_per_case": 1,
+    "measured_runs_per_case": 3,
+    "timeout_seconds_per_run": 30,
+    "rss_watchdog_bytes": 1073741824,
+    "poll_seconds": 0.005,
+    "includes": "fresh child startup, input I/O, decoding, XML rendering, output to temporary file",
+    "excludes": "fixture construction, parent Python memory, XML/hash verification, descendants",
+    "note": "RSS watchdog is sampled, not a hard memory cap; POSIX checks RSS at process exit. Fresh-process warmups warm filesystem caches, not a persistent VM. No throughput or portable performance guarantee."
+  },
+  "backends": {
+    "js": {
+      "command": [
+        "node",
+        "--max-old-space-size=256",
+        "_build/js/debug/build/cmd/axml/axml.js"
+      ],
+      "artifact_sha256": "ee6ebe5ee46d5e97680b180e7c4bc219face95e29c50cac070beccaac39dcb89"
+    },
+    "native": {
+      "command": [
+        "_build/native/debug/build/cmd/axml-native/axml-native.exe"
+      ],
+      "artifact_sha256": "8a9239e0dd48248e3dd2cfed250b5684a954c974b21f5c096cca0bf6c173706f"
+    }
+  },
+  "cases": [
+    {
+      "name": "large_pool",
+      "path": "_build/benchmarks/large_pool.axml",
+      "input_bytes": 2000088,
+      "input_sha256": "7e7c7af641dc39b76acc70d29e635aaa5d17dc8c57e3d01043d28fc517282212",
+      "string_count": 100000,
+      "decoded_utf16_units": 1299991,
+      "max_depth": 1,
+      "event_count": 2,
+      "expected_exit_code": 0,
+      "expected_stdout_bytes": 14,
+      "expected_stdout_sha256": "8a4dc1405e7596be2e69f513fd0258c9a218eabc77e68574f7fec46ed1f4deb7",
+      "expected_error_offset": null
+    },
+    {
+      "name": "max_depth",
+      "path": "_build/benchmarks/max_depth.axml",
+      "input_bytes": 15408,
+      "input_sha256": "0bae9e3f49f237ce69cebe75d1aaa37c021c5f152bc4e4f191299f2a8567ed16",
+      "string_count": 1,
+      "decoded_utf16_units": 4,
+      "max_depth": 256,
+      "event_count": 512,
+      "expected_exit_code": 0,
+      "expected_stdout_bytes": 3329,
+      "expected_stdout_sha256": "1bf6d554e4b7cd116aa6d1dffc012cd32f5098add7dbfc36e1698a8bab086999",
+      "expected_error_offset": null
+    },
+    {
+      "name": "repeated_strings",
+      "path": "_build/benchmarks/repeated_strings.axml",
+      "input_bytes": 168064,
+      "input_sha256": "5e63612902ebfa26111c3b8987ce84d1e8599b42e77074f107b4ed64c484e2aa",
+      "string_count": 3,
+      "decoded_utf16_units": 4105,
+      "max_depth": 2,
+      "event_count": 4098,
+      "expected_exit_code": 0,
+      "expected_stdout_bytes": 8454158,
+      "expected_stdout_sha256": "61b7c5b1086657b592671b40760ab166ceb9d94386361e23091196d562f7b4f1",
+      "expected_error_offset": null
+    },
+    {
+      "name": "malformed_input",
+      "path": "_build/benchmarks/malformed_input.axml",
+      "input_bytes": 2000088,
+      "input_sha256": "422c381b99c8392defaa6c2b6a04fd6ec1f70b91e237fb189eb3dfc89634b1fc",
+      "string_count": 100000,
+      "decoded_utf16_units": 1299991,
+      "max_depth": 1,
+      "event_count": 2,
+      "expected_exit_code": 1,
+      "expected_stdout_bytes": 0,
+      "expected_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_error_offset": 2000084
+    }
+  ],
+  "results": [
+    {
+      "backend": "js",
+      "case": "large_pool",
+      "runs": [
+        {
+          "elapsed_seconds": 0.136794,
+          "peak_rss_bytes": 71340032,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 14
+        },
+        {
+          "elapsed_seconds": 0.141135,
+          "peak_rss_bytes": 70938624,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 14
+        },
+        {
+          "elapsed_seconds": 0.136363,
+          "peak_rss_bytes": 74948608,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 14
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.136363,
+        "median": 0.136794,
+        "max": 0.141135
+      },
+      "peak_rss_bytes_max": 74948608
+    },
+    {
+      "backend": "js",
+      "case": "max_depth",
+      "runs": [
+        {
+          "elapsed_seconds": 0.100599,
+          "peak_rss_bytes": 49704960,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 3329
+        },
+        {
+          "elapsed_seconds": 0.093046,
+          "peak_rss_bytes": 49283072,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 3329
+        },
+        {
+          "elapsed_seconds": 0.091322,
+          "peak_rss_bytes": 49111040,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 3329
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.091322,
+        "median": 0.093046,
+        "max": 0.100599
+      },
+      "peak_rss_bytes_max": 49704960
+    },
+    {
+      "backend": "js",
+      "case": "repeated_strings",
+      "runs": [
+        {
+          "elapsed_seconds": 0.26554,
+          "peak_rss_bytes": 72822784,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 8454158
+        },
+        {
+          "elapsed_seconds": 0.22279,
+          "peak_rss_bytes": 72904704,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 8454158
+        },
+        {
+          "elapsed_seconds": 0.17236,
+          "peak_rss_bytes": 73838592,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 8454158
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.17236,
+        "median": 0.22279,
+        "max": 0.26554
+      },
+      "peak_rss_bytes_max": 73838592
+    },
+    {
+      "backend": "js",
+      "case": "malformed_input",
+      "runs": [
+        {
+          "elapsed_seconds": 0.140729,
+          "peak_rss_bytes": 75177984,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 1,
+          "stdout_bytes": 0
+        },
+        {
+          "elapsed_seconds": 0.133024,
+          "peak_rss_bytes": 70135808,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 1,
+          "stdout_bytes": 0
+        },
+        {
+          "elapsed_seconds": 0.136351,
+          "peak_rss_bytes": 75227136,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 1,
+          "stdout_bytes": 0
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.133024,
+        "median": 0.136351,
+        "max": 0.140729
+      },
+      "peak_rss_bytes_max": 75227136
+    },
+    {
+      "backend": "native",
+      "case": "large_pool",
+      "runs": [
+        {
+          "elapsed_seconds": 0.10486,
+          "peak_rss_bytes": 16527360,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 14
+        },
+        {
+          "elapsed_seconds": 0.104191,
+          "peak_rss_bytes": 16490496,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 14
+        },
+        {
+          "elapsed_seconds": 0.103084,
+          "peak_rss_bytes": 16523264,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 14
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.103084,
+        "median": 0.104191,
+        "max": 0.10486
+      },
+      "peak_rss_bytes_max": 16527360
+    },
+    {
+      "backend": "native",
+      "case": "max_depth",
+      "runs": [
+        {
+          "elapsed_seconds": 0.02224,
+          "peak_rss_bytes": 9859072,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 3329
+        },
+        {
+          "elapsed_seconds": 0.021781,
+          "peak_rss_bytes": 9863168,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 3329
+        },
+        {
+          "elapsed_seconds": 0.021688,
+          "peak_rss_bytes": 9850880,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 3329
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.021688,
+        "median": 0.021781,
+        "max": 0.02224
+      },
+      "peak_rss_bytes_max": 9863168
+    },
+    {
+      "backend": "native",
+      "case": "repeated_strings",
+      "runs": [
+        {
+          "elapsed_seconds": 0.171953,
+          "peak_rss_bytes": 43528192,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 8454158
+        },
+        {
+          "elapsed_seconds": 0.172407,
+          "peak_rss_bytes": 43507712,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 8454158
+        },
+        {
+          "elapsed_seconds": 0.174893,
+          "peak_rss_bytes": 43565056,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 0,
+          "stdout_bytes": 8454158
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.171953,
+        "median": 0.172407,
+        "max": 0.174893
+      },
+      "peak_rss_bytes_max": 43565056
+    },
+    {
+      "backend": "native",
+      "case": "malformed_input",
+      "runs": [
+        {
+          "elapsed_seconds": 0.103487,
+          "peak_rss_bytes": 16457728,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 1,
+          "stdout_bytes": 0
+        },
+        {
+          "elapsed_seconds": 0.10452,
+          "peak_rss_bytes": 16474112,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 1,
+          "stdout_bytes": 0
+        },
+        {
+          "elapsed_seconds": 0.104101,
+          "peak_rss_bytes": 16502784,
+          "memory_method": "GetProcessMemoryInfo.PeakWorkingSetSize",
+          "final_peak_available": true,
+          "exit_code": 1,
+          "stdout_bytes": 0
+        }
+      ],
+      "elapsed_seconds": {
+        "min": 0.103487,
+        "median": 0.104101,
+        "max": 0.10452
+      },
+      "peak_rss_bytes_max": 16502784
+    }
+  ],
+  "all_correctness_checks_passed": true,
+  "all_runs_have_final_peak_rss": true
+}
